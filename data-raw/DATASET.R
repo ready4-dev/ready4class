@@ -1,3 +1,4 @@
+##
 ## This script creates the data files embedded with this package.
 # 1. Load magrittr package to that the pipe operator ("%>%") can be used in this script.
 library(magrittr)
