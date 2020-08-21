@@ -1,6 +1,6 @@
-#' Function type lookup table
+#' Generics lookup table
 #' 
-#' A lookup table to find descriptions for different types of functions used within the ready4class package suite.
+#' A lookup table to find descriptions of generics exported with the ready4class package suite.
 #' 
 #' A tibble
 #' 
@@ -12,4 +12,4 @@
 #'   \item{is_generic_lgl}{Is generic (a logical vector)}
 #' }
 #' @source \url{https://readyforwhatsnext.github.io/readyforwhatsnext/}
-"fn_type_lup_tb"
+"generics_lup_tb"

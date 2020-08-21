@@ -11,7 +11,7 @@ Authors@R: c(
     person("VicHealth", role = c("fnd")),
     person("Victoria University", role = c("fnd")))
 Description: Provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
-Version: 0.0.0.9054
+Version: 0.0.0.9055
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
