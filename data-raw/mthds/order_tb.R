@@ -1,8 +1,3 @@
-order_tb <- function(x,
-                     ...){
-  UseMethod("order_tb",x)
-}
-
 order_tb.ready4_class_make_tb <- function(x,
                                           name_prefix){
   ordering_tb <- x %>%

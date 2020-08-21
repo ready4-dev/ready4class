@@ -1,8 +1,3 @@
-make_classes <- function(x,
-                         ...){
-  UseMethod("make_classes",x)
-}
-
 make_classes.ready4_class_make_tb <- function(x,
                                               name_prefix,
                                               output_dir,

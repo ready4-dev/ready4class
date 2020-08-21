@@ -1,7 +1,3 @@
-make_and_update <- function(x,
-                            ...){
-  UseMethod("make_and_update",x)
-}
 make_and_update.ready4_class_make_tb  <- function(x,
                                                   dev_pckg_namespace,
                                                   name_prefix,

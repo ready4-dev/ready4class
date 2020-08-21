@@ -1,7 +1,3 @@
-make_lup <- function(x,
-                     ...){
-  UseMethod("make_lup",x)
-}
 make_lup.ready4_class_make_tb <- function(x,
                                           dev_pckg_namespace,
                                           prefix){

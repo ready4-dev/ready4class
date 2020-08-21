@@ -9,4 +9,5 @@
 #'   \item{long_name_chr}{Long name (a character vector)}
 #'   \item{plural_lgl}{Plural (a logical vector)}
 #' }
+#' @source \url{https://readyforwhatsnext.github.io/readyforwhatsnext/}
 "abbreviations_lup"

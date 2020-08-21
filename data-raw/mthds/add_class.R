@@ -1,7 +1,3 @@
-add_class <- function(x,
-                      ...){
-  UseMethod("add_class",x)
-}
 add_class.ready4_class_pt_lup <- function(x,
                                           tb_row_idx,
                                           make_tb,
@@ -25,7 +21,8 @@ add_class.ready4_class_pt_lup <- function(x,
                          dev_pckg_namespace = dev_pckg_namespace,
                          prefix = name_prefix)
   classes_to_add_vec <- new_pt_lup %>% dplyr::pull(type)
-  x %>%
+  inst_of_ready4_class_pt_lup <- x %>%
     dplyr::filter(!type %in% classes_to_add_vec)  %>%
     dplyr::bind_rows(new_pt_lup)
+  return(inst_of_ready4_class_pt_lup)
 }

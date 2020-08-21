@@ -492,7 +492,7 @@ make_ready_s3_prototype <- function (type, type_namespace, values, ordered, clas
     list(fn_name = name_of_fn_to_make_prototype, fn_text = fn_to_make_prototype)
 }
 #' Make ready S3 valid instance
-#' @description make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid instance. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid an instance. The function is called for its side effects and does not return a value.
 #' @param class_name PARAM_DESCRIPTION
 #' @param s3_prototype PARAM_DESCRIPTION
 #' @param s3_constructor PARAM_DESCRIPTION

@@ -1,9 +1,3 @@
-update_lup_for_ns <- function(x,
-                              namespace_contexts,
-                              ...){
-  UseMethod("update_lup_for_ns",x)
-}
-
 update_lup_for_ns.ready4_class_pt_lup <- function(x,
                                                 namespace_contexts){
   namespace_contexts <- c("base",namespace_contexts) %>% unique()

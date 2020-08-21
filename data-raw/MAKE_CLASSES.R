@@ -12,7 +12,7 @@
 ## 2. Document and load all package functions.
 # devtools::document()
 # devtools::load_all()
-ready4fun::read_fns("data-raw/mthds/")
+#ready4fun::read_fns("data-raw/mthds/")
 ##
 ## 3. Specify details about this package and the prefix we will use on all classes we create in this package.
 name_prefix <- "ready4_"
