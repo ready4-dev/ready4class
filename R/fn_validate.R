@@ -1,5 +1,5 @@
 #' Validate ready
-#' @description validate_ready() is a Validate function that validates an object. Specifically, this function implements an algorithm to validate ready. The function is called for its side effects and does not return a value.
+#' @description validate_ready() is a Validate function that validates an object. Specifically, this function implements an algorithm to validate ready.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param parent PARAM_DESCRIPTION
 #' @param not_same_length PARAM_DESCRIPTION, Default: NULL

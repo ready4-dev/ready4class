@@ -12,6 +12,6 @@ set_old_classes_extend_tb(type, prototype_lup)
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \description{
-set_old_classes_extend_tb() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set old classes extend. The function is called for its side effects and does not return a value.
+set_old_classes_extend_tb() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set old classes extend.NA
 }
 \keyword{internal}

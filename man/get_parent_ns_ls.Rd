@@ -14,6 +14,6 @@ get_parent_ns_ls(prototype_lup, parent_chr, dev_pckg_ns_chr)
 \item{dev_pckg_ns_chr}{Dev pckg namespace (a character vector of length 1)}
 }
 \description{
-get_parent_ns_ls() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent a namespace. Function argument prototype_lup specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_parent_ns_ls() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent a namespace. Function argument prototype_lup specifies the where to look for the required object.NA
 }
 \keyword{internal}

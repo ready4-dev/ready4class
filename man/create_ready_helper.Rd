@@ -27,6 +27,6 @@ create_ready_helper(
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \description{
-create_ready_helper() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready helper. The function is called for its side effects and does not return a value.
+create_ready_helper() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready helper.NA
 }
 \keyword{internal}

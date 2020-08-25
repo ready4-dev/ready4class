@@ -12,6 +12,6 @@ make_include_tag_chr(class_names_chr_vec, s3_lgl = T)
 \item{s3_lgl}{S3 (a logical vector of length 1), Default: T}
 }
 \description{
-make_include_tag_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make include tag. The function is called for its side effects and does not return a value.
+make_include_tag_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make include tag.NA
 }
 \keyword{internal}

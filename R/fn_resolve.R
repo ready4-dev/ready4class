@@ -1,5 +1,5 @@
 #' Resolve parent namespace
-#' @description resolve_parent_ns_chr() is a Resolve function that resolves inconsistencies between two or more objects. Specifically, this function implements an algorithm to resolve parent a namespace. The function is called for its side effects and does not return a value.
+#' @description resolve_parent_ns_chr() is a Resolve function that resolves inconsistencies between two or more objects. Specifically, this function implements an algorithm to resolve parent a namespace.NA
 #' @param parent_ns_ls Parent namespace (a list)
 #' @return NULL
 #' @rdname resolve_parent_ns_chr

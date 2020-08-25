@@ -1,5 +1,5 @@
 #' Set old classes extend
-#' @description set_old_classes_extend_tb() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set old classes extend. The function is called for its side effects and does not return a value.
+#' @description set_old_classes_extend_tb() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set old classes extend.NA
 #' @param type PARAM_DESCRIPTION
 #' @param prototype_lup Prototype (a lookup table)
 #' @return NULL
@@ -25,7 +25,7 @@ set_old_classes_extend_tb <- function (type, prototype_lup)
     }
 }
 #' Set ready class
-#' @description set_ready_class() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set ready class. The function is called for its side effects and does not return a value.
+#' @description set_ready_class() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set ready class.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param class_slots PARAM_DESCRIPTION
 #' @param type PARAM_DESCRIPTION

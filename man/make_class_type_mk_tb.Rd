@@ -12,6 +12,6 @@ make_class_type_mk_tb(class_type_mk_ls, make_s3_lgl = T)
 \item{make_s3_lgl}{Make S3 (a logical vector of length 1), Default: T}
 }
 \description{
-make_class_type_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class type mk. The function is called for its side effects and does not return a value.
+make_class_type_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class type mk.NA
 }
 \keyword{internal}

@@ -30,6 +30,6 @@ make_gen_mthd_pair_ls(
 \item{fn}{Function (a function)}
 }
 \description{
-make_gen_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen mthd pair. The function is called for its side effects and does not return a value.
+make_gen_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen mthd pair.NA
 }
 \keyword{internal}

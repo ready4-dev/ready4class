@@ -10,6 +10,6 @@ resolve_parent_ns_chr(parent_ns_ls)
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \description{
-resolve_parent_ns_chr() is a Resolve function that resolves inconsistencies between two or more objects. Specifically, this function implements an algorithm to resolve parent a namespace. The function is called for its side effects and does not return a value.
+resolve_parent_ns_chr() is a Resolve function that resolves inconsistencies between two or more objects. Specifically, this function implements an algorithm to resolve parent a namespace.NA
 }
 \keyword{internal}

@@ -1,5 +1,5 @@
 #' Delete files
-#' @description delete_files() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete files. The function is called for its side effects and does not return a value.
+#' @description delete_files() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete files.NA
 #' @param dir_chr Directory (a character vector of length 1)
 #' @param pattern_chr Pattern (a character vector of length 1)
 #' @return NULL
@@ -16,7 +16,7 @@ delete_files <- function (dir_chr, pattern_chr)
     }
 }
 #' Delete getters setters
-#' @description delete_getters_setters() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete getters setters. The function is called for its side effects and does not return a value.
+#' @description delete_getters_setters() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete getters setters.NA
 #' @param x PARAM_DESCRIPTION
 #' @param output_dir PARAM_DESCRIPTION
 #' @return NULL

@@ -12,6 +12,6 @@ add_class(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-add_class() is an Add Class generic that adds information about a class. The function is called for its side effects and does not return a value.
+add_class() is an Add Class generic that adds information about a class.
 }
 \keyword{internal}

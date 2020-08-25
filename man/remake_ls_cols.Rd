@@ -12,6 +12,6 @@ remake_ls_cols(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-remake_ls_cols() is a Remake List Columns generic that remakes list columns. The function is called for its side effects and does not return a value.
+remake_ls_cols() is a Remake List Columns generic that remakes list columns.NA
 }
 \keyword{internal}

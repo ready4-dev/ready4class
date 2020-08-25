@@ -42,6 +42,6 @@ write_std_method(
 \item{first_lgl}{First (a logical vector of length 1), Default: T}
 }
 \description{
-write_std_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard method. The function is called for its side effects and does not return a value.
+write_std_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard method.NA
 }
 \keyword{internal}

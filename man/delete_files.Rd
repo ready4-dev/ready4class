@@ -12,6 +12,6 @@ delete_files(dir_chr, pattern_chr)
 \item{pattern_chr}{Pattern (a character vector of length 1)}
 }
 \description{
-delete_files() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete files. The function is called for its side effects and does not return a value.
+delete_files() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete files.NA
 }
 \keyword{internal}

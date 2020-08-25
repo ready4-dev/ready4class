@@ -16,6 +16,6 @@ make_child_fn_chr(child_ext_fn_chr, parent_chr, prototype_lup, prepend_lgl = T)
 \item{prepend_lgl}{Prepend (a logical vector of length 1), Default: T}
 }
 \description{
-make_child_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child a function. The function is called for its side effects and does not return a value.
+make_child_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child a function.NA
 }
 \keyword{internal}

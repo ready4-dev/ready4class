@@ -24,6 +24,6 @@ make_ready_s3_constructor(
 \item{s3_prototype}{PARAM_DESCRIPTION}
 }
 \description{
-make_ready_s3_constructor() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 constructor. The function is called for its side effects and does not return a value.
+make_ready_s3_constructor() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 constructor.NA
 }
 \keyword{internal}

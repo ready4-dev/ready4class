@@ -12,6 +12,6 @@ make_classes(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-make_classes() is a Make Classes generic that writes new classes. The function is called for its side effects and does not return a value.
+make_classes() is a Make Classes generic that writes new classes.
 }
 \keyword{internal}

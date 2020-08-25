@@ -33,6 +33,6 @@
 \item{class_in_cache_logic_chr}{Class in cache logic (a character vector of length 1), Default: 'stop'}
 }
 \description{
-make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
 \keyword{internal}

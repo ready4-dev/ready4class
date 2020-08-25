@@ -12,6 +12,6 @@ make_current_generics_ls(required_pckg_chr_vec, generic_chr)
 \item{generic_chr}{Generic (a character vector of length 1)}
 }
 \description{
-make_current_generics_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make current generics. The function is called for its side effects and does not return a value.
+make_current_generics_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make current generics.NA
 }
 \keyword{internal}

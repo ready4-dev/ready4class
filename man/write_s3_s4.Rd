@@ -16,6 +16,6 @@ write_s3_s4(methods_tb, fn_ls, package_chr, output_dir_chr)
 \item{output_dir_chr}{Output directory (a character vector of length 1)}
 }
 \description{
-write_s3_s4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a S3. The function is called for its side effects and does not return a value.
+write_s3_s4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a S3.NA
 }
 \keyword{internal}

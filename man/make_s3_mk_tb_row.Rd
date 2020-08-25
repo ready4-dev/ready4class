@@ -10,6 +10,6 @@ make_s3_mk_tb_row(x)
 \item{x}{PARAM_DESCRIPTION}
 }
 \description{
-make_s3_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk a tibble row. The function is called for its side effects and does not return a value.
+make_s3_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk a tibble row.NA
 }
 \keyword{internal}

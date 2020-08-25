@@ -12,6 +12,6 @@ delete_getters_setters(x, output_dir)
 \item{output_dir}{PARAM_DESCRIPTION}
 }
 \description{
-delete_getters_setters() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete getters setters. The function is called for its side effects and does not return a value.
+delete_getters_setters() is a Delete function that deletes a file from a specified location. Specifically, this function implements an algorithm to delete getters setters.NA
 }
 \keyword{internal}

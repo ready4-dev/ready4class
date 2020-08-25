@@ -1,5 +1,5 @@
 #' Make classes method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @param name_prefix PARAM_DESCRIPTION
 #' @param output_dir PARAM_DESCRIPTION

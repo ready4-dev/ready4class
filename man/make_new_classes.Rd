@@ -33,6 +33,6 @@ make_new_classes(
 \item{required_pckg_chr_vec}{Required pckg (a character vector), Default: 'NA'}
 }
 \description{
-make_new_classes() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make new classes. The function is called for its side effects and does not return a value.
+make_new_classes() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make new classes.NA
 }
 \keyword{internal}

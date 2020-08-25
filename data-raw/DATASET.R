@@ -7,12 +7,33 @@ library(magrittr)
 pkg_nm_chr <- "ready4class"
 #
 # 3. Create "fns", "gnrcs" and "mthds" sub-directories.
-undocumented_fns_dir_chr <- paste0("data-raw/",c("fns","gnrcs","mthds"))
-paths_ls <- undocumented_fns_dir_chr %>% purrr::map(~{
-  if(!dir.exists(.x))
-    dir.create(.x)
-  ready4fun::read_fns(.x)
-}) %>% stats::setNames(c("fns","gnrcs","mthds"))
+write_fn_type_dirs <- function(path_1L_chr = "data-raw"){
+  undocumented_fns_dir_chr <- make_undmtd_fns_dir_chr(path_1L_chr)
+  paths_ls <- undocumented_fns_dir_chr %>% purrr::walk(~{
+    if(!dir.exists(.x))
+      dir.create(.x)
+  })
+}
+make_undmtd_fns_dir_chr <- function(path_1L_chr = "data-raw"){
+  undocumented_fns_dir_chr <- paste0(path_1L_chr,"/",make_fns_type_chr())
+  return(undocumented_fns_dir_chr)
+}
+make_fns_type_chr <- function(){
+  fns_type_chr <- c("fns","gnrcs","mthds")
+  return(fns_type_chr)
+}
+make_fns_chr_ls <- function(path_1L_chr = "data-raw"){
+  fns_chr_ls <- make_undmtd_fns_dir_chr(path_1L_chr) %>%
+    purrr::map(~ready4fun::read_fns(.x)) %>%
+    stats::setNames(make_fns_type_chr())
+  fns_chr_ls <- fns_chr_ls %>% purrr::discard(~ identical(.x,character(0)))
+  return(fns_chr_ls)
+}
+write_fn_type_dirs(path_1L_chr)
+paths_ls <- make_fns_chr_ls()
+#
+ready4fun::read_fns("data-raw/test")
+
 # 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
 ready4fun::make_abbr_lup_tb(short_name_chr_vec = c("col","inst", "ready4_class_make_tb","ready4_class_pt_lup"),
@@ -39,37 +60,35 @@ ready4fun::make_fn_type_lup_tb() %>%
                                                        "Validates an object."),
                                   first_arg_desc_chr = NA_character_,
                                   second_arg_desc_chr = NA_character_,
-                                  is_generic_lgl = F)) %>% # Add to ready4fun template.
+                                  is_generic_lgl = F,
+                                  is_method_lgl = F)) %>% # Add to ready4fun template.
+  dplyr::bind_rows(tibble::tibble(fn_type_nm_chr = c("Add Class","Make and Update",
+                                                     "Make Classes", # Should be "write" titled
+                                                     "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),
+                                  fn_type_desc_chr = c("Adds information about a class.",
+                                                       "Applies a Make method and then updates the output of that method.",
+                                                       "Writes new classes.", # Should be "write" titled
+                                                       "Makes a lookup table.",
+                                                       "Orders a tibble.",
+                                                       "Remakes list columns.",
+                                                       "Updates a lookup table with namespace data."),
+                                  first_arg_desc_chr = NA_character_,
+                                  second_arg_desc_chr = NA_character_,
+                                  is_generic_lgl = T,
+                                  is_method_lgl = T)) %>%
   dplyr::arrange(fn_type_nm_chr) %>%
   ready4fun::make_and_doc_fn_type_R(pkg_nm_chr = pkg_nm_chr,
                        url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
 data("fn_type_lup_tb")
-# 5.2 Create a look-up table of the generics used in this package.
-ready4fun::make_and_doc_generics_tb_R(generic_nm_chr = c("Add Class","Make and Update",
-                                              "Make Classes", # Should be "write" titled
-                                              "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),
-                           description_chr = c("Adds information about a class.",
-                                                "Applies a Make method and then updates the output of that method.",
-                                                "Writes new classes.", # Should be "write" titled
-                                                "Makes a lookup table.",
-                                                "Orders a tibble.",
-                                                "Remakes list columns.",
-                                                "Updates a lookup table with namespace data."),
-                           pkg_nm_chr = pkg_nm_chr,
-                           url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
-                           abbreviations_lup = abbreviations_lup)
-data("generics_lup_tb")
-#
 # 6. Create a table of all functions to document
-all_fns_dmt_tb <- make_all_fns_dmt_tb(paths_ls = paths_ls,
-                                      undocumented_fns_dir_chr = undocumented_fns_dir_chr,
+all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(paths_ls = paths_ls,
+                                      undocumented_fns_dir_chr = make_undmtd_fns_dir_chr(), # MAKE FN DEFAULT
                                       custom_dmt_ls = list(details_ls = NULL,
                                                            export_ls = list(force_true_chr_vec = c("make_and_update"),
                                                                             force_false_chr_vec = NA_character_),
                                                            args_ls_ls = NULL),
                                       fn_type_lup_tb = fn_type_lup_tb,
-                                      generics_lup_tb = generics_lup_tb,
                                       abbreviations_lup = abbreviations_lup)
 
 ## 7 Document.

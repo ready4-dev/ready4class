@@ -12,6 +12,6 @@ create_ready_show_mthd(class_name, meaningful_names)
 \item{meaningful_names}{PARAM_DESCRIPTION}
 }
 \description{
-create_ready_show_mthd() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready show mthd. The function is called for its side effects and does not return a value.
+create_ready_show_mthd() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready show mthd.NA
 }
 \keyword{internal}

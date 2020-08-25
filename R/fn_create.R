@@ -1,5 +1,5 @@
 #' Create accessors
-#' @description create_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors. The function is called for its side effects and does not return a value.
+#' @description create_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors.NA
 #' @param slot_name_chr Slot name (a character vector of length 1)
 #' @param set_only PARAM_DESCRIPTION
 #' @param parent PARAM_DESCRIPTION
@@ -25,7 +25,7 @@ create_accessors <- function (slot_name_chr, set_only, parent, class_name, print
         print_accessors = print_accessors, output_folder = output_folder)
 }
 #' Create accessors rec
-#' @description create_accessors_rec() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors rec. The function is called for its side effects and does not return a value.
+#' @description create_accessors_rec() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors rec.NA
 #' @param slot_names_chr_vec Slot names (a character vector)
 #' @param set_only PARAM_DESCRIPTION
 #' @param parent PARAM_DESCRIPTION
@@ -48,7 +48,7 @@ create_accessors_rec <- function (slot_names_chr_vec, set_only, parent, class_na
         required_pckg_chr_vec = required_pckg_chr_vec))
 }
 #' Create ready accessors
-#' @description create_ready_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready accessors. The function is called for its side effects and does not return a value.
+#' @description create_ready_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready accessors.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param parent PARAM_DESCRIPTION
 #' @param print_accessors PARAM_DESCRIPTION
@@ -85,7 +85,7 @@ create_ready_accessors <- function (class_name, parent, print_accessors, output_
     return(accessors)
 }
 #' Create ready helper
-#' @description create_ready_helper() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready helper. The function is called for its side effects and does not return a value.
+#' @description create_ready_helper() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready helper.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param parent PARAM_DESCRIPTION
 #' @param class_slots PARAM_DESCRIPTION
@@ -123,7 +123,7 @@ create_ready_helper <- function (class_name, parent, class_slots, proto_ls, prot
     return(helper_function)
 }
 #' Create ready show mthd
-#' @description create_ready_show_mthd() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready show mthd. The function is called for its side effects and does not return a value.
+#' @description create_ready_show_mthd() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready show mthd.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param meaningful_names PARAM_DESCRIPTION
 #' @return NULL

@@ -10,6 +10,6 @@
 \item{x}{PARAM_DESCRIPTION}
 }
 \description{
-remake_ls_cols.ready4_class_make_tb() is a Remake List Columns method that remakes list columns. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+remake_ls_cols.ready4_class_make_tb() is a Remake List Columns method that remakes list columns. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
 \keyword{internal}

@@ -12,6 +12,6 @@ make_and_update(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-make_and_update() is a Make and Update generic that applies a Make method and then updates the output of that method. The function is called for its side effects and does not return a value.
+make_and_update() is a Make and Update generic that applies a Make method and then updates the output of that method.
 }
 \keyword{internal}

@@ -12,6 +12,6 @@ make_lup(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-make_lup() is a Make Lookup Table generic that makes a lookup table. The function is called for its side effects and does not return a value.
+make_lup() is a Make Lookup Table generic that makes a lookup table.NA
 }
 \keyword{internal}

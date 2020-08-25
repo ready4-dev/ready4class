@@ -24,6 +24,6 @@ get_proto_list(
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \description{
-get_proto_list() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get proto a list. Function argument class_slots specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_proto_list() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get proto a list. Function argument class_slots specifies the where to look for the required object.NA
 }
 \keyword{internal}

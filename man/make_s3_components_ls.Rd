@@ -42,6 +42,6 @@ make_s3_components_ls(
 \item{ignore_ns_chr}{Ignore namespace (a character vector of length 1)}
 }
 \description{
-make_s3_components_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 components. The function is called for its side effects and does not return a value.
+make_s3_components_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 components.NA
 }
 \keyword{internal}

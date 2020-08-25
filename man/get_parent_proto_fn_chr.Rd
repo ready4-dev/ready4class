@@ -12,6 +12,6 @@ get_parent_proto_fn_chr(parent_chr, prototype_lup)
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \description{
-get_parent_proto_fn_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent proto a function. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_parent_proto_fn_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent proto a function. Function argument parent_chr specifies the where to look for the required object.NA
 }
 \keyword{internal}

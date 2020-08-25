@@ -14,6 +14,6 @@ get_class_files_chr(class_names_chr_vec, s3_lgl = T, output_dir_chr = NA)
 \item{output_dir_chr}{Output directory (a character vector of length 1), Default: NA}
 }
 \description{
-get_class_files_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class files. Function argument class_names_chr_vec specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_class_files_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class files. Function argument class_names_chr_vec specifies the where to look for the required object.NA
 }
 \keyword{internal}

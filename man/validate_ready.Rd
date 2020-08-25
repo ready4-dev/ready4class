@@ -27,6 +27,6 @@ validate_ready(
 \item{print_validator}{PARAM_DESCRIPTION, Default: FALSE}
 }
 \description{
-validate_ready() is a Validate function that validates an object. Specifically, this function implements an algorithm to validate ready. The function is called for its side effects and does not return a value.
+validate_ready() is a Validate function that validates an object. Specifically, this function implements an algorithm to validate ready.NA
 }
 \keyword{internal}

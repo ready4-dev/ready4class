@@ -39,6 +39,6 @@
 \item{class_in_cache_logic_chr}{Class in cache logic (a character vector of length 1), Default: 'stop'}
 }
 \description{
-make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
 \keyword{internal}

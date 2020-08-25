@@ -24,6 +24,6 @@ make_method_chr(
 \item{where_chr}{Where (a character vector of length 1), Default: 'NA'}
 }
 \description{
-make_method_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make method. The function is called for its side effects and does not return a value.
+make_method_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make method.NA
 }
 \keyword{internal}

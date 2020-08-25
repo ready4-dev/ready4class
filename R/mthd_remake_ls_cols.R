@@ -1,5 +1,5 @@
 #' Remake list columns method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description remake_ls_cols.ready4_class_make_tb() is a Remake List Columns method that remakes list columns. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description remake_ls_cols.ready4_class_make_tb() is a Remake List Columns method that remakes list columns. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @return NULL
 #' @rdname remake_ls_cols.ready4_class_make_tb

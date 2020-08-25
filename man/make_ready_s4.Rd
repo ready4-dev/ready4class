@@ -78,6 +78,6 @@ make_ready_s4(
 \item{class_in_cache_logic_chr}{Class in cache logic (a character vector of length 1), Default: 'stop'}
 }
 \description{
-make_ready_s4() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready. The function is called for its side effects and does not return a value.
+make_ready_s4() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready.NA
 }
 \keyword{internal}

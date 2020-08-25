@@ -12,6 +12,6 @@ transform_class_ns_chr(class_ns_chr, dev_pckg_ns_chr)
 \item{dev_pckg_ns_chr}{Dev pckg namespace (a character vector of length 1)}
 }
 \description{
-transform_class_ns_chr() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform class a namespace. Function argument class_ns_chr specifies the object to be updated. Argument dev_pckg_ns_chr provides the object to be updated. The function is called for its side effects and does not return a value.
+transform_class_ns_chr() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform class a namespace. Function argument class_ns_chr specifies the object to be updated. Argument dev_pckg_ns_chr provides the object to be updated.NA
 }
 \keyword{internal}

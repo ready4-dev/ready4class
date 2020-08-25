@@ -27,6 +27,6 @@ write_accessors(
 \item{output_folder}{PARAM_DESCRIPTION}
 }
 \description{
-write_accessors() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write accessors. The function is called for its side effects and does not return a value.
+write_accessors() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write accessors.NA
 }
 \keyword{internal}

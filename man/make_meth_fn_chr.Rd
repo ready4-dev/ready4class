@@ -10,6 +10,6 @@ make_meth_fn_chr(fn)
 \item{fn}{Function (a function)}
 }
 \description{
-make_meth_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make meth a function. The function is called for its side effects and does not return a value.
+make_meth_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make meth a function.NA
 }
 \keyword{internal}

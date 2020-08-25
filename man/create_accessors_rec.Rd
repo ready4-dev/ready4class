@@ -33,6 +33,6 @@ create_accessors_rec(
 \item{required_pckg_chr_vec}{Required pckg (a character vector)}
 }
 \description{
-create_accessors_rec() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors rec. The function is called for its side effects and does not return a value.
+create_accessors_rec() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create accessors rec.NA
 }
 \keyword{internal}

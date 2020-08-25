@@ -1,5 +1,5 @@
 #' Order tibble method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description order_tb.ready4_class_make_tb() is an Order Tibble method that orders a tibble. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description order_tb.ready4_class_make_tb() is an Order Tibble method that orders a tibble. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @param name_prefix PARAM_DESCRIPTION
 #' @return NULL

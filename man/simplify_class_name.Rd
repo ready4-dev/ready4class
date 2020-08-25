@@ -12,6 +12,6 @@ simplify_class_name(st_class_fn_chr, package_chr)
 \item{package_chr}{Package (a character vector of length 1)}
 }
 \description{
-simplify_class_name() is a Simplify function that simplifies and object. Specifically, this function implements an algorithm to simplify class a name. The function is called for its side effects and does not return a value.
+simplify_class_name() is a Simplify function that simplifies and object. Specifically, this function implements an algorithm to simplify class a name.NA
 }
 \keyword{internal}

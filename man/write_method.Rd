@@ -42,6 +42,6 @@ write_method(
 \item{doc_in_class_lgl}{Document in class (a logical vector of length 1), Default: F}
 }
 \description{
-write_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write method. The function is called for its side effects and does not return a value.
+write_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write method.NA
 }
 \keyword{internal}

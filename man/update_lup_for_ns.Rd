@@ -14,6 +14,6 @@ update_lup_for_ns(x, namespace_contexts, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data. The function is called for its side effects and does not return a value.
+update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.
 }
 \keyword{internal}

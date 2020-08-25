@@ -10,6 +10,6 @@ replace_NA_in_fn_chr(fn_chr)
 \item{fn_chr}{Function (a character vector of length 1)}
 }
 \description{
-replace_NA_in_fn_chr() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to replace NA in a function. Function argument fn_chr specifies the object to be updated. Argument NA provides the object to be updated. The function is called for its side effects and does not return a value.
+replace_NA_in_fn_chr() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to replace NA in a function. Function argument fn_chr specifies the object to be updated. Argument NA provides the object to be updated.NA
 }
 \keyword{internal}

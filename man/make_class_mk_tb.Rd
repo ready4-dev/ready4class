@@ -10,6 +10,6 @@ make_class_mk_tb(class_mk_ls)
 \item{class_mk_ls}{Class mk (a list)}
 }
 \description{
-make_class_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk. The function is called for its side effects and does not return a value.
+make_class_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk.NA
 }
 \keyword{internal}

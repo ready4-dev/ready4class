@@ -12,6 +12,6 @@ make_className_chr(class_chr, package_chr = ".GlobalEnv")
 \item{package_chr}{Package (a character vector of length 1), Default: '.GlobalEnv'}
 }
 \description{
-make_className_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make className. The function is called for its side effects and does not return a value.
+make_className_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make className.NA
 }
 \keyword{internal}

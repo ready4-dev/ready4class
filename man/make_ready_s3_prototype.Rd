@@ -30,6 +30,6 @@ make_ready_s3_prototype(
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \description{
-make_ready_s3_prototype() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 prototype. The function is called for its side effects and does not return a value.
+make_ready_s3_prototype() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 prototype.NA
 }
 \keyword{internal}

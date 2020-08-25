@@ -10,6 +10,6 @@ transform_new_classes_ls(new_classes_ls)
 \item{new_classes_ls}{New classes (a list)}
 }
 \description{
-transform_new_classes_ls() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform new classes. Function argument new_classes_ls specifies the object to be updated. Argument NA provides the object to be updated. The function is called for its side effects and does not return a value.
+transform_new_classes_ls() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform new classes. Function argument new_classes_ls specifies the object to be updated. Argument NA provides the object to be updated.NA
 }
 \keyword{internal}

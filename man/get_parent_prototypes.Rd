@@ -14,6 +14,6 @@ get_parent_prototypes(parent_chr, parent_ns_ls, slot_names_chr_vec)
 \item{slot_names_chr_vec}{Slot names (a character vector)}
 }
 \description{
-get_parent_prototypes() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent prototypes. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_parent_prototypes() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent prototypes. Function argument parent_chr specifies the where to look for the required object.NA
 }
 \keyword{internal}

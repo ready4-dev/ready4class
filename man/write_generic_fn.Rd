@@ -51,6 +51,6 @@ write_generic_fn(
 \item{doc_in_class_lgl}{Document in class (a logical vector of length 1), Default: F}
 }
 \description{
-write_generic_fn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write generic. The function is called for its side effects and does not return a value.
+write_generic_fn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write generic.NA
 }
 \keyword{internal}

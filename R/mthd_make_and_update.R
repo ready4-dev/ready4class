@@ -1,5 +1,5 @@
 #' Make and update method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @param dev_pckg_namespace PARAM_DESCRIPTION
 #' @param name_prefix PARAM_DESCRIPTION

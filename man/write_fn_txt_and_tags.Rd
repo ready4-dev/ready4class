@@ -18,6 +18,6 @@ write_fn_txt_and_tags(fn_name, fn_text, fn_type, class_name, class_desc)
 \item{class_desc}{PARAM_DESCRIPTION}
 }
 \description{
-write_fn_txt_and_tags() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a function txt and tags. The function is called for its side effects and does not return a value.
+write_fn_txt_and_tags() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a function txt and tags.NA
 }
 \keyword{internal}

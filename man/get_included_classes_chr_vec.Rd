@@ -18,6 +18,6 @@ get_included_classes_chr_vec(
 \item{prespecified_includes_chr}{Prespecified includes (a character vector of length 1), Default: NULL}
 }
 \description{
-get_included_classes_chr_vec() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get included classes. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_included_classes_chr_vec() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get included classes. Function argument parent_chr specifies the where to look for the required object.NA
 }
 \keyword{internal}

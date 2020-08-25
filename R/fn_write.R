@@ -1,5 +1,5 @@
 #' Write accessors
-#' @description write_accessors() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write accessors. The function is called for its side effects and does not return a value.
+#' @description write_accessors() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write accessors.NA
 #' @param slot_name_chr Slot name (a character vector of length 1)
 #' @param set_only PARAM_DESCRIPTION
 #' @param import_packages_ls Import packages (a list)
@@ -38,7 +38,7 @@ write_accessors <- function (slot_name_chr, set_only, import_packages_ls, class_
     }
 }
 #' Write function txt and tags
-#' @description write_fn_txt_and_tags() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a function txt and tags. The function is called for its side effects and does not return a value.
+#' @description write_fn_txt_and_tags() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a function txt and tags.NA
 #' @param fn_name PARAM_DESCRIPTION
 #' @param fn_text PARAM_DESCRIPTION
 #' @param fn_type PARAM_DESCRIPTION
@@ -57,7 +57,7 @@ write_fn_txt_and_tags <- function (fn_name, fn_text, fn_type, class_name, class_
     writeLines(fn_text)
 }
 #' Write gen meth
-#' @description write_gen_meth() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write gen meth. The function is called for its side effects and does not return a value.
+#' @description write_gen_meth() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write gen meth.NA
 #' @param fn_name_chr Function name (a character vector of length 1)
 #' @param args_chr_vec Arguments (a character vector), Default: c("x")
 #' @param signature_chr Signature (a character vector of length 1), Default: 'NA'
@@ -111,7 +111,7 @@ write_gen_meth <- function (fn_name_chr, args_chr_vec = c("x"), signature_chr = 
     write_file_ls
 }
 #' Write generic
-#' @description write_generic_fn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write generic. The function is called for its side effects and does not return a value.
+#' @description write_generic_fn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write generic.NA
 #' @param write_file_ls Write file (a list)
 #' @param generic_exists_lgl Generic exists (a logical vector of length 1)
 #' @param gen_mthd_pair_ls Gen mthd pair (a list)
@@ -165,7 +165,7 @@ write_generic_fn <- function (write_file_ls, generic_exists_lgl, gen_mthd_pair_l
     write_file_ls
 }
 #' Write method
-#' @description write_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write method. The function is called for its side effects and does not return a value.
+#' @description write_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write method.NA
 #' @param write_file_ls Write file (a list)
 #' @param gen_mthd_pair_ls Gen mthd pair (a list)
 #' @param class_name_chr Class name (a character vector of length 1)
@@ -202,7 +202,7 @@ write_method <- function (write_file_ls, gen_mthd_pair_ls, class_name_chr, fn_na
     }
 }
 #' Write S3
-#' @description write_s3_s4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a S3. The function is called for its side effects and does not return a value.
+#' @description write_s3_s4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a S3.NA
 #' @param methods_tb Methods (a tibble)
 #' @param fn_ls Function list (a list of functions)
 #' @param package_chr Package (a character vector of length 1)
@@ -224,7 +224,7 @@ write_s3_s4 <- function (methods_tb, fn_ls, package_chr, output_dir_chr)
         signature_chr = ..8, append_lgl = ..10, first_lgl = ..9))
 }
 #' Write standard method
-#' @description write_std_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard method. The function is called for its side effects and does not return a value.
+#' @description write_std_method() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard method.NA
 #' @param fn Function (a function)
 #' @param fn_name_chr Function name (a character vector of length 1)
 #' @param class_chr Class (a character vector of length 1)

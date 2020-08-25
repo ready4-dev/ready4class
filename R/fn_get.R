@@ -1,5 +1,5 @@
 #' Get class files
-#' @description get_class_files_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class files. Function argument class_names_chr_vec specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_class_files_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class files. Function argument class_names_chr_vec specifies the where to look for the required object.NA
 #' @param class_names_chr_vec Class names (a character vector)
 #' @param s3_lgl S3 (a logical vector of length 1), Default: T
 #' @param output_dir_chr Output directory (a character vector of length 1), Default: NA
@@ -15,7 +15,7 @@ get_class_files_chr <- function (class_names_chr_vec, s3_lgl = T, output_dir_chr
         ".R")
 }
 #' Get class namespace
-#' @description get_class_ns_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class a namespace. Function argument prototype_lup specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_class_ns_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class a namespace. Function argument prototype_lup specifies the where to look for the required object.NA
 #' @param prototype_lup Prototype (a lookup table)
 #' @param class_chr Class (a character vector of length 1)
 #' @return NULL
@@ -30,7 +30,7 @@ get_class_ns_chr <- function (prototype_lup, class_chr)
         target_var_nm_chr = "type_namespace", evaluate_lgl = F)
 }
 #' Get included classes
-#' @description get_included_classes_chr_vec() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get included classes. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_included_classes_chr_vec() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get included classes. Function argument parent_chr specifies the where to look for the required object.NA
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @param prespecified_includes_chr Prespecified includes (a character vector of length 1), Default: NULL
@@ -53,7 +53,7 @@ get_included_classes_chr_vec <- function (parent_chr, parent_ns_ls, prespecified
     }
 }
 #' Get parent namespace
-#' @description get_parent_ns_ls() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent a namespace. Function argument prototype_lup specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_parent_ns_ls() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent a namespace. Function argument prototype_lup specifies the where to look for the required object.NA
 #' @param prototype_lup Prototype (a lookup table)
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param dev_pckg_ns_chr Dev pckg namespace (a character vector of length 1)
@@ -76,7 +76,7 @@ get_parent_ns_ls <- function (prototype_lup, parent_chr, dev_pckg_ns_chr)
     }
 }
 #' Get parent proto function
-#' @description get_parent_proto_fn_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent proto a function. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_parent_proto_fn_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent proto a function. Function argument parent_chr specifies the where to look for the required object.NA
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param prototype_lup Prototype (a lookup table)
 #' @return NULL
@@ -91,7 +91,7 @@ get_parent_proto_fn_chr <- function (parent_chr, prototype_lup)
         target_var_nm_chr = "value", evaluate_lgl = F)
 }
 #' Get parent prototypes
-#' @description get_parent_prototypes() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent prototypes. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_parent_prototypes() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent prototypes. Function argument parent_chr specifies the where to look for the required object.NA
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @param slot_names_chr_vec Slot names (a character vector)
@@ -109,7 +109,7 @@ get_parent_prototypes <- function (parent_chr, parent_ns_ls, slot_names_chr_vec)
         package_chr = resolve_parent_ns_chr(parent_ns_ls))[[.x]])
 }
 #' Get parent slot names
-#' @description get_parent_slot_names() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent slot names. Function argument parent_chr specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_parent_slot_names() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent slot names. Function argument parent_chr specifies the where to look for the required object.NA
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @return NULL
@@ -125,7 +125,7 @@ get_parent_slot_names <- function (parent_chr, parent_ns_ls)
         names()
 }
 #' Get proto list
-#' @description get_proto_list() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get proto a list. Function argument class_slots specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_proto_list() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get proto a list. Function argument class_slots specifies the where to look for the required object.NA
 #' @param class_slots PARAM_DESCRIPTION
 #' @param type PARAM_DESCRIPTION, Default: NULL
 #' @param values PARAM_DESCRIPTION, Default: NULL

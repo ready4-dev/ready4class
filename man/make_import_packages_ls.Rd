@@ -14,6 +14,6 @@ make_import_packages_ls(current_generics_ls, fn_name_chr, ignore_ns_chr)
 \item{ignore_ns_chr}{Ignore namespace (a character vector of length 1)}
 }
 \description{
-make_import_packages_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make an import packages. The function is called for its side effects and does not return a value.
+make_import_packages_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make an import packages.NA
 }
 \keyword{internal}

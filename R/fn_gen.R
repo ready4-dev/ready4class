@@ -1,5 +1,5 @@
 #' Gen prototype value
-#' @description gen_pt_value_chr() is a Gen function that generates values for an object. Specifically, this function implements an algorithm to gen a prototype value. The function is called for its side effects and does not return a value.
+#' @description gen_pt_value_chr() is a Gen function that generates values for an object. Specifically, this function implements an algorithm to gen a prototype value.NA
 #' @param type_namespace PARAM_DESCRIPTION, Default: ''
 #' @param function_to_call PARAM_DESCRIPTION, Default: ''
 #' @param default_value PARAM_DESCRIPTION, Default: ''

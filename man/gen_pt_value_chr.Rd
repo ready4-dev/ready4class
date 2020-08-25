@@ -21,6 +21,6 @@ gen_pt_value_chr(
 \item{namespace_contexts}{PARAM_DESCRIPTION, Default: c("base")}
 }
 \description{
-gen_pt_value_chr() is a Gen function that generates values for an object. Specifically, this function implements an algorithm to gen a prototype value. The function is called for its side effects and does not return a value.
+gen_pt_value_chr() is a Gen function that generates values for an object. Specifically, this function implements an algorithm to gen a prototype value.NA
 }
 \keyword{internal}

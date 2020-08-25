@@ -30,6 +30,6 @@ create_ready_accessors(
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \description{
-create_ready_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready accessors. The function is called for its side effects and does not return a value.
+create_ready_accessors() is a Create function that creates a new R object. Specifically, this function implements an algorithm to create ready accessors.NA
 }
 \keyword{internal}

@@ -1,5 +1,5 @@
 #' Make and tf curr gen
-#' @description make_and_tf_curr_gen_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make and tf curr gen. The function is called for its side effects and does not return a value.
+#' @description make_and_tf_curr_gen_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make and tf curr gen.NA
 #' @param required_pckg_chr_vec Required pckg (a character vector)
 #' @param generic_chr Generic (a character vector of length 1)
 #' @param ignore_ns_chr Ignore namespace (a character vector of length 1)
@@ -32,7 +32,7 @@ make_and_tf_curr_gen_ls <- function (required_pckg_chr_vec, generic_chr, ignore_
     current_generics_ls
 }
 #' Make child function
-#' @description make_child_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child a function. The function is called for its side effects and does not return a value.
+#' @description make_child_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child a function.NA
 #' @param child_ext_fn_chr Child ext function (a character vector of length 1)
 #' @param parent_chr Parent (a character vector of length 1)
 #' @param prototype_lup Prototype (a lookup table)
@@ -63,7 +63,7 @@ make_child_fn_chr <- function (child_ext_fn_chr, parent_chr, prototype_lup, prep
     }
 }
 #' Make class mk
-#' @description make_class_mk_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk. The function is called for its side effects and does not return a value.
+#' @description make_class_mk_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk.NA
 #' @param class_mk_ls Class mk (a list)
 #' @return NULL
 #' @rdname make_class_mk_r3
@@ -84,7 +84,7 @@ make_class_mk_r3 <- function (class_mk_ls)
     })
 }
 #' Make class mk
-#' @description make_class_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk. The function is called for its side effects and does not return a value.
+#' @description make_class_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class mk.NA
 #' @param class_mk_ls Class mk (a list)
 #' @return NULL
 #' @rdname make_class_mk_tb
@@ -97,7 +97,7 @@ make_class_mk_tb <- function (class_mk_ls)
         make_s3_lgl = ifelse(.y == "s3_ls", T, F)))
 }
 #' Make class type mk
-#' @description make_class_type_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class type mk. The function is called for its side effects and does not return a value.
+#' @description make_class_type_mk_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class type mk.NA
 #' @param class_type_mk_ls Class type mk (a list)
 #' @param make_s3_lgl Make S3 (a logical vector of length 1), Default: T
 #' @return NULL
@@ -125,7 +125,7 @@ make_class_type_mk_tb <- function (class_type_mk_ls, make_s3_lgl = T)
     cl_mk_tb
 }
 #' Make className
-#' @description make_className_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make className. The function is called for its side effects and does not return a value.
+#' @description make_className_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make className.NA
 #' @param class_chr Class (a character vector of length 1)
 #' @param package_chr Package (a character vector of length 1), Default: '.GlobalEnv'
 #' @return NULL
@@ -139,7 +139,7 @@ make_className_chr <- function (class_chr, package_chr = ".GlobalEnv")
         "\")")
 }
 #' Make current generics
-#' @description make_current_generics_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make current generics. The function is called for its side effects and does not return a value.
+#' @description make_current_generics_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make current generics.NA
 #' @param required_pckg_chr_vec Required pckg (a character vector)
 #' @param generic_chr Generic (a character vector of length 1)
 #' @return NULL
@@ -166,7 +166,7 @@ make_current_generics_ls <- function (required_pckg_chr_vec, generic_chr)
         in_global_lgl = in_global_lgl)
 }
 #' Make gen function
-#' @description make_gen_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen a function. The function is called for its side effects and does not return a value.
+#' @description make_gen_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen a function.NA
 #' @param name_chr Name (a character vector of length 1)
 #' @param args_chr_vec Arguments (a character vector)
 #' @return NULL
@@ -185,7 +185,7 @@ make_gen_fn_chr <- function (name_chr, args_chr_vec)
     }
 }
 #' Make gen mthd pair
-#' @description make_gen_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen mthd pair. The function is called for its side effects and does not return a value.
+#' @description make_gen_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make gen mthd pair.NA
 #' @param name_chr Name (a character vector of length 1)
 #' @param args_chr_vec Arguments (a character vector), Default: c("x")
 #' @param signature_chr Signature (a character vector of length 1), Default: 'NA'
@@ -210,7 +210,7 @@ make_gen_mthd_pair_ls <- function (name_chr, args_chr_vec = c("x"), signature_ch
         meth_fn_chr = make_meth_fn_chr(fn))
 }
 #' Make generic
-#' @description make_generic_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make generic. The function is called for its side effects and does not return a value.
+#' @description make_generic_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make generic.NA
 #' @param name_chr Name (a character vector of length 1)
 #' @param args_chr_vec Arguments (a character vector), Default: c("x")
 #' @param signature_chr Signature (a character vector of length 1), Default: 'NA'
@@ -231,7 +231,7 @@ make_generic_chr <- function (name_chr, args_chr_vec = c("x"), signature_chr = N
         ")")
 }
 #' Make import packages
-#' @description make_import_packages_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make an import packages. The function is called for its side effects and does not return a value.
+#' @description make_import_packages_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make an import packages.NA
 #' @param current_generics_ls Current generics (a list)
 #' @param fn_name_chr Function name (a character vector of length 1)
 #' @param ignore_ns_chr Ignore namespace (a character vector of length 1)
@@ -261,7 +261,7 @@ make_import_packages_ls <- function (current_generics_ls, fn_name_chr, ignore_ns
         gen_get_exists_lgl = gen_get_exists_lgl, gen_set_exists_lgl = gen_set_exists_lgl)
 }
 #' Make include tag
-#' @description make_include_tag_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make include tag. The function is called for its side effects and does not return a value.
+#' @description make_include_tag_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make include tag.NA
 #' @param class_names_chr_vec Class names (a character vector)
 #' @param s3_lgl S3 (a logical vector of length 1), Default: T
 #' @return NULL
@@ -277,7 +277,7 @@ make_include_tag_chr <- function (class_names_chr_vec, s3_lgl = T)
         "\n"), "")
 }
 #' Make meth function
-#' @description make_meth_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make meth a function. The function is called for its side effects and does not return a value.
+#' @description make_meth_fn_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make meth a function.NA
 #' @param fn Function (a function)
 #' @return NULL
 #' @rdname make_meth_fn_chr
@@ -289,7 +289,7 @@ make_meth_fn_chr <- function (fn)
     deparse(fn) %>% paste0(collapse = "\n")
 }
 #' Make method
-#' @description make_method_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make method. The function is called for its side effects and does not return a value.
+#' @description make_method_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make method.NA
 #' @param name_chr Name (a character vector of length 1)
 #' @param class_chr Class (a character vector of length 1)
 #' @param fn Function (a function)
@@ -310,7 +310,7 @@ make_method_chr <- function (name_chr, class_chr, fn, package_chr = NA_character
             where_chr)), ")")
 }
 #' Make new classes
-#' @description make_new_classes() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make new classes. The function is called for its side effects and does not return a value.
+#' @description make_new_classes() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make new classes.NA
 #' @param new_classes_ls New classes (a list)
 #' @param pckg_name_chr Pckg name (a character vector of length 1)
 #' @param class_pfx_chr Class prefix (a character vector of length 1)
@@ -343,7 +343,7 @@ make_new_classes <- function (new_classes_ls, pckg_name_chr, class_pfx_chr, R_di
     pt_lup
 }
 #' Make ready
-#' @description make_ready_s3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready.NA
 #' @param name_stub PARAM_DESCRIPTION
 #' @param name_prefix PARAM_DESCRIPTION, Default: 'ready4_'
 #' @param output_folder PARAM_DESCRIPTION, Default: 'data-raw'
@@ -402,7 +402,7 @@ make_ready_s3 <- function (name_stub, name_prefix = "ready4_", output_folder = "
     devtools::load_all()
 }
 #' Make ready S3 checker
-#' @description make_ready_s3_checker() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 checker. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_checker() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 checker.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param s3_validator PARAM_DESCRIPTION
 #' @return NULL
@@ -421,7 +421,7 @@ make_ready_s3_checker <- function (class_name, s3_validator)
         fn_text = fn_to_check_if_is_valid_instance)
 }
 #' Make ready S3 constructor
-#' @description make_ready_s3_constructor() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 constructor. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_constructor() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 constructor.NA
 #' @param type PARAM_DESCRIPTION
 #' @param type_checker_prefix PARAM_DESCRIPTION
 #' @param type_namespace PARAM_DESCRIPTION
@@ -447,7 +447,7 @@ make_ready_s3_constructor <- function (type, type_checker_prefix, type_namespace
     list(fn_name = name_of_fn_to_construct_instance, fn_text = fn_to_construct_instance)
 }
 #' Make ready S3 prototype
-#' @description make_ready_s3_prototype() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 prototype. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_prototype() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 prototype.NA
 #' @param type PARAM_DESCRIPTION
 #' @param type_namespace PARAM_DESCRIPTION
 #' @param values PARAM_DESCRIPTION
@@ -492,7 +492,7 @@ make_ready_s3_prototype <- function (type, type_namespace, values, ordered, clas
     list(fn_name = name_of_fn_to_make_prototype, fn_text = fn_to_make_prototype)
 }
 #' Make ready S3 valid instance
-#' @description make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid an instance. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid an instance.NA
 #' @param class_name PARAM_DESCRIPTION
 #' @param s3_prototype PARAM_DESCRIPTION
 #' @param s3_constructor PARAM_DESCRIPTION
@@ -513,7 +513,7 @@ make_ready_s3_valid_instance <- function (class_name, s3_prototype, s3_construct
     list(fn_name = name_of_fn_to_make_valid_instance, fn_text = fn_to_make_valid_instance)
 }
 #' Make ready S3 validator
-#' @description make_ready_s3_validator() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 validator. The function is called for its side effects and does not return a value.
+#' @description make_ready_s3_validator() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 validator.NA
 #' @param type PARAM_DESCRIPTION
 #' @param class_name PARAM_DESCRIPTION
 #' @param s3_prototype PARAM_DESCRIPTION
@@ -627,7 +627,7 @@ make_ready_s3_validator <- function (type, class_name, s3_prototype, min_max_val
     list(fn_name = name_of_fn_to_validate_instance, fn_text = fn_to_validate_instance)
 }
 #' Make ready
-#' @description make_ready_s4() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready. The function is called for its side effects and does not return a value.
+#' @description make_ready_s4() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready.NA
 #' @param name_stub PARAM_DESCRIPTION
 #' @param name_prefix PARAM_DESCRIPTION, Default: 'ready4_'
 #' @param output_folder PARAM_DESCRIPTION, Default: 'data-raw'
@@ -727,7 +727,7 @@ make_ready_s4 <- function (name_stub, name_prefix = "ready4_", output_folder = "
     devtools::load_all()
 }
 #' Make S3 components
-#' @description make_s3_components_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 components. The function is called for its side effects and does not return a value.
+#' @description make_s3_components_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 components.NA
 #' @param class_name_chr Class name (a character vector of length 1)
 #' @param type_chr Type (a character vector of length 1)
 #' @param type_ns_chr Type namespace (a character vector of length 1)
@@ -777,7 +777,7 @@ make_s3_components_ls <- function (class_name_chr, type_chr, type_ns_chr, type_c
     list(fn_name_ls = fn_name_ls, fn_text_ls = fn_text_ls, include_tags_chr = include_tags_chr)
 }
 #' Make S3 mk
-#' @description make_s3_mk_tb_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk. The function is called for its side effects and does not return a value.
+#' @description make_s3_mk_tb_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk.NA
 #' @param x PARAM_DESCRIPTION
 #' @return NULL
 #' @rdname make_s3_mk_tb_r3
@@ -789,7 +789,7 @@ make_s3_mk_tb_r3 <- function (x)
     purrr::map_dfr(x, ~make_s3_mk_tb_row(.x))
 }
 #' Make S3 mk tibble row
-#' @description make_s3_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk a tibble row. The function is called for its side effects and does not return a value.
+#' @description make_s3_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S3 mk a tibble row.NA
 #' @param x PARAM_DESCRIPTION
 #' @return NULL
 #' @rdname make_s3_mk_tb_row
@@ -806,7 +806,7 @@ make_s3_mk_tb_row <- function (x)
         include_classes = x@include_classes_ls) %>% list(), make_s3_lgl = T)
 }
 #' Make S4 mk
-#' @description make_s4_mk_tb_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S4 mk. The function is called for its side effects and does not return a value.
+#' @description make_s4_mk_tb_r3() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S4 mk.NA
 #' @param x PARAM_DESCRIPTION
 #' @return NULL
 #' @rdname make_s4_mk_tb_r3
@@ -818,7 +818,7 @@ make_s4_mk_tb_r3 <- function (x)
     purrr::map_dfr(x, ~make_s4_mk_tb_row(.x))
 }
 #' Make S4 mk tibble row
-#' @description make_s4_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S4 mk a tibble row. The function is called for its side effects and does not return a value.
+#' @description make_s4_mk_tb_row() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make a S4 mk a tibble row.NA
 #' @param x PARAM_DESCRIPTION
 #' @return NULL
 #' @rdname make_s4_mk_tb_row

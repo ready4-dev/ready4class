@@ -21,6 +21,6 @@ make_ready_s3_valid_instance(
 \item{s3_validator}{PARAM_DESCRIPTION}
 }
 \description{
-make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid an instance. The function is called for its side effects and does not return a value.
+make_ready_s3_valid_instance() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make ready a S3 valid an instance.NA
 }
 \keyword{internal}

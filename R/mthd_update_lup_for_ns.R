@@ -1,5 +1,5 @@
 #' Update lookup table for namespace method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.
-#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @param namespace_contexts PARAM_DESCRIPTION
 #' @return NULL

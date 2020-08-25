@@ -12,6 +12,6 @@ order_tb(x, ...)
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
-order_tb() is an Order Tibble generic that orders a tibble. The function is called for its side effects and does not return a value.
+order_tb() is an Order Tibble generic that orders a tibble.NA
 }
 \keyword{internal}

@@ -1,5 +1,5 @@
 #' Simplify class name
-#' @description simplify_class_name() is a Simplify function that simplifies and object. Specifically, this function implements an algorithm to simplify class a name. The function is called for its side effects and does not return a value.
+#' @description simplify_class_name() is a Simplify function that simplifies and object. Specifically, this function implements an algorithm to simplify class a name.NA
 #' @param st_class_fn_chr St class function (a character vector of length 1)
 #' @param package_chr Package (a character vector of length 1)
 #' @return NULL

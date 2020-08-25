@@ -1,5 +1,5 @@
 #' Make lookup table method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class. The function is called for its side effects and does not return a value.
+#' @description make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
 #' @param dev_pckg_namespace PARAM_DESCRIPTION
 #' @param prefix PARAM_DESCRIPTION

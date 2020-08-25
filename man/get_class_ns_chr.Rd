@@ -12,6 +12,6 @@ get_class_ns_chr(prototype_lup, class_chr)
 \item{class_chr}{Class (a character vector of length 1)}
 }
 \description{
-get_class_ns_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class a namespace. Function argument prototype_lup specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+get_class_ns_chr() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class a namespace. Function argument prototype_lup specifies the where to look for the required object.NA
 }
 \keyword{internal}

@@ -45,6 +45,6 @@ set_ready_class(
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \description{
-set_ready_class() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set ready class. The function is called for its side effects and does not return a value.
+set_ready_class() is a Set function that sets the value of an object. Specifically, this function implements an algorithm to set ready class.NA
 }
 \keyword{internal}
