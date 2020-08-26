@@ -47,37 +47,7 @@ ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
                                                   "Remakes list columns.",
                                                   "Updates a lookup table with namespace data."),
                              is_generic_lgl = T,
-                             is_method_lgl = T)
-ready4fun::make_fn_type_lup_tb() %>%
-  dplyr::bind_rows(tibble::tibble(fn_type_nm_chr = c("Create", "Delete",
-                                                     "Gen", # Needs to be complete word - update functions to reflect this.
-                                                     "Resolve","Set","Simplify","Validate"),
-                                  fn_type_desc_chr = c("Creates a new R object.",
-                                                       "Deletes a file from a specified location.",
-                                                       "Generates values for an object.",
-                                                       "Resolves inconsistencies between two or more objects.",
-                                                       "Sets the value of an object.",
-                                                       "Simplifies and object.",
-                                                       "Validates an object."),
-                                  first_arg_desc_chr = NA_character_,
-                                  second_arg_desc_chr = NA_character_,
-                                  is_generic_lgl = F,
-                                  is_method_lgl = F)) %>% .
-  dplyr::bind_rows(tibble::tibble(fn_type_nm_chr = c("Add Class","Make and Update",
-                                                     "Make Classes", # Should be "write" titled
-                                                     "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),
-                                  fn_type_desc_chr = c("Adds information about a class.",
-                                                       "Applies a Make method and then updates the output of that method.",
-                                                       "Writes new classes.", # Should be "write" titled
-                                                       "Makes a lookup table.",
-                                                       "Orders a tibble.",
-                                                       "Remakes list columns.",
-                                                       "Updates a lookup table with namespace data."),
-                                  first_arg_desc_chr = NA_character_,
-                                  second_arg_desc_chr = NA_character_,
-                                  is_generic_lgl = T,
-                                  is_method_lgl = T)) %>%
-  dplyr::arrange(fn_type_nm_chr) %>%
+                             is_method_lgl = T) %>%
   ready4fun::make_and_doc_fn_type_R(pkg_nm_chr = pkg_nm_chr,
                        url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
