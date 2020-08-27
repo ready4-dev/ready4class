@@ -3,15 +3,12 @@
 # 1. Load magrittr package to that the pipe operator ("%>%") can be used in this script.
 library(magrittr)
 #
-# 2. Specify package name
-pkg_nm_chr <- "ready4class"
+# 2. Write standardised ready4 package set up.
+ready4fun::write_pkg_setup_fls_R(incr_ver_lgl = F)
 #
-# 3. Create "fns", "gnrcs" and "mthds" sub-directories.
-ready4fun::write_fn_type_dirs()
+# 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
-# 4. MANUAL STEP: WRITE FUNCTION FILES
-#
-# 5. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
+# 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
 ready4fun::make_abbr_lup_tb(short_name_chr_vec = c("col","inst", "ready4_class_make_tb","ready4_class_pt_lup"),
                             long_name_chr_vec = c("column","instance",
@@ -19,7 +16,7 @@ ready4fun::make_abbr_lup_tb(short_name_chr_vec = c("col","inst", "ready4_class_m
                                                   "Class Prototype Lookup Table readyforwhatsnext S3 class"),
                             no_plural_chr_vec = c("ready4_class_make_tb","ready4_class_pt_lup"),
                             url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
-                            pkg_nm_chr = pkg_nm_chr,
+                            #pkg_nm_chr = pkg_nm_chr,
                             seed_lup = abbreviations_lup)
 data("abbreviations_lup")
 # 6. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
@@ -48,7 +45,7 @@ ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
                                                   "Updates a lookup table with namespace data."),
                              is_generic_lgl = T,
                              is_method_lgl = T) %>%
-  ready4fun::make_and_doc_fn_type_R(pkg_nm_chr = pkg_nm_chr,
+  ready4fun::make_and_doc_fn_type_R(#pkg_nm_chr = pkg_nm_chr,
                        url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
 data("fn_type_lup_tb")
@@ -67,7 +64,7 @@ ready4fun::write_and_doc_fn_fls_R(all_fns_dmt_tb,
                                   r_dir_chr = "R")
 #
 # 8.2 Update Description file with imported packages.
-ready4fun::write_ns_imps_to_desc()
+ready4fun::write_ns_imps_to_desc(incr_ver_lgl = F)
 ##
 ## 9. Run script to make package classes.
 source("data-raw/MAKE_CLASSES.R")
@@ -84,7 +81,7 @@ prototype_lup <- make_and_update(classes_to_make_tb,
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 12. Create vignettes
-usethis::use_vignette("ready4class")
+usethis::use_vignette("ready4class") # Move to pkg set up fn
 #
 # 13. Update documentation
 devtools::document()
