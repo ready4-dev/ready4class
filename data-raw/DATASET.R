@@ -7,7 +7,7 @@ library(magrittr)
 pkg_nm_chr <- "ready4class"
 #
 # 3. Create "fns", "gnrcs" and "mthds" sub-directories.
-ready4fun::write_fn_type_dirs(path_1L_chr)
+ready4fun::write_fn_type_dirs()
 #
 # 4. MANUAL STEP: WRITE FUNCTION FILES
 #
@@ -53,8 +53,7 @@ ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
                        abbreviations_lup = abbreviations_lup)
 data("fn_type_lup_tb")
 # 7. Create a table of all functions to document
-all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(#paths_ls = ready4fun::make_fns_chr_ls(),
-                                      custom_dmt_ls = list(details_ls = NULL,
+all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(custom_dmt_ls = list(details_ls = NULL,
                                                            export_ls = list(force_true_chr_vec = c("make_and_update"),
                                                                             force_false_chr_vec = NA_character_),
                                                            args_ls_ls = NULL),
