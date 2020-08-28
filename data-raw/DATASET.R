@@ -82,7 +82,7 @@ prototype_lup <- make_and_update(classes_to_make_tb,
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 12. MANUAL STEP - WRITE vignettes
-# ENSURE that ready4fun::write_pkg_setup_fls_R function argument make_tmpl_vignette_lgl is not
+# ENSURE that ready4fun::write_pkg_setup_fls_R function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
 # 13. Update documentation
 
