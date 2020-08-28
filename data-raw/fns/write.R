@@ -54,8 +54,10 @@ write_std_method <- function(fn,
                                                 ignore_ns_chr = ifelse(package_chr %in% rownames(installed.packages()),
                                                                        package_chr,
                                                                        NA_character_))
-  generic_exists_lgl = import_packages_ls$gen_get_exists_lgl
-  import_chr_vec = import_packages_ls$getter_import_pckg
+  generic_exists_lgl <- import_packages_ls$gen_get_exists_lgl
+  import_chr_vec <- import_packages_ls$getter_import_pckg[import_packages_ls$getter_import_pckg!=package_chr]
+  if(identical(import_chr_vec,character(0)))
+    import_chr_vec <- NA_character_
   write_file_ls <- write_gen_meth(fn_name_chr = fn_name_chr,
                                   args_chr_vec = c("x",
                                                    ifelse(length(formalArgs(fn))>1,
