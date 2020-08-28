@@ -146,7 +146,7 @@ write_generic_fn <- function (write_file_ls, generic_exists_lgl, gen_mthd_pair_l
             sink(write_file_ls$gnr_file, append = ifelse(fn_type_chr %in% 
                 c("gen_std_s3_mthd", "gen_std_s4_mthd"), F, write_file_ls$new_file_lgl))
             ready4fun::write_fn_dmt(fn_name_chr = fn_name_chr, 
-                fn_type_chr = fn_type_chr, fn = gen_mthd_pair_ls$gen_fn_chr, 
+                fn_type_chr = fn_type_chr, fn = eval(parse(text = gen_mthd_pair_ls$gen_fn_chr)), 
                 fn_desc_chr = fn_desc_chr, fn_out_type_chr = fn_out_type_chr, 
                 fn_title_chr = fn_title_chr, doc_in_class_lgl = doc_in_class_lgl)
             writeLines(gen_mthd_pair_ls$generic_chr %>% stringr::str_replace(paste0(",\nwhere =  ", 

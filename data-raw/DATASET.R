@@ -82,9 +82,10 @@ usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 12. Create vignettes
 usethis::use_vignette("ready4class") # Move to pkg set up fn
+devtools::document()
 #
 # 13. Update documentation
-devtools::document()
+
 ready4fun::write_ns_imps_to_desc()
 #
 # Push changes
