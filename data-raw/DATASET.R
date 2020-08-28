@@ -81,8 +81,8 @@ prototype_lup <- make_and_update(classes_to_make_tb,
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 12. Create vignettes
-usethis::use_vignette("ready4class") # Move to pkg set up fn
-devtools::document()
+# usethis::use_vignette("ready4class") # Move to pkg set up fn
+# devtools::document()
 #
 # 13. Update documentation
 
