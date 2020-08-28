@@ -57,7 +57,7 @@ all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(custom_dmt_ls = list(details_ls
                                       fn_type_lup_tb = fn_type_lup_tb,
                                       abbreviations_lup = abbreviations_lup)
 
-## 8. Document.
+## 8. Write and document.
 # 8.1 Write documented methods to R directory.
 ## Note files to be rewritten cannot be open in RStudio.
 ready4fun::write_and_doc_fn_fls_R(all_fns_dmt_tb,
