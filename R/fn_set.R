@@ -95,9 +95,11 @@ set_ready_class <- function (class_name, class_slots, type, proto_ls, parent, pr
             class_desc, "\n", include_tags_chr, old_class_tb_extension %>% 
                 stringr::str_replace_all(paste0(",where =  ", 
                   "globalenv\\(\\)"), ""), ifelse(old_class_tb_extension == 
-                "", "", "\n"), slots_tags, ifelse(parent_ns_ls$transformed_chr == 
-                "", "", paste0("#' @import ", parent_ns_ls$transformed_chr, 
-                "\n")), ifelse(helper_lgl, "", paste0("#' @exportClass ", 
+                "", "", "\n"), slots_tags, ifelse(ifelse(is.null(parent_ns_ls$transformed_chr), 
+                F, ifelse(is.na(parent_ns_ls$transformed_chr), 
+                  F, parent_ns_ls$transformed_chr != "")), "", 
+                paste0("#' @import ", parent_ns_ls$transformed_chr, 
+                  "\n")), ifelse(helper_lgl, "", paste0("#' @exportClass ", 
                 class_name, "\n")), ifelse(helper_lgl, "", paste0(class_name, 
                 " <- ")), st_class_fn %>% stringr::str_replace(paste0(",\nwhere =  ", 
                 "globalenv\\(\\)"), "") %>% simplify_class_name(package_chr = ifelse(is.null(parent), 

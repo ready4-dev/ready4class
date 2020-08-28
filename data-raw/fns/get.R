@@ -47,7 +47,11 @@ get_class_files_chr <- function(class_names_chr_vec,
 get_parent_prototypes <- function(parent_chr,
                                   parent_ns_ls,
                                   slot_names_chr_vec){
-  if(parent_ns_ls$transformed_chr!="")
+  if(ifelse(is.null(parent_ns_ls$transformed_chr),
+            F,
+            ifelse(is.na(parent_ns_ls$transformed_chr),
+                   F,
+                   parent_ns_ls$transformed_chr!="")))
     ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
   purrr::map_chr(slot_names_chr_vec,
                  ~ ready4fun::get_r4_obj_slots_chr_vec(parent_chr,
@@ -55,7 +59,11 @@ get_parent_prototypes <- function(parent_chr,
 }
 get_parent_slot_names <- function(parent_chr,
                                   parent_ns_ls){
-  if(parent_ns_ls$transformed_chr!="")
+  if(ifelse(is.null(parent_ns_ls$transformed_chr),
+            F,
+            ifelse(is.na(parent_ns_ls$transformed_chr),
+                   F,
+                   parent_ns_ls$transformed_chr!="")))
     ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
   ready4fun::get_r4_obj_slots_chr_vec(parent_chr,
                    package = resolve_parent_ns_chr(parent_ns_ls)) %>% names()
