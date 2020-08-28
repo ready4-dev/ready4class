@@ -98,14 +98,14 @@ get_parent_proto_fn_chr <- function (parent_chr, prototype_lup)
 #' @return NULL
 #' @rdname get_parent_prototypes
 #' @export 
-#' @importFrom ready4fun force_req_pkg_install
+#' @importFrom ready4fun force_req_pkg_install get_r4_obj_slots_chr_vec
 #' @importFrom purrr map_chr
 #' @keywords internal
 get_parent_prototypes <- function (parent_chr, parent_ns_ls, slot_names_chr_vec) 
 {
     if (parent_ns_ls$transformed_chr != "") 
         ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
-    purrr::map_chr(slot_names_chr_vec, ~get_r4_obj_slots_chr_vec(parent_chr, 
+    purrr::map_chr(slot_names_chr_vec, ~ready4fun::get_r4_obj_slots_chr_vec(parent_chr, 
         package_chr = resolve_parent_ns_chr(parent_ns_ls))[[.x]])
 }
 #' Get parent slot names
@@ -115,13 +115,13 @@ get_parent_prototypes <- function (parent_chr, parent_ns_ls, slot_names_chr_vec)
 #' @return NULL
 #' @rdname get_parent_slot_names
 #' @export 
-#' @importFrom ready4fun force_req_pkg_install
+#' @importFrom ready4fun force_req_pkg_install get_r4_obj_slots_chr_vec
 #' @keywords internal
 get_parent_slot_names <- function (parent_chr, parent_ns_ls) 
 {
     if (parent_ns_ls$transformed_chr != "") 
         ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
-    get_r4_obj_slots_chr_vec(parent_chr, package = resolve_parent_ns_chr(parent_ns_ls)) %>% 
+    ready4fun::get_r4_obj_slots_chr_vec(parent_chr, package = resolve_parent_ns_chr(parent_ns_ls)) %>% 
         names()
 }
 #' Get proto list

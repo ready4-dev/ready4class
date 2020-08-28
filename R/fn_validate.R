@@ -9,6 +9,7 @@
 #' @return NULL
 #' @rdname validate_ready
 #' @export 
+#' @importFrom ready4fun get_r4_obj_slots_chr_vec
 #' @importFrom purrr map_chr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom stringi stri_replace_last
@@ -17,9 +18,10 @@ validate_ready <- function (class_name, parent, not_same_length = NULL, allowed_
     names_include = NULL, print_validator = FALSE) 
 {
     same_lngth_cond <- allowed_cond_vec <- names_include_vec <- NA_character_
-    all_slots <- get_r4_obj_slots_chr_vec(class_name) %>% names()
+    all_slots <- ready4fun::get_r4_obj_slots_chr_vec(class_name) %>% 
+        names()
     if (!is.null(parent)) {
-        parental_slots <- get_r4_obj_slots_chr_vec(parent) %>% 
+        parental_slots <- ready4fun::get_r4_obj_slots_chr_vec(parent) %>% 
             names()
         all_slots <- all_slots[!all_slots %in% parental_slots]
     }
