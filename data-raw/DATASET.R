@@ -86,7 +86,8 @@ usethis::use_vignette("ready4class") # Move to pkg set up fn
 # 13. Update documentation
 devtools::document()
 ready4fun::write_ns_imps_to_desc()
-
+#
+# Push changes
 
 
 
