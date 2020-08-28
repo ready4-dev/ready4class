@@ -4,21 +4,14 @@
 \name{ready4class-package}
 \alias{ready4class}
 \alias{ready4class-package}
-\title{ready4class Class creation tools}
+\title{ready4class: Readyforwhatsnext Tools For Creating And Extending Classes.}
 \description{
-ready4class is a package of classes and methods to help standardise and streamline the process for creating and extending S3 and S3 classes and
-methods for use with the readyforwhatsnext framework for data synthesis and simulation in mental health.
+Provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
 }
 \details{
-To learn more about ready4use, start with the vignettes:
+To learn more about ready4class, start with the vignettes:
 `browseVignettes(package = "ready4class")`
 }
-\section{First section}{
-
-
-Some text.
-}
-
 \author{
 \strong{Maintainer}: Matthew Hamilton \email{matthew.hamilton@orygen.org.au} (\href{https://orcid.org/0000-0001-7407-9194}{ORCID})
 

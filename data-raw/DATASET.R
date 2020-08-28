@@ -4,7 +4,8 @@
 library(magrittr)
 #
 # 2. Write standardised ready4 package set up.
-ready4fun::write_pkg_setup_fls_R(incr_ver_lgl = F)
+ready4fun::write_pkg_setup_fls_R(make_tmpl_vignette_lgl = T, # CHANGE TO FALSE
+                                 incr_ver_lgl = F)
 #
 # 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
@@ -80,9 +81,8 @@ prototype_lup <- make_and_update(classes_to_make_tb,
 ## 11. Update the internal system data.
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
-# 12. Create vignettes
-# usethis::use_vignette("ready4class") # Move to pkg set up fn
-# devtools::document()
+# 12. MANUAL STEP - WRITE vignettes
+# ENSURE that ready4fun::write_pkg_setup_fls_R function argument make_tmpl_vignette_lgl is not
 #
 # 13. Update documentation
 
