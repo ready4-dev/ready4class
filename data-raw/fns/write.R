@@ -198,7 +198,7 @@ write_method <- function(write_file_ls,
                                                                              "gen_std_s4_mthd"),T,write_file_ls$new_file_lgl)))
     ready4fun::write_fn_dmt(fn_name_chr = fn_name_chr,
                             fn_type_chr = fn_type_chr,
-                            fn = gen_mthd_pair_ls$meth_fn_chr,
+                            fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
                             fn_desc_chr = fn_desc_chr,
                             fn_out_type_chr = fn_out_type_chr,
                             class_name_chr = class_name_chr,

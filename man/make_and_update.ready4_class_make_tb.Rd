@@ -6,11 +6,11 @@
 \usage{
 \method{make_and_update}{ready4_class_make_tb}(
   x,
-  dev_pckg_namespace,
-  name_prefix,
-  output_dir,
+  dev_pckg_namespace = ready4fun::get_dev_pkg_nm_1L_chr(),
+  name_prefix = paste0(ready4fun::get_dev_pkg_nm_1L_chr(), "_"),
+  output_dir = "R",
   delete_files_pattern_chr_vec = NA_character_,
-  file_exists_logic,
+  file_exists_logic = "overwrite",
   init_class_pt_lup = NULL,
   ignore_ns_chr = NA_character_,
   required_pckg_chr_vec = NA_character_,
@@ -20,15 +20,15 @@
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{dev_pckg_namespace}{PARAM_DESCRIPTION}
+\item{dev_pckg_namespace}{PARAM_DESCRIPTION, Default: ready4fun::get_dev_pkg_nm_1L_chr()}
 
-\item{name_prefix}{PARAM_DESCRIPTION}
+\item{name_prefix}{PARAM_DESCRIPTION, Default: paste0(ready4fun::get_dev_pkg_nm_1L_chr(), "_")}
 
-\item{output_dir}{PARAM_DESCRIPTION}
+\item{output_dir}{PARAM_DESCRIPTION, Default: 'R'}
 
 \item{delete_files_pattern_chr_vec}{Delete files pattern (a character vector), Default: 'NA'}
 
-\item{file_exists_logic}{PARAM_DESCRIPTION}
+\item{file_exists_logic}{PARAM_DESCRIPTION, Default: 'overwrite'}
 
 \item{init_class_pt_lup}{Init class prototype (a lookup table), Default: NULL}
 

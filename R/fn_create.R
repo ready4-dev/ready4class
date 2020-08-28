@@ -37,11 +37,16 @@ create_accessors <- function (slot_name_chr, set_only, parent, class_name, print
 #' @return NULL
 #' @rdname create_accessors_rec
 #' @export 
-#' @importFrom purrr walk
+#' @importFrom purrr map_chr walk
+#' @importFrom stringr str_replace
 #' @keywords internal
 create_accessors_rec <- function (slot_names_chr_vec, set_only, parent, class_name, print_accessors, 
     output_folder, ignore_ns_chr, required_pckg_chr_vec) 
 {
+    required_pckg_chr_vec <- purrr::map_chr(required_pckg_chr_vec, 
+        ~stringr::str_replace(.x, "NA", NA_character_))
+    ignore_ns_chr <- purrr::map_chr(ignore_ns_chr, ~stringr::str_replace(.x, 
+        "NA", NA_character_))
     purrr::walk(slot_names_chr_vec, ~create_accessors(.x, set_only = .x %in% 
         set_only, parent = parent, class_name = class_name, print_accessors = print_accessors, 
         output_folder = output_folder, ignore_ns_chr = ignore_ns_chr, 
