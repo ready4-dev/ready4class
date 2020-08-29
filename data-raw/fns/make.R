@@ -287,8 +287,8 @@ make_import_packages_ls <- function(current_generics_ls,
   gen_set_exists_lgl_vec <- purrr::map2_lgl(package_chr_vec, names(package_chr_vec), ~ ((.x == paste0(fn_name_chr,"<-") | .y == paste0(fn_name_chr,"<-.",.x)) & !.x %in% ignore_ns_chr))
   gen_set_exists_lgl <- any(gen_set_exists_lgl_vec)
   setter_import_pckg <- ifelse(gen_set_exists_lgl,package_chr_vec[gen_set_exists_lgl_vec],NA_character_)
-  list(getter_import_pckg = getter_import_pckg,
-       setter_import_pckg = setter_import_pckg,
+  list(getter_import_pckg = getter_import_pckg[getter_import_pckg != ignore_ns_chr[1]],
+       setter_import_pckg = setter_import_pckg[setter_import_pckg != ignore_ns_chr[1]],
        gen_get_exists_lgl = gen_get_exists_lgl,
        gen_set_exists_lgl = gen_set_exists_lgl)
 }
@@ -305,7 +305,7 @@ make_and_tf_curr_gen_ls <- function(required_pckg_chr_vec,
   if(!required_pckg_chr_vec %>% purrr::discard(is.na) %>% identical(character(0)))
     required_pckg_chr_vec <- required_pckg_chr_vec[!required_pckg_chr_vec %in% dependencies_chr_vec]
   if(current_generics_ls$in_global_lgl){
-    ready4fun::unload_packages(package_chr_vec = required_pckg_chr_vec)
+    ready4fun::unload_packages(package_chr_vec = required_pckg_chr_vec[required_pckg_chr_vec != ignore_ns_chr[1]])
     current_generics_ls <- make_current_generics_ls(required_pckg_chr_vec = required_pckg_chr_vec,
                                                     generic_chr = generic_chr)
   }

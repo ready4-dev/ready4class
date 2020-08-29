@@ -25,7 +25,8 @@ make_and_tf_curr_gen_ls <- function (required_pckg_chr_vec, generic_chr, ignore_
         required_pckg_chr_vec <- required_pckg_chr_vec[!required_pckg_chr_vec %in% 
             dependencies_chr_vec]
     if (current_generics_ls$in_global_lgl) {
-        ready4fun::unload_packages(package_chr_vec = required_pckg_chr_vec)
+        ready4fun::unload_packages(package_chr_vec = required_pckg_chr_vec[required_pckg_chr_vec != 
+            ignore_ns_chr[1]])
         current_generics_ls <- make_current_generics_ls(required_pckg_chr_vec = required_pckg_chr_vec, 
             generic_chr = generic_chr)
     }
@@ -257,8 +258,10 @@ make_import_packages_ls <- function (current_generics_ls, fn_name_chr, ignore_ns
     gen_set_exists_lgl <- any(gen_set_exists_lgl_vec)
     setter_import_pckg <- ifelse(gen_set_exists_lgl, package_chr_vec[gen_set_exists_lgl_vec], 
         NA_character_)
-    list(getter_import_pckg = getter_import_pckg, setter_import_pckg = setter_import_pckg, 
-        gen_get_exists_lgl = gen_get_exists_lgl, gen_set_exists_lgl = gen_set_exists_lgl)
+    list(getter_import_pckg = getter_import_pckg[getter_import_pckg != 
+        ignore_ns_chr[1]], setter_import_pckg = setter_import_pckg[setter_import_pckg != 
+        ignore_ns_chr[1]], gen_get_exists_lgl = gen_get_exists_lgl, 
+        gen_set_exists_lgl = gen_set_exists_lgl)
 }
 #' Make include tag
 #' @description make_include_tag_chr() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make include tag.NA

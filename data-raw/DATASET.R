@@ -4,7 +4,7 @@
 library(magrittr)
 #
 # 2. Write standardised ready4 package set up.
-ready4fun::write_pkg_setup_fls_R(make_tmpl_vignette_lgl = T, # CHANGE TO FALSE
+ready4fun::write_pkg_setup_fls_R(#make_tmpl_vignette_lgl = T, # UNCOMMENT THIS ARGUMENT THE FIRST TIME THIS SCRIPT IS RUN, THEN CHANGE BACK
                                  incr_ver_lgl = F)
 #
 # 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
@@ -88,7 +88,7 @@ usethis::use_data(prototype_lup,overwrite = T, internal = T)
 
 ready4fun::write_ns_imps_to_desc()
 #
-# Push changes
+# 14. Manual step: Push changes
 
 
 
