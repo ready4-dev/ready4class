@@ -27,9 +27,8 @@ write_accessors <- function (slot_name_chr, set_only, import_packages_ls, class_
                   "meth_set_slot"), import_chr_vec = import_packages_ls$setter_import_pckg)), 
             .init = list(new_file_lgl = F, gnr_file = paste0(output_folder, 
                 "/gnrc_", slot_name_chr, ".R"), meth_file = ifelse(import_packages_ls$gen_get_exists_lgl, 
-                get_class_files_chr(class_names_chr_vec = class_name, 
-                  s3_lgl = F, output_dir_chr = output_folder), 
-                paste0(output_folder, "/gnrc_", slot_name_chr, 
+                paste0(output_folder, "/gs_", slot_name_chr, 
+                  ".R"), paste0(output_folder, "/gnrc_", slot_name_chr, 
                   ".R"))), ~write_gen_meth(fn_name_chr = .y[[1]], 
                 args_chr_vec = .y[[2]], package_chr = ".GlobalEnv", 
                 where_chr = "globalenv()", class_chr = class_name, 
@@ -159,11 +158,13 @@ write_generic_fn <- function (write_file_ls, generic_exists_lgl, gen_mthd_pair_l
         write_file_ls$meth_file <- write_file_ls$gnr_file
     }
     else {
-        if (else_lgl) {
+        if (!file.exists(write_file_ls$gnr_file)) {
             write_file_ls$meth_file <- paste0(output_dir_chr, 
                 ifelse(fn_type_chr %in% c("gen_std_s3_mthd", 
                   "gen_std_s4_mthd"), "/mthd_", "/gs_"), fn_name_chr, 
                 ".R")
+            if (!file.exists(write_file_ls$meth_file)) 
+                file.create(write_file_ls$meth_file)
         }
         else {
             write_file_ls$meth_file <- write_file_ls$gnr_file
