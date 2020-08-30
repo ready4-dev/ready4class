@@ -119,6 +119,7 @@ write_gen_meth <- function(fn_name_chr,
                                     fn_desc_chr = fn_desc_chr_vec[1],
                                     fn_out_type_chr = NA_character_,
                                     fn_title_chr = fn_title_chr,
+                                    class_name_chr = class_chr,
                                     output_dir_chr = output_dir_chr,
                                     overwrite_lgl = overwrite_lgl,
                                     s3_lgl = s3_lgl,
@@ -173,10 +174,12 @@ write_generic_fn <- function(write_file_ls,
     }
     write_file_ls$meth_file <- write_file_ls$gnr_file
   }else{
-    if(else_lgl){
+    if(!else_lgl){
       write_file_ls$meth_file <- get_class_files_chr(class_names_chr_vec = class_name_chr,
                                                      s3_lgl = s3_lgl,
                                                      output_dir_chr = output_dir_chr)
+    }else{
+      write_file_ls$meth_file <- write_file_ls$gnr_file
     }
   }
   write_file_ls
@@ -224,7 +227,7 @@ write_accessors <- function(slot_name_chr,
                                         fn = eval(parse(text=paste0("function(x){","x@",slot_name_chr,"}"))),
                                         fn_type_chr_vec = c("gen_get_slot","meth_get_slot"),
                                         import_chr_vec = import_packages_ls$getter_import_pckg),
-                       setter_ls = list(fn_name_chr = paste0(slot_name_chr,"<-"),
+                       setter_ls = list(fn_name_chr = assign_to_slot_chr,
                                         args_chr_vec = c("x","value"),
                                         fn = eval(parse(text=paste0("function(x, value) {",
                                                                     "\nx@",slot_name_chr,' <- value',
@@ -238,9 +241,14 @@ write_accessors <- function(slot_name_chr,
                                                  "/gnrc_",
                                                  slot_name_chr,
                                                  ".R"),
-                               meth_file = get_class_files_chr(class_names_chr_vec = class_name,
+                               meth_file = ifelse(import_packages_ls$gen_get_exists_lgl,
+                                                  get_class_files_chr(class_names_chr_vec = class_name,
                                                                s3_lgl = F,
-                                                               output_dir_chr = output_folder)),
+                                                               output_dir_chr = output_folder),
+                                                  paste0(output_folder,
+                                                         "/gnrc_",
+                                                         slot_name_chr,
+                                                         ".R"))),
                   ~ write_gen_meth(fn_name_chr = .y[[1]],
                                    args_chr_vec = .y[[2]],
                                    package_chr = ".GlobalEnv",
