@@ -160,8 +160,10 @@ write_generic_fn <- function (write_file_ls, generic_exists_lgl, gen_mthd_pair_l
     }
     else {
         if (else_lgl) {
-            write_file_ls$meth_file <- get_class_files_chr(class_names_chr_vec = class_name_chr, 
-                s3_lgl = s3_lgl, output_dir_chr = output_dir_chr)
+            write_file_ls$meth_file <- paste0(output_dir_chr, 
+                ifelse(fn_type_chr %in% c("gen_std_s3_mthd", 
+                  "gen_std_s4_mthd"), "/mthd_", "/gs_"), fn_name_chr, 
+                ".R")
         }
         else {
             write_file_ls$meth_file <- write_file_ls$gnr_file
