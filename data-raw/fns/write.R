@@ -174,7 +174,7 @@ write_generic_fn <- function(write_file_ls,
     }
     write_file_ls$meth_file <- write_file_ls$gnr_file
   }else{
-    if(!else_lgl){
+    if(else_lgl){
       write_file_ls$meth_file <- get_class_files_chr(class_names_chr_vec = class_name_chr,
                                                      s3_lgl = s3_lgl,
                                                      output_dir_chr = output_dir_chr)
