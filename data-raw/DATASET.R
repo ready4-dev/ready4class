@@ -4,14 +4,14 @@
 library(magrittr)
 #
 # 2. Write standardised ready4 package set up.
-ready4fun::write_pkg_setup_fls_R(#make_tmpl_vignette_lgl = T, # UNCOMMENT THIS ARGUMENT THE FIRST TIME THIS SCRIPT IS RUN, THEN CHANGE BACK
+ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, # UNCOMMENT THIS ARGUMENT THE FIRST TIME THIS SCRIPT IS RUN, THEN CHANGE BACK
                                  incr_ver_lgl = F)
 #
 # 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
 # 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
-ready4fun::make_abbr_lup_tb(short_name_chr_vec = c("col","inst", "ready4_class_make_tb","ready4_class_pt_lup"),
+ready4fun::write_abbr_lup(short_name_chr_vec = c("col","inst", "ready4_class_make_tb","ready4_class_pt_lup"),
                             long_name_chr_vec = c("column","instance",
                                                   "Class Make Table readyforwhatsnext S3 class",
                                                   "Class Prototype Lookup Table readyforwhatsnext S3 class"),
@@ -24,7 +24,7 @@ data("abbreviations_lup")
 data("fn_type_lup_tb")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
-ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
+ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Create", "Delete",
                                               "Gen", # Needs to be complete word - update functions to reflect this.
                                               "Resolve","Set","Simplify","Validate"),
                            fn_type_desc_chr = c("Creates a new R object.",
@@ -34,7 +34,7 @@ ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
                                                 "Sets the value of an object.",
                                                 "Simplifies and object.",
                                                 "Validates an object.")) %>%
-  ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Add Class","Make and Update",
+  ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class","Make and Update",
                                                 "Make Classes", # Should be "write" titled
                                                 "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),
                              fn_type_desc_chr = c("Adds information about a class.",
@@ -46,12 +46,12 @@ ready4fun::add_rows_to_fn_type_lup_tb(fn_type_nm_chr = c("Create", "Delete",
                                                   "Updates a lookup table with namespace data."),
                              is_generic_lgl = T,
                              is_method_lgl = T) %>%
-  ready4fun::make_and_doc_fn_type_R(#pkg_nm_chr = pkg_nm_chr,
+  ready4fun::write_dmtd_fn_type_lup(#pkg_nm_chr = pkg_nm_chr,
                        url_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
 data("fn_type_lup_tb")
 # 7. Create a table of all functions to document
-all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(custom_dmt_ls = list(details_ls = NULL,
+all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
                                                            export_ls = list(force_true_chr_vec = c("make_and_update"),
                                                                             force_false_chr_vec = NA_character_),
                                                            args_ls_ls = NULL),
@@ -61,7 +61,7 @@ all_fns_dmt_tb <- ready4fun::make_all_fns_dmt_tb(custom_dmt_ls = list(details_ls
 ## 8. Write and document.
 # 8.1 Write documented methods to R directory.
 ## Note files to be rewritten cannot be open in RStudio.
-ready4fun::write_and_doc_fn_fls_R(all_fns_dmt_tb,
+ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                                   r_dir_chr = "R")
 #
 # 8.2 Update Description file with imported packages.
@@ -82,7 +82,7 @@ prototype_lup <- make_and_update(classes_to_make_tb,
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 12. MANUAL STEP - WRITE vignettes
-# ENSURE that ready4fun::write_pkg_setup_fls_R function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
+# ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
 # 13. Update documentation
 

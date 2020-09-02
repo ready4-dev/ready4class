@@ -70,7 +70,7 @@ set_ready_class <- function (class_name, class_slots, type, proto_ls, parent, pr
     else {
         st_class_fn <- paste0("methods::setClass(", make_className_chr(class_name, 
             package_chr = resolve_parent_ns_chr(parent_ns_ls) %>% 
-                ready4fun::update_ns_chr()), ",\ncontains = \"", 
+                ready4fun::update_ns()), ",\ncontains = \"", 
             parent, "\",\nslots = ", slot_str, ",\nprototype =  ", 
             proto_ls, ",\nwhere =  ", "globalenv()", ")")
         parent_slots_chr_vec <- get_parent_slot_names(parent_chr = parent, 
@@ -104,7 +104,7 @@ set_ready_class <- function (class_name, class_slots, type, proto_ls, parent, pr
                 " <- ")), st_class_fn %>% stringr::str_replace(paste0(",\nwhere =  ", 
                 "globalenv\\(\\)"), "") %>% simplify_class_name(package_chr = ifelse(is.null(parent), 
                 ".GlobalEnv", resolve_parent_ns_chr(parent_ns_ls) %>% 
-                  ready4fun::update_ns_chr())), "\n"))
+                  ready4fun::update_ns())), "\n"))
         ready4fun::close_open_sinks()
     }
     eval(parse(text = st_class_fn))

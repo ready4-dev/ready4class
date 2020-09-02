@@ -1,6 +1,6 @@
 make_and_update.ready4_class_make_tb  <- function(x,
-                                                  dev_pckg_namespace = ready4fun::get_dev_pkg_nm_1L_chr(),
-                                                  name_prefix = paste0(ready4fun::get_dev_pkg_nm_1L_chr(),"_"),
+                                                  dev_pckg_namespace = ready4fun::get_dev_pkg_nm(),
+                                                  name_prefix = paste0(ready4fun::get_dev_pkg_nm(),"_"),
                                                   output_dir = "R",
                                                   delete_files_pattern_chr_vec = NA_character_,
                                                   file_exists_logic = "overwrite",

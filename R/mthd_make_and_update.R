@@ -1,8 +1,8 @@
 #' Make and update method applied to Class Make Table readyforwhatsnext S3 class.
 #' @description make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 #' @param x PARAM_DESCRIPTION
-#' @param dev_pckg_namespace PARAM_DESCRIPTION, Default: ready4fun::get_dev_pkg_nm_1L_chr()
-#' @param name_prefix PARAM_DESCRIPTION, Default: paste0(ready4fun::get_dev_pkg_nm_1L_chr(), "_")
+#' @param dev_pckg_namespace PARAM_DESCRIPTION, Default: ready4fun::get_dev_pkg_nm()
+#' @param name_prefix PARAM_DESCRIPTION, Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir PARAM_DESCRIPTION, Default: 'R'
 #' @param delete_files_pattern_chr_vec Delete files pattern (a character vector), Default: 'NA'
 #' @param file_exists_logic PARAM_DESCRIPTION, Default: 'overwrite'
@@ -16,8 +16,8 @@
 #' @importFrom ready4fun get_dev_pkg_nm_1L_chr
 #' @importFrom purrr walk reduce
 #' @keywords internal
-make_and_update.ready4_class_make_tb <- function (x, dev_pckg_namespace = ready4fun::get_dev_pkg_nm_1L_chr(), 
-    name_prefix = paste0(ready4fun::get_dev_pkg_nm_1L_chr(), 
+make_and_update.ready4_class_make_tb <- function (x, dev_pckg_namespace = ready4fun::get_dev_pkg_nm(), 
+    name_prefix = paste0(ready4fun::get_dev_pkg_nm(), 
         "_"), output_dir = "R", delete_files_pattern_chr_vec = NA_character_, 
     file_exists_logic = "overwrite", init_class_pt_lup = NULL, 
     ignore_ns_chr = NA_character_, required_pckg_chr_vec = NA_character_, 

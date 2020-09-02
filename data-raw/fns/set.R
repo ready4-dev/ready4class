@@ -65,7 +65,7 @@ set_ready_class <- function(class_name,
     st_class_fn <- paste0("methods::setClass(",
                           make_className_chr(class_name,
                                              package_chr = resolve_parent_ns_chr(parent_ns_ls) %>%
-                                               ready4fun::update_ns_chr()),
+                                               ready4fun::update_ns()),
                           ",\ncontains = \"",
                           parent,
                           "\",\nslots = ",
@@ -122,7 +122,7 @@ set_ready_class <- function(class_name,
                         simplify_class_name(package_chr = ifelse(is.null(parent),
                                                                  ".GlobalEnv",
                                                                  resolve_parent_ns_chr(parent_ns_ls) %>%
-                                                                   ready4fun::update_ns_chr())),
+                                                                   ready4fun::update_ns())),
                       "\n"))
     ready4fun::close_open_sinks()
   }

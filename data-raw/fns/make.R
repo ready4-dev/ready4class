@@ -18,7 +18,7 @@ make_new_classes <- function(new_classes_ls,
                     required_pckg_chr_vec = required_pckg_chr_vec, ## Need to implement new delete package logic now documenting and loading package with each new class.
                     class_in_cache_logic_chr = "overwrite")
   usethis::use_data(pt_lup,overwrite = T)
-  ready4fun::write_pt_lup_db_R()
+  ready4fun::write_pt_lup_db()
   devtools::document()
   devtools::load_all()
   pt_lup
@@ -267,7 +267,7 @@ make_current_generics_ls <- function(required_pckg_chr_vec,
                                      generic_chr){
   if(!required_pckg_chr_vec %>% purrr::discard(is.na) %>% identical(character(0)))
     purrr::walk(required_pckg_chr_vec %>% purrr::discard(is.na),
-                ~ ready4fun::force_req_pkg_install(.x))
+                ~ ready4fun::force_instl_of_reqd_pkg(.x))
   current_gens_s4 <- methods::getGenerics()
   package_chr_vec <- current_gens_s4@package
   current_gens_chr_vec <- names(package_chr_vec) %>% stringr::str_replace_all("..GlobalEnv","")

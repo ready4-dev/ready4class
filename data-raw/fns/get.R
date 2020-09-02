@@ -52,9 +52,9 @@ get_parent_prototypes <- function(parent_chr,
             ifelse(is.na(parent_ns_ls$transformed_chr),
                    F,
                    parent_ns_ls$transformed_chr!="")))
-    ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
+    ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
   purrr::map_chr(slot_names_chr_vec,
-                 ~ ready4fun::get_r4_obj_slots_chr_vec(parent_chr,
+                 ~ ready4fun::get_r4_obj_slots_vec(parent_chr,
                                     package_chr = resolve_parent_ns_chr(parent_ns_ls))[[.x]])
 }
 get_parent_slot_names <- function(parent_chr,
@@ -64,8 +64,8 @@ get_parent_slot_names <- function(parent_chr,
             ifelse(is.na(parent_ns_ls$transformed_chr),
                    F,
                    parent_ns_ls$transformed_chr!="")))
-    ready4fun::force_req_pkg_install(parent_ns_ls$transformed_chr)
-  ready4fun::get_r4_obj_slots_chr_vec(parent_chr,
+    ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
+  ready4fun::get_r4_obj_slots_vec(parent_chr,
                    package = resolve_parent_ns_chr(parent_ns_ls)) %>% names()
 }
 get_proto_list <- function(class_slots,
