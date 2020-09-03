@@ -65,4 +65,4 @@ tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(fns_chr == "write_scripts_t
                                                      TRUE ~ new_nm))
 tb <- tb %>% dplyr::mutate(duplicated_lgl = duplicated(new_nm))
 any(tb$duplicated_lgl)
-# replace_fn_nms(tb)
+# write_to_replace_fn_nms(tb)

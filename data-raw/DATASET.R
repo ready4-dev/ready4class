@@ -29,10 +29,11 @@ options(usethis.description = list(
   ),
   License = usethis::use_gpl3_license()
 ))
-ready4fun::write_to_reset_pkg_files("R") # Deletes contents of R directory and resets DESCRIPTION and NAMESPACE files.
+# Deletes contents of R directory and resets DESCRIPTION and NAMESPACE files.
+ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, First time script is run this should be un-commented then switched off again.
+  incr_ver_1L_lgl = F,
+  delete_contents_of_R_dir = T)
 # PAUSE FOR INTERACTIVE
-ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_1L_lgl = T, # UN-COMMENT THIS ARGUMENT THE FIRST TIME THIS SCRIPT IS RUN, THEN CHANGE BACK
-                                 incr_ver_1L_lgl = F)
 #
 # 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
@@ -78,13 +79,10 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
                                       abbreviations_lup = abbreviations_lup)
 
 ## 8. Write and document.
-# 8.1 Write documented methods to R directory.
 ## Note files to be rewritten cannot be open in RStudio.
 ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
-                                  r_dir_chr = "R")
-#
-# 8.2 Update Description file with imported packages.
-ready4fun::write_ns_imps_to_desc(incr_ver_lgl = F)
+                     r_dir_1L_chr = "R",
+                     dev_pkgs_chr = "ready4fun")
 ##
 ## 9. Run script to make package classes.
 source("data-raw/MAKE_CLASSES.R")
