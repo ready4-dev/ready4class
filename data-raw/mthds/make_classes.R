@@ -4,7 +4,7 @@ make_classes.ready4_class_make_tb <- function(x,
                                               file_exists_logic = NULL,
                                               prototype_lup = NULL,
                                               ignore_ns_chr,
-                                              required_pckg_chr_vec = NA_character_,
+                                              req_pkgs_chr = NA_character_,
                                               class_in_cache_logic_chr = "stop"){
   purrr::pwalk(x %>% dplyr::filter(make_s3 == T),
                ~ write_scripts_to_mk_r3_clss(name_stub = ..2,
@@ -40,7 +40,7 @@ make_classes.ready4_class_make_tb <- function(x,
                                include_classes = ..14[[1]],
                                prototype_lup = prototype_lup,
                                ignore_ns_chr = ignore_ns_chr,
-                               required_pckg_chr_vec = required_pckg_chr_vec,
+                               req_pkgs_chr = req_pkgs_chr,
                                class_in_cache_logic_chr = class_in_cache_logic_chr))
 }
 

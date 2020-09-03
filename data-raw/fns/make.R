@@ -1,28 +1,30 @@
-make_alg_to_gen_ref_to_cls <- function(class_chr,
-                                       package_chr = ".GlobalEnv"){
-  paste0("methods::className(\"",
-         class_chr,
+make_alg_to_gen_ref_to_cls <- function(class_nm_1L_chr,
+                                       pkg_nm_1L_chr = ".GlobalEnv"){
+  alg_to_gen_ref_to_cls_1L_chr <- paste0("methods::className(\"",
+         class_nm_1L_chr,
          "\",\"",
-         package_chr,
+         pkg_nm_1L_chr,
          "\")")
+  return(alg_to_gen_ref_to_cls_1L_chr)
 }
 make_alg_to_set_gnrc <- function(name_chr,
                                  args_chr_vec = c("x"),
                                  signature_chr = NA_character_,
                                  where_chr = NA_character_){
-  paste0('methods::setGeneric(\"', name_chr,'\"',
+  alg_to_set_gnrc_1L_chr <- paste0('methods::setGeneric(\"', name_chr,'\"',
          ifelse(is.na(args_chr_vec[1]),
                 '',
                 paste0(', ',make_gnrc_fn(name_chr,args_chr_vec = args_chr_vec))),
          ifelse(is.na(where_chr[1]),'',paste0(',\nwhere =  ', where_chr)),
          ifelse(is.na(signature_chr[1]),'',paste0(',\nsignature =  \"', signature_chr,'\"')),
          ')' )
+  return(alg_to_set_gnrc_1L_chr)
 }
 make_alg_to_get_pt_val <- function(type_namespace = "",
                                    function_to_call = "",
                                    default_value = "",
                                    namespace_contexts = c("base")){
-  paste0(ifelse(type_namespace %in% namespace_contexts,
+  alg_to_get_pt_val_1L_chr <- paste0(ifelse(type_namespace %in% namespace_contexts,
                 "",
                 paste0(type_namespace,"::")),
          function_to_call,
@@ -34,17 +36,19 @@ make_alg_to_get_pt_val <- function(type_namespace = "",
                 "",
                 ")")
   )
+  return(alg_to_get_pt_val_1L_chr)
 }
 make_alg_to_set_mthd <- function(name_chr,
-                                 class_chr,
+                                 class_nm_1L_chr,
                                  fn,
-                                 package_chr = NA_character_ ,
+                                 pkg_nm_1L_chr = NA_character_ ,
                                  where_chr = NA_character_){
-  paste0('methods::setMethod(\"', name_chr, '\"',
-         ', ',ifelse(is.na(package_chr[1]),paste0('\"',class_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_chr,package_chr=package_chr))),
+  alg_to_set_mthd_1L_chr <- paste0('methods::setMethod(\"', name_chr, '\"',
+         ', ',ifelse(is.na(pkg_nm_1L_chr[1]),paste0('\"',class_nm_1L_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_nm_1L_chr,pkg_nm_1L_chr=pkg_nm_1L_chr))),
          ', ', transform_fn_into_chr(fn),
          ifelse(is.na(where_chr[1]),'',paste0(',\nwhere =  ', where_chr)),
          ')')
+  return(alg_to_set_mthd_1L_chr)
 }
 make_alg_to_set_old_clss <- function(type,
                                      prototype_lup){
@@ -56,7 +60,7 @@ make_alg_to_set_old_clss <- function(type,
                                                               evaluate_lgl = FALSE)
   )
   if(!identical(type[index_of_s3],character(0))){
-    purrr::map_chr(type[index_of_s3],
+    alg_to_set_old_clss_1L_chr <- purrr::map_chr(type[index_of_s3],
                    ~ paste0("setOldClass(c(\"",
                             .x,
                             "\",\"tbl_df\", \"tbl\", \"data.frame\")",
@@ -64,22 +68,20 @@ make_alg_to_set_old_clss <- function(type,
                             "globalenv()",
                             ")")) %>% stringr::str_c(sep="",collapse="\n")
   }else{
-    character(0)
+    alg_to_set_old_clss_1L_chr <- character(0)
   }
-  # purrr::walk(type[index_of_s3],
-  #             ~ setOldClass(.x, where = globalenv()))
-
+  return(alg_to_set_old_clss_1L_chr)
 }
 make_alg_to_set_validity_of_r4_cls <- function(class_name,
-                                               parent,
+                                               parent_cls_nm_1L_chr,
                                                not_same_length = NULL,
                                                allowed_values = NULL,
                                                names_include = NULL,
                                                print_validator = FALSE){
   same_lngth_cond <- allowed_cond_vec <- names_include_vec <- NA_character_
   all_slots <- ready4fun::get_r4_obj_slots(class_name) %>% names()
-  if(!is.null(parent)){
-    parental_slots <- ready4fun::get_r4_obj_slots(parent) %>% names()
+  if(!is.null(parent_cls_nm_1L_chr)){
+    parental_slots <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% names()
     all_slots <- all_slots[! all_slots %in% parental_slots]
   }
   if(!is.null(not_same_length)){
@@ -158,38 +160,39 @@ make_alg_to_set_validity_of_r4_cls <- function(class_name,
                            ifelse(is.na(names_include_vec),"",names_include_vec), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
                            "if (is.null(msg)) TRUE else msg",
                            "\n}")
-  paste0("methods::setValidity(",
+  alg_to_set_validity_of_r4_cls_1L_chr <- paste0("methods::setValidity(",
          make_alg_to_gen_ref_to_cls(class_name),
          ",\n",
          valid_function,
          ",\nwhere =  ",
          "globalenv()",
          ")")
+  return(alg_to_set_validity_of_r4_cls_1L_chr)
 }
 make_alg_to_write_gtr_str_mthds <- function(class_name,
-                                            parent,
+                                            parent_cls_nm_1L_chr,
                                             print_accessors,
                                             output_folder,
                                             ignore_ns_chr,
-                                            required_pckg_chr_vec,
+                                            req_pkgs_chr,
                                             parent_ns_ls){
-  slot_names_chr_vec <- get_r4_obj_slots_chr_vec(class_name) %>% names()
-  if(is.null(parent)){
+  slot_names_chr <- ready4fun::get_r4_obj_slots(class_name) %>% names()
+  if(is.null(parent_cls_nm_1L_chr)){
     set_only <- ""
   }else{
-    set_only  <- get_r4_obj_slots_chr_vec(parent,
-                                          package_chr = transform_parent_ns_ls(parent_ns_ls)) %>% names()
+    set_only  <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
+                                          package_1L_chr = transform_parent_ns_ls(parent_ns_ls)) %>% names()
   }
-  accessors <- paste0("write_gtr_str_mthds_for_slots(",
-                      "slot_names_chr_vec = c(\"",
-                      slot_names_chr_vec %>% stringr::str_c(collapse="\",\""),
+  alg_to_write_gtr_str_mthds <- paste0("write_gtr_str_mthds_for_slots(",
+                      "slot_names_chr = c(\"",
+                      slot_names_chr %>% stringr::str_c(collapse="\",\""),
                       "\")",
                       ",",
                       "set_only = c(\"",
                       set_only %>% stringr::str_c(collapse="\",\""),
                       "\")",
-                      ",parent = \"",
-                      parent,"\",",
+                      ",parent_cls_nm_1L_chr = \"",
+                      parent_cls_nm_1L_chr,"\",",
                       "class_name = \"", class_name,
                       "\", print_accessors = ",
                       print_accessors,
@@ -197,16 +200,16 @@ make_alg_to_write_gtr_str_mthds <- function(class_name,
                       ",ignore_ns_chr = c(\"",
                       ignore_ns_chr  %>% stringr::str_c(collapse="\",\""),
                       "\")",
-                      ",required_pckg_chr_vec = \"",required_pckg_chr_vec,"\"",
+                      ",req_pkgs_chr = \"",req_pkgs_chr,"\"",
                       ")")
-  return(accessors)
+  return(alg_to_write_gtr_str_mthds)
 }
 make_child_cls_fn_body <- function(child_ext_fn_chr,
-                                   parent_chr,
+                                   parent_cls_nm_1L_chr,
                                    prototype_lup,
                                    prepend_lgl = T){
-  if(!is.null(parent_chr)){
-    parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_chr = parent_chr,
+  if(!is.null(parent_cls_nm_1L_chr)){
+    parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                 prototype_lup = prototype_lup)
     child_extension_tb <- eval(parse(text=child_ext_fn_chr))
     new_fn_chr <-paste0("purrr::reduce(names(",
@@ -222,13 +225,14 @@ make_child_cls_fn_body <- function(child_ext_fn_chr,
                           c(names(child_extension_tb),names(parse(text = parent_proto_fn_chr) %>% eval())) %>%
                             stringr::str_c(collapse = ","),
                           "))")
-    new_fn_chr
+    child_cls_fn_body_1L_chr <- new_fn_chr
   }else{
-    child_ext_fn_chr
+    child_cls_fn_body_1L_chr <- child_ext_fn_chr
   }
+  return(child_cls_fn_body_1L_chr)
 }
 make_class_pt_tb_for_r3_and_r4_clss <- function(class_mk_ls){
-  purrr::map2_dfr(class_mk_ls,
+  class_pt_tb_for_r3_and_r4_clss_tb <- purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
                   ~ {
                     if(.y=="s3_ls"){
@@ -238,71 +242,76 @@ make_class_pt_tb_for_r3_and_r4_clss <- function(class_mk_ls){
                     }
                     rlang::exec(fn,.x)
                   })
+  return(class_pt_tb_for_r3_and_r4_clss_tb)
 }
 make_class_pts_tb <- function(class_mk_ls){
-  purrr::map2_dfr(class_mk_ls,
+  class_pts_tb <- purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
                   ~ make_one_row_class_pt_tb(.x,
                                              make_s3_lgl = ifelse(.y=="s3_ls",T,F))
 
   )
+  return(class_pts_tb)
 }
-make_dmt_inc_tag <- function(class_names_chr_vec,
+make_dmt_inc_tag <- function(class_names_chr,
                              s3_lgl = T){
-  ifelse(!is.null(class_names_chr_vec),
-         paste0("#' @include ",get_class_fl_nms(class_names_chr_vec = class_names_chr_vec, s3_lgl = s3_lgl) %>% stringr::str_c(collapse=" "),"\n"),
+  dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr),
+         paste0("#' @include ",get_class_fl_nms(class_names_chr = class_names_chr, s3_lgl = s3_lgl) %>% stringr::str_c(collapse=" "),"\n"),
          "")
+  return(dmt_inc_tag_1L_chr)
 }
 make_gnrc_fn <- function(name_chr,
                             args_chr_vec){
   if(all(!is.na(args_chr_vec))){
-    paste0('function(',paste0(args_chr_vec, collapse = ", "),') standardGeneric("', name_chr,'")')
+    gnrc_fn_1L_chr <- paste0('function(',paste0(args_chr_vec, collapse = ", "),') standardGeneric("', name_chr,'")')
   }else{
-    ""
+    gnrc_fn_1L_chr <- ""
   }
+  return(gnrc_fn_1L_chr)
 }
 make_gnrc_mthd_pair_ls <- function(name_chr,
                                   args_chr_vec = c("x"),
                                   signature_chr = NA_character_,
-                                  package_chr = NA_character_ ,
+                                  pkg_nm_1L_chr = NA_character_ ,
                                   where_chr = NA_character_,
-                                  class_chr,
+                                  class_nm_1L_chr,
                                   fn){
-  list(generic_chr = make_alg_to_set_gnrc(name_chr,
+  gnrc_mthd_pair_ls <- list(generic_1L_chr = make_alg_to_set_gnrc(name_chr,
                                       args_chr_vec = args_chr_vec,
                                       signature_chr = signature_chr,
                                       where_chr = where_chr),
        method_chr = make_alg_to_set_mthd(name_chr,
-                                    class_chr = class_chr,
+                                    class_nm_1L_chr = class_nm_1L_chr,
                                     fn = fn,
-                                    package_chr = package_chr,
+                                    pkg_nm_1L_chr = pkg_nm_1L_chr,
                                     where_chr = where_chr),
        gen_fn_chr = make_gnrc_fn(name_chr,
                                     args_chr_vec = args_chr_vec),
        meth_fn_chr = transform_fn_into_chr(fn))
+  return(gnrc_mthd_pair_ls)
 }
 make_helper_fn <- function(class_name,
-                           parent,
+                           parent_cls_nm_1L_chr,
                            class_slots,
-                           proto_ls,
+                           pt_ls,
                            prototype_lup,
                            parent_ns_ls){
-  if(!is.null(parent)){
+  if(!is.null(parent_cls_nm_1L_chr)){
     child_slots_chr <- class_slots
-    class_slots <- get_parent_cls_slot_nms(parent_chr = parent, parent_ns_ls = parent_ns_ls)
-    parent_proto <- get_parent_cls_pts(parent_chr = parent, parent_ns_ls = parent_ns_ls, slot_names_chr_vec = class_slots)
-    child_ls_chr <- proto_ls %>% stringr::str_sub(start = 6, end = -2)
-    proto_ls <- make_pt_ls(class_slots = class_slots,
+    class_slots <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls)
+    parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls, slot_names_chr = class_slots)
+    child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, end = -2)
+    pt_ls <- make_pt_ls(class_slots = class_slots,
                            type = parent_proto,
                            prototype_lup = prototype_lup)
-    proto_ls <- paste0(proto_ls %>% stringr::str_sub(end = -2),
+    pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2),
                        ",",
                        child_ls_chr,
                        ")")
     class_slots <- c(class_slots, child_slots_chr)
   }
-  func_args <- proto_ls %>% stringr::str_replace("list","function") %>% stringr::str_replace_all(",",",\n")
-  helper_function <- paste0(class_name,
+  func_args <- pt_ls %>% stringr::str_replace("list","function") %>% stringr::str_replace_all(",",",\n")
+  helper_fn_1L_chr <- paste0(class_name,
                             " <- ",
                             func_args,
                             "{ \n",
@@ -311,7 +320,7 @@ make_helper_fn <- function(class_name,
                             "\",\n",
                             paste0(class_slots," = ",class_slots) %>% stringr::str_c(sep="",collapse=",\n"),
                             ")\n}")
-  return(helper_function)
+  return(helper_fn_1L_chr)
 }
 make_lines_for_writing_dmtd_fn <- function(fn_name,
                                            fn_text,
@@ -328,40 +337,41 @@ make_lines_for_writing_dmtd_fn <- function(fn_name,
 make_ls_of_pkgs_to_imp <- function(current_generics_ls,
                                    fn_name_chr,
                                    ignore_ns_chr){
-  package_chr_vec <- current_generics_ls$package_chr_vec[!current_generics_ls$package_chr_vec %in% c(".GlobalEnv")]
-  gen_get_exists_lgl_vec <- purrr::map2_lgl(package_chr_vec, names(package_chr_vec), ~ ((.x == fn_name_chr | .y == paste0(fn_name_chr,".",.x)) & !.x %in% ignore_ns_chr))
+  packages_chr <- current_generics_ls$packages_chr[!current_generics_ls$packages_chr %in% c(".GlobalEnv")]
+  gen_get_exists_lgl_vec <- purrr::map2_lgl(packages_chr, names(packages_chr), ~ ((.x == fn_name_chr | .y == paste0(fn_name_chr,".",.x)) & !.x %in% ignore_ns_chr))
   gen_get_exists_lgl <- any(gen_get_exists_lgl_vec)
-  getter_import_pckg <- ifelse(gen_get_exists_lgl,package_chr_vec[gen_get_exists_lgl_vec],NA_character_)
-  gen_set_exists_lgl_vec <- purrr::map2_lgl(package_chr_vec, names(package_chr_vec), ~ ((.x == paste0(fn_name_chr,"<-") | .y == paste0(fn_name_chr,"<-.",.x)) & !.x %in% ignore_ns_chr))
+  getter_import_pckg <- ifelse(gen_get_exists_lgl,packages_chr[gen_get_exists_lgl_vec],NA_character_)
+  gen_set_exists_lgl_vec <- purrr::map2_lgl(packages_chr, names(packages_chr), ~ ((.x == paste0(fn_name_chr,"<-") | .y == paste0(fn_name_chr,"<-.",.x)) & !.x %in% ignore_ns_chr))
   gen_set_exists_lgl <- any(gen_set_exists_lgl_vec)
-  setter_import_pckg <- ifelse(gen_set_exists_lgl,package_chr_vec[gen_set_exists_lgl_vec],NA_character_)
-  list(getter_import_pckg = getter_import_pckg[getter_import_pckg != ignore_ns_chr[1]],
+  setter_import_pckg <- ifelse(gen_set_exists_lgl,packages_chr[gen_set_exists_lgl_vec],NA_character_)
+  ls_of_pkgs_to_imp_ls <- list(getter_import_pckg = getter_import_pckg[getter_import_pckg != ignore_ns_chr[1]],
        setter_import_pckg = setter_import_pckg[setter_import_pckg != ignore_ns_chr[1]],
        gen_get_exists_lgl = gen_get_exists_lgl,
        gen_set_exists_lgl = gen_set_exists_lgl)
+  return(ls_of_pkgs_to_imp_ls)
 }
-make_ls_of_tfd_nms_of_curr_gnrcs <- function(required_pckg_chr_vec,
-                                             generic_chr,
+make_ls_of_tfd_nms_of_curr_gnrcs <- function(req_pkgs_chr,
+                                             generic_1L_chr,
                                              ignore_ns_chr){
-  current_generics_ls <- get_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec,
-                                               generic_chr = generic_chr)
+  current_generics_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
+                                               generic_1L_chr = generic_1L_chr)
   if(is.na(ignore_ns_chr[1])){
     dependencies_chr_vec <- character(0)
   }else{
     dependencies_chr_vec <- gtools::getDependencies(ignore_ns_chr[1])
   }
-  if(!required_pckg_chr_vec %>% purrr::discard(is.na) %>% identical(character(0)))
-    required_pckg_chr_vec <- required_pckg_chr_vec[!required_pckg_chr_vec %in% dependencies_chr_vec]
-  if(current_generics_ls$in_global_lgl){
-    ready4fun::unload_packages(package_chr = required_pckg_chr_vec[required_pckg_chr_vec != ignore_ns_chr[1]])
-    current_generics_ls <- get_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec,
-                                                 generic_chr = generic_chr)
+  if(!req_pkgs_chr %>% purrr::discard(is.na) %>% identical(character(0)))
+    req_pkgs_chr <- req_pkgs_chr[!req_pkgs_chr %in% dependencies_chr_vec]
+  if(current_generics_ls$in_global_1L_lgl){
+    ready4fun::unload_packages(package_chr = req_pkgs_chr[req_pkgs_chr != ignore_ns_chr[1]])
+    current_generics_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
+                                                 generic_1L_chr = generic_1L_chr)
   }
-  current_generics_ls
+  return(current_generics_ls)
 }
 make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_lgl = T){
-  cl_mk_tb <- class_type_mk_ls  %>%
+  one_row_class_pt_tb <- class_type_mk_ls  %>%
     purrr:::reduce(.init = ready4_class_make_tb(),
                    ~ {
                      testit::assert(paste0("Allowable list element names are: ", names(.x) %>% paste0(collapse = ",")),names(.y) %in% names(.x))
@@ -371,14 +381,14 @@ make_one_row_class_pt_tb <- function(class_type_mk_ls,
     dplyr::mutate(make_s3 = make_s3_lgl)  %>%
     remake_ls_cols()
   if(make_s3_lgl){
-    cl_mk_tb <- cl_mk_tb %>%
+    one_row_class_pt_tb <- one_row_class_pt_tb %>%
       dplyr::mutate_at(c("class_slots","include_classes"),
                        ~ purrr::flatten(.x))
   }
-  cl_mk_tb
+  return(one_row_class_pt_tb)
 }
 make_one_row_pt_tb_for_new_r3_cls <- function(x){
-  make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
+  one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
                              prototype = x@prototype_ls,
                              prototype_checker_prefix = x@prototype_chk_pfx_ls,
                              prototype_namespace = x@prototype_ns_ls,
@@ -390,9 +400,10 @@ make_one_row_pt_tb_for_new_r3_cls <- function(x){
                              parent_class = x@parent_class_chr,
                              include_classes = x@include_classes_ls) %>% list(),
                         make_s3_lgl = T)
+  return(one_row_class_pt_tb)
 }
 make_one_row_pt_tb_for_new_r4_cls <- function(x){
-  make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
+  one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
                              prototype = x@prototype_ls,
                              values = x@values_ls,
                              allowed_values = x@allowed_values_ls,
@@ -402,13 +413,14 @@ make_one_row_pt_tb_for_new_r4_cls <- function(x){
                              meaningful_names = x@meaningful_names_ls,
                              include_classes = x@include_classes_ls) %>% list(),
                         make_s3_lgl = F)
+  return(one_row_class_pt_tb)
 }
 make_pt_ls <- function(class_slots,
                        type = NULL,
                        values = NULL,
                        make_val_string = TRUE,
                        prototype_lup){
-  proto_ls <- purrr::map2_chr(class_slots,
+  pt_ls <- purrr::map2_chr(class_slots,
                               type,
                               ~ paste0(.x,
                                        ' = ',
@@ -419,9 +431,9 @@ make_pt_ls <- function(class_slots,
                                                                    evaluate_lgl = FALSE)
                               ))
   if(!is.null(values)){
-    proto_ls <- purrr::pmap_chr(list(class_slots,
-                                     proto_ls,
-                                     1:length(proto_ls)),
+    pt_ls <- purrr::pmap_chr(list(class_slots,
+                                     pt_ls,
+                                     1:length(pt_ls)),
                                 ~ {
                                   if(..3 %in% 1:length(values)){
                                     paste0(..1,
@@ -435,9 +447,10 @@ make_pt_ls <- function(class_slots,
                                 })
 
   }
-  proto_ls %>%
+  pt_ls <- pt_ls %>%
     stringr::str_c(sep="",collapse=",") %>%
     paste0("list(",.,")")
+  return(pt_ls)
 }
 make_pt_ls_for_new_r3_cls <- function(class_name_chr,
                                   type_chr,
@@ -445,7 +458,7 @@ make_pt_ls_for_new_r3_cls <- function(class_name_chr,
                                   type_checker_pfx_chr,
                                   values_chr,
                                   ordered_lgl,
-                                  parent_chr,
+                                  parent_cls_nm_1L_chr,
                                   prototype_lup,
                                   min_max_values_dbl_vec,
                                   start_end_values_dbl_vec,
@@ -455,7 +468,7 @@ make_pt_ls_for_new_r3_cls <- function(class_name_chr,
                                           values = values_chr,
                                           ordered = ordered_lgl,
                                           class_name = class_name_chr,
-                                          parent_chr = parent_chr,
+                                          parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                           prototype_lup = prototype_lup)
   s3_constructor <- write_scripts_to_mk_r3_clss_constructor(type = type_chr,
                                               type_checker_prefix = type_checker_pfx_chr,
@@ -486,22 +499,25 @@ make_pt_ls_for_new_r3_cls <- function(class_name_chr,
                      validator = s3_validator$fn_text,
                      checker = s3_checker$fn_text)
   include_tags_chr <- get_parent_cls_ns(prototype_lup = prototype_lup,
-                                       parent_chr = parent_chr,
-                                       dev_pckg_ns_chr = ignore_ns_chr[1]) %>%
-    get_nms_of_clss_to_inc(parent_chr = parent_chr,
-                                 prespecified_includes_chr = NULL) %>%
+                                       parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                       dev_pkg_ns_1L_chr = ignore_ns_chr[1]) %>%
+    get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                 base_set_of_clss_to_inc_chr = NULL) %>%
     make_dmt_inc_tag(s3_lgl = T)
-  list(fn_name_ls = fn_name_ls,
+  pt_ls_for_new_r3_cls_ls <- list(fn_name_ls = fn_name_ls,
        fn_text_ls = fn_text_ls,
        include_tags_chr = include_tags_chr)
+  return(pt_ls_for_new_r3_cls_ls)
 }
 make_pt_tb_for_new_r3_cls <- function(x){
-  purrr::map_dfr(x,
+  pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x,
                  ~make_one_row_pt_tb_for_new_r3_cls(.x))
+  return(pt_tb_for_new_r3_cls_tb)
 }
 make_pt_tb_for_new_r4_cls <- function(x){
-  purrr::map_dfr(x,
+  pt_tb_for_new_r3_cls_tb <-purrr::map_dfr(x,
                  ~make_one_row_pt_tb_for_new_r4_cls(.x))
+  return(pt_tb_for_new_r3_cls_tb)
 }
 make_show_mthd_fn <- function(class_name,
                               meaningful_names){
@@ -518,11 +534,12 @@ make_show_mthd_fn <- function(class_name,
                          "\"\\n\",",
                          descriptive_str,
                          ",\nsep = \"\")}")
-  paste0("methods::setMethod(\"show\",\n",
+  show_mthd_fn_1L_chr <- paste0("methods::setMethod(\"show\",\n",
          make_alg_to_gen_ref_to_cls(class_name),
          ",\n",
          function_str,
          ',\nwhere =  ',
          'globalenv()',
          "\n)")
+  return(show_mthd_fn_1L_chr)
 }
