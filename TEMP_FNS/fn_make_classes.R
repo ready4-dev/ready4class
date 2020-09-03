@@ -33,7 +33,7 @@ write_scripts_to_mk_clss <- function(new_classes_ls,
                              required_pckg_chr_vec = NA_character_){
   reset_pkg_files_R(pckg_name_chr,
                    description_ls = description_ls)
-  pt_lup <- make_class_mk_tb(new_classes_ls) %>%
+  pt_lup <- make_class_pts_tb(new_classes_ls) %>%
     make_and_update(dev_pckg_namespace = pckg_name_chr,
                                  name_prefix = class_pfx_chr,
                                  output_dir = R_dir_chr,

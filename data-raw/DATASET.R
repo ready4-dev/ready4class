@@ -54,16 +54,6 @@ data("abbreviations_lup")
 data("fn_type_lup_tb")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
-ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Create", "Delete",
-                                              "Gen", # Needs to be complete word - update functions to reflect this.
-                                              "Resolve","Set","Simplify","Validate"),
-                           fn_type_desc_chr = c("Creates a new R object.",
-                                                "Deletes a file from a specified location.",
-                                                "Generates values for an object.",
-                                                "Resolves inconsistencies between two or more objects.",
-                                                "Sets the value of an object.",
-                                                "Simplifies and object.",
-                                                "Validates an object.")) %>%
   ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class","Make and Update",
                                                 "Make Classes", # Should be "write" titled
                                                 "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),

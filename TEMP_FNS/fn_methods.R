@@ -382,9 +382,9 @@ make_gnrc_fn <- function(name_chr,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname tf_fn_into_chr
+#' @rdname transform_fn_into_chr
 #' @export
-tf_fn_into_chr <- function(fn){
+transform_fn_into_chr <- function(fn){
   deparse(fn) %>% paste0(collapse="\n")
 }
 #' @title FUNCTION_TITLE
@@ -439,7 +439,7 @@ make_alg_to_set_mthd <- function(name_chr,
                             where_chr = NA_character_){
   paste0('methods::setMethod(\"', name_chr, '\"',
          ', ',ifelse(is.na(package_chr[1]),paste0('\"',class_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_chr,package_chr=package_chr))),
-         ', ', tf_fn_into_chr(fn),
+         ', ', transform_fn_into_chr(fn),
          ifelse(is.na(where_chr[1]),'',paste0(',\nwhere =  ', where_chr)),
          ')')
 }
@@ -480,7 +480,7 @@ make_gnrc_mthd_pair_ls <- function(name_chr,
                                     where_chr = where_chr),
        gen_fn_chr = make_gnrc_fn(name_chr,
                                     args_chr_vec = args_chr_vec),
-       meth_fn_chr = tf_fn_into_chr(fn))
+       meth_fn_chr = transform_fn_into_chr(fn))
 }
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
@@ -538,10 +538,10 @@ make_one_row_class_pt_tb <- function(class_type_mk_ls,
 #' }
 #' @seealso
 #'  \code{\link[purrr]{map2}}
-#' @rdname make_class_mk_tb
+#' @rdname make_class_pts_tb
 #' @export
 #' @importFrom purrr map2_dfr
-make_class_mk_tb <- function(class_mk_ls){
+make_class_pts_tb <- function(class_mk_ls){
   purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
                   ~ make_one_row_class_pt_tb(.x,
