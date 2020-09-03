@@ -14,4 +14,3 @@ make_gnrc_fn(name_chr, args_chr_vec)
 \description{
 make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

@@ -7,7 +7,6 @@
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
-#' @keywords internal
 update_lup_for_ns.ready4_class_pt_lup <- function (x, namespace_contexts) 
 {
     namespace_contexts <- c("base", namespace_contexts) %>% unique()

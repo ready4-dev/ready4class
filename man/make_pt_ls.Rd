@@ -26,4 +26,3 @@ make_pt_ls(
 \description{
 make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

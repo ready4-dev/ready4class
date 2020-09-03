@@ -29,4 +29,3 @@ make_alg_to_set_validity_of_r4_cls(
 \description{
 make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

@@ -14,4 +14,3 @@ make_show_mthd_fn(class_name, meaningful_names)
 \description{
 make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make show mthd.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

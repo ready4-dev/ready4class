@@ -16,4 +16,3 @@ update_lup_for_ns(x, namespace_contexts, ...)
 \description{
 update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.NA
 }
-\keyword{internal}

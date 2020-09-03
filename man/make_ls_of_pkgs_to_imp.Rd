@@ -16,4 +16,3 @@ make_ls_of_pkgs_to_imp(current_generics_ls, fn_name_chr, ignore_ns_chr)
 \description{
 make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of packages to an import.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

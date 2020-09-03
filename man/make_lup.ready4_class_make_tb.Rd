@@ -16,4 +16,3 @@
 \description{
 make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
-\keyword{internal}

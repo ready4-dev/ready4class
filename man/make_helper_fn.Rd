@@ -29,4 +29,3 @@ make_helper_fn(
 \description{
 make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make helper.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}
