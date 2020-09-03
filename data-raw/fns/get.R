@@ -11,9 +11,9 @@ get_class_fl_nms <- function(class_names_chr_vec,
 get_class_ns <- function(prototype_lup,
                          class_chr){
   ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                              match_var_nm_chr = "type",
+                              match_var_nm_1L_chr = "type",
                               match_value_xx = class_chr,
-                              target_var_nm_chr = "type_namespace",
+                              target_var_nm_1L_chr = "type_namespace",
                               evaluate_lgl = F)
 }
 get_nms_of_clss_to_inc <- function(parent_chr,
@@ -61,9 +61,9 @@ get_parent_cls_ns <- function(prototype_lup,
 get_parent_cls_pt_fn <- function(parent_chr,
                                     prototype_lup){
   parent_proto_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                                                     match_var_nm_chr = "type",
+                                                     match_var_nm_1L_chr = "type",
                                                      match_value_xx = parent_chr,
-                                                     target_var_nm_chr = "value",
+                                                     target_var_nm_1L_chr = "value",
                                                      evaluate_lgl = F)
 }
 get_parent_cls_pts <- function(parent_chr,
@@ -76,8 +76,8 @@ get_parent_cls_pts <- function(parent_chr,
                    parent_ns_ls$transformed_chr!="")))
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
   purrr::map_chr(slot_names_chr_vec,
-                 ~ ready4fun::get_r4_obj_slots_vec(parent_chr,
-                                                   package_chr = transform_parent_ns_ls(parent_ns_ls))[[.x]])
+                 ~ ready4fun::get_r4_obj_slots(parent_chr,
+                                                   package_1L_chr = transform_parent_ns_ls(parent_ns_ls))[[.x]])
 }
 get_parent_cls_slot_nms <- function(parent_chr,
                                     parent_ns_ls){
@@ -87,6 +87,6 @@ get_parent_cls_slot_nms <- function(parent_chr,
                    F,
                    parent_ns_ls$transformed_chr!="")))
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
-  ready4fun::get_r4_obj_slots_vec(parent_chr,
+  ready4fun::get_r4_obj_slots(parent_chr,
                                   package = transform_parent_ns_ls(parent_ns_ls)) %>% names()
 }

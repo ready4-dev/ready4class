@@ -50,9 +50,9 @@ make_alg_to_set_old_clss <- function(type,
                                      prototype_lup){
   index_of_s3 <- purrr::map_lgl(type,
                                 ~ ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                                                              match_var_nm_chr = "type",
+                                                              match_var_nm_1L_chr = "type",
                                                               match_value_xx = .x,
-                                                              target_var_nm_chr = "old_class",
+                                                              target_var_nm_1L_chr = "old_class",
                                                               evaluate_lgl = FALSE)
   )
   if(!identical(type[index_of_s3],character(0))){
@@ -77,9 +77,9 @@ make_alg_to_set_validity_of_r4_cls <- function(class_name,
                                                names_include = NULL,
                                                print_validator = FALSE){
   same_lngth_cond <- allowed_cond_vec <- names_include_vec <- NA_character_
-  all_slots <- ready4fun::get_r4_obj_slots_vec(class_name) %>% names()
+  all_slots <- ready4fun::get_r4_obj_slots(class_name) %>% names()
   if(!is.null(parent)){
-    parental_slots <- ready4fun::get_r4_obj_slots_vec(parent) %>% names()
+    parental_slots <- ready4fun::get_r4_obj_slots(parent) %>% names()
     all_slots <- all_slots[! all_slots %in% parental_slots]
   }
   if(!is.null(not_same_length)){
@@ -318,11 +318,11 @@ make_lines_for_writing_dmtd_fn <- function(fn_name,
                                            fn_type,
                                            class_name,
                                            class_desc){
-  ready4fun::write_fn_dmt(fn_name_chr = fn_name,
-                          fn_type_chr = fn_type,
+  ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name,
+                          fn_type_1L_chr = fn_type,
                           fn = eval(parse(text = fn_text)),
-                          class_name_chr = class_name,
-                          details_chr = class_desc)
+                          class_name_1L_chr = class_name,
+                          details_1L_chr = class_desc)
   writeLines(fn_text)
 }
 make_ls_of_pkgs_to_imp <- function(current_generics_ls,
@@ -353,7 +353,7 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function(required_pckg_chr_vec,
   if(!required_pckg_chr_vec %>% purrr::discard(is.na) %>% identical(character(0)))
     required_pckg_chr_vec <- required_pckg_chr_vec[!required_pckg_chr_vec %in% dependencies_chr_vec]
   if(current_generics_ls$in_global_lgl){
-    ready4fun::unload_packages(package_chr_vec = required_pckg_chr_vec[required_pckg_chr_vec != ignore_ns_chr[1]])
+    ready4fun::unload_packages(package_chr = required_pckg_chr_vec[required_pckg_chr_vec != ignore_ns_chr[1]])
     current_generics_ls <- get_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec,
                                                  generic_chr = generic_chr)
   }
@@ -413,9 +413,9 @@ make_pt_ls <- function(class_slots,
                               ~ paste0(.x,
                                        ' = ',
                                        ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                                                                   match_var_nm_chr = "type",
+                                                                   match_var_nm_1L_chr = "type",
                                                                    match_value_xx = .y,
-                                                                   target_var_nm_chr = "value",
+                                                                   target_var_nm_1L_chr = "value",
                                                                    evaluate_lgl = FALSE)
                               ))
   if(!is.null(values)){

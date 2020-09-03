@@ -566,13 +566,13 @@ write_script_to_make_gnrc <- function(write_file_ls,
       sink(write_file_ls$gnr_file,
            append = ifelse(fn_type_chr %in% c("gen_std_s3_mthd",
                                               "gen_std_s4_mthd"),F,write_file_ls$new_file_lgl))
-      ready4fun::write_fn_dmt(fn_name_chr = fn_name_chr,
-                              fn_type_chr = fn_type_chr,
+      ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_chr,
+                              fn_type_1L_chr = fn_type_chr,
                               fn = eval(parse(text=gen_mthd_pair_ls$gen_fn_chr)),
-                              fn_desc_chr = fn_desc_chr,
-                              fn_out_type_chr = fn_out_type_chr,
-                              fn_title_chr = fn_title_chr,
-                              doc_in_class_lgl = doc_in_class_lgl)
+                              fn_desc_1L_chr = fn_desc_chr,
+                              fn_out_type_1L_chr = fn_out_type_chr,
+                              fn_title_1L_chr = fn_title_chr,
+                              doc_in_class_1L_lgl = doc_in_class_lgl)
       writeLines(gen_mthd_pair_ls$generic_chr %>% stringr::str_replace(paste0(",\nwhere =  ",
                                                                               "globalenv\\(\\)"),""))
       ready4fun::close_open_sinks()
@@ -669,14 +669,14 @@ write_script_to_make_mthd <- function(write_file_ls,
                                                    T,
                                                    ifelse(fn_type_chr %in% c("gen_std_s3_mthd",
                                                                              "gen_std_s4_mthd"),T,write_file_ls$new_file_lgl)))
-    ready4fun::write_fn_dmt(fn_name_chr = fn_name_chr,
-                            fn_type_chr = fn_type_chr,
+    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_chr,
+                            fn_type_1L_chr = fn_type_chr,
                             fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
-                            fn_desc_chr = fn_desc_chr,
-                            fn_out_type_chr = fn_out_type_chr,
-                            class_name_chr = class_name_chr,
-                            import_chr_vec = import_chr_vec,
-                            doc_in_class_lgl = doc_in_class_lgl)
+                            fn_desc_1L_chr = fn_desc_chr,
+                            fn_out_type_1L_chr = fn_out_type_chr,
+                            class_name_1L_chr = class_name_chr,
+                            import_chr = import_chr_vec,
+                            doc_in_class_1L_lgl = doc_in_class_lgl)
     writeLines(gen_mthd_pair_ls$method_chr %>% stringr::str_replace(paste0(",\nwhere =  ",
                                                                            "globalenv\\(\\)"),""))
     ready4fun::close_open_sinks()
