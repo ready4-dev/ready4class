@@ -7,6 +7,7 @@
 #' @rdname get_class_fl_nms
 #' @export 
 
+#' @keywords internal
 get_class_fl_nms <- function (class_names_chr_vec, s3_lgl = T, output_dir_chr = NA) 
 {
     paste0(ifelse(is.na(output_dir_chr), "", paste0(output_dir_chr, 
@@ -21,6 +22,7 @@ get_class_fl_nms <- function (class_names_chr_vec, s3_lgl = T, output_dir_chr = 
 #' @rdname get_class_ns
 #' @export 
 #' @importFrom ready4fun get_from_lup_obj
+#' @keywords internal
 get_class_ns <- function (prototype_lup, class_chr) 
 {
     ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
@@ -36,6 +38,7 @@ get_class_ns <- function (prototype_lup, class_chr)
 #' @rdname get_nms_of_clss_to_inc
 #' @export 
 
+#' @keywords internal
 get_nms_of_clss_to_inc <- function (parent_chr, parent_ns_ls, prespecified_includes_chr = NULL) 
 {
     if (!is.null(parent_chr) & parent_ns_ls$transformed_chr == 
@@ -60,6 +63,7 @@ get_nms_of_clss_to_inc <- function (parent_chr, parent_ns_ls, prespecified_inclu
 #' @importFrom ready4fun force_instl_of_reqd_pkg
 #' @importFrom methods getGenerics
 #' @importFrom stringr str_replace_all
+#' @keywords internal
 get_nms_of_curr_gnrcs <- function (required_pckg_chr_vec, generic_chr) 
 {
     if (!required_pckg_chr_vec %>% purrr::discard(is.na) %>% 
@@ -84,6 +88,7 @@ get_nms_of_curr_gnrcs <- function (required_pckg_chr_vec, generic_chr)
 #' @rdname get_parent_cls_ns
 #' @export 
 
+#' @keywords internal
 get_parent_cls_ns <- function (prototype_lup, parent_chr, dev_pckg_ns_chr) 
 {
     if (!is.null(parent_chr)) {
@@ -105,6 +110,7 @@ get_parent_cls_ns <- function (prototype_lup, parent_chr, dev_pckg_ns_chr)
 #' @rdname get_parent_cls_pt_fn
 #' @export 
 #' @importFrom ready4fun get_from_lup_obj
+#' @keywords internal
 get_parent_cls_pt_fn <- function (parent_chr, prototype_lup) 
 {
     parent_proto_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
@@ -121,6 +127,7 @@ get_parent_cls_pt_fn <- function (parent_chr, prototype_lup)
 #' @export 
 #' @importFrom ready4fun force_instl_of_reqd_pkg get_r4_obj_slots
 #' @importFrom purrr map_chr
+#' @keywords internal
 get_parent_cls_pts <- function (parent_chr, parent_ns_ls, slot_names_chr_vec) 
 {
     if (ifelse(is.null(parent_ns_ls$transformed_chr), F, ifelse(is.na(parent_ns_ls$transformed_chr), 
@@ -137,6 +144,7 @@ get_parent_cls_pts <- function (parent_chr, parent_ns_ls, slot_names_chr_vec)
 #' @rdname get_parent_cls_slot_nms
 #' @export 
 #' @importFrom ready4fun force_instl_of_reqd_pkg get_r4_obj_slots
+#' @keywords internal
 get_parent_cls_slot_nms <- function (parent_chr, parent_ns_ls) 
 {
     if (ifelse(is.null(parent_ns_ls$transformed_chr), F, ifelse(is.na(parent_ns_ls$transformed_chr), 

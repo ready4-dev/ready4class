@@ -6,6 +6,7 @@
 #' @rdname transform_alg_to_ref_cls_nm
 #' @export 
 #' @importFrom stringr str_replace
+#' @keywords internal
 transform_alg_to_ref_cls_nm <- function (st_class_fn_chr, package_chr) 
 {
     st_class_fn_chr %>% stringr::str_replace("methods::className\\(", 
@@ -20,6 +21,7 @@ transform_alg_to_ref_cls_nm <- function (st_class_fn_chr, package_chr)
 #' @rdname transform_class_ns
 #' @export 
 
+#' @keywords internal
 transform_class_ns <- function (class_ns_chr, dev_pckg_ns_chr) 
 {
     ifelse(class_ns_chr %in% c("base", dev_pckg_ns_chr), "", 
@@ -32,6 +34,7 @@ transform_class_ns <- function (class_ns_chr, dev_pckg_ns_chr)
 #' @rdname transform_fn_into_chr
 #' @export 
 
+#' @keywords internal
 transform_fn_into_chr <- function (fn) 
 {
     deparse(fn) %>% paste0(collapse = "\n")
@@ -43,6 +46,7 @@ transform_fn_into_chr <- function (fn)
 #' @rdname transform_parent_ns_ls
 #' @export 
 
+#' @keywords internal
 transform_parent_ns_ls <- function (parent_ns_ls) 
 {
     if (is.null(parent_ns_ls$untransformed_chr)) {
@@ -60,6 +64,7 @@ transform_parent_ns_ls <- function (parent_ns_ls)
 #' @rdname transform_pt_ls_for_new_clss
 #' @export 
 #' @importFrom purrr map_lgl keep
+#' @keywords internal
 transform_pt_ls_for_new_clss <- function (new_classes_ls) 
 {
     s3_idx <- new_classes_ls %>% purrr::map_lgl(~class(.x) == 

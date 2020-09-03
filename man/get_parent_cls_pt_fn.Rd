@@ -14,3 +14,4 @@ get_parent_cls_pt_fn(parent_chr, prototype_lup)
 \description{
 get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent cls a prototype. Function argument parent_chr specifies the where to look for the required object.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}

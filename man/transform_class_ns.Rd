@@ -14,3 +14,4 @@ transform_class_ns(class_ns_chr, dev_pckg_ns_chr)
 \description{
 transform_class_ns() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform class namespace. Function argument class_ns_chr specifies the object to be updated. Argument dev_pckg_ns_chr provides the object to be updated.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}

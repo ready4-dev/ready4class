@@ -6,6 +6,7 @@
 #' @rdname add_class
 #' @export 
 
+#' @keywords internal
 add_class <- function (x, ...) 
 {
     UseMethod("add_class", x)
@@ -30,6 +31,7 @@ make_and_update <- function (x, ...)
 #' @rdname make_classes
 #' @export 
 
+#' @keywords internal
 make_classes <- function (x, ...) 
 {
     UseMethod("make_classes", x)
@@ -42,6 +44,7 @@ make_classes <- function (x, ...)
 #' @rdname make_lup
 #' @export 
 
+#' @keywords internal
 make_lup <- function (x, ...) 
 {
     UseMethod("make_lup", x)
@@ -54,6 +57,7 @@ make_lup <- function (x, ...)
 #' @rdname order_tb
 #' @export 
 
+#' @keywords internal
 order_tb <- function (x, ...) 
 {
     UseMethod("order_tb", x)
@@ -66,6 +70,7 @@ order_tb <- function (x, ...)
 #' @rdname remake_ls_cols
 #' @export 
 
+#' @keywords internal
 remake_ls_cols <- function (x, ...) 
 {
     UseMethod("remake_ls_cols", x)
@@ -79,6 +84,7 @@ remake_ls_cols <- function (x, ...)
 #' @rdname update_lup_for_ns
 #' @export 
 
+#' @keywords internal
 update_lup_for_ns <- function (x, namespace_contexts, ...) 
 {
     UseMethod("update_lup_for_ns", x)

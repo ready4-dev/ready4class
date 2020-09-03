@@ -14,3 +14,4 @@
 \description{
 update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.NA
 }
+\keyword{internal}
