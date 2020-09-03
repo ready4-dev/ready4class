@@ -6,6 +6,7 @@
 #' @rdname remove_class_from_cache
 #' @export 
 #' @importFrom methods isClass removeClass
+#' @keywords internal
 remove_class_from_cache <- function (class_name_chr, class_in_cache_logic_chr = "stop") 
 {
     keep_going_lgl <- methods::isClass(class_name_chr)

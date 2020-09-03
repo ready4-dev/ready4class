@@ -20,3 +20,4 @@ make_ls_of_tfd_nms_of_curr_gnrcs(
 \description{
 make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of tfd names of curr gnrcs.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}

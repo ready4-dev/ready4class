@@ -14,3 +14,4 @@ make_lup(x, ...)
 \description{
 make_lup() is a Make Lookup Table generic that makes a lookup table.NA
 }
+\keyword{internal}

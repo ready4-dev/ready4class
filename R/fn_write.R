@@ -10,6 +10,7 @@
 #' @rdname write_gtr_str_mthds_for_r4
 #' @export 
 #' @importFrom purrr reduce
+#' @keywords internal
 write_gtr_str_mthds_for_r4 <- function (slot_name_chr, set_only, import_packages_ls, class_name, 
     print_accessors, output_folder) 
 {
@@ -52,6 +53,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_name_chr, set_only, import_packages
 #' @export 
 #' @importFrom purrr map_chr walk
 #' @importFrom stringr str_replace
+#' @keywords internal
 write_gtr_str_mthds_for_slots <- function (slot_names_chr_vec, set_only, parent, class_name, print_accessors, 
     output_folder, ignore_ns_chr, required_pckg_chr_vec) 
 {
@@ -75,6 +77,7 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr_vec, set_only, parent,
 #' @export 
 #' @importFrom purrr pwalk
 #' @importFrom dplyr mutate
+#' @keywords internal
 write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, package_chr, output_dir_chr) 
 {
     purrr::pwalk(methods_tb %>% dplyr::mutate(first_lgl = c(T, 
@@ -106,6 +109,7 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, package_chr, outpu
 #' @export 
 #' @importFrom ready4fun write_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
+#' @keywords internal
 write_script_to_make_gnrc <- function (write_file_ls, generic_exists_lgl, gen_mthd_pair_ls, 
     fn_name_chr, fn_type_chr, fn_desc_chr = NA_character_, fn_out_type_chr = NA_character_, 
     fn_title_chr = NA_character_, class_name_chr = NA_character_, 
@@ -163,6 +167,7 @@ write_script_to_make_gnrc <- function (write_file_ls, generic_exists_lgl, gen_mt
 #' @export 
 #' @importFrom ready4fun write_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
+#' @keywords internal
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_name_chr, fn_name_chr, 
     fn_type_chr, fn_desc_chr = NA_character_, fn_out_type_chr = NA_character_, 
     import_chr_vec, write_lgl = T, append_lgl = T, doc_in_class_lgl = F) 
@@ -208,6 +213,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_na
 #' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export 
 
+#' @keywords internal
 write_scripts_to_make_gnrc_and_mthd <- function (fn_name_chr, args_chr_vec = c("x"), signature_chr = NA_character_, 
     package_chr = NA_character_, where_chr = NA_character_, class_chr, 
     fn, fn_type_chr_vec, fn_desc_chr_vec = rep(NA_character_, 
@@ -252,6 +258,7 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_chr, args_chr_vec = c("
 #' @importFrom usethis use_data
 #' @importFrom ready4fun write_pt_lup_db
 #' @importFrom devtools document load_all
+#' @keywords internal
 write_scripts_to_mk_clss <- function (new_classes_ls, pckg_name_chr, class_pfx_chr, R_dir_chr = "R", 
     pt_lup, description_ls = NULL, ignore_ns_chr = NA_character_, 
     required_pckg_chr_vec = NA_character_) 
@@ -292,6 +299,7 @@ write_scripts_to_mk_clss <- function (new_classes_ls, pckg_name_chr, class_pfx_c
 #' @importFrom purrr pwalk
 #' @importFrom ready4fun close_open_sinks
 #' @importFrom devtools document load_all
+#' @keywords internal
 write_scripts_to_mk_r3_clss <- function (name_stub, name_prefix = "ready4_", output_folder = "data-raw", 
     class_desc = "", parent = NULL, type, type_namespace = "", 
     type_checker_prefix = "is.", values = NULL, ordered = FALSE, 
@@ -334,6 +342,7 @@ write_scripts_to_mk_r3_clss <- function (name_stub, name_prefix = "ready4_", out
 #' @rdname write_scripts_to_mk_r3_clss_checker
 #' @export 
 
+#' @keywords internal
 write_scripts_to_mk_r3_clss_checker <- function (class_name, s3_validator) 
 {
     name_of_fn_to_check_if_is_valid_instance <- paste0("is_", 
@@ -355,6 +364,7 @@ write_scripts_to_mk_r3_clss_checker <- function (class_name, s3_validator)
 #' @rdname write_scripts_to_mk_r3_clss_constructor
 #' @export 
 
+#' @keywords internal
 write_scripts_to_mk_r3_clss_constructor <- function (type, type_checker_prefix, type_namespace, class_name, 
     s3_prototype) 
 {
@@ -383,6 +393,7 @@ write_scripts_to_mk_r3_clss_constructor <- function (type, type_checker_prefix, 
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c
+#' @keywords internal
 write_scripts_to_mk_r3_clss_pts <- function (type, type_namespace, values, ordered, class_name, 
     parent_chr, prototype_lup) 
 {
@@ -423,6 +434,7 @@ write_scripts_to_mk_r3_clss_pts <- function (type, type_namespace, values, order
 #' @rdname write_scripts_to_mk_r3_clss_valid_instance
 #' @export 
 
+#' @keywords internal
 write_scripts_to_mk_r3_clss_valid_instance <- function (class_name, s3_prototype, s3_constructor, s3_validator) 
 {
     fn_call_to_make_valid_instance <- paste0(s3_validator$fn_name, 
@@ -446,6 +458,7 @@ write_scripts_to_mk_r3_clss_valid_instance <- function (class_name, s3_prototype
 #' @export 
 #' @importFrom purrr compact map2_chr
 #' @importFrom stringr str_c
+#' @keywords internal
 write_scripts_to_mk_r3_clss_validator <- function (type, class_name, s3_prototype, min_max_values, start_end_values, 
     values) 
 {
@@ -577,6 +590,7 @@ write_scripts_to_mk_r3_clss_validator <- function (type, class_name, s3_prototyp
 #' @importFrom ready4fun close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
+#' @keywords internal
 write_scripts_to_mk_r4_clss <- function (name_stub, name_prefix = "ready4_", output_folder = "data-raw", 
     output_sub_folder = NULL, class_desc = "", parent = NULL, 
     class_slots, type, meaningful_names = NULL, values = NULL, 
@@ -659,6 +673,7 @@ write_scripts_to_mk_r4_clss <- function (name_stub, name_prefix = "ready4_", out
 #' @rdname write_slot_gtr_str_mthds
 #' @export 
 
+#' @keywords internal
 write_slot_gtr_str_mthds <- function (slot_name_chr, set_only, parent, class_name, print_accessors, 
     output_folder, ignore_ns_chr, required_pckg_chr_vec) 
 {
@@ -689,6 +704,7 @@ write_slot_gtr_str_mthds <- function (slot_name_chr, set_only, parent, class_nam
 #' @export 
 #' @importFrom testit assert
 #' @importFrom purrr discard
+#' @keywords internal
 write_std_mthd <- function (fn, fn_name_chr, class_chr, fn_desc_chr_vec, fn_title_chr, 
     fn_out_type_chr, package_chr, output_dir_chr, signature_chr = NA_character_, 
     append_lgl = T, first_lgl = T) 
@@ -732,6 +748,7 @@ write_std_mthd <- function (fn, fn_name_chr, class_chr, fn_desc_chr_vec, fn_titl
 #' @rdname write_to_delete_fls_with_ptrn
 #' @export 
 
+#' @keywords internal
 write_to_delete_fls_with_ptrn <- function (dir_chr, pattern_chr) 
 {
     if (!is.na(pattern_chr)) {
@@ -749,6 +766,7 @@ write_to_delete_fls_with_ptrn <- function (dir_chr, pattern_chr)
 #' @export 
 #' @importFrom dplyr pull
 #' @importFrom purrr compact flatten flatten_chr reduce walk
+#' @keywords internal
 write_to_delete_gnrc_fn_fls <- function (x, output_dir) 
 {
     delete_vec <- x %>% dplyr::pull(class_slots) %>% purrr::compact() %>% 
@@ -778,6 +796,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir)
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom ready4fun update_ns close_open_sinks
+#' @keywords internal
 write_to_mk_r4_cls <- function (class_name, class_slots, type, proto_ls, parent, print_set_class, 
     class_desc, output_file_class, include_classes, prototype_lup, 
     helper_lgl = F, parent_ns_ls) 

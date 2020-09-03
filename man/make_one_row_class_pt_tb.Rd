@@ -14,3 +14,4 @@ make_one_row_class_pt_tb(class_type_mk_ls, make_s3_lgl = T)
 \description{
 make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a class prototype.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}

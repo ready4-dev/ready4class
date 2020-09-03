@@ -14,3 +14,4 @@ make_dmt_inc_tag(class_names_chr_vec, s3_lgl = T)
 \description{
 make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}

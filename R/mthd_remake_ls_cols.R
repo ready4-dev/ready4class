@@ -6,6 +6,7 @@
 #' @export 
 #' @importFrom dplyr mutate_at vars
 #' @importFrom purrr map
+#' @keywords internal
 remake_ls_cols.ready4_class_make_tb <- function (x) 
 {
     x %>% dplyr::mutate_at(dplyr::vars(prototype, prototype_checker_prefix, 

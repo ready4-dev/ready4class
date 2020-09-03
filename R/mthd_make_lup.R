@@ -7,6 +7,7 @@
 #' @rdname make_lup.ready4_class_make_tb
 #' @export 
 #' @importFrom dplyr mutate select
+#' @keywords internal
 make_lup.ready4_class_make_tb <- function (x, dev_pckg_namespace, prefix) 
 {
     x %>% dplyr::mutate(type = paste0(prefix, name_stub), type_namespace = dev_pckg_namespace, 

@@ -12,3 +12,4 @@ replace_NA_in_fn(fn_chr)
 \description{
 replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_chr specifies the object to be updated. Argument NA provides the object to be updated.The function is called for its side effects and does not return a value.
 }
+\keyword{internal}
