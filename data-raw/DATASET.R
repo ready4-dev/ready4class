@@ -38,13 +38,13 @@ ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_1L_lgl = T, # UN-COMMENT THIS
 #
 # 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
-ready4fun::write_abbr_lup(short_name_chr = c("alg","cls","col","curr","gnrc","inhtc","inst","mk","mthd","ptrn",
+ready4fun::write_abbr_lup(short_name_chr = c("alg","cls","col","curr","gen","gnrc","inhtc","inst","mk","mthd","ptrn",
                                              "ready4_class_make_tb","ready4_class_pt_lup",
-                                             "tf","tfd","unvd","val","vld","vldd"),
-                            long_name_chr = c("algorithm","class","column","current","generic","inheritance","instance","make","method","pattern",
+                                             "ref","tf","tfd","unvd","val","vld","vldd"),
+                            long_name_chr = c("algorithm","class","column","current","generate","generic","inheritance","instance","make","method","pattern",
                                                   "Class Make Table readyforwhatsnext S3 class",
                                                   "Class Prototype Lookup Table readyforwhatsnext S3 class",
-                                              "transform","transformed","unvalidated","value","valid","validated"),
+                                              "reference","transform","transformed","unvalidated","value","valid","validated"),
                             no_plural_chr = c("ready4_class_make_tb","ready4_class_pt_lup","transformed","unvalidated","valid","validated"),
                           custom_plural_ls = list(class = "classes"),
                             url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",

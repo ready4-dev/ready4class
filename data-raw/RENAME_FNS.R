@@ -2,7 +2,8 @@ tb <- dplyr::select(all_fns_dmt_tb %>%
                       dplyr::filter(file_pfx_chr == "fn_"),fns_chr)  %>%
   dplyr::mutate(new_nm = fns_chr %>% remove_obj_type_from_nm()) %>%
   dplyr::mutate(duplicated_lgl = duplicated(new_nm))
-tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(duplicated_lgl ~ fns_chr,
+tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(fns_chr == "make_ready_s4" ~ "write_scripts_to_mk_r4_clss",
+                                                     duplicated_lgl ~ fns_chr,
                                                      new_nm == "create_accessors" ~ "write_slot_gtr_str_mthds",
                                                      new_nm == "create_accessors_rec" ~ "write_gtr_str_mthds_for_slots",
                                                      new_nm == "create_ready_accessors" ~ "make_alg_to_write_gtr_str_mthds",
@@ -18,10 +19,11 @@ tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(duplicated_lgl ~ fns_chr,
                                                      new_nm == "get_parent_prototypes" ~ "get_parent_cls_pts",
                                                      new_nm == "get_parent_slot_names" ~ "get_parent_cls_slot_nms",
                                                      new_nm == "get_proto_list" ~ "make_pt_ls",
-                                                     new_nm == "make_and_tf_curr_gen" ~ "make_tfd_nms_of_curr_gnrcs",
-                                                     new_nm == "make_child_fn" ~ "make_child_cls_fn",
-                                                     new_nm == "make_class_mk" ~ "make_class_mk_tb_from_ls",
-                                                     new_nm == "make_class_type_mk" ~ "make_class_type_mk_tb",
+                                                     new_nm == "make_and_tf_curr_gen" ~ "make_ls_of_tfd_nms_of_curr_gnrcs",
+                                                     new_nm == "make_child_fn" ~ "make_child_cls_fn_body",
+                                                     new_nm == "make_class_mk" ~ "make_class_pt_tb_for_r3_and_r4_clss",
+                                                     new_nm == "make_class_mk_tb" ~ "make_class_pts_tb",
+                                                     new_nm == "make_class_type_mk" ~ "make_one_row_class_pt_tb",
                                                      new_nm == "make_className" ~ "make_alg_to_gen_ref_to_cls",
                                                      new_nm == "make_current_generics" ~ "get_nms_of_curr_gnrcs",
                                                      new_nm == "make_gen_fn" ~ "make_gnrc_fn",
@@ -38,7 +40,7 @@ tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(duplicated_lgl ~ fns_chr,
                                                      new_nm == "make_ready_s3_prototype" ~ "make_fn_pt_to_make_r3_cls_pt",
                                                      new_nm == "make_ready_s3_valid_instance" ~ "make_fn_pt_to_make_vldd_r3_cls_inst",
                                                      new_nm == "make_ready_s3_validator" ~ "make_fn_pt_to_make_vld_r3_cls_inst",
-                                                     new_nm == "make_ready_s4" ~ "write_scripts_to_mk_r4_clss",
+
                                                      new_nm == "make_s3_components" ~ "make_pt_ls_for_new_r3_cls",
                                                      new_nm == "make_s3_mk" ~ "make_pt_tb_for_new_r3_cls",
                                                      new_nm == "make_s3_mk_tb_row" ~ "make_one_row_pt_tb_for_new_r3_cls",
@@ -63,4 +65,4 @@ tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(duplicated_lgl ~ fns_chr,
                                                      TRUE ~ new_nm))
 tb <- tb %>% dplyr::mutate(duplicated_lgl = duplicated(new_nm))
 any(tb$duplicated_lgl)
-replace_fn_nms(tb)
+# replace_fn_nms(tb)
