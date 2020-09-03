@@ -2,7 +2,7 @@ make_and_update.ready4_class_make_tb  <- function(x,
                                                   dev_pckg_namespace = ready4fun::get_dev_pkg_nm(),
                                                   name_prefix = paste0(ready4fun::get_dev_pkg_nm(),"_"),
                                                   output_dir = "R",
-                                                  delete_files_pattern_chr_vec = NA_character_,
+                                                  write_to_delete_fls_with_ptrn_pattern_chr_vec = NA_character_,
                                                   file_exists_logic = "overwrite",
                                                   init_class_pt_lup = NULL,
                                                   ignore_ns_chr = NA_character_,
@@ -12,9 +12,9 @@ make_and_update.ready4_class_make_tb  <- function(x,
     init_class_pt_lup <- prototype_lup
   x <- order_tb(x, name_prefix)
   if(file_exists_logic == "overwrite"){
-    delete_getters_setters(x,output_dir = output_dir)
-    purrr::walk(delete_files_pattern_chr_vec,
-                ~ delete_files(dir_chr = output_dir,
+    write_to_delete_gnrc_fn_fls(x,output_dir = output_dir)
+    purrr::walk(write_to_delete_fls_with_ptrn_pattern_chr_vec,
+                ~ write_to_delete_fls_with_ptrn(dir_chr = output_dir,
                               pattern_chr = .x))
   }
   purrr::reduce(1:nrow(x),

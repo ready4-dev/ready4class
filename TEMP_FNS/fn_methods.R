@@ -15,18 +15,18 @@
 #' @seealso
 #'  \code{\link[purrr]{map2}}
 #'  \code{\link[dplyr]{mutate}}
-#' @rdname write_s3_s4
+#' @rdname write_mthds_for_r3_or_r4_clss
 #' @export
 #' @importFrom purrr pwalk
 #' @importFrom dplyr mutate
-write_s3_s4 <- function(methods_tb,
+write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                         fn_ls,
                         package_chr,
                         output_dir_chr){
   purrr::pwalk(methods_tb %>%
                  dplyr::mutate(first_lgl = c(T,rep(F,length(fn_ls)-1))) %>%
                  dplyr::mutate(append_lgl = c(F,rep(T,length(fn_ls)-1))),
-               ~ write_std_method(fn = fn_ls[[..1]],
+               ~ write_std_mthd(fn = fn_ls[[..1]],
                                   fn_name_chr = ..2,
                                   class_chr = ..3,
                                   fn_desc_chr_vec = c(..4,..5),
@@ -62,11 +62,11 @@ write_s3_s4 <- function(methods_tb,
 #' @seealso
 #'  \code{\link[testit]{assert}}
 #'  \code{\link[purrr]{keep}}
-#' @rdname write_std_method
+#' @rdname write_std_mthd
 #' @export
 #' @importFrom testit assert
 #' @importFrom purrr discard
-write_std_method <- function(fn,
+write_std_mthd <- function(fn,
                              fn_name_chr,
                              class_chr,
                              fn_desc_chr_vec,
@@ -92,20 +92,20 @@ write_std_method <- function(fn,
                                            "/meth_",
                                            fn_name_chr,
                                            ".R"))
-  current_generics_ls <- make_and_tf_curr_gen_ls(required_pckg_chr_vec = NA_character_, # Add ready4 here
+  current_generics_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(required_pckg_chr_vec = NA_character_, # Add ready4 here
                                                  generic_chr = fn_name_chr,
                                                  ignore_ns_chr = ifelse(package_chr %in% rownames(installed.packages()),
                                                                         package_chr,
                                                                         NA_character_))
   ## NB: Ensure latest ready4 bundle (ready4dev and ready4mod) is installed.
-  import_packages_ls <- make_import_packages_ls(current_generics_ls = current_generics_ls,
+  import_packages_ls <- make_ls_of_pkgs_to_imp(current_generics_ls = current_generics_ls,
                                                 fn_name_chr = fn_name_chr,
                                                 ignore_ns_chr = ifelse(package_chr %in% rownames(installed.packages()),
                                                                        package_chr,
                                                                        NA_character_))
   generic_exists_lgl = import_packages_ls$gen_get_exists_lgl
   import_chr_vec = import_packages_ls$getter_import_pckg
-  write_file_ls <- write_gen_meth(fn_name_chr = fn_name_chr,
+  write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_chr = fn_name_chr,
                                   args_chr_vec = c("x",
                                                    ifelse(length(formalArgs(fn))>1,
                                                           "...",
@@ -161,9 +161,9 @@ write_std_method <- function(fn,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname write_gen_meth
+#' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export
-write_gen_meth <- function(fn_name_chr,
+write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
                            args_chr_vec = c("x"),
                            signature_chr = NA_character_,
                            package_chr = NA_character_ ,
@@ -183,14 +183,14 @@ write_gen_meth <- function(fn_name_chr,
                            overwrite_lgl = F,
                            s3_lgl,
                            write_lgl){
-  gen_mthd_pair_ls <- make_gen_mthd_pair_ls(name_chr = fn_name_chr,
+  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_chr = fn_name_chr,
                                             args_chr_vec = args_chr_vec,
                                             signature_chr = signature_chr,
                                             package_chr = package_chr,
                                             where_chr = where_chr,
                                             class_chr = class_chr,
                                             fn = fn)
-  write_file_ls <- write_generic_fn(write_file_ls = write_file_ls,
+  write_file_ls <- write_script_to_make_gnrc(write_file_ls = write_file_ls,
                                     generic_exists_lgl = generic_exists_lgl,
                                     gen_mthd_pair_ls = gen_mthd_pair_ls,
                                     fn_name_chr = fn_name_chr,
@@ -204,7 +204,7 @@ write_gen_meth <- function(fn_name_chr,
                                     write_lgl = write_lgl,
                                     doc_in_class_lgl = doc_in_class_lgl)
   write_file_ls$new_file_lgl <- ifelse(!overwrite_lgl,T,write_file_ls$new_file_lgl)
-  write_method(write_file_ls = write_file_ls,
+  write_script_to_make_mthd(write_file_ls = write_file_ls,
                gen_mthd_pair_ls = gen_mthd_pair_ls,
                class_name_chr = class_chr,
                fn_name_chr = fn_name_chr,
@@ -244,11 +244,11 @@ write_gen_meth <- function(fn_name_chr,
 #' @seealso
 #'  \code{\link[stringr]{str_replace}}
 #'  \code{\link[ready4fun]{close_open_sinks}}
-#' @rdname write_generic_fn
+#' @rdname write_script_to_make_gnrc
 #' @export
 #' @importFrom stringr str_replace
 #' @importFrom ready4fun close_open_sinks
-write_generic_fn <- function(write_file_ls,
+write_script_to_make_gnrc <- function(write_file_ls,
                              generic_exists_lgl,
                              gen_mthd_pair_ls,
                              fn_name_chr,
@@ -284,7 +284,7 @@ write_generic_fn <- function(write_file_ls,
     write_file_ls$meth_file <- write_file_ls$gnr_file
   }else{
     if(else_lgl){
-      write_file_ls$meth_file <- get_class_files_chr(class_names_chr_vec = class_name_chr,
+      write_file_ls$meth_file <- get_class_fl_nms(class_names_chr_vec = class_name_chr,
                                                      s3_lgl = s3_lgl,
                                                      output_dir_chr = output_dir_chr)
     }
@@ -315,11 +315,11 @@ write_generic_fn <- function(write_file_ls,
 #' @seealso
 #'  \code{\link[stringr]{str_replace}}
 #'  \code{\link[ready4fun]{close_open_sinks}}
-#' @rdname write_method
+#' @rdname write_script_to_make_mthd
 #' @export
 #' @importFrom stringr str_replace
 #' @importFrom ready4fun close_open_sinks
-write_method <- function(write_file_ls,
+write_script_to_make_mthd <- function(write_file_ls,
                          gen_mthd_pair_ls,
                          class_name_chr,
                          fn_name_chr,
@@ -361,9 +361,9 @@ write_method <- function(write_file_ls,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_gen_fn_chr
+#' @rdname make_gnrc_fn
 #' @export
-make_gen_fn_chr <- function(name_chr,
+make_gnrc_fn <- function(name_chr,
                             args_chr_vec){
   if(all(!is.na(args_chr_vec))){
     paste0('function(',paste0(args_chr_vec, collapse = ", "),') standardGeneric("', name_chr,'")')
@@ -382,9 +382,9 @@ make_gen_fn_chr <- function(name_chr,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_meth_fn_chr
+#' @rdname tf_fn_into_chr
 #' @export
-make_meth_fn_chr <- function(fn){
+tf_fn_into_chr <- function(fn){
   deparse(fn) %>% paste0(collapse="\n")
 }
 #' @title FUNCTION_TITLE
@@ -401,16 +401,16 @@ make_meth_fn_chr <- function(fn){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_generic_chr
+#' @rdname make_alg_to_set_gnrc
 #' @export
-make_generic_chr <- function(name_chr,
+make_alg_to_set_gnrc <- function(name_chr,
                              args_chr_vec = c("x"),
                              signature_chr = NA_character_,
                              where_chr = NA_character_){
   paste0('methods::setGeneric(\"', name_chr,'\"',
          ifelse(is.na(args_chr_vec[1]),
                 '',
-                paste0(', ',make_gen_fn_chr(name_chr,args_chr_vec = args_chr_vec))),
+                paste0(', ',make_gnrc_fn(name_chr,args_chr_vec = args_chr_vec))),
          ifelse(is.na(where_chr[1]),'',paste0(',\nwhere =  ', where_chr)),
          ifelse(is.na(signature_chr[1]),'',paste0(',\nsignature =  \"', signature_chr,'\"')),
          ')' )
@@ -430,16 +430,16 @@ make_generic_chr <- function(name_chr,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_method_chr
+#' @rdname make_alg_to_set_mthd
 #' @export
-make_method_chr <- function(name_chr,
+make_alg_to_set_mthd <- function(name_chr,
                             class_chr,
                             fn,
                             package_chr = NA_character_ ,
                             where_chr = NA_character_){
   paste0('methods::setMethod(\"', name_chr, '\"',
-         ', ',ifelse(is.na(package_chr[1]),paste0('\"',class_chr,'\"'),paste0(make_className_chr(class_chr,package_chr=package_chr))),
-         ', ', make_meth_fn_chr(fn),
+         ', ',ifelse(is.na(package_chr[1]),paste0('\"',class_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_chr,package_chr=package_chr))),
+         ', ', tf_fn_into_chr(fn),
          ifelse(is.na(where_chr[1]),'',paste0(',\nwhere =  ', where_chr)),
          ')')
 }
@@ -460,27 +460,27 @@ make_method_chr <- function(name_chr,
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_gen_mthd_pair_ls
+#' @rdname make_gnrc_mthd_pair_ls
 #' @export
-make_gen_mthd_pair_ls <- function(name_chr,
+make_gnrc_mthd_pair_ls <- function(name_chr,
                                   args_chr_vec = c("x"),
                                   signature_chr = NA_character_,
                                   package_chr = NA_character_ ,
                                   where_chr = NA_character_,
                                   class_chr,
                                   fn){
-  list(generic_chr = make_generic_chr(name_chr,
+  list(generic_chr = make_alg_to_set_gnrc(name_chr,
                                       args_chr_vec = args_chr_vec,
                                       signature_chr = signature_chr,
                                       where_chr = where_chr),
-       method_chr = make_method_chr(name_chr,
+       method_chr = make_alg_to_set_mthd(name_chr,
                                     class_chr = class_chr,
                                     fn = fn,
                                     package_chr = package_chr,
                                     where_chr = where_chr),
-       gen_fn_chr = make_gen_fn_chr(name_chr,
+       gen_fn_chr = make_gnrc_fn(name_chr,
                                     args_chr_vec = args_chr_vec),
-       meth_fn_chr = make_meth_fn_chr(fn))
+       meth_fn_chr = tf_fn_into_chr(fn))
 }
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
@@ -500,14 +500,14 @@ make_gen_mthd_pair_ls <- function(name_chr,
 #'  \code{\link[rlang]{exec}}
 #'  \code{\link[tibble]{add_row}}
 #'  \code{\link[dplyr]{mutate}},\code{\link[dplyr]{mutate_all}}
-#' @rdname make_class_type_mk_tb
+#' @rdname make_one_row_class_pt_tb
 #' @export
 #' @importFrom purrr reduce flatten
 #' @importFrom testit assert
 #' @importFrom rlang exec
 #' @importFrom tibble add_case
 #' @importFrom dplyr mutate mutate_at
-make_class_type_mk_tb <- function(class_type_mk_ls,
+make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_lgl = T){
   cl_mk_tb <- class_type_mk_ls  %>%
     purrr:::reduce(.init = ready4_class_make_tb(),
@@ -544,7 +544,7 @@ make_class_type_mk_tb <- function(class_type_mk_ls,
 make_class_mk_tb <- function(class_mk_ls){
   purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
-                  ~ make_class_type_mk_tb(.x,
+                  ~ make_one_row_class_pt_tb(.x,
                                           make_s3_lgl = ifelse(.y=="s3_ls",T,F))
 
   )
@@ -563,18 +563,18 @@ make_class_mk_tb <- function(class_mk_ls){
 #' @seealso
 #'  \code{\link[purrr]{map2}}
 #'  \code{\link[rlang]{exec}}
-#' @rdname make_class_mk_r3
+#' @rdname make_class_pt_tb_for_r3_and_r4_clss
 #' @export
 #' @importFrom purrr map2_dfr
 #' @importFrom rlang exec
-make_class_mk_r3 <- function(class_mk_ls){
+make_class_pt_tb_for_r3_and_r4_clss <- function(class_mk_ls){
   purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
                   ~ {
                     if(.y=="s3_ls"){
-                      fn = make_s3_mk_tb_r3
+                      fn = make_pt_tb_for_new_r3_cls
                     }else{
-                      fn = make_s4_mk_tb_r3
+                      fn = make_pt_tb_for_new_r4_cls
                     }
                     rlang::exec(fn,.x)
                   })
@@ -592,12 +592,12 @@ make_class_mk_r3 <- function(class_mk_ls){
 #' }
 #' @seealso
 #'  \code{\link[purrr]{map}}
-#' @rdname make_s3_mk_tb_r3
+#' @rdname make_pt_tb_for_new_r3_cls
 #' @export
 #' @importFrom purrr map_dfr
-make_s3_mk_tb_r3 <- function(x){
+make_pt_tb_for_new_r3_cls <- function(x){
   purrr::map_dfr(x,
-                 ~make_s3_mk_tb_row(.x))
+                 ~make_one_row_pt_tb_for_new_r3_cls(.x))
 }
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
@@ -612,12 +612,12 @@ make_s3_mk_tb_r3 <- function(x){
 #' }
 #' @seealso
 #'  \code{\link[purrr]{map}}
-#' @rdname make_s4_mk_tb_r3
+#' @rdname make_pt_tb_for_new_r4_cls
 #' @export
 #' @importFrom purrr map_dfr
-make_s4_mk_tb_r3 <- function(x){
+make_pt_tb_for_new_r4_cls <- function(x){
   purrr::map_dfr(x,
-                 ~make_s4_mk_tb_row(.x))
+                 ~make_one_row_pt_tb_for_new_r4_cls(.x))
 }
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
@@ -630,10 +630,10 @@ make_s4_mk_tb_r3 <- function(x){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_s3_mk_tb_row
+#' @rdname make_one_row_pt_tb_for_new_r3_cls
 #' @export
-make_s3_mk_tb_row <- function(x){
-  make_class_type_mk_tb(list(name_stub = x@name_stub_chr,
+make_one_row_pt_tb_for_new_r3_cls <- function(x){
+  make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
                              prototype = x@prototype_ls,
                              prototype_checker_prefix = x@prototype_chk_pfx_ls,
                              prototype_namespace = x@prototype_ns_ls,
@@ -657,10 +657,10 @@ make_s3_mk_tb_row <- function(x){
 #'  #EXAMPLE1
 #'  }
 #' }
-#' @rdname make_s4_mk_tb_row
+#' @rdname make_one_row_pt_tb_for_new_r4_cls
 #' @export
-make_s4_mk_tb_row <- function(x){
-  make_class_type_mk_tb(list(name_stub = x@name_stub_chr,
+make_one_row_pt_tb_for_new_r4_cls <- function(x){
+  make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr,
                              prototype = x@prototype_ls,
                              values = x@values_ls,
                              allowed_values = x@allowed_values_ls,

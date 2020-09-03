@@ -1,4 +1,4 @@
-delete_getters_setters <- function(x,
+write_to_delete_gnrc_fn_fls <- function(x,
                                    output_dir){ ## NEEDS TO BE TESTED AND COMPARED TO DELETE_FILES FUNCITON
   delete_vec <- x %>%
     dplyr::pull(class_slots) %>%
@@ -14,7 +14,7 @@ delete_getters_setters <- function(x,
       file.remove(.x))
 }
 
-delete_files <- function(dir_chr,
+write_to_delete_fls_with_ptrn <- function(dir_chr,
                          pattern_chr){
   if(!is.na(pattern_chr)){
     files_chr_vec <- list.files(dir_chr, pattern = pattern_chr)

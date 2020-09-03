@@ -1,4 +1,4 @@
-set_old_classes_extend_tb <- function(type,
+make_alg_to_set_old_clss <- function(type,
                                       prototype_lup){
   index_of_s3 <- purrr::map_lgl(type,
                                 ~ ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
@@ -22,7 +22,7 @@ set_old_classes_extend_tb <- function(type,
   #             ~ setOldClass(.x, where = globalenv()))
 
 }
-set_ready_class <- function(class_name,
+write_to_mk_r4_cls <- function(class_name,
                             class_slots,
                             type,
                             proto_ls,
@@ -43,7 +43,7 @@ set_ready_class <- function(class_name,
     stringr::str_c(sep="",collapse=",") %>%
     paste0("c(",.,")")
   slots <- eval(parse(text = slot_str))
-  old_class_tb_extension <- set_old_classes_extend_tb(type = type,
+  old_class_tb_extension <- make_alg_to_set_old_clss(type = type,
                                                       prototype_lup = prototype_lup)
   if(!identical(old_class_tb_extension,character(0))){
     eval(parse(text = old_class_tb_extension)) ## CHECK
@@ -53,7 +53,7 @@ set_ready_class <- function(class_name,
   prototype <- eval(parse(text = proto_ls))
   if(is.null(parent)){
     st_class_fn <- paste0("methods::setClass(",
-                          make_className_chr(class_name),
+                          make_alg_to_gen_ref_to_cls(class_name),
                           ",\nslots = ",
                           slot_str,
                           ",\nprototype =  ",
@@ -63,8 +63,8 @@ set_ready_class <- function(class_name,
                           ")")
   }else{
     st_class_fn <- paste0("methods::setClass(",
-                          make_className_chr(class_name,
-                                             package_chr = resolve_parent_ns_chr(parent_ns_ls) %>%
+                          make_alg_to_gen_ref_to_cls(class_name,
+                                             package_chr = transform_parent_ns_ls(parent_ns_ls) %>%
                                                ready4fun::update_ns()),
                           ",\ncontains = \"",
                           parent,
@@ -75,9 +75,9 @@ set_ready_class <- function(class_name,
                           ",\nwhere =  ",
                           "globalenv()",
                           ")")
-    parent_slots_chr_vec <- get_parent_slot_names(parent_chr = parent,
+    parent_slots_chr_vec <- get_parent_cls_slot_nms(parent_chr = parent,
                                                   parent_ns_ls = parent_ns_ls)
-    parent_prototype_chr_vec <- get_parent_prototypes(parent_chr = parent,
+    parent_prototype_chr_vec <- get_parent_cls_pts(parent_chr = parent,
                                                       parent_ns_ls = parent_ns_ls,
                                                       slot_names_chr_vec = parent_slots_chr_vec)
     parent_prototype_chr_vec <- `names<-`(parent_prototype_chr_vec,parent_slots_chr_vec)
@@ -90,10 +90,10 @@ set_ready_class <- function(class_name,
                        slots,
                        "\n",
                        collapse="")
-  included_classes_chr_vec <- get_included_classes_chr_vec(parent_chr = parent,
+  included_classes_chr_vec <- get_nms_of_clss_to_inc(parent_chr = parent,
                                                            parent_ns_ls = parent_ns_ls,
                                                            prespecified_includes_chr = include_classes)
-  include_tags_chr <- make_include_tag_chr(included_classes_chr_vec, s3_lgl = F)
+  include_tags_chr <- make_dmt_inc_tag(included_classes_chr_vec, s3_lgl = F)
   if(print_set_class){
     sink(output_file_class)
     writeLines(paste0(paste0("#' ",class_name,"\n"),
@@ -119,9 +119,9 @@ set_ready_class <- function(class_name,
                       st_class_fn %>%
                         stringr::str_replace(paste0(",\nwhere =  ",
                                                     "globalenv\\(\\)"),"") %>%
-                        simplify_class_name(package_chr = ifelse(is.null(parent),
+                        transform_alg_to_ref_cls_nm(package_chr = ifelse(is.null(parent),
                                                                  ".GlobalEnv",
-                                                                 resolve_parent_ns_chr(parent_ns_ls) %>%
+                                                                 transform_parent_ns_ls(parent_ns_ls) %>%
                                                                    ready4fun::update_ns())),
                       "\n"))
     ready4fun::close_open_sinks()

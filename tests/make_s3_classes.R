@@ -1,6 +1,6 @@
 devtools::load_all()
 library(magrittr)
-make_ready_s3(name_stub = "sp_abbreviations_lup",
+write_scripts_to_mk_r3_clss(name_stub = "sp_abbreviations_lup",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = "TEST_DES",
@@ -15,7 +15,7 @@ make_ready_s3(name_stub = "sp_abbreviations_lup",
               containing_namespace = NULL,
               names_include = NULL,
               file_exists_logic = "overwrite")
-make_ready_s3(name_stub = "test_list",
+write_scripts_to_mk_r3_clss(name_stub = "test_list",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = "TEST_DES",
@@ -30,7 +30,7 @@ make_ready_s3(name_stub = "test_list",
               containing_namespace = NULL,
               names_include = NULL,
               file_exists_logic = "overwrite")
-make_ready_s3(name_stub = "longitude_coord",
+write_scripts_to_mk_r3_clss(name_stub = "longitude_coord",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = NULL,
@@ -44,7 +44,7 @@ make_ready_s3(name_stub = "longitude_coord",
               containing_namespace = NULL,
               names_include = NULL,
               file_exists_logic = "overwrite")
-make_ready_s3(name_stub = "longitude_coord",
+write_scripts_to_mk_r3_clss(name_stub = "longitude_coord",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = NULL,
@@ -58,7 +58,7 @@ make_ready_s3(name_stub = "longitude_coord",
               containing_namespace = NULL,
               names_include = NULL,
               file_exists_logic = "overwrite")
-make_ready_s3(name_stub = "accom_status",
+write_scripts_to_mk_r3_clss(name_stub = "accom_status",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = NULL,
@@ -73,7 +73,7 @@ make_ready_s3(name_stub = "accom_status",
               containing_namespace = NULL,
               names_include = NULL,
               file_exists_logic = "overwrite")
-make_ready_s3(name_stub = "agent_id",
+write_scripts_to_mk_r3_clss(name_stub = "agent_id",
               name_prefix = "rfwn_",
               output_folder = "s3_classes",
               class_desc = NULL,
@@ -91,7 +91,7 @@ make_ready_s3(name_stub = "agent_id",
               file_exists_logic = "overwrite")
 ##
 
-# proto_ls <- get_proto_list(class_slots = class_slots,
+# proto_ls <- make_pt_ls(class_slots = class_slots,
 #                            type = type,
 #                            containing_namespace = containing_namespace,
 #                            values = values,
@@ -99,7 +99,7 @@ make_ready_s3(name_stub = "agent_id",
 # class_name <- paste0(name_prefix,name_stub)
 # output_file_class <- paste0(output_folder,"/",class_name,".R")
 # ##
-# set_ready_class(class_name = class_name,
+# write_to_mk_r4_cls(class_name = class_name,
 #                 class_slots = class_slots,
 #                 type = type,
 #                 proto_ls = proto_ls,
@@ -110,7 +110,7 @@ make_ready_s3(name_stub = "agent_id",
 #                 include_classes = include_classes,
 #                 prototype_tb = prototype_tb)
 # ##
-# helper_function <- create_ready_helper(class_name = class_name,
+# helper_function <- make_helper_fn(class_name = class_name,
 #                                        parent = parent,
 #                                        class_slots = class_slots,
 #                                        proto_ls = proto_ls,
@@ -125,13 +125,13 @@ make_ready_s3(name_stub = "agent_id",
 #   sink()
 # }
 # ##
-# accessors <- create_ready_accessors(class_name = class_name,
+# accessors <- make_alg_to_write_gtr_str_mthds(class_name = class_name,
 #                                     parent = parent,
 #                                     print_accessors = print_accessors,
 #                                     output_folder = output_folder)
 # eval(parse(text=accessors))
 # ##
-# valid_txt <- validate_ready(class_name = class_name,
+# valid_txt <- make_alg_to_set_validity_of_r4_cls(class_name = class_name,
 #                             parent = parent,
 #                             not_same_length = not_same_length,
 #                             allowed_values = allowed_values,
@@ -148,7 +148,7 @@ make_ready_s3(name_stub = "agent_id",
 # eval(parse(text=valid_txt))
 # ##
 # if(!is.null(meaningful_names)){
-#   meaningful_txt <- create_ready_show_mthd(class_name = class_name,
+#   meaningful_txt <- make_show_mthd_fn(class_name = class_name,
 #                                            meaningful_names = meaningful_names)
 #   eval(parse(text = meaningful_txt))
 #   if(print_meaningful_names){

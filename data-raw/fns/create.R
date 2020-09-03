@@ -1,4 +1,4 @@
-create_ready_helper <- function(class_name,
+make_helper_fn <- function(class_name,
                                 parent,
                                 class_slots,
                                 proto_ls,
@@ -6,10 +6,10 @@ create_ready_helper <- function(class_name,
                                 parent_ns_ls){
   if(!is.null(parent)){
     child_slots_chr <- class_slots
-    class_slots <- get_parent_slot_names(parent_chr = parent, parent_ns_ls = parent_ns_ls)
-    parent_proto <- get_parent_prototypes(parent_chr = parent, parent_ns_ls = parent_ns_ls, slot_names_chr_vec = class_slots)
+    class_slots <- get_parent_cls_slot_nms(parent_chr = parent, parent_ns_ls = parent_ns_ls)
+    parent_proto <- get_parent_cls_pts(parent_chr = parent, parent_ns_ls = parent_ns_ls, slot_names_chr_vec = class_slots)
     child_ls_chr <- proto_ls %>% stringr::str_sub(start = 6, end = -2)
-    proto_ls <- get_proto_list(class_slots = class_slots,
+    proto_ls <- make_pt_ls(class_slots = class_slots,
                                type = parent_proto,
                                prototype_lup = prototype_lup)
     proto_ls <- paste0(proto_ls %>% stringr::str_sub(end = -2),
@@ -30,7 +30,7 @@ create_ready_helper <- function(class_name,
                             ")\n}")
   return(helper_function)
 }
-create_accessors <- function(slot_name_chr,
+write_slot_gtr_str_mthds <- function(slot_name_chr,
                              set_only,
                              parent,
                              class_name,
@@ -38,20 +38,20 @@ create_accessors <- function(slot_name_chr,
                              output_folder,
                              ignore_ns_chr,
                              required_pckg_chr_vec){
-  current_generics_ls <- make_and_tf_curr_gen_ls(required_pckg_chr_vec = required_pckg_chr_vec,
+  current_generics_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec,
                                                  generic_chr = slot_name_chr,
                                                  ignore_ns_chr = ignore_ns_chr)
-  import_packages_ls <- make_import_packages_ls(current_generics_ls = current_generics_ls,
+  import_packages_ls <- make_ls_of_pkgs_to_imp(current_generics_ls = current_generics_ls,
                                                 fn_name_chr = slot_name_chr,
                                                 ignore_ns_chr = ignore_ns_chr)
-  write_accessors(slot_name_chr = slot_name_chr,
+  write_gtr_str_mthds_for_r4(slot_name_chr = slot_name_chr,
                   set_only = set_only,
                   import_packages_ls = import_packages_ls,
                   class_name = class_name,
                   print_accessors = print_accessors,
                   output_folder = output_folder)
 }
-create_accessors_rec <- function(slot_names_chr_vec,
+write_slot_gtr_str_mthds_rec <- function(slot_names_chr_vec,
                                  set_only,
                                  parent,
                                  class_name,
@@ -62,7 +62,7 @@ create_accessors_rec <- function(slot_names_chr_vec,
   required_pckg_chr_vec <- purrr::map_chr(required_pckg_chr_vec, ~ stringr::str_replace(.x,"NA",NA_character_))
   ignore_ns_chr <- purrr::map_chr(ignore_ns_chr, ~ stringr::str_replace(.x,"NA",NA_character_))
   purrr::walk(slot_names_chr_vec,
-              ~ create_accessors(.x,
+              ~ write_slot_gtr_str_mthds(.x,
                                  set_only = .x %in% set_only,
                                  parent = parent,
                                  class_name = class_name,
@@ -71,7 +71,7 @@ create_accessors_rec <- function(slot_names_chr_vec,
                                  ignore_ns_chr = ignore_ns_chr,
                                  required_pckg_chr_vec = required_pckg_chr_vec))
 }
-create_ready_accessors <- function(class_name,
+make_alg_to_write_gtr_str_mthds <- function(class_name,
                                    parent,
                                    print_accessors,
                                    output_folder,
@@ -83,9 +83,9 @@ create_ready_accessors <- function(class_name,
     set_only <- ""
   }else{
     set_only  <- get_r4_obj_slots_chr_vec(parent,
-                                          package_chr = resolve_parent_ns_chr(parent_ns_ls)) %>% names()
+                                          package_chr = transform_parent_ns_ls(parent_ns_ls)) %>% names()
   }
-  accessors <- paste0("create_accessors_rec(",
+  accessors <- paste0("write_slot_gtr_str_mthds_rec(",
                       "slot_names_chr_vec = c(\"",
                       slot_names_chr_vec %>% stringr::str_c(collapse="\",\""),
                       "\")",
@@ -106,7 +106,7 @@ create_ready_accessors <- function(class_name,
                       ")")
   return(accessors)
 }
-create_ready_show_mthd <- function(class_name,
+make_show_mthd_fn <- function(class_name,
                                    meaningful_names){
   descriptive_str <- purrr::map2_chr(names(meaningful_names),
                                      meaningful_names,
@@ -122,7 +122,7 @@ create_ready_show_mthd <- function(class_name,
                          descriptive_str,
                          ",\nsep = \"\")}")
   paste0("methods::setMethod(\"show\",\n",
-         make_className_chr(class_name),
+         make_alg_to_gen_ref_to_cls(class_name),
          ",\n",
          function_str,
          ',\nwhere =  ',

@@ -1,4 +1,4 @@
-gen_pt_value_chr <- function(type_namespace = "",
+make_alg_to_get_pt_val <- function(type_namespace = "",
                              function_to_call = "",
                              default_value = "",
                              namespace_contexts = c("base")){

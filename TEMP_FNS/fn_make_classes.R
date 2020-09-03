@@ -19,11 +19,11 @@
 #' @seealso
 #'  \code{\link[usethis]{use_data}}
 #'  \code{\link[devtools]{document}},\code{\link[devtools]{load_all}}
-#' @rdname make_new_classes
+#' @rdname write_scripts_to_mk_clss
 #' @export
 #' @importFrom usethis use_data
 #' @importFrom devtools document load_all
-make_new_classes <- function(new_classes_ls,
+write_scripts_to_mk_clss <- function(new_classes_ls,
                              pckg_name_chr,
                              class_pfx_chr,
                              R_dir_chr = "R",
@@ -61,10 +61,10 @@ make_new_classes <- function(new_classes_ls,
 #' }
 #' @seealso
 #'  \code{\link[purrr]{map}},\code{\link[purrr]{keep}}
-#' @rdname transform_new_classes_ls
+#' @rdname transform_pt_ls_for_new_clss
 #' @export
 #' @importFrom purrr map_lgl keep
-transform_new_classes_ls <- function(new_classes_ls){
+transform_pt_ls_for_new_clss <- function(new_classes_ls){
   s3_idx <- new_classes_ls %>% purrr::map_lgl(~class(.x) == "test_new_s3_pars")
   s4_idx <- new_classes_ls %>% purrr::map_lgl(~class(.x) == "test_new_s4_pars")
   list(s3_ls = new_classes_ls %>% purrr::keep(s3_idx),

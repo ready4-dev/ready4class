@@ -6,7 +6,7 @@ update_lup_for_ns.ready4_class_pt_lup <- function(x,
                                                         type_namespace,
                                                         function_to_call,
                                                         default_value),
-                                          ~ gen_pt_value_chr(type_namespace = ..1,
+                                          ~ make_alg_to_get_pt_val(type_namespace = ..1,
                                                              function_to_call = ..2,
                                                              default_value = ..3,
                                                              namespace_contexts = namespace_contexts))

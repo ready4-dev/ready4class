@@ -2,8 +2,8 @@
 ##
 ## 1. Pre-requisites
 ## The following script to make the initial class was run once the following items were already in the package's data-raw/mthds/ folder:
-## fn_make_ready_s3.R
-## fn_make_ready_s4.R
+## fn_write_scripts_to_mk_r3_clss.R
+## fn_write_scripts_to_mk_r4_clss.R
 ## import_methods.R
 ## import_pipe.R
 ## mthd_make_classes.R
@@ -42,7 +42,7 @@ classes_to_make_tb <- tibble::tribble(
                                                                            meaningful_names = "list()",
                                                                            include_classes = "list()"), NULL, NULL, NULL, "MAKE CLASS TABLE Readyforwhatsnext S3 class of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
 ## 4. Convert the metadata table into a new S3 class called ready4_class_make_tb
-make_ready_s3(name_stub = classes_to_make_tb$name_stub,
+write_scripts_to_mk_r3_clss(name_stub = classes_to_make_tb$name_stub,
               name_prefix = name_prefix,
               output_folder = "R",
               class_desc = classes_to_make_tb$class_desc,

@@ -1,10 +1,10 @@
-get_parent_ns_ls <- function(prototype_lup,
+get_parent_cls_ns <- function(prototype_lup,
                              parent_chr,
                              dev_pckg_ns_chr){ ## Can become a method of prototype table.
   if(!is.null(parent_chr)){
-    untransformed_chr <- get_class_ns_chr(prototype_lup = prototype_lup,
+    untransformed_chr <- get_class_ns(prototype_lup = prototype_lup,
                                           class_chr = parent_chr)
-    transformed_chr <- transform_class_ns_chr(class_ns_chr = untransformed_chr,
+    transformed_chr <- transform_class_ns(class_ns_chr = untransformed_chr,
                                               dev_pckg_ns_chr = dev_pckg_ns_chr)
     list(untransformed_chr = untransformed_chr,
          transformed_chr = transformed_chr)
@@ -14,7 +14,7 @@ get_parent_ns_ls <- function(prototype_lup,
 
   }
 }
-get_class_ns_chr <- function(prototype_lup,
+get_class_ns <- function(prototype_lup,
                              class_chr){
   ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                         match_var_nm_chr = "type",
@@ -22,7 +22,7 @@ get_class_ns_chr <- function(prototype_lup,
                         target_var_nm_chr = "type_namespace",
                         evaluate_lgl = F)
 }
-get_included_classes_chr_vec <- function(parent_chr,
+get_nms_of_clss_to_inc <- function(parent_chr,
                                          parent_ns_ls,
                                          prespecified_includes_chr = NULL){
   if(!is.null(parent_chr) & parent_ns_ls$transformed_chr == ""){
@@ -34,7 +34,7 @@ get_included_classes_chr_vec <- function(parent_chr,
     }
   }
 }
-get_class_files_chr <- function(class_names_chr_vec,
+get_class_fl_nms <- function(class_names_chr_vec,
                                s3_lgl = T,
                                output_dir_chr = NA){
   paste0(ifelse(is.na(output_dir_chr),
@@ -44,7 +44,7 @@ get_class_files_chr <- function(class_names_chr_vec,
          class_names_chr_vec,
          ".R")
 }
-get_parent_prototypes <- function(parent_chr,
+get_parent_cls_pts <- function(parent_chr,
                                   parent_ns_ls,
                                   slot_names_chr_vec){
   if(ifelse(is.null(parent_ns_ls$transformed_chr),
@@ -55,9 +55,9 @@ get_parent_prototypes <- function(parent_chr,
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
   purrr::map_chr(slot_names_chr_vec,
                  ~ ready4fun::get_r4_obj_slots_vec(parent_chr,
-                                    package_chr = resolve_parent_ns_chr(parent_ns_ls))[[.x]])
+                                    package_chr = transform_parent_ns_ls(parent_ns_ls))[[.x]])
 }
-get_parent_slot_names <- function(parent_chr,
+get_parent_cls_slot_nms <- function(parent_chr,
                                   parent_ns_ls){
   if(ifelse(is.null(parent_ns_ls$transformed_chr),
             F,
@@ -66,9 +66,9 @@ get_parent_slot_names <- function(parent_chr,
                    parent_ns_ls$transformed_chr!="")))
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_chr)
   ready4fun::get_r4_obj_slots_vec(parent_chr,
-                   package = resolve_parent_ns_chr(parent_ns_ls)) %>% names()
+                   package = transform_parent_ns_ls(parent_ns_ls)) %>% names()
 }
-get_proto_list <- function(class_slots,
+make_pt_ls <- function(class_slots,
                            type = NULL,
                            values = NULL,
                            make_val_string = TRUE,
@@ -104,7 +104,7 @@ get_proto_list <- function(class_slots,
     stringr::str_c(sep="",collapse=",") %>%
     paste0("list(",.,")")
 }
-get_parent_proto_fn_chr <- function(parent_chr,
+get_parent_cls_pt_fn <- function(parent_chr,
                                     prototype_lup){
   parent_proto_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                      match_var_nm_chr = "type",

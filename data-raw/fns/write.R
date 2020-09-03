@@ -1,11 +1,11 @@
-write_s3_s4 <- function(methods_tb,
+write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                         fn_ls,
                         package_chr,
                         output_dir_chr){
   purrr::pwalk(methods_tb %>%
                  dplyr::mutate(first_lgl = c(T,rep(F,length(fn_ls)-1))) %>%
                  dplyr::mutate(append_lgl = c(F,rep(T,length(fn_ls)-1))),
-               ~ write_std_method(fn = fn_ls[[..1]],
+               ~ write_std_mthd(fn = fn_ls[[..1]],
                                   fn_name_chr = ..2,
                                   class_chr = ..3,
                                   fn_desc_chr_vec = c(..4,..5),
@@ -17,7 +17,7 @@ write_s3_s4 <- function(methods_tb,
                                   append_lgl = ..10,
                                   first_lgl = ..9))
 }
-write_std_method <- function(fn,
+write_std_mthd <- function(fn,
                              fn_name_chr,
                              class_chr,
                              fn_desc_chr_vec,
@@ -43,13 +43,13 @@ write_std_method <- function(fn,
                                            "/meth_",
                                            fn_name_chr,
                                            ".R"))
-  current_generics_ls <- make_and_tf_curr_gen_ls(required_pckg_chr_vec = NA_character_, # Add ready4 here
+  current_generics_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(required_pckg_chr_vec = NA_character_, # Add ready4 here
                                                  generic_chr = fn_name_chr,
                                                  ignore_ns_chr = ifelse(package_chr %in% rownames(installed.packages()),
                                                                         package_chr,
                                                                         NA_character_))
   ## NB: Ensure latest ready4 bundle (ready4dev and ready4mod) is installed.
-  import_packages_ls <- make_import_packages_ls(current_generics_ls = current_generics_ls,
+  import_packages_ls <- make_ls_of_pkgs_to_imp(current_generics_ls = current_generics_ls,
                                                 fn_name_chr = fn_name_chr,
                                                 ignore_ns_chr = ifelse(package_chr %in% rownames(installed.packages()),
                                                                        package_chr,
@@ -58,7 +58,7 @@ write_std_method <- function(fn,
   import_chr_vec <- import_packages_ls$getter_import_pckg[import_packages_ls$getter_import_pckg!=package_chr]
   if(identical(import_chr_vec,character(0)))
     import_chr_vec <- NA_character_
-  write_file_ls <- write_gen_meth(fn_name_chr = fn_name_chr,
+  write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_chr = fn_name_chr,
                                   args_chr_vec = c("x",
                                                    ifelse(length(formalArgs(fn))>1,
                                                           "...",
@@ -84,7 +84,7 @@ write_std_method <- function(fn,
                                   write_lgl = T)
   write_file_ls
 }
-write_gen_meth <- function(fn_name_chr,
+write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
                            args_chr_vec = c("x"),
                            signature_chr = NA_character_,
                            package_chr = NA_character_ ,
@@ -104,14 +104,14 @@ write_gen_meth <- function(fn_name_chr,
                            overwrite_lgl = F,
                            s3_lgl,
                            write_lgl){
-  gen_mthd_pair_ls <- make_gen_mthd_pair_ls(name_chr = fn_name_chr,
+  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_chr = fn_name_chr,
                                             args_chr_vec = args_chr_vec,
                                             signature_chr = signature_chr,
                                             package_chr = package_chr,
                                             where_chr = where_chr,
                                             class_chr = class_chr,
                                             fn = fn)
-  write_file_ls <- write_generic_fn(write_file_ls = write_file_ls,
+  write_file_ls <- write_script_to_make_gnrc(write_file_ls = write_file_ls,
                                     generic_exists_lgl = generic_exists_lgl,
                                     gen_mthd_pair_ls = gen_mthd_pair_ls,
                                     fn_name_chr = fn_name_chr,
@@ -126,7 +126,7 @@ write_gen_meth <- function(fn_name_chr,
                                     write_lgl = write_lgl,
                                     doc_in_class_lgl = doc_in_class_lgl)
   write_file_ls$new_file_lgl <- ifelse(!overwrite_lgl,T,write_file_ls$new_file_lgl)
-  write_method(write_file_ls = write_file_ls,
+  write_script_to_make_mthd(write_file_ls = write_file_ls,
                gen_mthd_pair_ls = gen_mthd_pair_ls,
                class_name_chr = class_chr,
                fn_name_chr = fn_name_chr,
@@ -139,7 +139,7 @@ write_gen_meth <- function(fn_name_chr,
                doc_in_class_lgl = doc_in_class_lgl)
   write_file_ls
 }
-write_generic_fn <- function(write_file_ls,
+write_script_to_make_gnrc <- function(write_file_ls,
                              generic_exists_lgl,
                              gen_mthd_pair_ls,
                              fn_name_chr,
@@ -191,7 +191,7 @@ write_generic_fn <- function(write_file_ls,
   }
   write_file_ls
 }
-write_method <- function(write_file_ls,
+write_script_to_make_mthd <- function(write_file_ls,
                          gen_mthd_pair_ls,
                          class_name_chr,
                          fn_name_chr,
@@ -221,7 +221,7 @@ write_method <- function(write_file_ls,
     ready4fun::close_open_sinks()
   }
 }
-write_accessors <- function(slot_name_chr,
+write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
                             set_only,
                             import_packages_ls,
                             class_name,
@@ -257,7 +257,7 @@ write_accessors <- function(slot_name_chr,
                                                          "/gnrc_",
                                                          slot_name_chr,
                                                          ".R"))),
-                  ~ write_gen_meth(fn_name_chr = .y[[1]],
+                  ~ write_scripts_to_make_gnrc_and_mthd(fn_name_chr = .y[[1]],
                                    args_chr_vec = .y[[2]],
                                    package_chr = ".GlobalEnv",
                                    where_chr = 'globalenv()',
@@ -274,7 +274,7 @@ write_accessors <- function(slot_name_chr,
                                    write_lgl = print_accessors))
   }
 }
-write_fn_txt_and_tags <- function(fn_name,
+make_lines_for_writing_dmtd_fn <- function(fn_name,
                                   fn_text,
                                   fn_type,
                                   class_name,
