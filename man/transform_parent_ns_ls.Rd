@@ -12,4 +12,3 @@ transform_parent_ns_ls(parent_ns_ls)
 \description{
 transform_parent_ns_ls() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform parent a namespace. Function argument parent_ns_ls specifies the object to be updated. Argument NA provides the object to be updated.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

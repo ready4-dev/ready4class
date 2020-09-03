@@ -44,4 +44,3 @@ make_pt_ls_for_new_r3_cls(
 \description{
 make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

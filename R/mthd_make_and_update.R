@@ -15,7 +15,6 @@
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
 #' @importFrom purrr walk reduce
-#' @keywords internal
 make_and_update.ready4_class_make_tb <- function (x, dev_pckg_namespace = ready4fun::get_dev_pkg_nm(), 
     name_prefix = paste0(ready4fun::get_dev_pkg_nm(), "_"), output_dir = "R", 
     write_to_delete_fls_with_ptrn_pattern_chr_vec = NA_character_, 

@@ -14,4 +14,3 @@ get_parent_cls_slot_nms(parent_chr, parent_ns_ls)
 \description{
 get_parent_cls_slot_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent cls slot names. Function argument parent_chr specifies the where to look for the required object.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

@@ -12,4 +12,3 @@ make_class_pt_tb_for_r3_and_r4_clss(class_mk_ls)
 \description{
 make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make class prototype tibble for a readyforwhatsnext S3 and a readyforwhatsnext S4 clss.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

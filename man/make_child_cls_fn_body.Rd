@@ -23,4 +23,3 @@ make_child_cls_fn_body(
 \description{
 make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make child cls a function body.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

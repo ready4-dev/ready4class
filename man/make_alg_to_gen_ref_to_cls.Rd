@@ -14,4 +14,3 @@ make_alg_to_gen_ref_to_cls(class_chr, package_chr = ".GlobalEnv")
 \description{
 make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to gen ref to cls.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

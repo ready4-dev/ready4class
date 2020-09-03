@@ -102,8 +102,10 @@ usethis::use_data(prototype_lup,overwrite = T, internal = T)
 # ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
 # 13. Update documentation
-
-ready4fun::write_ns_imps_to_desc()
+ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
+                                r_dir_1L_chr = "R",
+                                dev_pkgs_chr = "ready4fun")
+#ready4fun::write_ns_imps_to_desc()
 #
 # 14. Manual step: Push changes
 

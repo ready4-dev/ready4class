@@ -12,4 +12,3 @@ make_pt_tb_for_new_r4_cls(x)
 \description{
 make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype tibble for new a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

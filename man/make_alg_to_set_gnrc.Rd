@@ -23,4 +23,3 @@ make_alg_to_set_gnrc(
 \description{
 make_alg_to_set_gnrc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set gnrc.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

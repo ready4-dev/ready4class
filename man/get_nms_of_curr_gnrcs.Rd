@@ -14,4 +14,3 @@ get_nms_of_curr_gnrcs(required_pckg_chr_vec, generic_chr)
 \description{
 get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of curr gnrcs. Function argument required_pckg_chr_vec specifies the where to look for the required object.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}
