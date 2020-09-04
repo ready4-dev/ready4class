@@ -12,7 +12,7 @@ get_class_fl_nms <- function(class_names_chr,
 get_class_ns <- function(prototype_lup,
                          class_nm_1L_chr){
   class_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                              match_var_nm_1L_chr = "type",
+                              match_var_nm_1L_chr = "type_chr",
                               match_value_xx = class_nm_1L_chr,
                               target_var_nm_1L_chr = "pt_ns_chr",
                               evaluate_lgl = F)
@@ -65,9 +65,9 @@ get_parent_cls_ns <- function(prototype_lup,
 get_parent_cls_pt_fn <- function(parent_cls_nm_1L_chr,
                                     prototype_lup){
   parent_cls_pt_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                                                     match_var_nm_1L_chr = "type",
+                                                     match_var_nm_1L_chr = "type_chr",
                                                      match_value_xx = parent_cls_nm_1L_chr,
-                                                     target_var_nm_1L_chr = "value",
+                                                     target_var_nm_1L_chr = "vals_ls",
                                                      evaluate_lgl = F)
   return(parent_cls_pt_fn)
 }

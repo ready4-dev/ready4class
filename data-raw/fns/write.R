@@ -1,31 +1,31 @@
 write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
                                        set_only,
-                                       import_packages_ls,
+                                       pkgs_to_imp_ls,
                                        class_nm_1L_chr,
                                        print_gtrs_strs_1L_lgl,
                                        output_dir_1L_chr){
   assign_to_slot_chr <- paste0(slot_name_chr,"<-")
   if(!set_only){
-    purrr::reduce(list(getter_ls = list(fn_name_chr = slot_name_chr,
+    purrr::reduce(list(getter_ls = list(fn_name_1L_chr = slot_name_chr,
                                         args_chr = c("x"),
                                         fn = eval(parse(text=paste0("function(x){","x@",slot_name_chr,"}"))),
-                                        fn_type_chr_vec = c("gen_get_slot","meth_get_slot"),
-                                        import_chr_vec = import_packages_ls$getter_import_pckg),
-                       setter_ls = list(fn_name_chr = assign_to_slot_chr,
+                                        fn_type_chr = c("gen_get_slot","meth_get_slot"),
+                                        import_chr_vec = pkgs_to_imp_ls$gtr_imps_chr),
+                       setter_ls = list(fn_name_1L_chr = assign_to_slot_chr,
                                         args_chr = c("x","value"),
                                         fn = eval(parse(text=paste0("function(x, value) {",
                                                                     "\nx@",slot_name_chr,' <- value',
                                                                     "\nmethods::validObject(x)",
                                                                     "\nx",
                                                                     "\n}"))),
-                                        fn_type_chr_vec = c("gen_set_slot","meth_set_slot"),
-                                        import_chr_vec = import_packages_ls$setter_import_pckg)),
+                                        fn_type_chr = c("gen_set_slot","meth_set_slot"),
+                                        import_chr_vec = pkgs_to_imp_ls$str_imps_chr)),
                   .init = list(new_file_lgl = F,
                                gnr_file = paste0(output_dir_1L_chr,
                                                  "/gnrc_",
                                                  slot_name_chr,
                                                  ".R"),
-                               meth_file = ifelse(import_packages_ls$gen_get_exists_lgl,
+                               meth_file = ifelse(pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl,
                                                   paste0(output_dir_1L_chr,
                                                          "/gs_",
                                                          slot_name_chr,
@@ -34,19 +34,19 @@ write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
                                                          "/gnrc_",
                                                          slot_name_chr,
                                                          ".R"))),
-                  ~ write_scripts_to_make_gnrc_and_mthd(fn_name_chr = .y[[1]],
+                  ~ write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = .y[[1]],
                                                         args_chr = .y[[2]],
                                                         pkg_nm_1L_chr = ".GlobalEnv",
                                                         where_chr = 'globalenv()',
                                                         class_nm_1L_chr = class_nm_1L_chr,
                                                         fn = .y[[3]],
-                                                        fn_type_chr_vec = .y[[4]],
+                                                        fn_type_chr = .y[[4]],
                                                         import_chr_vec = .y[[5]],
                                                         write_file_ls = .x,
                                                         output_dir_chr = output_dir_1L_chr,
                                                         append_lgl = T,
                                                         doc_in_class_lgl = F,
-                                                        generic_exists_lgl = import_packages_ls$gen_get_exists_lgl,
+                                                        generic_exists_lgl = pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl,
                                                         s3_1L_lgl = F,
                                                         write_lgl = print_gtrs_strs_1L_lgl))
   }
@@ -79,7 +79,7 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                  dplyr::mutate(first_lgl = c(T,rep(F,length(fn_ls)-1))) %>%
                  dplyr::mutate(append_lgl = c(F,rep(T,length(fn_ls)-1))),
                ~ write_std_mthd(fn = fn_ls[[..1]],
-                                fn_name_chr = ..2,
+                                fn_name_1L_chr = ..2,
                                 class_nm_1L_chr = ..3,
                                 fn_desc_chr_vec = c(..4,..5),
                                 fn_title_chr = ..6,
@@ -93,16 +93,16 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
 write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                         name_prefix = "ready4_",
                                         output_dir_1L_chr = "data-raw",
-                                        class_desc = "",
+                                        class_desc_1L_chr = "",
                                         parent_cls_nm_1L_chr = NULL,
-                                        type,
+                                        type_1L_chr,
                                         pt_ns_1L_chr = "",
-                                        type_checker_prefix = "is.",
-                                        values = NULL,
-                                        ordered = FALSE,
+                                        pt_chkr_pfx_1L_chr = "is.",
+                                       vals_ls = NULL,
+                                        ordered_1L_lgl = FALSE,
                                         allowed_vals_ls = NULL,
-                                        min_max_vals = NULL,
-                                        start_end_vals = NULL,
+                                        min_max_vals_dbl = NULL,
+                                        start_end_vals_dbl = NULL,
                                         prototype_lup,
                                         nss_to_ignore_chr  = NA_character_,
                                         file_exists_logic = "skip"){
@@ -118,312 +118,44 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
   }
   if(file_exists_logic %in% c("append","overwrite")){
     s3_components_ls <- make_pt_ls_for_new_r3_cls(class_name_chr = class_nm_1L_chr,
-                                                  type_chr = type,
-                                                  type_ns_chr = pt_ns_1L_chr,
-                                                  type_checker_pfx_chr = type_checker_prefix,
-                                                  values_chr = values,
-                                                  ordered_lgl = ordered,
+                                                  type_1L_chr = type_1L_chr,
+                                                  pt_ns_1L_chr = pt_ns_1L_chr,
+                                                  pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr,
+                                                  vals_ls = vals_ls,
+                                                  ordered_1L_lgl = ordered_1L_lgl,
                                                   parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                   prototype_lup = prototype_lup,
-                                                  min_max_vals_dbl_vec = min_max_vals,
-                                                  start_end_vals_dbl_vec = start_end_vals,
+                                                  min_max_vals_dbl = min_max_vals_dbl,
+                                                  start_end_vals_dbl = start_end_vals_dbl,
                                                   nss_to_ignore_chr = nss_to_ignore_chr)
     sink(class_file_chr, append = ifelse(file_exists_logic =="append",TRUE,FALSE))
     writeLines(s3_components_ls$include_tags_chr)
     purrr::pwalk(list(s3_components_ls$fn_name_ls,
-                      s3_components_ls$fn_text_ls,
-                      c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype", "s3_validator", "s3_checker")),
-                 ~ make_lines_for_writing_dmtd_fn(fn_name = ..1,
-                                                  fn_text = ..2,
+                      s3_components_ls$fn_body_1L_chr_ls,
+                      c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype_ls", "s3_validator_ls", "s3_checker")),
+                 ~ make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1,
+                                                  fn_body_1L_chr = ..2,
                                                   fn_type = ..3,
                                                   class_nm_1L_chr = class_nm_1L_chr,
-                                                  class_desc = class_desc))
+                                                  class_desc_1L_chr = class_desc_1L_chr))
     ready4fun::close_open_sinks()
   }
   devtools::document()
   devtools::load_all()
 }
-write_scripts_to_mk_r3_cls_checker <- function(class_nm_1L_chr,
-                                                s3_validator){
-  name_of_fn_to_check_if_is_valid_instance <- paste0("is_",class_nm_1L_chr)
-  fn_to_check_if_is_valid_instance <- paste0 (name_of_fn_to_check_if_is_valid_instance,
-                                              " <- function(x) inherits(",
-                                              s3_validator$fn_name,
-                                              "(x), \"",
-                                              class_nm_1L_chr,
-                                              "\")")
-  list(fn_name = name_of_fn_to_check_if_is_valid_instance,
-       fn_text = fn_to_check_if_is_valid_instance)
-}
-write_scripts_to_mk_r3_cls_constructor <- function(type,
-                                                    type_checker_prefix,
-                                                    pt_ns_1L_chr,
-                                                    class_nm_1L_chr,
-                                                    s3_prototype){
-  name_of_fn_to_construct_instance <- paste0("new_",class_nm_1L_chr)
-  stop_cndn_in_constructor <- ifelse(type=="factor",
-                                     "TRUE",
-                                     paste0(pt_ns_1L_chr,
-                                            ifelse(pt_ns_1L_chr=="","","::"),
-                                            type_checker_prefix,
-                                            type,
-                                            "(x)"))
-  fn_to_construct_instance <- paste0(name_of_fn_to_construct_instance,
-                                     " <- function(x){ \n",
-                                     "stopifnot(",
-                                     stop_cndn_in_constructor,
-                                     ")\n",
-                                     "class(x) <- append(",
-                                     "c(\"",
-                                     class_nm_1L_chr,
-                                     "\",setdiff(",
-                                     paste0(s3_prototype$fn_name,"()"),
-                                     " %>% class(),class(x)))",
-                                     ",\nclass(x))\nx\n}")
-  list(fn_name = name_of_fn_to_construct_instance,
-       fn_text = fn_to_construct_instance)
 
-}
-write_scripts_to_mk_r3_cls_pts <- function(type,
-                                            pt_ns_1L_chr,
-                                            values,
-                                            ordered,
-                                            class_nm_1L_chr,
-                                            parent_cls_nm_1L_chr,
-                                            prototype_lup){
-  ## Part 2 - Make Prototype Function
-  if(type %in% c("tibble","list")){
-    fn_call_to_create_prototype <- paste0(ifelse(type=="tibble","tibble::tibble(","list("),
-                                          purrr::map2_chr(names(values),
-                                                          values,
-                                                          ~ paste0(.x,
-                                                                   " = ",
-                                                                   .y)) %>%
-                                            stringr::str_c(sep="",collapse=",\n") ,
-                                          ")")
-    fn_call_to_create_prototype <- make_child_cls_fn_body(child_ext_fn_1L_chr = fn_call_to_create_prototype,
-                                                          parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                                          prototype_lup = prototype_lup,
-                                                          prepend_1L_lgll = T)
-
-  }else{
-    if(type == "factor"){
-      fn_call_to_create_prototype <- paste0("factor(x = character(),\nlevels=c(\"",
-                                            values %>%
-                                              stringr::str_c(sep="",collapse="\",\"\n") ,
-                                            "\"),\nordered=",
-                                            ordered,
-                                            ")")
-
-    }else{
-      fn_call_to_create_prototype <- paste0(pt_ns_1L_chr,
-                                            ifelse(pt_ns_1L_chr=="","","::"),
-                                            type,
-                                            "(0)"
-      )
-    }
-
-  }
-  name_of_fn_to_make_prototype <- paste0("make_prototype_",class_nm_1L_chr)
-  fn_to_make_prototype <- paste0(name_of_fn_to_make_prototype,
-                                 " <- function(){ \n",
-                                 fn_call_to_create_prototype,
-                                 "\n}")
-  list(fn_name = name_of_fn_to_make_prototype,
-       fn_text = fn_to_make_prototype)
-
-}
-write_scripts_to_mk_r3_cls_validator <- function(type,
-                                                  class_nm_1L_chr,
-                                                  s3_prototype,
-                                                  min_max_vals,
-                                                  start_end_vals,
-                                                  values){
-  name_of_fn_to_validate_instance <- paste0("validate_",class_nm_1L_chr)
-  validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
-  if(type %in% c("tibble","list")){
-    stop_cndn_in_validator_1 <- paste0("sum(stringr::str_detect(names(x)[names(x) %in% names(",
-                                       s3_prototype$fn_name,
-                                       "())],\n",
-                                       "names(",
-                                       s3_prototype$fn_name,
-                                       "())))!=length(names(",
-                                       s3_prototype$fn_name,
-                                       "()))")
-    tb_or_ls_class_summary <- ifelse(type == "list",
-                                     "lapply(class) %>% tibble::as_tibble() ",
-                                     "dplyr::summarise_all(class) ")
-    var_class_lup <- paste0(s3_prototype$fn_name,
-                            "() %>% \n",
-                            tb_or_ls_class_summary ,
-                            "%>% \n tidyr::gather(variable,class)")
-    stop_cndn_in_validator_2 <- paste0("!identical(",
-                                       var_class_lup,
-                                       " %>% \n",
-                                       "dplyr::arrange(variable),\n",
-                                       "x %>% \n",
-                                       tb_or_ls_class_summary ,
-                                       "%>% \n tidyr::gather(variable,class) %>% \n",
-                                       "dplyr::filter(variable %in% names(",
-                                       s3_prototype$fn_name,
-                                       "())) %>% ",
-                                       "dplyr::arrange(variable)",
-                                       ")")
-    obj_components_vec <- c(toupper(type),ifelse(type=="list","elements","columns"))
-    stop_msg_call_in_validator_1 <- paste0("paste0(\"",
-                                           obj_components_vec[1],
-                                           " must include ",
-                                           obj_components_vec[2],
-                                           " named: \",\n",
-                                           "names(",
-                                           s3_prototype$fn_name,
-                                           "()) %>% stringr::str_c(sep=\"\", collapse = \", \"))")
-    stop_msg_call_in_validator_2 <- paste0("paste0(\"",
-                                           obj_components_vec[1],
-                                           " ",
-                                           obj_components_vec[2],
-                                           " should be of the following classes: \",\n",
-                                           "purrr::map2_chr(",
-                                           var_class_lup,
-                                           " %>% \ndplyr::pull(1),\n ",
-                                           var_class_lup,
-                                           " %>% \ndplyr::pull(2),\n ",
-                                           "~ paste0(.x,\": \",.y)) %>% \n",
-                                           "stringr::str_c(sep=\"\", collapse = \", \"))")
-    validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1,
-                                   b = stop_cndn_in_validator_2)
-    validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1,
-                                       b = stop_msg_call_in_validator_2)
-  }else{
-    if(!is.null(min_max_vals)){
-      stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
-      if(!is.na(min_max_vals[1])){
-        stop_cndn_in_validator_1 <- paste0("any(",
-                                           ifelse(type == "character","stringr::str_length(x)","x"),
-                                           " < ",
-                                           min_max_vals[1],
-                                           ")")
-        stop_msg_call_in_validator_1 <- paste0("\"All values in valid ",
-                                               class_nm_1L_chr,
-                                               " object must be ",
-                                               ifelse(type == "character","of length ",""),
-                                               "greater than or equal to ",
-                                               min_max_vals[1],
-                                               ".\"")
-      }
-      if(!is.na(min_max_vals[2])){
-        stop_cndn_in_validator_2 <- paste0("any(",
-                                           ifelse(type == "character","stringr::str_length(x)","x"),
-                                           " > ",
-                                           min_max_vals[2],")")
-        stop_msg_call_in_validator_2 <- paste0("\"All values in valid ",
-                                               class_nm_1L_chr,
-                                               " object must be ",
-                                               ifelse(type == "character","of length ",""),
-                                               "less than or equal to ",
-                                               min_max_vals[2],
-                                               ".\"")
-      }
-      validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1,
-                                     b = stop_cndn_in_validator_2) %>% purrr::compact()
-      validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1,
-                                         b = stop_msg_call_in_validator_2) %>% purrr::compact()
-
-
-    }
-    ###
-    if(!is.null(start_end_vals)){
-      stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
-      if(!is.na(start_end_vals[1])){
-        stop_cndn_in_validator_1 <- paste0("any(purrr::map_lgl(x, ~ !startsWith(.x,\"",
-                                           start_end_vals[1],
-                                           "\")))")
-        stop_msg_call_in_validator_1 <- paste0("\"All values in valid ",
-                                               class_nm_1L_chr,
-                                               " object must start with \'",
-                                               start_end_vals[1],
-                                               "\'.\"")
-      }
-      if(!is.na(start_end_vals[2])){
-        stop_cndn_in_validator_2 <- paste0("any(purrr::map_lgl(x, ~ !endsWith(.x,\"",
-                                           start_end_vals[2],
-                                           "\")))")
-        stop_msg_call_in_validator_2 <- paste0("\"All values in valid ",
-                                               class_nm_1L_chr,
-                                               " object must end with \'",
-                                               start_end_vals[2],
-                                               "\'.\"")
-      }
-      validator_stop_cond_ls <- append(validator_stop_cond_ls,
-                                       list(a = stop_cndn_in_validator_1,
-                                            b = stop_cndn_in_validator_2) %>% purrr::compact())
-      validator_stop_msg_call_ls <- append(validator_stop_msg_call_ls,
-                                           list(a = stop_msg_call_in_validator_1,
-                                                b = stop_msg_call_in_validator_2) %>% purrr::compact())
-
-    }
-    if(type == "factor"){
-      stop_cndn_in_validator_1 <- paste0("!identical(setdiff(x,c(\"",
-                                         values %>% stringr::str_c(collapse = "\",\""),
-                                         "\")),character(0))")
-      stop_msg_call_in_validator_1 <- paste0("\"Levels in valid ",
-                                             class_nm_1L_chr,
-                                             " object are: ",
-                                             values %>% stringr::str_c(collapse = ","),
-                                             ".\"")
-      validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1)
-      validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1)
-
-    }
-  }
-  fn_to_validate_instance <- paste0(name_of_fn_to_validate_instance,
-                                    " <- function(x){\n",
-                                    purrr::map2_chr(validator_stop_cond_ls,
-                                                    validator_stop_msg_call_ls,
-                                                    ~ paste0("if(",
-                                                             .x,
-                                                             "){\n",
-                                                             "stop(",
-                                                             .y,
-                                                             ",\ncall. = FALSE)\n}"
-                                                    )) %>%
-                                      stringr::str_c(sep="",
-                                                     collapse = "\n "),
-                                    "\nx}")
-  list(fn_name = name_of_fn_to_validate_instance,
-       fn_text = fn_to_validate_instance)
-
-}
-write_scripts_to_mk_r3_cls_valid_instance <- function(class_nm_1L_chr,
-                                                       s3_prototype,
-                                                       s3_constructor,
-                                                       s3_validator){
-  fn_call_to_make_valid_instance <- paste0(s3_validator$fn_name,
-                                           "(",
-                                           s3_constructor$fn_name,
-                                           "(x))")
-  name_of_fn_to_make_valid_instance <- class_nm_1L_chr
-  fn_to_make_valid_instance <- paste0(name_of_fn_to_make_valid_instance,
-                                      " <- function(x = ",
-                                      s3_prototype$fn_name,
-                                      "()){ \n",
-                                      fn_call_to_make_valid_instance,
-                                      "\n}")
-  list(fn_name = name_of_fn_to_make_valid_instance,
-       fn_text = fn_to_make_valid_instance)
-}
 write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         name_prefix = "ready4_",
                                         output_dir_1L_chr = "data-raw",
                                         output_sub_folder = NULL,
-                                        class_desc = "",
+                                        class_desc_1L_chr = "",
                                         parent_cls_nm_1L_chr = NULL,
-                                        class_slots,
-                                        type,
-                                        meaningful_names = NULL,
-                                        values = NULL,
+                                        slots_chr,
+                                        type_chr,
+                                        meaningful_nms_ls = NULL,
+                                       vals_ls = NULL,
                                         allowed_vals_ls = NULL,
-                                        include_classes = NULL,
+                                        clss_to_inc_chr = NULL,
                                         prototype_lup,
                                         nss_to_ignore_chr = NA_character_,
                                         req_pkgs_chr = NA_character_,
@@ -433,7 +165,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         print_helper = TRUE,
                                         print_gtrs_strs_1L_lgl = TRUE,
                                         print_validator_1L_lgl = TRUE,
-                                        print_meaningful_names = TRUE,
+                                        print_meaningful_nms_ls = TRUE,
                                         class_in_cache_logic_chr = "stop"){
   if(!is.null(output_sub_folder)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
@@ -442,9 +174,9 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
     if(!dir.exists(output_dir_1L_chr))
       dir.create(output_dir_1L_chr)
   }
-  proto_ls <- make_pt_ls(class_slots = class_slots,
-                         type = type,
-                         values = values,
+  proto_ls <- make_pt_ls(slots_chr = slots_chr,
+                         type_chr = type_chr,
+                         vals_ls = vals_ls,
                          prototype_lup = prototype_lup)
   class_nm_1L_chr <- paste0(name_prefix,name_stub_1L_chr)
   output_file_class <- get_class_fl_nms(class_names_chr = class_nm_1L_chr,
@@ -454,28 +186,28 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     dev_pkg_ns_1L_chr = nss_to_ignore_chr[1])
   write_to_mk_r4_cls(class_nm_1L_chr = class_nm_1L_chr,
-                     class_slots = class_slots,
-                     type = type,
+                     slots_chr = slots_chr,
+                     type_chr = type_chr,
                      proto_ls = proto_ls,
                      parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                      print_set_class = print_set_class,
-                     class_desc = class_desc,
+                     class_desc_1L_chr = class_desc_1L_chr,
                      output_file_class = output_file_class,
-                     include_classes = include_classes,
+                     clss_to_inc_chr = clss_to_inc_chr,
                      prototype_lup = prototype_lup,
                      helper_lgl = print_helper,
                      parent_ns_ls = parent_ns_ls)
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                    class_slots = class_slots,
+                                    slots_chr = slots_chr,
                                     proto_ls = proto_ls,
                                     prototype_lup = prototype_lup,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
   if(print_helper){
     sink(output_file_class, append = TRUE)
-    write_fn_dmt(fn_name_chr = class_nm_1L_chr,
-                 fn_type_chr = "set_class",
+    ready4fun::write_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
+                 fn_type_1L_chr = "set_class",
                  fn = eval(parse(text = class_nm_1L_chr)),
                  class_name_chr = class_nm_1L_chr)
     writeLines(helper_function)
@@ -502,11 +234,11 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
     ready4fun::close_open_sinks()
   }
   eval(parse(text=valid_txt))
-  if(!is.null(meaningful_names)){
+  if(!is.null(meaningful_nms_ls)){
     meaningful_txt <- make_show_mthd_fn(class_nm_1L_chr = class_nm_1L_chr,
-                                        meaningful_names = meaningful_names)
+                                        meaningful_nms_ls = meaningful_nms_ls)
     eval(parse(text = meaningful_txt))
-    if(print_meaningful_names){
+    if(print_meaningful_nms_ls){
       sink(output_file_class, append = TRUE)
       writeLines(paste0("\n",
                         meaningful_txt %>%
@@ -521,17 +253,17 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   devtools::load_all()
 }
 write_scripts_to_mk_clss <- function(new_classes_ls,
-                                     pckg_name_chr,
+                                     pkg_nm_1L_chr,
                                      class_pfx_chr,
                                      R_dir_chr = "R",
                                      pt_lup,
                                      description_ls = NULL,
                                      nss_to_ignore_chr = NA_character_,
                                      req_pkgs_chr = NA_character_){
-  reset_pkg_files_R(pckg_name_chr,
+  reset_pkg_files_R(pkg_nm_1L_chr,
                     description_ls = description_ls)
   pt_lup <- make_class_pts_tb(new_classes_ls) %>%
-    make_and_update(dev_pckg_namespace = pckg_name_chr,
+    make_and_update(dev_pkg_ns = pkg_nm_1L_chr,
                     name_prefix = class_pfx_chr,
                     output_dir = R_dir_chr,
                     file_exists_logic = "overwrite",
@@ -548,8 +280,8 @@ write_scripts_to_mk_clss <- function(new_classes_ls,
 write_script_to_make_gnrc <- function(write_file_ls,
                              generic_exists_lgl,
                              gen_mthd_pair_ls,
-                             fn_name_chr,
-                             fn_type_chr,
+                             fn_name_1L_chr,
+                             fn_type_1L_chr,
                              fn_desc_chr = NA_character_,
                              fn_out_type_chr = NA_character_,
                              fn_title_chr = NA_character_,
@@ -564,10 +296,10 @@ write_script_to_make_gnrc <- function(write_file_ls,
     eval(parse(text = gen_mthd_pair_ls$generic_1L_chr))
     if(write_lgl & (!file.exists(write_file_ls$gnr_file) | write_file_ls$new_file_lgl | overwrite_lgl)){
       sink(write_file_ls$gnr_file,
-           append = ifelse(fn_type_chr %in% c("gen_std_s3_mthd",
+           append = ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                               "gen_std_s4_mthd"),F,write_file_ls$new_file_lgl))
-      ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_chr,
-                              fn_type_1L_chr = fn_type_chr,
+      ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
+                              fn_type_1L_chr = fn_type_1L_chr,
                               fn = eval(parse(text=gen_mthd_pair_ls$gen_fn_chr)),
                               fn_desc_1L_chr = fn_desc_chr,
                               fn_out_type_1L_chr = fn_out_type_chr,
@@ -583,11 +315,11 @@ write_script_to_make_gnrc <- function(write_file_ls,
     if(#else_lgl &
       !file.exists(write_file_ls$gnr_file)){
       write_file_ls$meth_file <- paste0(output_dir_chr,
-                                        ifelse(fn_type_chr %in% c("gen_std_s3_mthd",
+                                        ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                                                   "gen_std_s4_mthd"),
                                                "/mthd_",
                                                "/gs_"),
-                                               fn_name_chr,
+                                               fn_name_1L_chr,
                                                ".R")
       if(!file.exists(write_file_ls$meth_file))
         file.create(write_file_ls$meth_file)
@@ -597,14 +329,14 @@ write_script_to_make_gnrc <- function(write_file_ls,
   }
   write_file_ls
 }
-write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
+write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                                                 args_chr = c("x"),
                                                 signature_chr = NA_character_,
                                                 pkg_nm_1L_chr = NA_character_ ,
                                                 where_chr = NA_character_,
                                                 class_nm_1L_chr,
                                                 fn,
-                                                fn_type_chr_vec,
+                                                fn_type_chr,
                                                 fn_desc_chr_vec = rep(NA_character_,2),
                                                 fn_title_chr = NA_character_,
                                                 fn_out_type_chr = NA_character_,
@@ -617,7 +349,7 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
                                                 overwrite_lgl = F,
                                                 s3_1L_lgl,
                                                 write_lgl){
-  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_chr = fn_name_chr,
+  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_chr = fn_name_1L_chr,
                                              args_chr = args_chr,
                                              signature_chr = signature_chr,
                                              pkg_nm_1L_chr = pkg_nm_1L_chr,
@@ -627,8 +359,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
   write_file_ls <- write_script_to_make_gnrc(write_file_ls = write_file_ls,
                                              generic_exists_lgl = generic_exists_lgl,
                                              gen_mthd_pair_ls = gen_mthd_pair_ls,
-                                             fn_name_chr = fn_name_chr,
-                                             fn_type_chr = fn_type_chr_vec[1],
+                                             fn_name_1L_chr = fn_name_1L_chr,
+                                             fn_type_chr = fn_type_chr[1],
                                              fn_desc_chr = fn_desc_chr_vec[1],
                                              fn_out_type_chr = NA_character_,
                                              fn_title_chr = fn_title_chr,
@@ -642,8 +374,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
   write_script_to_make_mthd(write_file_ls = write_file_ls,
                             gen_mthd_pair_ls = gen_mthd_pair_ls,
                             class_name_chr = class_nm_1L_chr,
-                            fn_name_chr = fn_name_chr,
-                            fn_type_chr = fn_type_chr_vec[2],
+                            fn_name_1L_chr = fn_name_1L_chr,
+                            fn_type_chr = fn_type_chr[2],
                             fn_desc_chr = fn_desc_chr_vec[2],
                             fn_out_type_chr = fn_out_type_chr,
                             import_chr_vec = import_chr_vec,
@@ -655,8 +387,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_chr,
 write_script_to_make_mthd <- function(write_file_ls,
                          gen_mthd_pair_ls,
                          class_name_chr,
-                         fn_name_chr,
-                         fn_type_chr,
+                         fn_name_1L_chr,
+                         fn_type_1L_chr,
                          fn_desc_chr = NA_character_,
                          fn_out_type_chr = NA_character_,
                          import_chr_vec,
@@ -667,10 +399,10 @@ write_script_to_make_mthd <- function(write_file_ls,
   if(write_lgl){
     sink(write_file_ls$meth_file, append =  ifelse(identical(write_file_ls$gen_file,write_file_ls$meth_file),
                                                    T,
-                                                   ifelse(fn_type_chr %in% c("gen_std_s3_mthd",
+                                                   ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                                                              "gen_std_s4_mthd"),T,write_file_ls$new_file_lgl)))
-    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_chr,
-                            fn_type_1L_chr = fn_type_chr,
+    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
+                            fn_type_1L_chr = fn_type_1L_chr,
                             fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
                             fn_desc_1L_chr = fn_desc_chr,
                             fn_out_type_1L_chr = fn_out_type_chr,
@@ -690,21 +422,21 @@ write_slot_gtr_str_mthds <- function(slot_name_chr,
                                      output_dir_1L_chr,
                                      nss_to_ignore_chr,
                                      req_pkgs_chr){
-  current_generics_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
+  curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
                                                           generic_1L_chr = slot_name_chr,
                                                           nss_to_ignore_chr = nss_to_ignore_chr)
-  import_packages_ls <- make_ls_of_pkgs_to_imp(current_generics_ls = current_generics_ls,
-                                               fn_name_chr = slot_name_chr,
+  pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
+                                               fn_name_1L_chr = slot_name_chr,
                                                nss_to_ignore_chr = nss_to_ignore_chr)
   write_gtr_str_mthds_for_r4(slot_name_chr = slot_name_chr,
                              set_only = set_only,
-                             import_packages_ls = import_packages_ls,
+                             pkgs_to_imp_ls = pkgs_to_imp_ls,
                              class_nm_1L_chr = class_nm_1L_chr,
                              print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,
                              output_dir_1L_chr = output_dir_1L_chr)
 }
 write_std_mthd <- function(fn,
-                           fn_name_chr,
+                           fn_name_1L_chr,
                            class_nm_1L_chr,
                            fn_desc_chr_vec,
                            fn_title_chr,
@@ -716,35 +448,35 @@ write_std_mthd <- function(fn,
                            first_lgl = T){
   s3_1L_lgl = !isS4(eval(parse(text=paste0(class_nm_1L_chr,"()"))))
   testit::assert("x" %in% formalArgs(fn))
-  fn_type_chr_vec <- paste0(c("gen_","meth_"),
+  fn_type_chr <- paste0(c("gen_","meth_"),
                             "std_",
                             ifelse(s3_1L_lgl,"s3","s4"),
                             "_mthd")
   write_file_ls <- list(new_file_lgl = F,
                         gnr_file = paste0(output_dir_chr,
                                           "/gnrc_",
-                                          fn_name_chr,
+                                          fn_name_1L_chr,
                                           ".R"),
                         meth_file = paste0(output_dir_chr,
                                            "/meth_",
-                                           fn_name_chr,
+                                           fn_name_1L_chr,
                                            ".R"))
-  current_generics_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
-                                                          generic_1L_chr = fn_name_chr,
+  curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
+                                                          generic_1L_chr = fn_name_1L_chr,
                                                           nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(installed.packages()),
                                                                                  pkg_nm_1L_chr,
                                                                                  NA_character_))
   ## NB: Ensure latest ready4 bundle (ready4dev and ready4mod) is installed.
-  import_packages_ls <- make_ls_of_pkgs_to_imp(current_generics_ls = current_generics_ls,
-                                               fn_name_chr = fn_name_chr,
+  pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
+                                               fn_name_1L_chr = fn_name_1L_chr,
                                                nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(installed.packages()),
                                                                       pkg_nm_1L_chr,
                                                                       NA_character_))
-  generic_exists_lgl <- import_packages_ls$gen_get_exists_lgl
-  import_chr_vec <- import_packages_ls$getter_import_pckg[import_packages_ls$getter_import_pckg!=pkg_nm_1L_chr]
+  generic_exists_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
+  import_chr_vec <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr!=pkg_nm_1L_chr]
   if(identical(import_chr_vec,character(0)))
     import_chr_vec <- NA_character_
-  write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_chr = fn_name_chr,
+  write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = fn_name_1L_chr,
                                                        args_chr = c("x",
                                                                         ifelse(length(formalArgs(fn))>1,
                                                                                "...",
@@ -755,7 +487,7 @@ write_std_mthd <- function(fn,
                                                        where_chr = NA_character_,
                                                        class_nm_1L_chr = class_nm_1L_chr,
                                                        fn = fn,
-                                                       fn_type_chr_vec = fn_type_chr_vec,
+                                                       fn_type_chr = fn_type_chr,
                                                        fn_desc_chr_vec = fn_desc_chr_vec,
                                                        fn_title_chr = fn_title_chr,
                                                        fn_out_type_chr = fn_out_type_chr,
@@ -781,7 +513,7 @@ write_to_delete_fls_with_ptrn <- function(dir_chr,
 write_to_delete_gnrc_fn_fls <- function(x,
                                         output_dir){ ## NEEDS TO BE TESTED AND COMPARED TO DELETE_FILES FUNCITON
   delete_vec <- x %>%
-    dplyr::pull(class_slots) %>%
+    dplyr::pull(slots_ls) %>%
     purrr::compact() %>%
     purrr::flatten() %>%
     purrr::flatten_chr()
@@ -794,18 +526,18 @@ write_to_delete_gnrc_fn_fls <- function(x,
       file.remove(.x))
 }
 write_to_mk_r4_cls <- function(class_nm_1L_chr,
-                               class_slots,
+                               slots_chr,
                                type,
                                proto_ls,
                                parent_cls_nm_1L_chr,
                                print_set_class,
-                               class_desc,
+                               class_desc_1L_chr,
                                output_file_class,
-                               include_classes,
+                               clss_to_inc_chr,
                                prototype_lup,
                                helper_lgl = F,
                                parent_ns_ls){
-  slot_str <- purrr::map2_chr(class_slots,
+  slot_str <- purrr::map2_chr(slots_chr,
                               type,
                               ~ paste0(.x,
                                        ' = "',
@@ -863,14 +595,14 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                        collapse="")
   included_classes_chr_vec <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                      parent_ns_ls = parent_ns_ls,
-                                                     base_set_of_clss_to_inc_chr = include_classes)
+                                                     base_set_of_clss_to_inc_chr = clss_to_inc_chr)
   include_tags_chr <- make_dmt_inc_tag(included_classes_chr_vec, s3_1L_lgl = F)
   if(print_set_class){
     sink(output_file_class)
     writeLines(paste0(paste0("#' ",class_nm_1L_chr,"\n"),
                       paste0("#' @name ",class_nm_1L_chr,"\n"),
                       "#' @description An S4 class to represent ",
-                      class_desc,
+                      class_desc_1L_chr,
                       "\n",
                       include_tags_chr,
                       old_class_tb_extension %>%

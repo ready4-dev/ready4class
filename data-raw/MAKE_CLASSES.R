@@ -16,45 +16,45 @@
 ##
 ## 3. Specify details about this package and the prefix we will use on all classes we create in this package.
 name_prefix <- "ready4_"
-dev_pckg_namespace <- "ready4class"
+dev_pkg_ns <- "ready4class"
 ## 2. Create a table with metadata about frequently used class prototypes
-prototype_lup <- tibble::tibble(type = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df"), ## CHANGED FROM POSIXt
-                                value = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()"),
+prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df"), ## CHANGED FROM POSIXt
+                                val_chr = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()"),
                                 pt_ns_chr = c("base", "base", "base", "base", "base", "sf", "tibble"),
                                 fn_to_call_chr = c("", "list", "", "", ".POSIXct", "st_sf", "tibble"),
                                 default_val_chr = c("NA_character_", "list()", "NA", "NA_real_", "NA_character_", "sf::st_sfc()", ""),
-                                old_class = FALSE)
+                                old_class_lgl = FALSE)
 ## 3. Create a table with the metadata for the ready4_class_make_tb class that we wish to create.
 classes_to_make_tb <- tibble::tribble(
-  ~ make_s3, ~ name_stub, ~ prototype, ~ pt_chk_pfx_ls, ~ pt_ns_ls, ~ values, ~ allowed_vals_ls, ~ min_max_vals, ~ start_end_vals, ~ class_desc, ~ parent_class, ~ class_slots, ~ meaningful_names, ~include_classes,
-  TRUE, "class_make_tb", list("tibble"), list("is_"), list("tibble"), list(make_s3 = "logical(0)",
-                                                                           name_stub = "character(0)",
-                                                                           prototype = "list()",
-                                                                           pt_chk_pfx_ls = "list()",
+  ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chkr_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ slots_ls, ~ meaningful_nms_ls, ~inc_clss_ls,
+  TRUE, "class_make_tb", list("tibble"), list("is_"), list("tibble"), list(make_s3_lgl = "logical(0)",
+                                                                           name_stub_chr = "character(0)",
+                                                                           pt_ls = "list()",
+                                                                           pt_chkr_pfx_ls = "list()",
                                                                            pt_ns_ls = "list()",
-                                                                           values = "list()",
+                                                                           vals_ls = "list()",
                                                                            allowed_vals_ls = "list()",
-                                                                           min_max_vals = "list()",
-                                                                           start_end_vals = "list()",
-                                                                           class_desc = "character(0)",
-                                                                           parent_class = "character(0)",
-                                                                           class_slots = "list()",
-                                                                           meaningful_names = "list()",
-                                                                           include_classes = "list()"), NULL, NULL, NULL, "MAKE CLASS TABLE Readyforwhatsnext S3 class of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
+                                                                           min_max_vals_ls = "list()",
+                                                                           start_end_vals_ls = "list()",
+                                                                           class_desc_chr = "character(0)",
+                                                                           parent_class_chr = "character(0)",
+                                                                           slots_ls = "list()",
+                                                                           meaningful_nms_ls = "list()",
+                                                                           inc_clss_ls = "list()"), NULL, NULL, NULL, "MAKE CLASS TABLE Readyforwhatsnext S3 class of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
 ## 4. Convert the metadata table into a new S3 class called ready4_class_make_tb
-write_scripts_to_mk_r3_cls(name_stub = classes_to_make_tb$name_stub,
+write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               name_prefix = name_prefix,
               output_dir_1L_chr = "R",
-              class_desc = classes_to_make_tb$class_desc,
-              type = classes_to_make_tb$prototype[[1]],
-              type_checker_prefix = classes_to_make_tb$pt_chk_pfx_ls[[1]],
+              class_desc_chr = classes_to_make_tb$class_desc_chr,
+              type_1L_chr = classes_to_make_tb$pt_ls[[1]],
+              pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]],
               pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]] %in% c("base"),
                                       "",
                                       classes_to_make_tb$pt_ns_ls[[1]]),
-              values = classes_to_make_tb$values[[1]],
+              vals_ls = classes_to_make_tb$values[[1]],
               allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
-              min_max_vals = classes_to_make_tb$min_max_vals[[1]],
-              start_end_vals = classes_to_make_tb$start_end_vals[[1]],
+              min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]],
+              start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]],
               prototype_lup = prototype_lup,
               file_exists_logic = "overwrite")
 ## 5. Convert the classes_to_make_tb tibble we created  into an instance of the ready4_class_make_tb class also created in that step.
@@ -63,17 +63,17 @@ classes_to_make_tb <- classes_to_make_tb %>%
 ## 6. Expand the ready4_class_make_tb instance to include information to make a new class of the class prototype lookup.
 classes_to_make_tb <- classes_to_make_tb %>%
   dplyr::bind_rows(tibble::tribble(
-    ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chk_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ class_slots_ls, ~ meaningful_nms_ls, ~inc_clss_ls,
-    TRUE, "class_pt_lup", list("tibble"), list("is_"), list("tibble"), list(type = "character(0)",
+    ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chkr_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ slots_ls, ~ meaningful_nms_ls, ~inc_clss_ls,
+    TRUE, "class_pt_lup", list("tibble"), list("is_"), list("tibble"), list(type_chr = "character(0)",
                                                                             value = "character(0)",
                                                                             pt_ns_chr = "character(0)",
                                                                             fn_to_call_chr = "character(0)",
                                                                             default_val_chr = "character(0)",
-                                                                            old_class = "logical(0)"), NULL, NULL, NULL, "PROTOTYPE LOOKUP Readyforwhatsnext S3 class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
+                                                                            old_class_lgl = "logical(0)"), NULL, NULL, NULL, "PROTOTYPE LOOKUP Readyforwhatsnext S3 class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
 ## 7. Call the make_classes method that we have defined in our R directory to create the scripts that will create scripts to make the classes in this table and save these scripts to the package R directory.
 ##    Note: In addition to creating a new class (ready4_class_pt_lup) the call to the below method recreates the script to make the ready4_class_make_tb class. That duplication is of no importance in this step,
 ##    but having all the classes we have made summarised in one table (classes_to_make_tb) is necessary for a subsequent step (see DATASET.R in the data-raw directory.)
-make_classes(classes_to_make_tb %>% dplyr::filter(name_stub == "class_pt_lup"),
+make_classes(classes_to_make_tb %>% dplyr::filter(name_stub_chr == "class_pt_lup"),
              name_prefix = name_prefix,
              output_dir = "R",
              prototype_lup = prototype_lup,
