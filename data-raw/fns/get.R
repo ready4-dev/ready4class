@@ -14,7 +14,7 @@ get_class_ns <- function(prototype_lup,
   class_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                               match_var_nm_1L_chr = "type",
                               match_value_xx = class_nm_1L_chr,
-                              target_var_nm_1L_chr = "type_namespace",
+                              target_var_nm_1L_chr = "pt_ns_chr",
                               evaluate_lgl = F)
   return(class_ns_1L_chr)
 }

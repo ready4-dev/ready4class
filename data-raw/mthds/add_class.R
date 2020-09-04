@@ -5,7 +5,7 @@ add_class.ready4_class_pt_lup <- function(x,
                                           name_prefix,
                                           output_dir,
                                           file_exists_logic,
-                                          ignore_ns_chr = NA_character_,
+                                          nss_to_ignore_chr = NA_character_,
                                           req_pkgs_chr = NA_character_,
                                           class_in_cache_logic_chr = "stop"){
   make_tb <- make_tb %>% dplyr::slice(tb_row_idx)
@@ -14,7 +14,7 @@ add_class.ready4_class_pt_lup <- function(x,
                output_dir = output_dir,
                file_exists_logic = file_exists_logic,
                prototype_lup = x,
-               ignore_ns_chr = c(dev_pckg_namespace, ignore_ns_chr),
+               nss_to_ignore_chr = c(dev_pckg_namespace, nss_to_ignore_chr),
                req_pkgs_chr = req_pkgs_chr,
                class_in_cache_logic_chr = class_in_cache_logic_chr)
   new_pt_lup <- make_lup(make_tb,

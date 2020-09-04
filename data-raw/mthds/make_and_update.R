@@ -5,7 +5,7 @@ make_and_update.ready4_class_make_tb  <- function(x,
                                                   write_to_delete_fls_with_ptrn_pattern_chr_vec = NA_character_,
                                                   file_exists_logic = "overwrite",
                                                   init_class_pt_lup = NULL,
-                                                  ignore_ns_chr = NA_character_,
+                                                  nss_to_ignore_chr = NA_character_,
                                                   req_pkgs_chr = NA_character_,
                                                   class_in_cache_logic_chr = "stop"){
   if(is.null(init_class_pt_lup))
@@ -26,7 +26,7 @@ make_and_update.ready4_class_make_tb  <- function(x,
                             name_prefix = name_prefix,
                             output_dir = output_dir,
                             file_exists_logic = file_exists_logic,
-                            ignore_ns_chr = ignore_ns_chr,
+                            nss_to_ignore_chr = nss_to_ignore_chr,
                             req_pkgs_chr = req_pkgs_chr,
                             class_in_cache_logic_chr = class_in_cache_logic_chr))
 }

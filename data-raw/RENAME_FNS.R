@@ -2,7 +2,7 @@ tb <- dplyr::select(all_fns_dmt_tb %>%
                       dplyr::filter(file_pfx_chr == "fn_"),fns_chr)  %>%
   dplyr::mutate(new_nm = fns_chr %>% remove_obj_type_from_nm()) %>%
   dplyr::mutate(duplicated_lgl = duplicated(new_nm))
-tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(fns_chr == "write_scripts_to_mk_r4_clss" ~ "write_scripts_to_mk_r4_clss",
+tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(fns_chr == "write_scripts_to_mk_r4_cls" ~ "write_scripts_to_mk_r4_cls",
                                                      duplicated_lgl ~ fns_chr,
                                                      new_nm == "write_slot_gtr_str_mthds" ~ "write_slot_gtr_str_mthds",
                                                      new_nm == "write_gtr_str_mthds_for_slots" ~ "write_gtr_str_mthds_for_slots",
@@ -34,12 +34,12 @@ tb <- tb %>% dplyr::mutate(new_nm = dplyr::case_when(fns_chr == "write_scripts_t
                                                      new_nm == "make_meth_fn" ~ "transform_fn_into_chr",
                                                      new_nm == "make_method" ~ "make_alg_to_set_mthd",
                                                      new_nm == "write_scripts_to_mk_clss" ~ "write_scripts_to_mk_clss",
-                                                     new_nm == "make_ready" ~ "write_scripts_to_mk_r3_clss",
-                                                     new_nm == "write_scripts_to_mk_r3_clss_checker" ~ "make_fn_pt_to_check_r3_cls_inhtc",
-                                                     new_nm == "write_scripts_to_mk_r3_clss_constructor" ~ "make_fn_pt_to_make_unvld_r3_cls_inst",
-                                                     new_nm == "write_scripts_to_mk_r3_clss_pts" ~ "make_fn_pt_to_make_r3_cls_pt",
-                                                     new_nm == "write_scripts_to_mk_r3_clss_valid_instance" ~ "make_fn_pt_to_make_vldd_r3_cls_inst",
-                                                     new_nm == "write_scripts_to_mk_r3_clss_validator" ~ "make_fn_pt_to_make_vld_r3_cls_inst",
+                                                     new_nm == "make_ready" ~ "write_scripts_to_mk_r3_cls",
+                                                     new_nm == "write_scripts_to_mk_r3_cls_checker" ~ "make_fn_pt_to_check_r3_cls_inhtc",
+                                                     new_nm == "write_scripts_to_mk_r3_cls_constructor" ~ "make_fn_pt_to_make_unvld_r3_cls_inst",
+                                                     new_nm == "write_scripts_to_mk_r3_cls_pts" ~ "make_fn_pt_to_make_r3_cls_pt",
+                                                     new_nm == "write_scripts_to_mk_r3_cls_valid_instance" ~ "make_fn_pt_to_make_vldd_r3_cls_inst",
+                                                     new_nm == "write_scripts_to_mk_r3_cls_validator" ~ "make_fn_pt_to_make_vld_r3_cls_inst",
 
                                                      new_nm == "make_s3_components" ~ "make_pt_ls_for_new_r3_cls",
                                                      new_nm == "make_s3_mk" ~ "make_pt_tb_for_new_r3_cls",
