@@ -52,7 +52,7 @@ get_parent_cls_ns <- function(prototype_lup,
   if(!is.null(parent_cls_nm_1L_chr)){
     untransformed_1L_chr <- get_class_ns(prototype_lup = prototype_lup,
                                       class_nm_1L_chr = parent_cls_nm_1L_chr)
-    transformed_1L_chr <- transform_class_ns(class_ns_chr = untransformed_1L_chr,
+    transformed_1L_chr <- transform_class_ns(class_ns_1L_chr = untransformed_1L_chr,
                                           dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr)
     parent_cls_ns <- list(untransformed_1L_chr = untransformed_1L_chr,
          transformed_1L_chr = transformed_1L_chr)

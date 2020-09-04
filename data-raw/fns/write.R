@@ -1,20 +1,20 @@
-write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
-                                       set_only,
+write_gtr_str_mthds_for_r4 <- function(slot_nm_1L_chr,
+                                       set_only_1L_lgl,
                                        pkgs_to_imp_ls,
                                        class_nm_1L_chr,
                                        print_gtrs_strs_1L_lgl,
                                        output_dir_1L_chr){
-  assign_to_slot_chr <- paste0(slot_name_chr,"<-")
-  if(!set_only){
-    purrr::reduce(list(getter_ls = list(fn_name_1L_chr = slot_name_chr,
+  assign_to_slot_chr <- paste0(slot_nm_1L_chr,"<-")
+  if(!set_only_1L_lgl){
+    purrr::reduce(list(getter_ls = list(fn_name_1L_chr = slot_nm_1L_chr,
                                         args_chr = c("x"),
-                                        fn = eval(parse(text=paste0("function(x){","x@",slot_name_chr,"}"))),
+                                        fn = eval(parse(text=paste0("function(x){","x@",slot_nm_1L_chr,"}"))),
                                         fn_type_chr = c("gen_get_slot","meth_get_slot"),
                                         import_chr_vec = pkgs_to_imp_ls$gtr_imps_chr),
                        setter_ls = list(fn_name_1L_chr = assign_to_slot_chr,
                                         args_chr = c("x","value"),
                                         fn = eval(parse(text=paste0("function(x, value) {",
-                                                                    "\nx@",slot_name_chr,' <- value',
+                                                                    "\nx@",slot_nm_1L_chr,' <- value',
                                                                     "\nmethods::validObject(x)",
                                                                     "\nx",
                                                                     "\n}"))),
@@ -23,16 +23,16 @@ write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
                   .init = list(new_file_lgl = F,
                                gnr_file = paste0(output_dir_1L_chr,
                                                  "/gnrc_",
-                                                 slot_name_chr,
+                                                 slot_nm_1L_chr,
                                                  ".R"),
                                meth_file = ifelse(pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl,
                                                   paste0(output_dir_1L_chr,
                                                          "/gs_",
-                                                         slot_name_chr,
+                                                         slot_nm_1L_chr,
                                                          ".R"),
                                                   paste0(output_dir_1L_chr,
                                                          "/gnrc_",
-                                                         slot_name_chr,
+                                                         slot_nm_1L_chr,
                                                          ".R"))),
                   ~ write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = .y[[1]],
                                                         args_chr = .y[[2]],
@@ -52,7 +52,7 @@ write_gtr_str_mthds_for_r4 <- function(slot_name_chr,
   }
 }
 write_gtr_str_mthds_for_slots <- function(slot_names_chr,
-                                          set_only,
+                                          set_only_chr,
                                           parent_cls_nm_1L_chr,
                                           class_nm_1L_chr,
                                           print_gtrs_strs_1L_lgl,
@@ -63,7 +63,7 @@ write_gtr_str_mthds_for_slots <- function(slot_names_chr,
   nss_to_ignore_chr <- purrr::map_chr(nss_to_ignore_chr, ~ stringr::str_replace(.x,"NA",NA_character_))
   purrr::walk(slot_names_chr,
               ~ write_slot_gtr_str_mthds(.x,
-                                         set_only = .x %in% set_only,
+                                         set_only_1L_lgl = .x %in% set_only_chr,
                                          parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                          class_nm_1L_chr = class_nm_1L_chr,
                                          print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,
@@ -252,7 +252,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   devtools::document()
   devtools::load_all()
 }
-write_scripts_to_mk_clss <- function(new_classes_ls,
+write_scripts_to_mk_clss <- function(pts_for_new_clss_ls,
                                      pkg_nm_1L_chr,
                                      class_pfx_chr,
                                      R_dir_chr = "R",
@@ -262,7 +262,7 @@ write_scripts_to_mk_clss <- function(new_classes_ls,
                                      req_pkgs_chr = NA_character_){
   reset_pkg_files_R(pkg_nm_1L_chr,
                     description_ls = description_ls)
-  pt_lup <- make_class_pts_tb(new_classes_ls) %>%
+  pt_lup <- make_class_pts_tb(pts_for_new_clss_ls) %>%
     make_and_update(dev_pkg_ns = pkg_nm_1L_chr,
                     name_prefix = class_pfx_chr,
                     output_dir = R_dir_chr,
@@ -414,8 +414,8 @@ write_script_to_make_mthd <- function(write_file_ls,
     ready4fun::close_open_sinks()
   }
 }
-write_slot_gtr_str_mthds <- function(slot_name_chr,
-                                     set_only,
+write_slot_gtr_str_mthds <- function(slot_nm_1L_chr,
+                                     set_only_1L_lgl,
                                      parent_cls_nm_1L_chr,
                                      class_nm_1L_chr,
                                      print_gtrs_strs_1L_lgl,
@@ -423,13 +423,13 @@ write_slot_gtr_str_mthds <- function(slot_name_chr,
                                      nss_to_ignore_chr,
                                      req_pkgs_chr){
   curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
-                                                          generic_1L_chr = slot_name_chr,
+                                                          generic_1L_chr = slot_nm_1L_chr,
                                                           nss_to_ignore_chr = nss_to_ignore_chr)
   pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
-                                               fn_name_1L_chr = slot_name_chr,
+                                               fn_name_1L_chr = slot_nm_1L_chr,
                                                nss_to_ignore_chr = nss_to_ignore_chr)
-  write_gtr_str_mthds_for_r4(slot_name_chr = slot_name_chr,
-                             set_only = set_only,
+  write_gtr_str_mthds_for_r4(slot_nm_1L_chr = slot_nm_1L_chr,
+                             set_only_1L_lgl = set_only_1L_lgl,
                              pkgs_to_imp_ls = pkgs_to_imp_ls,
                              class_nm_1L_chr = class_nm_1L_chr,
                              print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,

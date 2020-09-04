@@ -178,9 +178,9 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                                             parent_ns_ls){
   slot_names_chr <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% names()
   if(is.null(parent_cls_nm_1L_chr)){
-    set_only <- ""
+    set_only_chr <- ""
   }else{
-    set_only  <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
+    set_only_chr  <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
                                           package_1L_chr = transform_parent_ns_ls(parent_ns_ls)) %>% names()
   }
   alg_to_write_gtr_str_mthds <- paste0("write_gtr_str_mthds_for_slots(",
@@ -188,8 +188,8 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                       slot_names_chr %>% stringr::str_c(collapse="\",\""),
                       "\")",
                       ",",
-                      "set_only = c(\"",
-                      set_only %>% stringr::str_c(collapse="\",\""),
+                      "set_only_chr = c(\"",
+                      set_only_chr %>% stringr::str_c(collapse="\",\""),
                       "\")",
                       ",parent_cls_nm_1L_chr = \"",
                       parent_cls_nm_1L_chr,"\",",
