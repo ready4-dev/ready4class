@@ -2,13 +2,13 @@ add_class <- function(x,
                       ...){
   UseMethod("add_class",x)
 }
-make_and_update <- function(x,
+write_classes_and_make_lup <- function(x,
                             ...){
-  UseMethod("make_and_update",x)
+  UseMethod("write_classes_and_make_lup",x)
 }
-make_classes <- function(x,
+write_classes <- function(x,
                          ...){
-  UseMethod("make_classes",x)
+  UseMethod("write_classes",x)
 }
 make_lup <- function(x,
                      ...){

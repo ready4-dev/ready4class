@@ -262,7 +262,7 @@ write_scripts_to_mk_clss <- function(pts_for_new_clss_ls,
   reset_pkg_files_R(pkg_nm_1L_chr,
                     description_ls = description_ls)
   pt_lup <- make_class_pts_tb(pts_for_new_clss_ls) %>%
-    make_and_update(dev_pkg_ns_1L_chr = pkg_nm_1L_chr,
+    write_classes_and_make_lup(dev_pkg_ns_1L_chr = pkg_nm_1L_chr,
                     name_pfx_1L_chr = class_pfx_1L_chr,
                     output_dir_1L_chr = R_dir_1L_chr,
                     file_exists_cdn_1L_chr = "overwrite",

@@ -9,7 +9,7 @@ add_class.ready4_class_pt_lup <- function(x,
                                           req_pkgs_chr = NA_character_,
                                           class_in_cache_cdn_1L_chr = "stop"){
   make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
-  make_classes(make_tb,
+  write_classes(make_tb,
                name_pfx_1L_chr = name_pfx_1L_chr,
                output_dir_1L_chr = output_dir_1L_chr,
                file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,

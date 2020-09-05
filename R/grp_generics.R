@@ -10,30 +10,6 @@ add_class <- function (x, ...)
 {
     UseMethod("add_class", x)
 }
-#' Make and update
-#' @description make_and_update() is a Make and Update generic that applies a Make method and then updates the output of that method.NA
-#' @param x PARAM_DESCRIPTION
-#' @param ... PARAM_DESCRIPTION
-#' @return NULL
-#' @rdname make_and_update
-#' @export 
-
-make_and_update <- function (x, ...) 
-{
-    UseMethod("make_and_update", x)
-}
-#' Make classes
-#' @description make_classes() is a Make Classes generic that writes new classes.NA
-#' @param x PARAM_DESCRIPTION
-#' @param ... PARAM_DESCRIPTION
-#' @return NULL
-#' @rdname make_classes
-#' @export 
-
-make_classes <- function (x, ...) 
-{
-    UseMethod("make_classes", x)
-}
 #' Make lookup table
 #' @description make_lup() is a Make Lookup Table generic that makes a lookup table.NA
 #' @param x PARAM_DESCRIPTION

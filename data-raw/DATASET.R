@@ -72,7 +72,7 @@ fn_type_lup_tb %>%
 data("fn_type_lup_tb")
 # 7. Create a table of all functions to document
 all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
-                                                                       inc_for_main_user_lgl_ls = list(force_true_chr = c("make_and_update"),
+                                                                       inc_for_main_user_lgl_ls = list(force_true_chr = c("write_classes_and_make_lup"),
                                                                             force_false_chr = NA_character_),
                                                            args_ls_ls = NULL),
                                       fn_type_lup_tb = fn_type_lup_tb,
@@ -85,12 +85,12 @@ ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                      dev_pkgs_chr = "ready4fun")
 ##
 ## 9. Run script to make package classes.
-source("data-raw/MAKE_CLASSES.R")
+source("data-raw/write_classes.R")
 prototype_lup <- prototype_lup %>%
   ready4_class_pt_lup()
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
-## 10. Remake the classes we previously created, this time using the new, preferred make_and_update method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
-prototype_lup <- make_and_update(classes_to_make_tb,
+## 10. Remake the classes we previously created, this time using the new, preferred write_classes_and_make_lup method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
+prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                  name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir_1L_chr = "R",
