@@ -132,7 +132,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
     writeLines(s3_components_ls$include_tags_chr)
     purrr::pwalk(list(s3_components_ls$fn_name_ls,
                       s3_components_ls$fn_body_1L_chr_ls,
-                      c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype_ls", "s3_validator_ls", "s3_checker")),
+                      c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype", "s3_validator", "s3_checker")),
                  ~ make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1,
                                                   fn_body_1L_chr = ..2,
                                                   fn_type_1L_chr = ..3,
