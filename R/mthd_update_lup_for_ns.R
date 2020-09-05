@@ -1,17 +1,17 @@
 #' Update lookup table for namespace method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.
-#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.NA
+#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 #' @param x PARAM_DESCRIPTION
-#' @param namespace_contexts PARAM_DESCRIPTION
-#' @return NULL
+#' @param attached_nss_chr Attached namespaces (a character vector)
+#' @return Inst of ready4 class prototype (a lookup table)
 #' @rdname update_lup_for_ns.ready4_class_pt_lup
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
-#' @keywords internal
-update_lup_for_ns.ready4_class_pt_lup <- function (x, namespace_contexts) 
+update_lup_for_ns.ready4_class_pt_lup <- function (x, attached_nss_chr) 
 {
-    namespace_contexts <- c("base", namespace_contexts) %>% unique()
-    x %>% dplyr::mutate(value = purrr::pmap_chr(dplyr::select(x, 
-        type_namespace, function_to_call, default_value), ~make_alg_to_get_pt_val(type_namespace = ..1, 
-        function_to_call = ..2, default_value = ..3, namespace_contexts = namespace_contexts)))
+    attached_nss_chr <- c("base", attached_nss_chr) %>% unique()
+    inst_of_ready4_class_pt_lup <- x %>% dplyr::mutate(value = purrr::pmap_chr(dplyr::select(x, 
+        pt_ns_chr, fn_to_call_chr, default_val_chr), ~make_alg_to_get_pt_val(pt_ns_1L_chr = ..1, 
+        fn_to_call_1L_chr = ..2, default_val_1L_chr = ..3, attached_nss_chr = attached_nss_chr)))
+    return(inst_of_ready4_class_pt_lup)
 }

@@ -4,16 +4,15 @@
 \alias{update_lup_for_ns}
 \title{Update lookup table for namespace}
 \usage{
-update_lup_for_ns(x, namespace_contexts, ...)
+update_lup_for_ns(x, attached_nss_chr, ...)
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{namespace_contexts}{PARAM_DESCRIPTION}
+\item{attached_nss_chr}{Attached namespaces (a character vector)}
 
 \item{...}{PARAM_DESCRIPTION}
 }
 \description{
 update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.NA
 }
-\keyword{internal}

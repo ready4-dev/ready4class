@@ -4,16 +4,18 @@
 \alias{make_lup.ready4_class_make_tb}
 \title{Make lookup table method applied to Class Make Table readyforwhatsnext S3 class.}
 \usage{
-\method{make_lup}{ready4_class_make_tb}(x, dev_pckg_namespace, prefix)
+\method{make_lup}{ready4_class_make_tb}(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{dev_pckg_namespace}{PARAM_DESCRIPTION}
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one)}
 
-\item{prefix}{PARAM_DESCRIPTION}
+\item{prefix_1L_chr}{Prefix (a character vector of length one)}
+}
+\value{
+Inst of ready4 class prototype (a lookup table)
 }
 \description{
-make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
+make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 }
-\keyword{internal}

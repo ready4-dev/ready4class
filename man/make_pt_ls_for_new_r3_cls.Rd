@@ -5,43 +5,45 @@
 \title{Make prototype for new readyforwhatsnext S3 class}
 \usage{
 make_pt_ls_for_new_r3_cls(
-  class_name_chr,
-  type_chr,
-  type_ns_chr,
-  type_checker_pfx_chr,
-  values_chr,
-  ordered_lgl,
-  parent_chr,
+  class_name_1L_chr,
+  type_1L_chr,
+  pt_ns_1L_chr,
+  pt_chkr_pfx_1L_chr,
+  vals_ls,
+  ordered_1L_lgl,
+  parent_cls_nm_1L_chr,
   prototype_lup,
-  min_max_values_dbl_vec,
-  start_end_values_dbl_vec,
-  ignore_ns_chr
+  min_max_vals_dbl,
+  start_end_vals_dbl,
+  nss_to_ignore_chr
 )
 }
 \arguments{
-\item{class_name_chr}{Class name (a character vector)}
+\item{class_name_1L_chr}{Class name (a character vector of length one)}
 
-\item{type_chr}{Type (a character vector)}
+\item{type_1L_chr}{Type (a character vector of length one)}
 
-\item{type_ns_chr}{Type namespace (a character vector)}
+\item{pt_ns_1L_chr}{Prototype namespace (a character vector of length one)}
 
-\item{type_checker_pfx_chr}{Type checker prefix (a character vector)}
+\item{pt_chkr_pfx_1L_chr}{Prototype checker prefix (a character vector of length one)}
 
-\item{values_chr}{Values (a character vector)}
+\item{vals_ls}{Values (a list)}
 
-\item{ordered_lgl}{Ordered (a logical vector)}
+\item{ordered_1L_lgl}{Ordered (a logical vector of length one)}
 
-\item{parent_chr}{Parent (a character vector)}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
-\item{min_max_values_dbl_vec}{PARAM_DESCRIPTION}
+\item{min_max_vals_dbl}{Min max values (a double vector)}
 
-\item{start_end_values_dbl_vec}{PARAM_DESCRIPTION}
+\item{start_end_vals_dbl}{Start end values (a double vector)}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
+}
+\value{
+Prototype list for new readyforwhatsnext S3 cls (a list)
 }
 \description{
-make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value.
+make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function returns a prototype list for new readyforwhatsnext s3 cls (a list).
 }
-\keyword{internal}

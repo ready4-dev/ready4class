@@ -4,14 +4,16 @@
 \alias{get_parent_cls_pt_fn}
 \title{Get parent class prototype}
 \usage{
-get_parent_cls_pt_fn(parent_chr, prototype_lup)
+get_parent_cls_pt_fn(parent_cls_nm_1L_chr, prototype_lup)
 }
 \arguments{
-\item{parent_chr}{Parent (a character vector)}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 }
-\description{
-get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent cls a prototype. Function argument parent_chr specifies the where to look for the required object.The function is called for its side effects and does not return a value.
+\value{
+Parent cls prototype (a function)
 }
-\keyword{internal}
+\description{
+get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent cls a prototype. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns parent cls prototype (a function).
+}

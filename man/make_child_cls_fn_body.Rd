@@ -5,22 +5,24 @@
 \title{Make child class function body}
 \usage{
 make_child_cls_fn_body(
-  child_ext_fn_chr,
-  parent_chr,
+  child_ext_fn_1L_chr,
+  parent_cls_nm_1L_chr,
   prototype_lup,
-  prepend_lgl = T
+  prepend_1L_lgl = T
 )
 }
 \arguments{
-\item{child_ext_fn_chr}{Child ext function (a character vector)}
+\item{child_ext_fn_1L_chr}{Child ext function (a character vector of length one)}
 
-\item{parent_chr}{Parent (a character vector)}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
-\item{prepend_lgl}{Prepend (a logical vector), Default: T}
+\item{prepend_1L_lgl}{Prepend (a logical vector of length one), Default: T}
+}
+\value{
+Child cls function body (a character vector of length one)
 }
 \description{
-make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make child cls a function body.The function is called for its side effects and does not return a value.
+make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make child cls a function body.The function returns child cls function body (a character vector of length one).
 }
-\keyword{internal}

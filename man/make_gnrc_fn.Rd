@@ -4,14 +4,16 @@
 \alias{make_gnrc_fn}
 \title{Make generic}
 \usage{
-make_gnrc_fn(name_chr, args_chr_vec)
+make_gnrc_fn(name_1L_chr, args_chr)
 }
 \arguments{
-\item{name_chr}{Name (a character vector)}
+\item{name_1L_chr}{Name (a character vector of length one)}
 
-\item{args_chr_vec}{PARAM_DESCRIPTION}
+\item{args_chr}{Arguments (a character vector)}
+}
+\value{
+Gnrc function (a character vector of length one)
 }
 \description{
-make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc.The function is called for its side effects and does not return a value.
+make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc.The function returns gnrc function (a character vector of length one).
 }
-\keyword{internal}

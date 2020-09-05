@@ -4,16 +4,18 @@
 \alias{make_ls_of_pkgs_to_imp}
 \title{Make list of packages to import}
 \usage{
-make_ls_of_pkgs_to_imp(current_generics_ls, fn_name_chr, ignore_ns_chr)
+make_ls_of_pkgs_to_imp(curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore_chr)
 }
 \arguments{
-\item{current_generics_ls}{Current generics (a list)}
+\item{curr_gnrcs_ls}{Current generics (a list)}
 
-\item{fn_name_chr}{Function name (a character vector)}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
+}
+\value{
+Packages to import (a list)
 }
 \description{
-make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of packages to an import.The function is called for its side effects and does not return a value.
+make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of packages to an import.The function returns packages to import (a list).
 }
-\keyword{internal}

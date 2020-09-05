@@ -6,51 +6,50 @@
 \usage{
 write_script_to_make_gnrc(
   write_file_ls,
-  generic_exists_lgl,
+  gnrc_exists_1L_lgl,
   gen_mthd_pair_ls,
-  fn_name_chr,
-  fn_type_chr,
-  fn_desc_chr = NA_character_,
-  fn_out_type_chr = NA_character_,
-  fn_title_chr = NA_character_,
+  fn_name_1L_chr,
+  fn_type_1L_chr,
+  fn_desc_1L_chr = NA_character_,
+  fn_outp_type_1L_chr = NA_character_,
+  fn_title_1L_chr = NA_character_,
   class_name_chr = NA_character_,
-  output_dir_chr = NA_character_,
-  overwrite_lgl = F,
-  s3_lgl = F,
-  write_lgl = T,
-  doc_in_class_lgl = F
+  output_dir_1L_chr = NA_character_,
+  overwrite_1L_lgl = F,
+  s3_1L_lgl = F,
+  write_1L_lgl = T,
+  doc_in_class_1L_lgl = F
 )
 }
 \arguments{
 \item{write_file_ls}{Write file (a list)}
 
-\item{generic_exists_lgl}{Generic exists (a logical vector)}
+\item{gnrc_exists_1L_lgl}{Generic exists (a logical vector of length one)}
 
 \item{gen_mthd_pair_ls}{Generate method pair (a list)}
 
-\item{fn_name_chr}{Function name (a character vector)}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{fn_type_chr}{Function type (a character vector)}
+\item{fn_type_1L_chr}{Function type (a character vector of length one)}
 
-\item{fn_desc_chr}{Function description (a character vector), Default: 'NA'}
+\item{fn_desc_1L_chr}{Function description (a character vector of length one), Default: 'NA'}
 
-\item{fn_out_type_chr}{Function out type (a character vector), Default: 'NA'}
+\item{fn_outp_type_1L_chr}{Function output type (a character vector of length one), Default: 'NA'}
 
-\item{fn_title_chr}{Function title (a character vector), Default: 'NA'}
+\item{fn_title_1L_chr}{Function title (a character vector of length one), Default: 'NA'}
 
 \item{class_name_chr}{Class name (a character vector), Default: 'NA'}
 
-\item{output_dir_chr}{Output directory (a character vector), Default: 'NA'}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: 'NA'}
 
-\item{overwrite_lgl}{Overwrite (a logical vector), Default: F}
+\item{overwrite_1L_lgl}{Overwrite (a logical vector of length one), Default: F}
 
-\item{s3_lgl}{S3 (a logical vector), Default: F}
+\item{s3_1L_lgl}{S3 (a logical vector of length one), Default: F}
 
-\item{write_lgl}{Write (a logical vector), Default: T}
+\item{write_1L_lgl}{Write (a logical vector of length one), Default: T}
 
-\item{doc_in_class_lgl}{Document in class (a logical vector), Default: F}
+\item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
 }
 \description{
 write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to a make gnrc.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

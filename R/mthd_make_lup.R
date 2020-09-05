@@ -1,18 +1,19 @@
 #' Make lookup table method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
+#' @description make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 #' @param x PARAM_DESCRIPTION
-#' @param dev_pckg_namespace PARAM_DESCRIPTION
-#' @param prefix PARAM_DESCRIPTION
-#' @return NULL
+#' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
+#' @param prefix_1L_chr Prefix (a character vector of length one)
+#' @return Inst of ready4 class prototype (a lookup table)
 #' @rdname make_lup.ready4_class_make_tb
 #' @export 
 #' @importFrom dplyr mutate select
-#' @keywords internal
-make_lup.ready4_class_make_tb <- function (x, dev_pckg_namespace, prefix) 
+make_lup.ready4_class_make_tb <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
 {
-    x %>% dplyr::mutate(type = paste0(prefix, name_stub), type_namespace = dev_pckg_namespace, 
-        value = "", function_to_call = type, default_value = "", 
-        old_class = make_s3) %>% dplyr::select(type, value, type_namespace, 
-        function_to_call, default_value, old_class) %>% ready4_class_pt_lup() %>% 
-        update_lup_for_ns(namespace_contexts = dev_pckg_namespace)
+    inst_of_ready4_class_pt_lup <- x %>% dplyr::mutate(type_chr = paste0(prefix_1L_chr, 
+        name_stub_chr), pt_ns_chr = dev_pkg_ns_1L_chr, value_chr = "", 
+        fn_to_call_chr = type_chr, default_val_chr = "", old_class_lgl = make_s3_lgl) %>% 
+        dplyr::select(type_chr, value_chr, pt_ns_chr, fn_to_call_chr, 
+            default_val_chr, old_class_lgl) %>% ready4_class_pt_lup() %>% 
+        update_lup_for_ns(attached_nss_chr = dev_pkg_ns_1L_chr)
+    return(inst_of_ready4_class_pt_lup)
 }

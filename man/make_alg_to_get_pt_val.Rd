@@ -5,22 +5,24 @@
 \title{Make algorithm to get prototype value}
 \usage{
 make_alg_to_get_pt_val(
-  type_namespace = "",
-  function_to_call = "",
-  default_value = "",
-  namespace_contexts = c("base")
+  pt_ns_1L_chr = "",
+  fn_to_call_1L_chr = "",
+  default_val_1L_chr = "",
+  attached_nss_chr = c("base")
 )
 }
 \arguments{
-\item{type_namespace}{PARAM_DESCRIPTION, Default: ''}
+\item{pt_ns_1L_chr}{Prototype namespace (a character vector of length one), Default: ''}
 
-\item{function_to_call}{PARAM_DESCRIPTION, Default: ''}
+\item{fn_to_call_1L_chr}{Function to call (a character vector of length one), Default: ''}
 
-\item{default_value}{PARAM_DESCRIPTION, Default: ''}
+\item{default_val_1L_chr}{Default value (a character vector of length one), Default: ''}
 
-\item{namespace_contexts}{PARAM_DESCRIPTION, Default: c("base")}
+\item{attached_nss_chr}{Attached namespaces (a character vector), Default: c("base")}
+}
+\value{
+Alg to get prototype val (a character vector of length one)
 }
 \description{
-make_alg_to_get_pt_val() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to get a prototype val.The function is called for its side effects and does not return a value.
+make_alg_to_get_pt_val() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to get a prototype val.The function returns alg to get prototype val (a character vector of length one).
 }
-\keyword{internal}

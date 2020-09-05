@@ -4,12 +4,14 @@
 \alias{replace_NA_in_fn}
 \title{Replace NA in}
 \usage{
-replace_NA_in_fn(fn_chr)
+replace_NA_in_fn(fn_body_1L_chr)
 }
 \arguments{
-\item{fn_chr}{Function (a character vector)}
+\item{fn_body_1L_chr}{Function body (a character vector of length one)}
+}
+\value{
+Function body (a character vector of length one)
 }
 \description{
-replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_chr specifies the object to be updated. Argument NA provides the object to be updated.The function is called for its side effects and does not return a value.
+replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_body_1L_chr specifies the object to be updated. Argument NA provides the object to be updated.The function returns a function body (a character vector of length one).
 }
-\keyword{internal}

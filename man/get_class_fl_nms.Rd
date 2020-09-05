@@ -4,16 +4,18 @@
 \alias{get_class_fl_nms}
 \title{Get class file names}
 \usage{
-get_class_fl_nms(class_names_chr_vec, s3_lgl = T, output_dir_chr = NA)
+get_class_fl_nms(class_names_chr, s3_1L_lgl = T, output_dir_1L_chr = NA)
 }
 \arguments{
-\item{class_names_chr_vec}{PARAM_DESCRIPTION}
+\item{class_names_chr}{Class names (a character vector)}
 
-\item{s3_lgl}{S3 (a logical vector), Default: T}
+\item{s3_1L_lgl}{S3 (a logical vector of length one), Default: T}
 
-\item{output_dir_chr}{Output directory (a character vector), Default: NA}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: NA}
+}
+\value{
+Class file names (a character vector)
 }
 \description{
-get_class_fl_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get a class file names. Function argument class_names_chr_vec specifies the where to look for the required object.The function is called for its side effects and does not return a value.
+get_class_fl_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get a class file names. Function argument class_names_chr specifies the where to look for the required object.The function returns a class file names (a character vector).
 }
-\keyword{internal}

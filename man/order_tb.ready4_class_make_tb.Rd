@@ -4,14 +4,16 @@
 \alias{order_tb.ready4_class_make_tb}
 \title{Order tibble method applied to Class Make Table readyforwhatsnext S3 class.}
 \usage{
-\method{order_tb}{ready4_class_make_tb}(x, name_prefix)
+\method{order_tb}{ready4_class_make_tb}(x, name_pfx_1L_chr)
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{name_prefix}{PARAM_DESCRIPTION}
+\item{name_pfx_1L_chr}{Name prefix (a character vector of length one)}
+}
+\value{
+Inst of ready4 class make (a tibble)
 }
 \description{
-order_tb.ready4_class_make_tb() is an Order Tibble method that orders a tibble. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
+order_tb.ready4_class_make_tb() is an Order Tibble method that orders a tibble. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class make (a tibble).
 }
-\keyword{internal}

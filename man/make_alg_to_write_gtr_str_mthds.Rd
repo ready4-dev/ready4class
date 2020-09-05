@@ -5,31 +5,30 @@
 \title{Make algorithm to write getter setter methods}
 \usage{
 make_alg_to_write_gtr_str_mthds(
-  class_name,
-  parent,
-  print_accessors,
-  output_folder,
-  ignore_ns_chr,
-  required_pckg_chr_vec,
+  class_nm_1L_chr,
+  parent_cls_nm_1L_chr,
+  print_gtrs_strs_1L_lgl,
+  output_dir_1L_chr,
+  nss_to_ignore_chr,
+  req_pkgs_chr,
   parent_ns_ls
 )
 }
 \arguments{
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{parent}{PARAM_DESCRIPTION}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
-\item{print_accessors}{PARAM_DESCRIPTION}
+\item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one)}
 
-\item{output_folder}{PARAM_DESCRIPTION}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION}
+\item{req_pkgs_chr}{Req packages (a character vector)}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \description{
 make_alg_to_write_gtr_str_mthds() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to write a getter setter mthds.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

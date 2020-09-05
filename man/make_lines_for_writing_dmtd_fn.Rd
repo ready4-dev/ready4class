@@ -5,25 +5,24 @@
 \title{Make lines for writing documented}
 \usage{
 make_lines_for_writing_dmtd_fn(
-  fn_name,
-  fn_text,
-  fn_type,
-  class_name,
-  class_desc
+  fn_name_1L_chr,
+  fn_body_1L_chr,
+  fn_type_1L_chr,
+  class_nm_1L_chr,
+  class_desc_1L_chr
 )
 }
 \arguments{
-\item{fn_name}{PARAM_DESCRIPTION}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{fn_text}{PARAM_DESCRIPTION}
+\item{fn_body_1L_chr}{Function body (a character vector of length one)}
 
-\item{fn_type}{PARAM_DESCRIPTION}
+\item{fn_type_1L_chr}{Function type (a character vector of length one)}
 
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{class_desc}{PARAM_DESCRIPTION}
+\item{class_desc_1L_chr}{Class description (a character vector of length one)}
 }
 \description{
 make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make lines for writing documented.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

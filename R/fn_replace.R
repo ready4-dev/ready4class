@@ -1,12 +1,13 @@
 #' Replace NA in
-#' @description replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_chr specifies the object to be updated. Argument NA provides the object to be updated.The function is called for its side effects and does not return a value.
-#' @param fn_chr Function (a character vector)
-#' @return NULL
+#' @description replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_body_1L_chr specifies the object to be updated. Argument NA provides the object to be updated.The function returns a function body (a character vector of length one).
+#' @param fn_body_1L_chr Function body (a character vector of length one)
+#' @return Function body (a character vector of length one)
 #' @rdname replace_NA_in_fn
 #' @export 
 #' @importFrom stringr str_replace_all
-#' @keywords internal
-replace_NA_in_fn <- function (fn_chr) 
+replace_NA_in_fn <- function (fn_body_1L_chr) 
 {
-    stringr::str_replace_all(fn_chr, "\"NA\"", "NA_character_")
+    fn_body_1L_chr <- stringr::str_replace_all(fn_body_1L_chr, 
+        "\"NA\"", "NA_character_")
+    return(fn_body_1L_chr)
 }

@@ -4,14 +4,13 @@
 \alias{write_to_delete_gnrc_fn_fls}
 \title{Write to delete generic function files}
 \usage{
-write_to_delete_gnrc_fn_fls(x, output_dir)
+write_to_delete_gnrc_fn_fls(x, output_dir_1L_chr)
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{output_dir}{PARAM_DESCRIPTION}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 }
 \description{
 write_to_delete_gnrc_fn_fls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete gnrc a function files.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

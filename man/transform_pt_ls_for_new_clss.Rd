@@ -4,12 +4,14 @@
 \alias{transform_pt_ls_for_new_clss}
 \title{Transform prototype list for new classes}
 \usage{
-transform_pt_ls_for_new_clss(new_classes_ls)
+transform_pt_ls_for_new_clss(pts_for_new_clss_ls)
 }
 \arguments{
-\item{new_classes_ls}{New classes (a list)}
+\item{pts_for_new_clss_ls}{Prototypes for new classes (a list)}
+}
+\value{
+Tfd prototypes for new clss (a list)
 }
 \description{
-transform_pt_ls_for_new_clss() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform prototype list for new clss. Function argument new_classes_ls specifies the object to be updated. Argument NA provides the object to be updated.The function is called for its side effects and does not return a value.
+transform_pt_ls_for_new_clss() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform prototype list for new clss. Function argument pts_for_new_clss_ls specifies the object to be updated. Argument NA provides the object to be updated.The function returns tfd prototypes for new clss (a list).
 }
-\keyword{internal}

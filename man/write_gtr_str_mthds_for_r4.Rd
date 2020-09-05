@@ -5,28 +5,27 @@
 \title{Write getter setter methods for}
 \usage{
 write_gtr_str_mthds_for_r4(
-  slot_name_chr,
-  set_only,
-  import_packages_ls,
-  class_name,
-  print_accessors,
-  output_folder
+  slot_nm_1L_chr,
+  set_only_1L_lgl,
+  pkgs_to_imp_ls,
+  class_nm_1L_chr,
+  print_gtrs_strs_1L_lgl,
+  output_dir_1L_chr
 )
 }
 \arguments{
-\item{slot_name_chr}{Slot name (a character vector)}
+\item{slot_nm_1L_chr}{Slot name (a character vector of length one)}
 
-\item{set_only}{PARAM_DESCRIPTION}
+\item{set_only_1L_lgl}{Set only (a logical vector of length one)}
 
-\item{import_packages_ls}{Import packages (a list)}
+\item{pkgs_to_imp_ls}{Packages to import (a list)}
 
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{print_accessors}{PARAM_DESCRIPTION}
+\item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one)}
 
-\item{output_folder}{PARAM_DESCRIPTION}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 }
 \description{
 write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a getter setter mthds for.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

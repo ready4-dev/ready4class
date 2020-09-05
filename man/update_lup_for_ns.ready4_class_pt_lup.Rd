@@ -4,14 +4,16 @@
 \alias{update_lup_for_ns.ready4_class_pt_lup}
 \title{Update lookup table for namespace method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.}
 \usage{
-\method{update_lup_for_ns}{ready4_class_pt_lup}(x, namespace_contexts)
+\method{update_lup_for_ns}{ready4_class_pt_lup}(x, attached_nss_chr)
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{namespace_contexts}{PARAM_DESCRIPTION}
+\item{attached_nss_chr}{Attached namespaces (a character vector)}
+}
+\value{
+Inst of ready4 class prototype (a lookup table)
 }
 \description{
-update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.NA
+update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 }
-\keyword{internal}

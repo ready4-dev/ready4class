@@ -6,42 +6,41 @@
 \usage{
 write_std_mthd(
   fn,
-  fn_name_chr,
-  class_chr,
-  fn_desc_chr_vec,
-  fn_title_chr,
-  fn_out_type_chr,
-  package_chr,
-  output_dir_chr,
-  signature_chr = NA_character_,
-  append_lgl = T,
-  first_lgl = T
+  fn_name_1L_chr,
+  class_nm_1L_chr,
+  fn_desc_chr,
+  fn_title_1L_chr,
+  fn_outp_type_1L_chr,
+  pkg_nm_1L_chr,
+  output_dir_1L_chr,
+  signature_1L_chr = NA_character_,
+  append_1L_lgl = T,
+  first_1L_lgl = T
 )
 }
 \arguments{
 \item{fn}{Function (a function)}
 
-\item{fn_name_chr}{Function name (a character vector)}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{class_chr}{Class (a character vector)}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{fn_desc_chr_vec}{PARAM_DESCRIPTION}
+\item{fn_desc_chr}{Function description (a character vector)}
 
-\item{fn_title_chr}{Function title (a character vector)}
+\item{fn_title_1L_chr}{Function title (a character vector of length one)}
 
-\item{fn_out_type_chr}{Function out type (a character vector)}
+\item{fn_outp_type_1L_chr}{Function output type (a character vector of length one)}
 
-\item{package_chr}{Package (a character vector)}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 
-\item{output_dir_chr}{Output directory (a character vector)}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 
-\item{signature_chr}{Signature (a character vector), Default: 'NA'}
+\item{signature_1L_chr}{Signature (a character vector of length one), Default: 'NA'}
 
-\item{append_lgl}{Append (a logical vector), Default: T}
+\item{append_1L_lgl}{Append (a logical vector of length one), Default: T}
 
-\item{first_lgl}{First (a logical vector), Default: T}
+\item{first_1L_lgl}{First (a logical vector of length one), Default: T}
 }
 \description{
 write_std_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

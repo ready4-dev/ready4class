@@ -5,28 +5,30 @@
 \title{Make helper}
 \usage{
 make_helper_fn(
-  class_name,
-  parent,
-  class_slots,
-  proto_ls,
+  class_nm_1L_chr,
+  parent_cls_nm_1L_chr,
+  slots_chr,
+  pt_ls,
   prototype_lup,
   parent_ns_ls
 )
 }
 \arguments{
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{parent}{PARAM_DESCRIPTION}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
-\item{class_slots}{PARAM_DESCRIPTION}
+\item{slots_chr}{Slots (a character vector)}
 
-\item{proto_ls}{Proto (a list)}
+\item{pt_ls}{Prototype (a list)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
-\description{
-make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make helper.The function is called for its side effects and does not return a value.
+\value{
+Helper function (a character vector of length one)
 }
-\keyword{internal}
+\description{
+make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make helper.The function returns helper function (a character vector of length one).
+}

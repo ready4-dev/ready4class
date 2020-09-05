@@ -5,34 +5,33 @@
 \title{Write getter setter methods for slots}
 \usage{
 write_gtr_str_mthds_for_slots(
-  slot_names_chr_vec,
-  set_only,
-  parent,
-  class_name,
-  print_accessors,
-  output_folder,
-  ignore_ns_chr,
-  required_pckg_chr_vec
+  slot_names_chr,
+  set_only_chr,
+  parent_cls_nm_1L_chr,
+  class_nm_1L_chr,
+  print_gtrs_strs_1L_lgl,
+  output_dir_1L_chr,
+  nss_to_ignore_chr,
+  req_pkgs_chr
 )
 }
 \arguments{
-\item{slot_names_chr_vec}{PARAM_DESCRIPTION}
+\item{slot_names_chr}{Slot names (a character vector)}
 
-\item{set_only}{PARAM_DESCRIPTION}
+\item{set_only_chr}{Set only (a character vector)}
 
-\item{parent}{PARAM_DESCRIPTION}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{print_accessors}{PARAM_DESCRIPTION}
+\item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one)}
 
-\item{output_folder}{PARAM_DESCRIPTION}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION}
+\item{req_pkgs_chr}{Req packages (a character vector)}
 }
 \description{
 write_gtr_str_mthds_for_slots() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a getter setter mthds for slots.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

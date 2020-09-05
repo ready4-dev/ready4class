@@ -4,14 +4,16 @@
 \alias{make_show_mthd_fn}
 \title{Make show method}
 \usage{
-make_show_mthd_fn(class_name, meaningful_names)
+make_show_mthd_fn(class_nm_1L_chr, meaningful_nms_ls)
 }
 \arguments{
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{meaningful_names}{PARAM_DESCRIPTION}
+\item{meaningful_nms_ls}{Meaningful names (a list)}
+}
+\value{
+Show mthd function (a character vector of length one)
 }
 \description{
-make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make show mthd.The function is called for its side effects and does not return a value.
+make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make show mthd.The function returns show mthd function (a character vector of length one).
 }
-\keyword{internal}

@@ -5,25 +5,27 @@
 \title{Make algorithm to set method}
 \usage{
 make_alg_to_set_mthd(
-  name_chr,
-  class_chr,
+  name_1L_chr,
+  class_nm_1L_chr,
   fn,
-  package_chr = NA_character_,
-  where_chr = NA_character_
+  pkg_nm_1L_chr = NA_character_,
+  where_1L_chr = NA_character_
 )
 }
 \arguments{
-\item{name_chr}{Name (a character vector)}
+\item{name_1L_chr}{Name (a character vector of length one)}
 
-\item{class_chr}{Class (a character vector)}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
 \item{fn}{Function (a function)}
 
-\item{package_chr}{Package (a character vector), Default: 'NA'}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one), Default: 'NA'}
 
-\item{where_chr}{Where (a character vector), Default: 'NA'}
+\item{where_1L_chr}{Where (a character vector of length one), Default: 'NA'}
+}
+\value{
+Alg to set mthd (a character vector of length one)
 }
 \description{
-make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set mthd.The function is called for its side effects and does not return a value.
+make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set mthd.The function returns alg to set mthd (a character vector of length one).
 }
-\keyword{internal}

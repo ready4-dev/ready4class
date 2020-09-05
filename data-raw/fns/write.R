@@ -579,7 +579,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                           ")")
     parent_slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                     parent_ns_ls = parent_ns_ls)
-     <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+    parent_pt_chr <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                    parent_ns_ls = parent_ns_ls,
                                                    slot_names_chr = parent_slots_chr)
     parent_pt_chr <- `names<-`(parent_pt_chr,parent_slots_chr)

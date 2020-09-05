@@ -5,38 +5,38 @@
 \title{Write to make readyforwhatsnext S4 class}
 \usage{
 write_to_mk_r4_cls(
-  class_name,
-  class_slots,
-  type,
+  class_nm_1L_chr,
+  slots_chr,
+  type_chr,
   proto_ls,
-  parent,
-  print_set_class,
-  class_desc,
+  parent_cls_nm_1L_chr,
+  print_set_cls_1L_lgl,
+  class_desc_1L_chr,
   output_file_class,
-  include_classes,
+  clss_to_inc_chr,
   prototype_lup,
   helper_lgl = F,
   parent_ns_ls
 )
 }
 \arguments{
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{class_slots}{PARAM_DESCRIPTION}
+\item{slots_chr}{Slots (a character vector)}
 
-\item{type}{PARAM_DESCRIPTION}
+\item{type_chr}{Type (a character vector)}
 
 \item{proto_ls}{Proto (a list)}
 
-\item{parent}{PARAM_DESCRIPTION}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
-\item{print_set_class}{PARAM_DESCRIPTION}
+\item{print_set_cls_1L_lgl}{Print set class (a logical vector of length one)}
 
-\item{class_desc}{PARAM_DESCRIPTION}
+\item{class_desc_1L_chr}{Class description (a character vector of length one)}
 
 \item{output_file_class}{PARAM_DESCRIPTION}
 
-\item{include_classes}{PARAM_DESCRIPTION}
+\item{clss_to_inc_chr}{Classes to inc (a character vector)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
@@ -47,4 +47,3 @@ write_to_mk_r4_cls(
 \description{
 write_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to mk a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

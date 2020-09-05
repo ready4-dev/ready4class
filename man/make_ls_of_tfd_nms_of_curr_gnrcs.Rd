@@ -5,19 +5,21 @@
 \title{Make list of transformed names of current generics}
 \usage{
 make_ls_of_tfd_nms_of_curr_gnrcs(
-  required_pckg_chr_vec,
-  generic_chr,
-  ignore_ns_chr
+  req_pkgs_chr,
+  generic_1L_chr,
+  nss_to_ignore_chr
 )
 }
 \arguments{
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION}
+\item{req_pkgs_chr}{Req packages (a character vector)}
 
-\item{generic_chr}{Generic (a character vector)}
+\item{generic_1L_chr}{Generic (a character vector of length one)}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
+}
+\value{
+Curr gnrcs (a list)
 }
 \description{
-make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of tfd names of curr gnrcs.The function is called for its side effects and does not return a value.
+make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of tfd names of curr gnrcs.The function returns curr gnrcs (a list).
 }
-\keyword{internal}

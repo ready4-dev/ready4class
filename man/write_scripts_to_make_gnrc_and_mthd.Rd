@@ -5,70 +5,69 @@
 \title{Write scripts to make generic and method}
 \usage{
 write_scripts_to_make_gnrc_and_mthd(
-  fn_name_chr,
-  args_chr_vec = c("x"),
-  signature_chr = NA_character_,
-  package_chr = NA_character_,
+  fn_name_1L_chr,
+  args_chr = c("x"),
+  signature_1L_chr = NA_character_,
+  pkg_nm_1L_chr = NA_character_,
   where_chr = NA_character_,
-  class_chr,
+  class_nm_1L_chr,
   fn,
-  fn_type_chr_vec,
-  fn_desc_chr_vec = rep(NA_character_, 2),
-  fn_title_chr = NA_character_,
-  fn_out_type_chr = NA_character_,
-  import_chr_vec,
+  fn_type_chr,
+  fn_desc_chr = rep(NA_character_, 2),
+  fn_title_1L_chr = NA_character_,
+  fn_outp_type_1L_chr = NA_character_,
+  imports_chr,
   write_file_ls,
-  output_dir_chr,
-  append_lgl = T,
-  doc_in_class_lgl = F,
-  generic_exists_lgl,
-  overwrite_lgl = F,
-  s3_lgl,
-  write_lgl
+  output_dir_1L_chr,
+  append_1L_lgl = T,
+  doc_in_class_1L_lgl = F,
+  gnrc_exists_1L_lgl,
+  overwrite_1L_lgl = F,
+  s3_1L_lgl,
+  write_1L_lgl
 )
 }
 \arguments{
-\item{fn_name_chr}{Function name (a character vector)}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{args_chr_vec}{PARAM_DESCRIPTION, Default: c("x")}
+\item{args_chr}{Arguments (a character vector), Default: c("x")}
 
-\item{signature_chr}{Signature (a character vector), Default: 'NA'}
+\item{signature_1L_chr}{Signature (a character vector of length one), Default: 'NA'}
 
-\item{package_chr}{Package (a character vector), Default: 'NA'}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one), Default: 'NA'}
 
 \item{where_chr}{Where (a character vector), Default: 'NA'}
 
-\item{class_chr}{Class (a character vector)}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
 \item{fn}{Function (a function)}
 
-\item{fn_type_chr_vec}{PARAM_DESCRIPTION}
+\item{fn_type_chr}{Function type (a character vector)}
 
-\item{fn_desc_chr_vec}{PARAM_DESCRIPTION, Default: rep(NA_character_, 2)}
+\item{fn_desc_chr}{Function description (a character vector), Default: rep(NA_character_, 2)}
 
-\item{fn_title_chr}{Function title (a character vector), Default: 'NA'}
+\item{fn_title_1L_chr}{Function title (a character vector of length one), Default: 'NA'}
 
-\item{fn_out_type_chr}{Function out type (a character vector), Default: 'NA'}
+\item{fn_outp_type_1L_chr}{Function output type (a character vector of length one), Default: 'NA'}
 
-\item{import_chr_vec}{PARAM_DESCRIPTION}
+\item{imports_chr}{Imports (a character vector)}
 
 \item{write_file_ls}{Write file (a list)}
 
-\item{output_dir_chr}{Output directory (a character vector)}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 
-\item{append_lgl}{Append (a logical vector), Default: T}
+\item{append_1L_lgl}{Append (a logical vector of length one), Default: T}
 
-\item{doc_in_class_lgl}{Document in class (a logical vector), Default: F}
+\item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
 
-\item{generic_exists_lgl}{Generic exists (a logical vector)}
+\item{gnrc_exists_1L_lgl}{Generic exists (a logical vector of length one)}
 
-\item{overwrite_lgl}{Overwrite (a logical vector), Default: F}
+\item{overwrite_1L_lgl}{Overwrite (a logical vector of length one), Default: F}
 
-\item{s3_lgl}{S3 (a logical vector)}
+\item{s3_1L_lgl}{S3 (a logical vector of length one)}
 
-\item{write_lgl}{Write (a logical vector)}
+\item{write_1L_lgl}{Write (a logical vector of length one)}
 }
 \description{
 write_scripts_to_make_gnrc_and_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to a make gnrc and mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

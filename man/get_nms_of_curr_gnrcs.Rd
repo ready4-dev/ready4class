@@ -4,14 +4,16 @@
 \alias{get_nms_of_curr_gnrcs}
 \title{Get names of current generics}
 \usage{
-get_nms_of_curr_gnrcs(required_pckg_chr_vec, generic_chr)
+get_nms_of_curr_gnrcs(req_pkgs_chr, generic_1L_chr)
 }
 \arguments{
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION}
+\item{req_pkgs_chr}{Req packages (a character vector)}
 
-\item{generic_chr}{Generic (a character vector)}
+\item{generic_1L_chr}{Generic (a character vector of length one)}
+}
+\value{
+Names of curr gnrcs (a list)
 }
 \description{
-get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of curr gnrcs. Function argument required_pckg_chr_vec specifies the where to look for the required object.The function is called for its side effects and does not return a value.
+get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of curr gnrcs. Function argument req_pkgs_chr specifies the where to look for the required object.The function returns names of curr gnrcs (a list).
 }
-\keyword{internal}

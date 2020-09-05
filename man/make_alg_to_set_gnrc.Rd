@@ -5,22 +5,24 @@
 \title{Make algorithm to set generic}
 \usage{
 make_alg_to_set_gnrc(
-  name_chr,
-  args_chr_vec = c("x"),
-  signature_chr = NA_character_,
-  where_chr = NA_character_
+  name_1L_chr,
+  args_chr = c("x"),
+  signature_1L_chr = NA_character_,
+  where_1L_chr = NA_character_
 )
 }
 \arguments{
-\item{name_chr}{Name (a character vector)}
+\item{name_1L_chr}{Name (a character vector of length one)}
 
-\item{args_chr_vec}{PARAM_DESCRIPTION, Default: c("x")}
+\item{args_chr}{Arguments (a character vector), Default: c("x")}
 
-\item{signature_chr}{Signature (a character vector), Default: 'NA'}
+\item{signature_1L_chr}{Signature (a character vector of length one), Default: 'NA'}
 
-\item{where_chr}{Where (a character vector), Default: 'NA'}
+\item{where_1L_chr}{Where (a character vector of length one), Default: 'NA'}
+}
+\value{
+Alg to set gnrc (a character vector of length one)
 }
 \description{
-make_alg_to_set_gnrc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set gnrc.The function is called for its side effects and does not return a value.
+make_alg_to_set_gnrc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set gnrc.The function returns alg to set gnrc (a character vector of length one).
 }
-\keyword{internal}

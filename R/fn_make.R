@@ -1,158 +1,159 @@
 #' Make algorithm to generate reference to class
-#' @description make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to gen ref to cls.The function is called for its side effects and does not return a value.
-#' @param class_chr Class (a character vector)
-#' @param package_chr Package (a character vector), Default: '.GlobalEnv'
-#' @return NULL
+#' @description make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to gen ref to cls.The function returns alg to gen ref to cls (a character vector of length one).
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: '.GlobalEnv'
+#' @return Alg to gen ref to cls (a character vector of length one)
 #' @rdname make_alg_to_gen_ref_to_cls
 #' @export 
 
-#' @keywords internal
-make_alg_to_gen_ref_to_cls <- function (class_chr, package_chr = ".GlobalEnv") 
+make_alg_to_gen_ref_to_cls <- function (class_nm_1L_chr, pkg_nm_1L_chr = ".GlobalEnv") 
 {
-    paste0("methods::className(\"", class_chr, "\",\"", package_chr, 
-        "\")")
+    alg_to_gen_ref_to_cls_1L_chr <- paste0("methods::className(\"", 
+        class_nm_1L_chr, "\",\"", pkg_nm_1L_chr, "\")")
+    return(alg_to_gen_ref_to_cls_1L_chr)
 }
 #' Make algorithm to get prototype value
-#' @description make_alg_to_get_pt_val() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to get a prototype val.The function is called for its side effects and does not return a value.
-#' @param type_namespace PARAM_DESCRIPTION, Default: ''
-#' @param function_to_call PARAM_DESCRIPTION, Default: ''
-#' @param default_value PARAM_DESCRIPTION, Default: ''
-#' @param namespace_contexts PARAM_DESCRIPTION, Default: c("base")
-#' @return NULL
+#' @description make_alg_to_get_pt_val() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to get a prototype val.The function returns alg to get prototype val (a character vector of length one).
+#' @param pt_ns_1L_chr Prototype namespace (a character vector of length one), Default: ''
+#' @param fn_to_call_1L_chr Function to call (a character vector of length one), Default: ''
+#' @param default_val_1L_chr Default value (a character vector of length one), Default: ''
+#' @param attached_nss_chr Attached namespaces (a character vector), Default: c("base")
+#' @return Alg to get prototype val (a character vector of length one)
 #' @rdname make_alg_to_get_pt_val
 #' @export 
 
-#' @keywords internal
-make_alg_to_get_pt_val <- function (type_namespace = "", function_to_call = "", default_value = "", 
-    namespace_contexts = c("base")) 
+make_alg_to_get_pt_val <- function (pt_ns_1L_chr = "", fn_to_call_1L_chr = "", default_val_1L_chr = "", 
+    attached_nss_chr = c("base")) 
 {
-    paste0(ifelse(type_namespace %in% namespace_contexts, "", 
-        paste0(type_namespace, "::")), function_to_call, ifelse(function_to_call == 
-        "", "", "("), default_value, ifelse(function_to_call == 
-        "", "", ")"))
+    alg_to_get_pt_val_1L_chr <- paste0(ifelse(pt_ns_1L_chr %in% 
+        attached_nss_chr, "", paste0(pt_ns_1L_chr, "::")), fn_to_call_1L_chr, 
+        ifelse(fn_to_call_1L_chr == "", "", "("), default_val_1L_chr, 
+        ifelse(fn_to_call_1L_chr == "", "", ")"))
+    return(alg_to_get_pt_val_1L_chr)
 }
 #' Make algorithm to set generic
-#' @description make_alg_to_set_gnrc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set gnrc.The function is called for its side effects and does not return a value.
-#' @param name_chr Name (a character vector)
-#' @param args_chr_vec PARAM_DESCRIPTION, Default: c("x")
-#' @param signature_chr Signature (a character vector), Default: 'NA'
-#' @param where_chr Where (a character vector), Default: 'NA'
-#' @return NULL
+#' @description make_alg_to_set_gnrc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set gnrc.The function returns alg to set gnrc (a character vector of length one).
+#' @param name_1L_chr Name (a character vector of length one)
+#' @param args_chr Arguments (a character vector), Default: c("x")
+#' @param signature_1L_chr Signature (a character vector of length one), Default: 'NA'
+#' @param where_1L_chr Where (a character vector of length one), Default: 'NA'
+#' @return Alg to set gnrc (a character vector of length one)
 #' @rdname make_alg_to_set_gnrc
 #' @export 
 
-#' @keywords internal
-make_alg_to_set_gnrc <- function (name_chr, args_chr_vec = c("x"), signature_chr = NA_character_, 
-    where_chr = NA_character_) 
+make_alg_to_set_gnrc <- function (name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
+    where_1L_chr = NA_character_) 
 {
-    paste0("methods::setGeneric(\"", name_chr, "\"", ifelse(is.na(args_chr_vec[1]), 
-        "", paste0(", ", make_gnrc_fn(name_chr, args_chr_vec = args_chr_vec))), 
-        ifelse(is.na(where_chr[1]), "", paste0(",\nwhere =  ", 
-            where_chr)), ifelse(is.na(signature_chr[1]), "", 
-            paste0(",\nsignature =  \"", signature_chr, "\"")), 
-        ")")
+    alg_to_set_gnrc_1L_chr <- paste0("methods::setGeneric(\"", 
+        name_1L_chr, "\"", ifelse(is.na(args_chr[1]), "", paste0(", ", 
+            make_gnrc_fn(name_1L_chr, args_chr = args_chr))), 
+        ifelse(is.na(where_1L_chr[1]), "", paste0(",\nwhere =  ", 
+            where_1L_chr)), ifelse(is.na(signature_1L_chr[1]), 
+            "", paste0(",\nsignature =  \"", signature_1L_chr, 
+                "\"")), ")")
+    return(alg_to_set_gnrc_1L_chr)
 }
 #' Make algorithm to set method
-#' @description make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set mthd.The function is called for its side effects and does not return a value.
-#' @param name_chr Name (a character vector)
-#' @param class_chr Class (a character vector)
+#' @description make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set mthd.The function returns alg to set mthd (a character vector of length one).
+#' @param name_1L_chr Name (a character vector of length one)
+#' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param fn Function (a function)
-#' @param package_chr Package (a character vector), Default: 'NA'
-#' @param where_chr Where (a character vector), Default: 'NA'
-#' @return NULL
+#' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: 'NA'
+#' @param where_1L_chr Where (a character vector of length one), Default: 'NA'
+#' @return Alg to set mthd (a character vector of length one)
 #' @rdname make_alg_to_set_mthd
 #' @export 
 
-#' @keywords internal
-make_alg_to_set_mthd <- function (name_chr, class_chr, fn, package_chr = NA_character_, 
-    where_chr = NA_character_) 
+make_alg_to_set_mthd <- function (name_1L_chr, class_nm_1L_chr, fn, pkg_nm_1L_chr = NA_character_, 
+    where_1L_chr = NA_character_) 
 {
-    paste0("methods::setMethod(\"", name_chr, "\"", ", ", ifelse(is.na(package_chr[1]), 
-        paste0("\"", class_chr, "\""), paste0(make_alg_to_gen_ref_to_cls(class_chr, 
-            package_chr = package_chr))), ", ", transform_fn_into_chr(fn), 
-        ifelse(is.na(where_chr[1]), "", paste0(",\nwhere =  ", 
-            where_chr)), ")")
+    alg_to_set_mthd_1L_chr <- paste0("methods::setMethod(\"", 
+        name_1L_chr, "\"", ", ", ifelse(is.na(pkg_nm_1L_chr[1]), 
+            paste0("\"", class_nm_1L_chr, "\""), paste0(make_alg_to_gen_ref_to_cls(class_nm_1L_chr, 
+                pkg_nm_1L_chr = pkg_nm_1L_chr))), ", ", transform_fn_into_chr(fn), 
+        ifelse(is.na(where_1L_chr[1]), "", paste0(",\nwhere =  ", 
+            where_1L_chr)), ")")
+    return(alg_to_set_mthd_1L_chr)
 }
 #' Make algorithm to set old classes
-#' @description make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set old clss.The function is called for its side effects and does not return a value.
-#' @param type PARAM_DESCRIPTION
+#' @description make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set old clss.The function returns alg to set old clss (a character vector of length one).
+#' @param type_chr Type (a character vector)
 #' @param prototype_lup Prototype (a lookup table)
-#' @return NULL
+#' @return Alg to set old clss (a character vector of length one)
 #' @rdname make_alg_to_set_old_clss
 #' @export 
 #' @importFrom purrr map_lgl map_chr
 #' @importFrom ready4fun get_from_lup_obj
 #' @importFrom stringr str_c
-#' @keywords internal
-make_alg_to_set_old_clss <- function (type, prototype_lup) 
+make_alg_to_set_old_clss <- function (type_chr, prototype_lup) 
 {
-    index_of_s3 <- purrr::map_lgl(type, ~ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
-        match_var_nm_1L_chr = "type", match_value_xx = .x, target_var_nm_1L_chr = "old_class", 
-        evaluate_lgl = FALSE))
-    if (!identical(type[index_of_s3], character(0))) {
-        purrr::map_chr(type[index_of_s3], ~paste0("setOldClass(c(\"", 
-            .x, "\",\"tbl_df\", \"tbl\", \"data.frame\")", ",where =  ", 
-            "globalenv()", ")")) %>% stringr::str_c(sep = "", 
+    index_of_s3_lgl <- purrr::map_lgl(type_chr, ~ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
+        match_var_nm_1L_chr = "type_chr", match_value_xx = .x, 
+        target_var_nm_1L_chr = "old_class_lgl", evaluate_lgl = FALSE))
+    if (!identical(type_chr[index_of_s3_lgl], character(0))) {
+        alg_to_set_old_clss_1L_chr <- purrr::map_chr(type_chr[index_of_s3_lgl], 
+            ~paste0("setOldClass(c(\"", .x, "\",\"tbl_df\", \"tbl\", \"data.frame\")", 
+                ",where =  ", "globalenv()", ")")) %>% stringr::str_c(sep = "", 
             collapse = "\n")
     }
     else {
-        character(0)
+        alg_to_set_old_clss_1L_chr <- character(0)
     }
+    return(alg_to_set_old_clss_1L_chr)
 }
 #' Make algorithm to set validity of readyforwhatsnext S4 class
-#' @description make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
-#' @param class_name PARAM_DESCRIPTION
-#' @param parent PARAM_DESCRIPTION
-#' @param not_same_length PARAM_DESCRIPTION, Default: NULL
-#' @param allowed_values PARAM_DESCRIPTION, Default: NULL
-#' @param names_include PARAM_DESCRIPTION, Default: NULL
-#' @param print_validator PARAM_DESCRIPTION, Default: FALSE
-#' @return NULL
+#' @description make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function returns alg to set validity of readyforwhatsnext s4 cls (a character vector of length one).
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
+#' @param slots_of_dif_lnts_chr Slots of different lengths (a character vector), Default: NULL
+#' @param allowed_vals_ls Allowed values (a list), Default: NULL
+#' @param names_must_match_ls Names must match (a list), Default: NULL
+#' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: FALSE
+#' @return Alg to set validity of readyforwhatsnext S4 cls (a character vector of length one)
 #' @rdname make_alg_to_set_validity_of_r4_cls
 #' @export 
 #' @importFrom ready4fun get_r4_obj_slots
 #' @importFrom purrr map_chr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom stringi stri_replace_last
-#' @keywords internal
-make_alg_to_set_validity_of_r4_cls <- function (class_name, parent, not_same_length = NULL, allowed_values = NULL, 
-    names_include = NULL, print_validator = FALSE) 
+make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_of_dif_lnts_chr = NULL, 
+    allowed_vals_ls = NULL, names_must_match_ls = NULL, print_validator_1L_lgl = FALSE) 
 {
-    same_lngth_cond <- allowed_cond_vec <- names_include_vec <- NA_character_
-    all_slots <- ready4fun::get_r4_obj_slots(class_name) %>% 
+    same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
+    all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% 
         names()
-    if (!is.null(parent)) {
-        parental_slots <- ready4fun::get_r4_obj_slots(parent) %>% 
+    if (!is.null(parent_cls_nm_1L_chr)) {
+        parental_slots <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% 
             names()
         all_slots <- all_slots[!all_slots %in% parental_slots]
     }
-    if (!is.null(not_same_length)) {
-        same_length_slots <- all_slots[!all_slots %in% not_same_length]
+    if (!is.null(slots_of_dif_lnts_chr)) {
+        same_length_slots <- all_slots[!all_slots %in% slots_of_dif_lnts_chr]
         if (!identical(same_length_slots, character(0))) {
             slot_ls <- purrr::map_chr(same_length_slots, ~paste0("object@", 
                 .x)) %>% stringr::str_c(sep = "", collapse = ",") %>% 
                 paste0("list(", ., ")")
-            same_lngth_cond <- paste0("if(length(unique(lengths(", 
+            same_lnt_cdn_1L_chr <- paste0("if(length(unique(lengths(", 
                 slot_ls, "))) > 1)\n", "msg <- c(msg, ", "\"", 
                 same_length_slots %>% stringr::str_c(sep = "", 
                   collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
                   replacement = " and"), " must all be of the same length.\")")
         }
     }
-    if (!is.null(allowed_values)) {
-        allowed_cond_vec <- purrr::map2_chr(names(allowed_values), 
-            allowed_values, ~paste0("if(!identical(", "object@", 
+    if (!is.null(allowed_vals_ls)) {
+        allowed_cdn_chr <- purrr::map2_chr(names(allowed_vals_ls), 
+            allowed_vals_ls, ~paste0("if(!identical(", "object@", 
                 .x, "[! object@", .x, " %in% ", ifelse(is.character(.y), 
                   "\"", ""), .y, ifelse(is.character(.y), "\"", 
                   ""), "],character(0))){\n", "msg <- c(msg, ", 
                 "\"", .x, " slot can only include the following values: ", 
                 .y, "\")\n}"))
     }
-    if (!is.null(names_include)) {
-        names_include_conc <- purrr::map_chr(names_include, ~paste0("c(\"", 
-            .x %>% stringr::str_c(sep = "", collapse = "\",\""), 
-            "\")"))
-        names_include_vec <- purrr::map2_chr(names(names_include), 
+    if (!is.null(names_must_match_ls)) {
+        names_include_conc <- purrr::map_chr(names_must_match_ls, 
+            ~paste0("c(\"", .x %>% stringr::str_c(sep = "", collapse = "\",\""), 
+                "\")"))
+        names_inc_chr <- purrr::map2_chr(names(names_must_match_ls), 
             names_include_conc, ~paste0("if(!identical(", .y, 
                 "[", .y, " %in% ", "names(object@", .x, ")],", 
                 .y, ")){\n", "msg <- c(msg, ", "\"", .x, " slot object names can only include the following values: ", 
@@ -161,304 +162,535 @@ make_alg_to_set_validity_of_r4_cls <- function (class_name, parent, not_same_len
                   ""), "\")\n}"))
     }
     valid_function <- paste0("function(object){\n", "msg <- NULL\n", 
-        ifelse(is.na(same_lngth_cond), "", paste0(same_lngth_cond, 
-            "\n")), ifelse(is.na(allowed_cond_vec), "", allowed_cond_vec), 
-        ifelse(is.na(names_include_vec), "", names_include_vec), 
-        "if (is.null(msg)) TRUE else msg", "\n}")
-    paste0("methods::setValidity(", make_alg_to_gen_ref_to_cls(class_name), 
-        ",\n", valid_function, ",\nwhere =  ", "globalenv()", 
-        ")")
+        ifelse(is.na(same_lnt_cdn_1L_chr), "", paste0(same_lnt_cdn_1L_chr, 
+            "\n")), ifelse(is.na(allowed_cdn_chr), "", allowed_cdn_chr), 
+        ifelse(is.na(names_inc_chr), "", names_inc_chr), "if (is.null(msg)) TRUE else msg", 
+        "\n}")
+    alg_to_set_validity_of_r4_cls_1L_chr <- paste0("methods::setValidity(", 
+        make_alg_to_gen_ref_to_cls(class_nm_1L_chr), ",\n", valid_function, 
+        ",\nwhere =  ", "globalenv()", ")")
+    return(alg_to_set_validity_of_r4_cls_1L_chr)
 }
 #' Make algorithm to write getter setter methods
 #' @description make_alg_to_write_gtr_str_mthds() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to write a getter setter mthds.The function is called for its side effects and does not return a value.
-#' @param class_name PARAM_DESCRIPTION
-#' @param parent PARAM_DESCRIPTION
-#' @param print_accessors PARAM_DESCRIPTION
-#' @param output_folder PARAM_DESCRIPTION
-#' @param ignore_ns_chr Ignore namespace (a character vector)
-#' @param required_pckg_chr_vec PARAM_DESCRIPTION
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
+#' @param print_gtrs_strs_1L_lgl Print getters setters (a logical vector of length one)
+#' @param output_dir_1L_chr Output directory (a character vector of length one)
+#' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
+#' @param req_pkgs_chr Req packages (a character vector)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @return NULL
 #' @rdname make_alg_to_write_gtr_str_mthds
 #' @export 
+#' @importFrom ready4fun get_r4_obj_slots
 #' @importFrom stringr str_c
-#' @keywords internal
-make_alg_to_write_gtr_str_mthds <- function (class_name, parent, print_accessors, output_folder, 
-    ignore_ns_chr, required_pckg_chr_vec, parent_ns_ls) 
+make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, print_gtrs_strs_1L_lgl, 
+    output_dir_1L_chr, nss_to_ignore_chr, req_pkgs_chr, parent_ns_ls) 
 {
-    slot_names_chr_vec <- get_r4_obj_slots_chr_vec(class_name) %>% 
+    slot_names_chr <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% 
         names()
-    if (is.null(parent)) {
-        set_only <- ""
+    if (is.null(parent_cls_nm_1L_chr)) {
+        set_only_chr <- ""
     }
     else {
-        set_only <- get_r4_obj_slots_chr_vec(parent, package_chr = transform_parent_ns_ls(parent_ns_ls)) %>% 
+        set_only_chr <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr, 
+            package_1L_chr = transform_parent_ns_ls(parent_ns_ls)) %>% 
             names()
     }
-    accessors <- paste0("write_gtr_str_mthds_for_slots(", "slot_names_chr_vec = c(\"", 
-        slot_names_chr_vec %>% stringr::str_c(collapse = "\",\""), 
-        "\")", ",", "set_only = c(\"", set_only %>% stringr::str_c(collapse = "\",\""), 
-        "\")", ",parent = \"", parent, "\",", "class_name = \"", 
-        class_name, "\", print_accessors = ", print_accessors, 
-        ",output_folder = \"", output_folder, "\"", ",ignore_ns_chr = c(\"", 
-        ignore_ns_chr %>% stringr::str_c(collapse = "\",\""), 
-        "\")", ",required_pckg_chr_vec = \"", required_pckg_chr_vec, 
-        "\"", ")")
-    return(accessors)
+    alg_to_write_gtr_str_mthds <- paste0("write_gtr_str_mthds_for_slots(", 
+        "slot_names_chr = c(\"", slot_names_chr %>% stringr::str_c(collapse = "\",\""), 
+        "\")", ",", "set_only_chr = c(\"", set_only_chr %>% stringr::str_c(collapse = "\",\""), 
+        "\")", ",parent_cls_nm_1L_chr = \"", parent_cls_nm_1L_chr, 
+        "\",", "class_nm_1L_chr = \"", class_nm_1L_chr, "\", print_gtrs_strs_1L_lgl = ", 
+        print_gtrs_strs_1L_lgl, ",output_dir_1L_chr = \"", output_dir_1L_chr, 
+        "\"", ",nss_to_ignore_chr = c(\"", nss_to_ignore_chr %>% 
+            stringr::str_c(collapse = "\",\""), "\")", ",req_pkgs_chr = \"", 
+        req_pkgs_chr, "\"", ")")
+    return(alg_to_write_gtr_str_mthds)
 }
 #' Make child class function body
-#' @description make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make child cls a function body.The function is called for its side effects and does not return a value.
-#' @param child_ext_fn_chr Child ext function (a character vector)
-#' @param parent_chr Parent (a character vector)
+#' @description make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make child cls a function body.The function returns child cls function body (a character vector of length one).
+#' @param child_ext_fn_1L_chr Child ext function (a character vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param prototype_lup Prototype (a lookup table)
-#' @param prepend_lgl Prepend (a logical vector), Default: T
-#' @return NULL
+#' @param prepend_1L_lgl Prepend (a logical vector of length one), Default: T
+#' @return Child cls function body (a character vector of length one)
 #' @rdname make_child_cls_fn_body
 #' @export 
 #' @importFrom stringr str_c
-#' @keywords internal
-make_child_cls_fn_body <- function (child_ext_fn_chr, parent_chr, prototype_lup, prepend_lgl = T) 
+make_child_cls_fn_body <- function (child_ext_fn_1L_chr, parent_cls_nm_1L_chr, prototype_lup, 
+    prepend_1L_lgl = T) 
 {
-    if (!is.null(parent_chr)) {
-        parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_chr = parent_chr, 
+    if (!is.null(parent_cls_nm_1L_chr)) {
+        parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
             prototype_lup = prototype_lup)
-        child_extension_tb <- eval(parse(text = child_ext_fn_chr))
-        new_fn_chr <- paste0("purrr::reduce(names(", child_ext_fn_chr, 
+        child_extension_tb <- eval(parse(text = child_ext_fn_1L_chr))
+        new_fn_chr <- paste0("purrr::reduce(names(", child_ext_fn_1L_chr, 
             "),\n.init = ", parent_proto_fn_chr, ",\n ~ .x %>% dplyr::mutate(!!rlang::sym(.y) := eval(parse(text=", 
-            child_ext_fn_chr, "[.y]))))")
-        if (prepend_lgl) 
+            child_ext_fn_1L_chr, "[.y]))))")
+        if (prepend_1L_lgl) 
             new_fn_chr <- paste0(new_fn_chr, "%>% dplyr::select(c(", 
                 c(names(child_extension_tb), names(parse(text = parent_proto_fn_chr) %>% 
                   eval())) %>% stringr::str_c(collapse = ","), 
                 "))")
-        new_fn_chr
+        child_cls_fn_body_1L_chr <- new_fn_chr
     }
     else {
-        child_ext_fn_chr
+        child_cls_fn_body_1L_chr <- child_ext_fn_1L_chr
     }
+    return(child_cls_fn_body_1L_chr)
 }
 #' Make class prototype tibble for readyforwhatsnext S3 and readyforwhatsnext S4 classes
-#' @description make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make class prototype tibble for a readyforwhatsnext S3 and a readyforwhatsnext S4 clss.The function is called for its side effects and does not return a value.
+#' @description make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make class prototype tibble for a readyforwhatsnext S3 and a readyforwhatsnext S4 clss.The function returns a class prototype tibble for readyforwhatsnext s3 and readyforwhatsnext s4 clss (a tibble).
 #' @param class_mk_ls Class make (a list)
-#' @return NULL
+#' @return Class prototype tibble for readyforwhatsnext S3 and readyforwhatsnext S4 clss (a tibble)
 #' @rdname make_class_pt_tb_for_r3_and_r4_clss
 #' @export 
 #' @importFrom purrr map2_dfr
 #' @importFrom rlang exec
-#' @keywords internal
 make_class_pt_tb_for_r3_and_r4_clss <- function (class_mk_ls) 
 {
-    purrr::map2_dfr(class_mk_ls, names(class_mk_ls), ~{
-        if (.y == "s3_ls") {
-            fn = make_pt_tb_for_new_r3_cls
-        }
-        else {
-            fn = make_pt_tb_for_new_r4_cls
-        }
-        rlang::exec(fn, .x)
-    })
+    class_pt_tb_for_r3_and_r4_clss_tb <- purrr::map2_dfr(class_mk_ls, 
+        names(class_mk_ls), ~{
+            if (.y == "s3_ls") {
+                fn = make_pt_tb_for_new_r3_cls
+            }
+            else {
+                fn = make_pt_tb_for_new_r4_cls
+            }
+            rlang::exec(fn, .x)
+        })
+    return(class_pt_tb_for_r3_and_r4_clss_tb)
 }
 #' Make class prototypes
-#' @description make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make class prototypes.The function is called for its side effects and does not return a value.
+#' @description make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make class prototypes.The function returns a class prototypes (a tibble).
 #' @param class_mk_ls Class make (a list)
-#' @return NULL
+#' @return Class prototypes (a tibble)
 #' @rdname make_class_pts_tb
 #' @export 
 #' @importFrom purrr map2_dfr
-#' @keywords internal
 make_class_pts_tb <- function (class_mk_ls) 
 {
-    purrr::map2_dfr(class_mk_ls, names(class_mk_ls), ~make_one_row_class_pt_tb(.x, 
-        make_s3_lgl = ifelse(.y == "s3_ls", T, F)))
+    class_pts_tb <- purrr::map2_dfr(class_mk_ls, names(class_mk_ls), 
+        ~make_one_row_class_pt_tb(.x, make_s3_lgl = ifelse(.y == 
+            "s3_ls", T, F)))
+    return(class_pts_tb)
 }
 #' Make documentation inc tag
-#' @description make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function is called for its side effects and does not return a value.
-#' @param class_names_chr_vec PARAM_DESCRIPTION
-#' @param s3_lgl S3 (a logical vector), Default: T
-#' @return NULL
+#' @description make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function returns documentation inc tag (a character vector of length one).
+#' @param class_names_chr Class names (a character vector)
+#' @param s3_1L_lgl S3 (a logical vector of length one), Default: T
+#' @return Documentation inc tag (a character vector of length one)
 #' @rdname make_dmt_inc_tag
 #' @export 
 #' @importFrom stringr str_c
-#' @keywords internal
-make_dmt_inc_tag <- function (class_names_chr_vec, s3_lgl = T) 
+make_dmt_inc_tag <- function (class_names_chr, s3_1L_lgl = T) 
 {
-    ifelse(!is.null(class_names_chr_vec), paste0("#' @include ", 
-        get_class_fl_nms(class_names_chr_vec = class_names_chr_vec, 
-            s3_lgl = s3_lgl) %>% stringr::str_c(collapse = " "), 
-        "\n"), "")
+    dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr), paste0("#' @include ", 
+        get_class_fl_nms(class_names_chr = class_names_chr, s3_1L_lgl = s3_1L_lgl) %>% 
+            stringr::str_c(collapse = " "), "\n"), "")
+    return(dmt_inc_tag_1L_chr)
+}
+#' Make function prototype to check readyforwhatsnext S3 class inheritance
+#' @description make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to check a readyforwhatsnext S3 cls inhtc.The function is called for its side effects and does not return a value.
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param s3_validator_ls S3 validator (a list)
+#' @return NULL
+#' @rdname make_fn_pt_to_check_r3_cls_inhtc
+#' @export 
+
+make_fn_pt_to_check_r3_cls_inhtc <- function (class_nm_1L_chr, s3_validator_ls) 
+{
+    name_of_fn_to_check_if_is_valid_instance <- paste0("is_", 
+        class_nm_1L_chr)
+    fn_to_check_if_is_valid_instance <- paste0(name_of_fn_to_check_if_is_valid_instance, 
+        " <- function(x) inherits(", s3_validator_ls$fn_name_1L_chr, 
+        "(x), \"", class_nm_1L_chr, "\")")
+    fn_pt_to_check_r3_cls_inhtc <- list(fn_name_1L_chr = name_of_fn_to_check_if_is_valid_instance, 
+        fn_body_1L_chr = fn_to_check_if_is_valid_instance)
+    return(fn_pt_to_check_r3_cls_inhtc)
+}
+#' Make function prototype to make readyforwhatsnext S3 class prototype
+#' @description make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to a make readyforwhatsnext S3 cls a prototype.The function is called for its side effects and does not return a value.
+#' @param type_1L_chr Type (a character vector of length one)
+#' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
+#' @param vals_ls Values (a list)
+#' @param ordered_1L_lgl Ordered (a logical vector of length one)
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
+#' @param prototype_lup Prototype (a lookup table)
+#' @return NULL
+#' @rdname make_fn_pt_to_make_r3_cls_pt
+#' @export 
+#' @importFrom purrr map2_chr
+#' @importFrom stringr str_c
+make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, ordered_1L_lgl, 
+    class_nm_1L_chr, parent_cls_nm_1L_chr, prototype_lup) 
+{
+    if (type_1L_chr %in% c("tibble", "list")) {
+        fn_call_to_create_prototype <- paste0(ifelse(type_1L_chr == 
+            "tibble", "tibble::tibble(", "list("), purrr::map2_chr(names(vals_ls), 
+            vals_ls, ~paste0(.x, " = ", .y)) %>% stringr::str_c(sep = "", 
+            collapse = ",\n"), ")")
+        fn_call_to_create_prototype <- make_child_cls_fn_body(child_ext_fn_1L_chr = fn_call_to_create_prototype, 
+            parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, prototype_lup = prototype_lup, 
+            prepend_1L_lgl = T)
+    }
+    else {
+        if (type_1L_chr == "factor") {
+            fn_call_to_create_prototype <- paste0("factor(x = character(),\nlevels=c(\"", 
+                vals_ls %>% stringr::str_c(sep = "", collapse = "\",\"\n"), 
+                "\"),\nordered_1L_lgl=", ordered_1L_lgl, ")")
+        }
+        else {
+            fn_call_to_create_prototype <- paste0(pt_ns_1L_chr, 
+                ifelse(pt_ns_1L_chr == "", "", "::"), type_1L_chr, 
+                "(0)")
+        }
+    }
+    name_of_fn_to_make_prototype <- paste0("make_prototype_", 
+        class_nm_1L_chr)
+    fn_to_make_prototype <- paste0(name_of_fn_to_make_prototype, 
+        " <- function(){ \n", fn_call_to_create_prototype, "\n}")
+    fn_pt_to_make_r3_cls_pt <- list(fn_name_1L_chr = name_of_fn_to_make_prototype, 
+        fn_body_1L_chr = fn_to_make_prototype)
+    return(fn_pt_to_make_r3_cls_pt)
+}
+#' Make function prototype to make unvld readyforwhatsnext S3 class instance
+#' @description make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to a make unvld a readyforwhatsnext S3 cls inst.The function is called for its side effects and does not return a value.
+#' @param type_1L_chr Type (a character vector of length one)
+#' @param pt_chkr_pfx_1L_chr Prototype checker prefix (a character vector of length one)
+#' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param s3_prototype_ls S3 prototype (a list)
+#' @return NULL
+#' @rdname make_fn_pt_to_make_unvld_r3_cls_inst
+#' @export 
+
+make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_chr, pt_ns_1L_chr, class_nm_1L_chr, 
+    s3_prototype_ls) 
+{
+    name_of_fn_to_construct_instance <- paste0("new_", class_nm_1L_chr)
+    stop_cndn_in_constructor <- ifelse(type_1L_chr == "factor", 
+        "TRUE", paste0(pt_ns_1L_chr, ifelse(pt_ns_1L_chr == "", 
+            "", "::"), pt_chkr_pfx_1L_chr, type_1L_chr, "(x)"))
+    fn_to_construct_instance <- paste0(name_of_fn_to_construct_instance, 
+        " <- function(x){ \n", "stopifnot(", stop_cndn_in_constructor, 
+        ")\n", "class(x) <- append(", "c(\"", class_nm_1L_chr, 
+        "\",setdiff(", paste0(s3_prototype_ls$fn_name_1L_chr, 
+            "()"), " %>% class(),class(x)))", ",\nclass(x))\nx\n}")
+    fn_pt_to_make_unvld_r3_cls_inst <- list(fn_name_1L_chr = name_of_fn_to_construct_instance, 
+        fn_body_1L_chr = fn_to_construct_instance)
+    return(fn_pt_to_make_unvld_r3_cls_inst)
+}
+#' Make function prototype to make valid readyforwhatsnext S3 class instance
+#' @description make_fn_pt_to_make_vld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to a make vld a readyforwhatsnext S3 cls inst.The function is called for its side effects and does not return a value.
+#' @param type_1L_chr Type (a character vector of length one)
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param s3_prototype_ls S3 prototype (a list)
+#' @param min_max_vals_dbl Min max values (a double vector)
+#' @param start_end_vals_dbl Start end values (a double vector)
+#' @param vals_ls Values (a list)
+#' @return NULL
+#' @rdname make_fn_pt_to_make_vld_r3_cls_inst
+#' @export 
+#' @importFrom purrr compact map2_chr
+#' @importFrom stringr str_c
+make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3_prototype_ls, min_max_vals_dbl, 
+    start_end_vals_dbl, vals_ls) 
+{
+    name_of_fn_to_validate_instance <- paste0("validate_", class_nm_1L_chr)
+    validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
+    if (type_1L_chr %in% c("tibble", "list")) {
+        stop_cndn_in_validator_1 <- paste0("sum(stringr::str_detect(names(x)[names(x) %in% names(", 
+            s3_prototype_ls$fn_name_1L_chr, "())],\n", "names(", 
+            s3_prototype_ls$fn_name_1L_chr, "())))!=length(names(", 
+            s3_prototype_ls$fn_name_1L_chr, "()))")
+        tb_or_ls_class_summary <- ifelse(type_1L_chr == "list", 
+            "lapply(class) %>% tibble::as_tibble() ", "dplyr::summarise_all(class) ")
+        var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr, 
+            "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class)")
+        stop_cndn_in_validator_2 <- paste0("!identical(", var_class_lup, 
+            " %>% \n", "dplyr::arrange(variable),\n", "x %>% \n", 
+            tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n", 
+            "dplyr::filter(variable %in% names(", s3_prototype_ls$fn_name_1L_chr, 
+            "())) %>% ", "dplyr::arrange(variable)", ")")
+        obj_components_chr <- c(toupper(type_1L_chr), ifelse(type_1L_chr == 
+            "list", "elements", "columns"))
+        stop_msg_call_in_validator_1 <- paste0("paste0(\"", obj_components_chr[1], 
+            " must include ", obj_components_chr[2], " named: \",\n", 
+            "names(", s3_prototype_ls$fn_name_1L_chr, "()) %>% stringr::str_c(sep=\"\", collapse = \", \"))")
+        stop_msg_call_in_validator_2 <- paste0("paste0(\"", obj_components_chr[1], 
+            " ", obj_components_chr[2], " should be of the following classes: \",\n", 
+            "purrr::map2_chr(", var_class_lup, " %>% \ndplyr::pull(1),\n ", 
+            var_class_lup, " %>% \ndplyr::pull(2),\n ", "~ paste0(.x,\": \",.y)) %>% \n", 
+            "stringr::str_c(sep=\"\", collapse = \", \"))")
+        validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1, 
+            b = stop_cndn_in_validator_2)
+        validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1, 
+            b = stop_msg_call_in_validator_2)
+    }
+    else {
+        if (!is.null(min_max_vals_dbl)) {
+            stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
+            if (!is.na(min_max_vals_dbl[1])) {
+                stop_cndn_in_validator_1 <- paste0("any(", ifelse(type_1L_chr == 
+                  "character", "stringr::str_length(x)", "x"), 
+                  " < ", min_max_vals_dbl[1], ")")
+                stop_msg_call_in_validator_1 <- paste0("\"All values in valid ", 
+                  class_nm_1L_chr, " object must be ", ifelse(type_1L_chr == 
+                    "character", "of length ", ""), "greater than or equal to ", 
+                  min_max_vals_dbl[1], ".\"")
+            }
+            if (!is.na(min_max_vals_dbl[2])) {
+                stop_cndn_in_validator_2 <- paste0("any(", ifelse(type_1L_chr == 
+                  "character", "stringr::str_length(x)", "x"), 
+                  " > ", min_max_vals_dbl[2], ")")
+                stop_msg_call_in_validator_2 <- paste0("\"All values in valid ", 
+                  class_nm_1L_chr, " object must be ", ifelse(type_1L_chr == 
+                    "character", "of length ", ""), "less than or equal to ", 
+                  min_max_vals_dbl[2], ".\"")
+            }
+            validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1, 
+                b = stop_cndn_in_validator_2) %>% purrr::compact()
+            validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1, 
+                b = stop_msg_call_in_validator_2) %>% purrr::compact()
+        }
+        if (!is.null(start_end_vals_dbl)) {
+            stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
+            if (!is.na(start_end_vals_dbl[1])) {
+                stop_cndn_in_validator_1 <- paste0("any(purrr::map_lgl(x, ~ !startsWith(.x,\"", 
+                  start_end_vals_dbl[1], "\")))")
+                stop_msg_call_in_validator_1 <- paste0("\"All values in valid ", 
+                  class_nm_1L_chr, " object must start with '", 
+                  start_end_vals_dbl[1], "'.\"")
+            }
+            if (!is.na(start_end_vals_dbl[2])) {
+                stop_cndn_in_validator_2 <- paste0("any(purrr::map_lgl(x, ~ !endsWith(.x,\"", 
+                  start_end_vals_dbl[2], "\")))")
+                stop_msg_call_in_validator_2 <- paste0("\"All values in valid ", 
+                  class_nm_1L_chr, " object must end with '", 
+                  start_end_vals_dbl[2], "'.\"")
+            }
+            validator_stop_cond_ls <- append(validator_stop_cond_ls, 
+                list(a = stop_cndn_in_validator_1, b = stop_cndn_in_validator_2) %>% 
+                  purrr::compact())
+            validator_stop_msg_call_ls <- append(validator_stop_msg_call_ls, 
+                list(a = stop_msg_call_in_validator_1, b = stop_msg_call_in_validator_2) %>% 
+                  purrr::compact())
+        }
+        if (type_1L_chr == "factor") {
+            stop_cndn_in_validator_1 <- paste0("!identical(setdiff(x,c(\"", 
+                vals_ls %>% stringr::str_c(collapse = "\",\""), 
+                "\")),character(0))")
+            stop_msg_call_in_validator_1 <- paste0("\"Levels in valid ", 
+                class_nm_1L_chr, " object are: ", vals_ls %>% 
+                  stringr::str_c(collapse = ","), ".\"")
+            validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1)
+            validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1)
+        }
+    }
+    fn_to_validate_instance <- paste0(name_of_fn_to_validate_instance, 
+        " <- function(x){\n", purrr::map2_chr(validator_stop_cond_ls, 
+            validator_stop_msg_call_ls, ~paste0("if(", .x, "){\n", 
+                "stop(", .y, ",\ncall. = FALSE)\n}")) %>% stringr::str_c(sep = "", 
+            collapse = "\n "), "\nx}")
+    fn_pt_to_make_vld_r3_cls_inst <- list(fn_name_1L_chr = name_of_fn_to_validate_instance, 
+        fn_body_1L_chr = fn_to_validate_instance)
+    return(fn_pt_to_make_vld_r3_cls_inst)
+}
+#' Make function prototype to make validated readyforwhatsnext S3 class instance
+#' @description make_fn_pt_to_make_vldd_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to a make vldd a readyforwhatsnext S3 cls inst.The function is called for its side effects and does not return a value.
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param s3_prototype_ls S3 prototype (a list)
+#' @param s3_constructor_ls S3 constructor (a list)
+#' @param s3_validator_ls S3 validator (a list)
+#' @return NULL
+#' @rdname make_fn_pt_to_make_vldd_r3_cls_inst
+#' @export 
+
+make_fn_pt_to_make_vldd_r3_cls_inst <- function (class_nm_1L_chr, s3_prototype_ls, s3_constructor_ls, 
+    s3_validator_ls) 
+{
+    fn_call_to_make_valid_instance <- paste0(s3_validator_ls$fn_name_1L_chr, 
+        "(", s3_constructor_ls$fn_name_1L_chr, "(x))")
+    name_of_fn_to_make_valid_instance <- class_nm_1L_chr
+    fn_to_make_valid_instance <- paste0(name_of_fn_to_make_valid_instance, 
+        " <- function(x = ", s3_prototype_ls$fn_name_1L_chr, 
+        "()){ \n", fn_call_to_make_valid_instance, "\n}")
+    fn_pt_to_make_vldd_r3_cls_inst <- list(fn_name_1L_chr = name_of_fn_to_make_valid_instance, 
+        fn_body_1L_chr = fn_to_make_valid_instance)
+    return(fn_pt_to_make_vldd_r3_cls_inst)
 }
 #' Make generic
-#' @description make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc.The function is called for its side effects and does not return a value.
-#' @param name_chr Name (a character vector)
-#' @param args_chr_vec PARAM_DESCRIPTION
-#' @return NULL
+#' @description make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc.The function returns gnrc function (a character vector of length one).
+#' @param name_1L_chr Name (a character vector of length one)
+#' @param args_chr Arguments (a character vector)
+#' @return Gnrc function (a character vector of length one)
 #' @rdname make_gnrc_fn
 #' @export 
 
-#' @keywords internal
-make_gnrc_fn <- function (name_chr, args_chr_vec) 
+make_gnrc_fn <- function (name_1L_chr, args_chr) 
 {
-    if (all(!is.na(args_chr_vec))) {
-        paste0("function(", paste0(args_chr_vec, collapse = ", "), 
-            ") standardGeneric(\"", name_chr, "\")")
+    if (all(!is.na(args_chr))) {
+        gnrc_fn_1L_chr <- paste0("function(", paste0(args_chr, 
+            collapse = ", "), ") standardGeneric(\"", name_1L_chr, 
+            "\")")
     }
     else {
-        ""
+        gnrc_fn_1L_chr <- ""
     }
+    return(gnrc_fn_1L_chr)
 }
 #' Make generic method pair
-#' @description make_gnrc_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc mthd pair.The function is called for its side effects and does not return a value.
-#' @param name_chr Name (a character vector)
-#' @param args_chr_vec PARAM_DESCRIPTION, Default: c("x")
-#' @param signature_chr Signature (a character vector), Default: 'NA'
-#' @param package_chr Package (a character vector), Default: 'NA'
-#' @param where_chr Where (a character vector), Default: 'NA'
-#' @param class_chr Class (a character vector)
+#' @description make_gnrc_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc mthd pair.The function returns gnrc mthd pair (a list).
+#' @param name_1L_chr Name (a character vector of length one)
+#' @param args_chr Arguments (a character vector), Default: c("x")
+#' @param signature_1L_chr Signature (a character vector of length one), Default: 'NA'
+#' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: 'NA'
+#' @param where_1L_chr Where (a character vector of length one), Default: 'NA'
+#' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param fn Function (a function)
-#' @return NULL
+#' @return Gnrc mthd pair (a list)
 #' @rdname make_gnrc_mthd_pair_ls
 #' @export 
 
-#' @keywords internal
-make_gnrc_mthd_pair_ls <- function (name_chr, args_chr_vec = c("x"), signature_chr = NA_character_, 
-    package_chr = NA_character_, where_chr = NA_character_, class_chr, 
-    fn) 
+make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
+    pkg_nm_1L_chr = NA_character_, where_1L_chr = NA_character_, 
+    class_nm_1L_chr, fn) 
 {
-    list(generic_chr = make_alg_to_set_gnrc(name_chr, args_chr_vec = args_chr_vec, 
-        signature_chr = signature_chr, where_chr = where_chr), 
-        method_chr = make_alg_to_set_mthd(name_chr, class_chr = class_chr, 
-            fn = fn, package_chr = package_chr, where_chr = where_chr), 
-        gen_fn_chr = make_gnrc_fn(name_chr, args_chr_vec = args_chr_vec), 
-        meth_fn_chr = transform_fn_into_chr(fn))
+    gnrc_mthd_pair_ls <- list(generic_1L_chr = make_alg_to_set_gnrc(name_1L_chr, 
+        args_chr = args_chr, signature_1L_chr = signature_1L_chr, 
+        where_1L_chr = where_1L_chr), method_chr = make_alg_to_set_mthd(name_1L_chr, 
+        class_nm_1L_chr = class_nm_1L_chr, fn = fn, pkg_nm_1L_chr = pkg_nm_1L_chr, 
+        where_1L_chr = where_1L_chr), gen_fn_chr = make_gnrc_fn(name_1L_chr, 
+        args_chr = args_chr), meth_fn_chr = transform_fn_into_chr(fn))
+    return(gnrc_mthd_pair_ls)
 }
 #' Make helper
-#' @description make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make helper.The function is called for its side effects and does not return a value.
-#' @param class_name PARAM_DESCRIPTION
-#' @param parent PARAM_DESCRIPTION
-#' @param class_slots PARAM_DESCRIPTION
-#' @param proto_ls Proto (a list)
+#' @description make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make helper.The function returns helper function (a character vector of length one).
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
+#' @param slots_chr Slots (a character vector)
+#' @param pt_ls Prototype (a list)
 #' @param prototype_lup Prototype (a lookup table)
 #' @param parent_ns_ls Parent namespace (a list)
-#' @return NULL
+#' @return Helper function (a character vector of length one)
 #' @rdname make_helper_fn
 #' @export 
 #' @importFrom stringr str_sub str_replace str_replace_all str_c
-#' @keywords internal
-make_helper_fn <- function (class_name, parent, class_slots, proto_ls, prototype_lup, 
-    parent_ns_ls) 
+make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt_ls, 
+    prototype_lup, parent_ns_ls) 
 {
-    if (!is.null(parent)) {
-        child_slots_chr <- class_slots
-        class_slots <- get_parent_cls_slot_nms(parent_chr = parent, 
+    if (!is.null(parent_cls_nm_1L_chr)) {
+        child_slots_chr <- slots_chr
+        slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
             parent_ns_ls = parent_ns_ls)
-        parent_proto <- get_parent_cls_pts(parent_chr = parent, 
-            parent_ns_ls = parent_ns_ls, slot_names_chr_vec = class_slots)
-        child_ls_chr <- proto_ls %>% stringr::str_sub(start = 6, 
+        parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
+            parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
+        child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, 
             end = -2)
-        proto_ls <- make_pt_ls(class_slots = class_slots, type = parent_proto, 
+        pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = parent_proto, 
             prototype_lup = prototype_lup)
-        proto_ls <- paste0(proto_ls %>% stringr::str_sub(end = -2), 
+        pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2), 
             ",", child_ls_chr, ")")
-        class_slots <- c(class_slots, child_slots_chr)
+        slots_chr <- c(slots_chr, child_slots_chr)
     }
-    func_args <- proto_ls %>% stringr::str_replace("list", "function") %>% 
+    func_args <- pt_ls %>% stringr::str_replace("list", "function") %>% 
         stringr::str_replace_all(",", ",\n")
-    helper_function <- paste0(class_name, " <- ", func_args, 
-        "{ \n", "methods::new(\"", class_name, "\",\n", paste0(class_slots, 
-            " = ", class_slots) %>% stringr::str_c(sep = "", 
+    helper_fn_1L_chr <- paste0(class_nm_1L_chr, " <- ", func_args, 
+        "{ \n", "methods::new(\"", class_nm_1L_chr, "\",\n", 
+        paste0(slots_chr, " = ", slots_chr) %>% stringr::str_c(sep = "", 
             collapse = ",\n"), ")\n}")
-    return(helper_function)
+    return(helper_fn_1L_chr)
 }
 #' Make lines for writing documented
 #' @description make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make lines for writing documented.The function is called for its side effects and does not return a value.
-#' @param fn_name PARAM_DESCRIPTION
-#' @param fn_text PARAM_DESCRIPTION
-#' @param fn_type PARAM_DESCRIPTION
-#' @param class_name PARAM_DESCRIPTION
-#' @param class_desc PARAM_DESCRIPTION
+#' @param fn_name_1L_chr Function name (a character vector of length one)
+#' @param fn_body_1L_chr Function body (a character vector of length one)
+#' @param fn_type_1L_chr Function type (a character vector of length one)
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param class_desc_1L_chr Class description (a character vector of length one)
 #' @return NULL
 #' @rdname make_lines_for_writing_dmtd_fn
 #' @export 
 #' @importFrom ready4fun write_fn_dmt
-#' @keywords internal
-make_lines_for_writing_dmtd_fn <- function (fn_name, fn_text, fn_type, class_name, class_desc) 
+make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_type_1L_chr, class_nm_1L_chr, 
+    class_desc_1L_chr) 
 {
-    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name, fn_type_1L_chr = fn_type, 
-        fn = eval(parse(text = fn_text)), class_name_1L_chr = class_name, 
-        details_1L_chr = class_desc)
-    writeLines(fn_text)
+    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
+        fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = fn_body_1L_chr)), 
+        class_name_1L_chr = class_nm_1L_chr, details_1L_chr = class_desc_1L_chr)
+    writeLines(fn_body_1L_chr)
 }
 #' Make list of packages to import
-#' @description make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of packages to an import.The function is called for its side effects and does not return a value.
-#' @param current_generics_ls Current generics (a list)
-#' @param fn_name_chr Function name (a character vector)
-#' @param ignore_ns_chr Ignore namespace (a character vector)
-#' @return NULL
+#' @description make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of packages to an import.The function returns packages to import (a list).
+#' @param curr_gnrcs_ls Current generics (a list)
+#' @param fn_name_1L_chr Function name (a character vector of length one)
+#' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
+#' @return Packages to import (a list)
 #' @rdname make_ls_of_pkgs_to_imp
 #' @export 
 #' @importFrom purrr map2_lgl
-#' @keywords internal
-make_ls_of_pkgs_to_imp <- function (current_generics_ls, fn_name_chr, ignore_ns_chr) 
+make_ls_of_pkgs_to_imp <- function (curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore_chr) 
 {
-    package_chr_vec <- current_generics_ls$package_chr_vec[!current_generics_ls$package_chr_vec %in% 
+    packages_chr <- curr_gnrcs_ls$packages_chr[!curr_gnrcs_ls$packages_chr %in% 
         c(".GlobalEnv")]
-    gen_get_exists_lgl_vec <- purrr::map2_lgl(package_chr_vec, 
-        names(package_chr_vec), ~((.x == fn_name_chr | .y == 
-            paste0(fn_name_chr, ".", .x)) & !.x %in% ignore_ns_chr))
-    gen_get_exists_lgl <- any(gen_get_exists_lgl_vec)
-    getter_import_pckg <- ifelse(gen_get_exists_lgl, package_chr_vec[gen_get_exists_lgl_vec], 
+    gnrc_gtr_exists_lgl <- purrr::map2_lgl(packages_chr, names(packages_chr), 
+        ~((.x == fn_name_1L_chr | .y == paste0(fn_name_1L_chr, 
+            ".", .x)) & !.x %in% nss_to_ignore_chr))
+    gnrc_gtr_exists_1L_lgl <- any(gnrc_gtr_exists_lgl)
+    gtr_imps_chr <- ifelse(gen_get_exists_lgl, packages_chr[gnrc_gtr_exists_lgl], 
         NA_character_)
-    gen_set_exists_lgl_vec <- purrr::map2_lgl(package_chr_vec, 
-        names(package_chr_vec), ~((.x == paste0(fn_name_chr, 
-            "<-") | .y == paste0(fn_name_chr, "<-.", .x)) & !.x %in% 
-            ignore_ns_chr))
-    gen_set_exists_lgl <- any(gen_set_exists_lgl_vec)
-    setter_import_pckg <- ifelse(gen_set_exists_lgl, package_chr_vec[gen_set_exists_lgl_vec], 
+    gnrc_str_exists_lgl <- purrr::map2_lgl(packages_chr, names(packages_chr), 
+        ~((.x == paste0(fn_name_1L_chr, "<-") | .y == paste0(fn_name_1L_chr, 
+            "<-.", .x)) & !.x %in% nss_to_ignore_chr))
+    gnrc_str_exists_1L_lgl <- any(gnrc_str_exists_lgl)
+    str_imps_chr <- ifelse(gnrc_str_exists_1L_lgl, packages_chr[gnrc_str_exists_lgl], 
         NA_character_)
-    list(getter_import_pckg = getter_import_pckg[getter_import_pckg != 
-        ignore_ns_chr[1]], setter_import_pckg = setter_import_pckg[setter_import_pckg != 
-        ignore_ns_chr[1]], gen_get_exists_lgl = gen_get_exists_lgl, 
-        gen_set_exists_lgl = gen_set_exists_lgl)
+    pkgs_to_imp_ls <- list(gtr_imps_chr = gtr_imps_chr[gtr_imps_chr != 
+        nss_to_ignore_chr[1]], str_imps_chr = str_imps_chr[str_imps_chr != 
+        nss_to_ignore_chr[1]], gnrc_gtr_exists_1L_lgl = gnrc_gtr_exists_1L_lgl, 
+        gnrc_str_exists_1L_lgl = gnrc_str_exists_1L_lgl)
+    return(pkgs_to_imp_ls)
 }
 #' Make list of transformed names of current generics
-#' @description make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of tfd names of curr gnrcs.The function is called for its side effects and does not return a value.
-#' @param required_pckg_chr_vec PARAM_DESCRIPTION
-#' @param generic_chr Generic (a character vector)
-#' @param ignore_ns_chr Ignore namespace (a character vector)
-#' @return NULL
+#' @description make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make list of tfd names of curr gnrcs.The function returns curr gnrcs (a list).
+#' @param req_pkgs_chr Req packages (a character vector)
+#' @param generic_1L_chr Generic (a character vector of length one)
+#' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
+#' @return Curr gnrcs (a list)
 #' @rdname make_ls_of_tfd_nms_of_curr_gnrcs
 #' @export 
 #' @importFrom gtools getDependencies
 #' @importFrom purrr discard
 #' @importFrom ready4fun unload_packages
-#' @keywords internal
-make_ls_of_tfd_nms_of_curr_gnrcs <- function (required_pckg_chr_vec, generic_chr, ignore_ns_chr) 
+make_ls_of_tfd_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr, nss_to_ignore_chr) 
 {
-    current_generics_ls <- get_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec, 
-        generic_chr = generic_chr)
-    if (is.na(ignore_ns_chr[1])) {
-        dependencies_chr_vec <- character(0)
+    curr_gnrcs_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr, 
+        generic_1L_chr = generic_1L_chr)
+    if (is.na(nss_to_ignore_chr[1])) {
+        dependencies_chr <- character(0)
     }
     else {
-        dependencies_chr_vec <- gtools::getDependencies(ignore_ns_chr[1])
+        dependencies_chr <- gtools::getDependencies(nss_to_ignore_chr[1])
     }
-    if (!required_pckg_chr_vec %>% purrr::discard(is.na) %>% 
-        identical(character(0))) 
-        required_pckg_chr_vec <- required_pckg_chr_vec[!required_pckg_chr_vec %in% 
-            dependencies_chr_vec]
-    if (current_generics_ls$in_global_lgl) {
-        ready4fun::unload_packages(package_chr = required_pckg_chr_vec[required_pckg_chr_vec != 
-            ignore_ns_chr[1]])
-        current_generics_ls <- get_nms_of_curr_gnrcs(required_pckg_chr_vec = required_pckg_chr_vec, 
-            generic_chr = generic_chr)
+    if (!req_pkgs_chr %>% purrr::discard(is.na) %>% identical(character(0))) 
+        req_pkgs_chr <- req_pkgs_chr[!req_pkgs_chr %in% dependencies_chr]
+    if (curr_gnrcs_ls$in_global_1L_lgl) {
+        ready4fun::unload_packages(package_chr = req_pkgs_chr[req_pkgs_chr != 
+            nss_to_ignore_chr[1]])
+        curr_gnrcs_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr, 
+            generic_1L_chr = generic_1L_chr)
     }
-    current_generics_ls
+    return(curr_gnrcs_ls)
 }
 #' Make one row class prototype
-#' @description make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a class prototype.The function is called for its side effects and does not return a value.
+#' @description make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a class prototype.The function returns one row class prototype (a tibble).
 #' @param class_type_mk_ls Class type make (a list)
-#' @param make_s3_lgl Make S3 (a logical vector), Default: T
-#' @return NULL
+#' @param make_s3_1L_lgl Make S3 (a logical vector of length one), Default: T
+#' @return One row class prototype (a tibble)
 #' @rdname make_one_row_class_pt_tb
 #' @export 
 #' @importFrom purrr reduce flatten
@@ -466,185 +698,188 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function (required_pckg_chr_vec, generic_chr
 #' @importFrom rlang exec
 #' @importFrom tibble add_case
 #' @importFrom dplyr mutate mutate_at
-#' @keywords internal
-make_one_row_class_pt_tb <- function (class_type_mk_ls, make_s3_lgl = T) 
+make_one_row_class_pt_tb <- function (class_type_mk_ls, make_s3_1L_lgl = T) 
 {
-    cl_mk_tb <- class_type_mk_ls %>% purrr:::reduce(.init = ready4_class_make_tb(), 
+    one_row_class_pt_tb <- class_type_mk_ls %>% purrr:::reduce(.init = ready4_class_make_tb(), 
         ~{
             testit::assert(paste0("Allowable list element names are: ", 
                 names(.x) %>% paste0(collapse = ",")), names(.y) %in% 
                 names(.x))
             rlang::exec(tibble::add_case, .x, !!!.y)
-        }) %>% dplyr::mutate(make_s3 = make_s3_lgl) %>% remake_ls_cols()
-    if (make_s3_lgl) {
-        cl_mk_tb <- cl_mk_tb %>% dplyr::mutate_at(c("class_slots", 
-            "include_classes"), ~purrr::flatten(.x))
+        }) %>% dplyr::mutate(make_s3_lgl = make_s3_1L_lgl) %>% 
+        remake_ls_cols()
+    if (make_s3_1L_lgl) {
+        one_row_class_pt_tb <- one_row_class_pt_tb %>% dplyr::mutate_at(c("slots_ls", 
+            "inc_clss_ls"), ~purrr::flatten(.x))
     }
-    cl_mk_tb
+    return(one_row_class_pt_tb)
 }
 #' Make one row prototype tibble for new readyforwhatsnext S3 class
-#' @description make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value.
+#' @description make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S3 cls.The function returns one row class prototype (a tibble).
 #' @param x PARAM_DESCRIPTION
-#' @return NULL
+#' @return One row class prototype (a tibble)
 #' @rdname make_one_row_pt_tb_for_new_r3_cls
 #' @export 
 
-#' @keywords internal
 make_one_row_pt_tb_for_new_r3_cls <- function (x) 
 {
-    make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr, 
-        prototype = x@prototype_ls, prototype_checker_prefix = x@prototype_chk_pfx_ls, 
-        prototype_namespace = x@prototype_ns_ls, values = x@values_ls, 
-        allowed_values = x@allowed_vals_ls, min_max_values = x@min_max_values_ls, 
-        start_end_values = x@start_end_values_ls, class_desc = x@class_desc_chr, 
-        parent_class = x@parent_class_chr, include_classes = x@include_classes_ls) %>% 
-        list(), make_s3_lgl = T)
+    one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub_chr = x@name_stub_chr, 
+        pt_ls = x@pt_ls, pt_chkr_pfx_ls = x@pt_chkr_pfx_ls, pt_ns_ls = x@pt_ns_ls, 
+        vals_ls = x@vals_ls, allowed_vals_ls = x@allowed_vals_ls, 
+        min_max_vals_ls = x@min_max_vals_ls, start_end_vals_ls = x@start_end_vals_ls, 
+        class_desc_chr = x@class_desc_chr, parent_class_chr = x@parent_class_chr, 
+        inc_clss_ls = x@inc_clss_ls) %>% list(), make_s3_1L_lgl = T)
+    return(one_row_class_pt_tb)
 }
 #' Make one row prototype tibble for new readyforwhatsnext S4 class
-#' @description make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
+#' @description make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S4 cls.The function returns one row class prototype (a tibble).
 #' @param x PARAM_DESCRIPTION
-#' @return NULL
+#' @return One row class prototype (a tibble)
 #' @rdname make_one_row_pt_tb_for_new_r4_cls
 #' @export 
 
-#' @keywords internal
 make_one_row_pt_tb_for_new_r4_cls <- function (x) 
 {
-    make_one_row_class_pt_tb(list(name_stub = x@name_stub_chr, 
-        prototype = x@prototype_ls, values = x@values_ls, allowed_values = x@allowed_vals_ls, 
-        class_desc = x@class_desc_chr, parent_class = x@parent_class_chr, 
-        class_slots = x@class_slots_ls, meaningful_names = x@meaningful_names_ls, 
-        include_classes = x@include_classes_ls) %>% list(), make_s3_lgl = F)
+    one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub_chr = x@name_stub_chr, 
+        pt_ls = x@pt_ls, vals_ls = x@vals_ls, allowed_vals_ls = x@allowed_vals_ls, 
+        class_desc_chr = x@class_desc_chr, parent_class_chr = x@parent_class_chr, 
+        slots_ls = x@slots_ls, meaningful_nms_ls = x@meaningful_nms_ls, 
+        inc_clss_ls = x@inc_clss_ls) %>% list(), make_s3_1L_lgl = F)
+    return(one_row_class_pt_tb)
 }
 #' Make prototype
-#' @description make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function is called for its side effects and does not return a value.
-#' @param class_slots PARAM_DESCRIPTION
-#' @param type PARAM_DESCRIPTION, Default: NULL
-#' @param values PARAM_DESCRIPTION, Default: NULL
-#' @param make_val_string PARAM_DESCRIPTION, Default: TRUE
+#' @description make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function returns a prototype (a list).
+#' @param slots_chr Slots (a character vector)
+#' @param type_chr Type (a character vector), Default: NULL
+#' @param vals_ls Values (a list), Default: NULL
+#' @param make_val_1L_lgl Make value (a logical vector of length one), Default: TRUE
 #' @param prototype_lup Prototype (a lookup table)
-#' @return NULL
+#' @return Prototype (a list)
 #' @rdname make_pt_ls
 #' @export 
 #' @importFrom purrr map2_chr pmap_chr
 #' @importFrom ready4fun get_from_lup_obj
 #' @importFrom stringr str_c
-#' @keywords internal
-make_pt_ls <- function (class_slots, type = NULL, values = NULL, make_val_string = TRUE, 
+make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_lgl = TRUE, 
     prototype_lup) 
 {
-    proto_ls <- purrr::map2_chr(class_slots, type, ~paste0(.x, 
+    pt_ls <- purrr::map2_chr(slots_chr, type_chr, ~paste0(.x, 
         " = ", ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
-            match_var_nm_1L_chr = "type", match_value_xx = .y, 
-            target_var_nm_1L_chr = "value", evaluate_lgl = FALSE)))
-    if (!is.null(values)) {
-        proto_ls <- purrr::pmap_chr(list(class_slots, proto_ls, 
-            1:length(proto_ls)), ~{
-            if (..3 %in% 1:length(values)) {
-                paste0(..1, " = ", ifelse(make_val_string, "\"", 
-                  ""), values[[..3]], ifelse(make_val_string, 
-                  "\"", ""))
-            }
-            else {
-                ..2
-            }
-        })
+            match_var_nm_1L_chr = "type_chr", match_value_xx = .y, 
+            target_var_nm_1L_chr = "vals_ls", evaluate_lgl = FALSE)))
+    if (!is.null(vals_ls)) {
+        pt_ls <- purrr::pmap_chr(list(slots_chr, pt_ls, 1:length(pt_ls)), 
+            ~{
+                if (..3 %in% 1:length(vals_ls)) {
+                  paste0(..1, " = ", ifelse(make_val_1L_lgl, 
+                    "\"", ""), vals_ls[[..3]], ifelse(make_val_1L_lgl, 
+                    "\"", ""))
+                }
+                else {
+                  ..2
+                }
+            })
     }
-    proto_ls %>% stringr::str_c(sep = "", collapse = ",") %>% 
+    pt_ls <- pt_ls %>% stringr::str_c(sep = "", collapse = ",") %>% 
         paste0("list(", ., ")")
+    return(pt_ls)
 }
 #' Make prototype for new readyforwhatsnext S3 class
-#' @description make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value.
-#' @param class_name_chr Class name (a character vector)
-#' @param type_chr Type (a character vector)
-#' @param type_ns_chr Type namespace (a character vector)
-#' @param type_checker_pfx_chr Type checker prefix (a character vector)
-#' @param values_chr Values (a character vector)
-#' @param ordered_lgl Ordered (a logical vector)
-#' @param parent_chr Parent (a character vector)
+#' @description make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function returns a prototype list for new readyforwhatsnext s3 cls (a list).
+#' @param class_name_1L_chr Class name (a character vector of length one)
+#' @param type_1L_chr Type (a character vector of length one)
+#' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
+#' @param pt_chkr_pfx_1L_chr Prototype checker prefix (a character vector of length one)
+#' @param vals_ls Values (a list)
+#' @param ordered_1L_lgl Ordered (a logical vector of length one)
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param prototype_lup Prototype (a lookup table)
-#' @param min_max_values_dbl_vec PARAM_DESCRIPTION
-#' @param start_end_values_dbl_vec PARAM_DESCRIPTION
-#' @param ignore_ns_chr Ignore namespace (a character vector)
-#' @return NULL
+#' @param min_max_vals_dbl Min max values (a double vector)
+#' @param start_end_vals_dbl Start end values (a double vector)
+#' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
+#' @return Prototype list for new readyforwhatsnext S3 cls (a list)
 #' @rdname make_pt_ls_for_new_r3_cls
 #' @export 
 
-#' @keywords internal
-make_pt_ls_for_new_r3_cls <- function (class_name_chr, type_chr, type_ns_chr, type_checker_pfx_chr, 
-    values_chr, ordered_lgl, parent_chr, prototype_lup, min_max_values_dbl_vec, 
-    start_end_values_dbl_vec, ignore_ns_chr) 
+make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_chr, pt_chkr_pfx_1L_chr, 
+    vals_ls, ordered_1L_lgl, parent_cls_nm_1L_chr, prototype_lup, 
+    min_max_vals_dbl, start_end_vals_dbl, nss_to_ignore_chr) 
 {
-    s3_prototype <- write_scripts_to_mk_r3_clss_pts(type = type_chr, 
-        type_namespace = type_ns_chr, values = values_chr, ordered = ordered_lgl, 
-        class_name = class_name_chr, parent_chr = parent_chr, 
+    s3_prototype_ls <- make_fn_pt_to_make_r3_cls_pt(type_1L_chr = type_1L_chr, 
+        pt_ns_1L_chr = pt_ns_1L_chr, vals_ls = vals_ls, ordered_1L_lgl = ordered_1L_lgl, 
+        class_nm_1L_chr = class_name_1L_chr, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         prototype_lup = prototype_lup)
-    s3_constructor <- write_scripts_to_mk_r3_clss_constructor(type = type_chr, 
-        type_checker_prefix = type_checker_pfx_chr, type_namespace = type_ns_chr, 
-        class_name = class_name_chr, s3_prototype = s3_prototype)
-    s3_validator <- write_scripts_to_mk_r3_clss_validator(type = type_chr, 
-        class_name = class_name_chr, s3_prototype = s3_prototype, 
-        min_max_values = min_max_values_dbl_vec, start_end_values = start_end_values_dbl_vec, 
-        values = values_chr)
-    s3_valid_instance <- write_scripts_to_mk_r3_clss_valid_instance(class_name = class_name_chr, 
-        s3_prototype = s3_prototype, s3_constructor = s3_constructor, 
-        s3_validator = s3_validator)
-    s3_checker <- write_scripts_to_mk_r3_clss_checker(class_name = class_name_chr, 
-        s3_validator = s3_validator)
-    fn_name_ls <- list(valid_instance = s3_valid_instance$fn_name, 
-        unvalidated_instance = s3_constructor$fn_name, prototype = s3_prototype$fn_name, 
-        validator = s3_validator$fn_name, checker = s3_checker$fn_name)
-    fn_text_ls <- list(valid_instance = s3_valid_instance$fn_text, 
-        unvalidated_instance = s3_constructor$fn_text, prototype = s3_prototype$fn_text, 
-        validator = s3_validator$fn_text, checker = s3_checker$fn_text)
+    s3_constructor_ls <- make_fn_pt_to_make_unvld_r3_cls_inst(type_1L_chr = type_1L_chr, 
+        pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr, pt_ns_1L_chr = pt_ns_1L_chr, 
+        class_nm_1L_chr = class_name_1L_chr, s3_prototype_ls = s3_prototype_ls)
+    s3_validator_ls <- make_fn_pt_to_make_vld_r3_cls_inst(type_1L_chr = type_1L_chr, 
+        class_nm_1L_chr = class_name_1L_chr, s3_prototype_ls = s3_prototype_ls, 
+        min_max_vals_dbl = min_max_vals_dbl, start_end_vals_dbl = start_end_vals_dbl, 
+        vals_ls = vals_ls)
+    s3_valid_instance <- make_fn_pt_to_make_vldd_r3_cls_inst(class_nm_1L_chr = class_name_1L_chr, 
+        s3_prototype_ls = s3_prototype_ls, s3_constructor_ls = s3_constructor_ls, 
+        s3_validator_ls = s3_validator_ls)
+    s3_checker <- make_fn_pt_to_check_r3_cls_inhtc(class_nm_1L_chr = class_name_1L_chr, 
+        s3_validator_ls = s3_validator_ls)
+    fn_name_ls <- list(valid_instance = s3_valid_instance$fn_name_1L_chr, 
+        unvalidated_instance = s3_constructor_ls$fn_name_1L_chr, 
+        prototype = s3_prototype_ls$fn_name_1L_chr, validator = s3_validator_ls$fn_name_1L_chr, 
+        checker = s3_checker$fn_name_1L_chr)
+    fn_body_1L_chr_ls <- list(valid_instance = s3_valid_instance$fn_body_1L_chr, 
+        unvalidated_instance = s3_constructor_ls$fn_body_1L_chr, 
+        prototype = s3_prototype_ls$fn_body_1L_chr, validator = s3_validator_ls$fn_body_1L_chr, 
+        checker = s3_checker$fn_body_1L_chr)
     include_tags_chr <- get_parent_cls_ns(prototype_lup = prototype_lup, 
-        parent_chr = parent_chr, dev_pckg_ns_chr = ignore_ns_chr[1]) %>% 
-        get_nms_of_clss_to_inc(parent_chr = parent_chr, prespecified_includes_chr = NULL) %>% 
-        make_dmt_inc_tag(s3_lgl = T)
-    list(fn_name_ls = fn_name_ls, fn_text_ls = fn_text_ls, include_tags_chr = include_tags_chr)
+        parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr = nss_to_ignore_chr[1]) %>% 
+        get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
+            base_set_of_clss_to_inc_chr = NULL) %>% make_dmt_inc_tag(s3_1L_lgl = T)
+    pt_ls_for_new_r3_cls_ls <- list(fn_name_ls = fn_name_ls, 
+        fn_body_1L_chr_ls = fn_body_1L_chr_ls, include_tags_chr = include_tags_chr)
+    return(pt_ls_for_new_r3_cls_ls)
 }
 #' Make prototype tibble for new readyforwhatsnext S3 class
-#' @description make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype tibble for new a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value.
+#' @description make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype tibble for new a readyforwhatsnext S3 cls.The function returns a prototype tibble for new readyforwhatsnext s3 cls (a tibble).
 #' @param x PARAM_DESCRIPTION
-#' @return NULL
+#' @return Prototype tibble for new readyforwhatsnext S3 cls (a tibble)
 #' @rdname make_pt_tb_for_new_r3_cls
 #' @export 
 #' @importFrom purrr map_dfr
-#' @keywords internal
 make_pt_tb_for_new_r3_cls <- function (x) 
 {
-    purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r3_cls(.x))
+    pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r3_cls(.x))
+    return(pt_tb_for_new_r3_cls_tb)
 }
 #' Make prototype tibble for new readyforwhatsnext S4 class
-#' @description make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype tibble for new a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
+#' @description make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype tibble for new a readyforwhatsnext S4 cls.The function returns a prototype tibble for new readyforwhatsnext s3 cls (a tibble).
 #' @param x PARAM_DESCRIPTION
-#' @return NULL
+#' @return Prototype tibble for new readyforwhatsnext S3 cls (a tibble)
 #' @rdname make_pt_tb_for_new_r4_cls
 #' @export 
 #' @importFrom purrr map_dfr
-#' @keywords internal
 make_pt_tb_for_new_r4_cls <- function (x) 
 {
-    purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r4_cls(.x))
+    pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r4_cls(.x))
+    return(pt_tb_for_new_r3_cls_tb)
 }
 #' Make show method
-#' @description make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make show mthd.The function is called for its side effects and does not return a value.
-#' @param class_name PARAM_DESCRIPTION
-#' @param meaningful_names PARAM_DESCRIPTION
-#' @return NULL
+#' @description make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make show mthd.The function returns show mthd function (a character vector of length one).
+#' @param class_nm_1L_chr Class name (a character vector of length one)
+#' @param meaningful_nms_ls Meaningful names (a list)
+#' @return Show mthd function (a character vector of length one)
 #' @rdname make_show_mthd_fn
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c
-#' @keywords internal
-make_show_mthd_fn <- function (class_name, meaningful_names) 
+make_show_mthd_fn <- function (class_nm_1L_chr, meaningful_nms_ls) 
 {
-    descriptive_str <- purrr::map2_chr(names(meaningful_names), 
-        meaningful_names, ~paste0("\"  ", .x, ":   \", format(object@", 
+    descriptive_str <- purrr::map2_chr(names(meaningful_nms_ls), 
+        meaningful_nms_ls, ~paste0("\"  ", .x, ":   \", format(object@", 
             .y, "),  \"\\n\"")) %>% stringr::str_c(sep = "", 
         collapse = ",")
     function_str <- paste0("function(object){\n", "cat(is(object)[[1]], ", 
         "\"\\n\",", descriptive_str, ",\nsep = \"\")}")
-    paste0("methods::setMethod(\"show\",\n", make_alg_to_gen_ref_to_cls(class_name), 
-        ",\n", function_str, ",\nwhere =  ", "globalenv()", "\n)")
+    show_mthd_fn_1L_chr <- paste0("methods::setMethod(\"show\",\n", 
+        make_alg_to_gen_ref_to_cls(class_nm_1L_chr), ",\n", function_str, 
+        ",\nwhere =  ", "globalenv()", "\n)")
+    return(show_mthd_fn_1L_chr)
 }

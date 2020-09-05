@@ -4,14 +4,16 @@
 \alias{make_dmt_inc_tag}
 \title{Make documentation inc tag}
 \usage{
-make_dmt_inc_tag(class_names_chr_vec, s3_lgl = T)
+make_dmt_inc_tag(class_names_chr, s3_1L_lgl = T)
 }
 \arguments{
-\item{class_names_chr_vec}{PARAM_DESCRIPTION}
+\item{class_names_chr}{Class names (a character vector)}
 
-\item{s3_lgl}{S3 (a logical vector), Default: T}
+\item{s3_1L_lgl}{S3 (a logical vector of length one), Default: T}
+}
+\value{
+Documentation inc tag (a character vector of length one)
 }
 \description{
-make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function is called for its side effects and does not return a value.
+make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function returns documentation inc tag (a character vector of length one).
 }
-\keyword{internal}

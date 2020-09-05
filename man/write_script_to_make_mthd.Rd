@@ -8,14 +8,14 @@ write_script_to_make_mthd(
   write_file_ls,
   gen_mthd_pair_ls,
   class_name_chr,
-  fn_name_chr,
-  fn_type_chr,
-  fn_desc_chr = NA_character_,
-  fn_out_type_chr = NA_character_,
-  import_chr_vec,
-  write_lgl = T,
-  append_lgl = T,
-  doc_in_class_lgl = F
+  fn_name_1L_chr,
+  fn_type_1L_chr,
+  fn_desc_1L_chr = NA_character_,
+  fn_outp_type_1L_chr = NA_character_,
+  imports_chr,
+  write_1L_lgl = T,
+  append_1L_lgl = T,
+  doc_in_class_1L_lgl = F
 )
 }
 \arguments{
@@ -25,23 +25,22 @@ write_script_to_make_mthd(
 
 \item{class_name_chr}{Class name (a character vector)}
 
-\item{fn_name_chr}{Function name (a character vector)}
+\item{fn_name_1L_chr}{Function name (a character vector of length one)}
 
-\item{fn_type_chr}{Function type (a character vector)}
+\item{fn_type_1L_chr}{Function type (a character vector of length one)}
 
-\item{fn_desc_chr}{Function description (a character vector), Default: 'NA'}
+\item{fn_desc_1L_chr}{Function description (a character vector of length one), Default: 'NA'}
 
-\item{fn_out_type_chr}{Function out type (a character vector), Default: 'NA'}
+\item{fn_outp_type_1L_chr}{Function output type (a character vector of length one), Default: 'NA'}
 
-\item{import_chr_vec}{PARAM_DESCRIPTION}
+\item{imports_chr}{Imports (a character vector)}
 
-\item{write_lgl}{Write (a logical vector), Default: T}
+\item{write_1L_lgl}{Write (a logical vector of length one), Default: T}
 
-\item{append_lgl}{Append (a logical vector), Default: T}
+\item{append_1L_lgl}{Append (a logical vector of length one), Default: T}
 
-\item{doc_in_class_lgl}{Document in class (a logical vector), Default: F}
+\item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
 }
 \description{
 write_script_to_make_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to a make mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

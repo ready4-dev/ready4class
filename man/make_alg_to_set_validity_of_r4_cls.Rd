@@ -5,28 +5,30 @@
 \title{Make algorithm to set validity of readyforwhatsnext S4 class}
 \usage{
 make_alg_to_set_validity_of_r4_cls(
-  class_name,
-  parent,
-  not_same_length = NULL,
-  allowed_values = NULL,
-  names_include = NULL,
-  print_validator = FALSE
+  class_nm_1L_chr,
+  parent_cls_nm_1L_chr,
+  slots_of_dif_lnts_chr = NULL,
+  allowed_vals_ls = NULL,
+  names_must_match_ls = NULL,
+  print_validator_1L_lgl = FALSE
 )
 }
 \arguments{
-\item{class_name}{PARAM_DESCRIPTION}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
-\item{parent}{PARAM_DESCRIPTION}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
-\item{not_same_length}{PARAM_DESCRIPTION, Default: NULL}
+\item{slots_of_dif_lnts_chr}{Slots of different lengths (a character vector), Default: NULL}
 
-\item{allowed_values}{PARAM_DESCRIPTION, Default: NULL}
+\item{allowed_vals_ls}{Allowed values (a list), Default: NULL}
 
-\item{names_include}{PARAM_DESCRIPTION, Default: NULL}
+\item{names_must_match_ls}{Names must match (a list), Default: NULL}
 
-\item{print_validator}{PARAM_DESCRIPTION, Default: FALSE}
+\item{print_validator_1L_lgl}{Print validator (a logical vector of length one), Default: FALSE}
+}
+\value{
+Alg to set validity of readyforwhatsnext S4 cls (a character vector of length one)
 }
 \description{
-make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
+make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function returns alg to set validity of readyforwhatsnext s4 cls (a character vector of length one).
 }
-\keyword{internal}

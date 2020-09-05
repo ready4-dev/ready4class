@@ -9,7 +9,9 @@ make_one_row_pt_tb_for_new_r4_cls(x)
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 }
-\description{
-make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value.
+\value{
+One row class prototype (a tibble)
 }
-\keyword{internal}
+\description{
+make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a prototype tibble for new a readyforwhatsnext S4 cls.The function returns one row class prototype (a tibble).
+}

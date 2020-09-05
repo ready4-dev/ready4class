@@ -4,14 +4,13 @@
 \alias{transform_alg_to_ref_cls_nm}
 \title{Transform algorithm to reference class name}
 \usage{
-transform_alg_to_ref_cls_nm(st_class_fn_chr, package_chr)
+transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm, pkg_nm_1L_chr)
 }
 \arguments{
-\item{st_class_fn_chr}{St class function (a character vector)}
+\item{alg_to_ref_cls_nm}{PARAM_DESCRIPTION}
 
-\item{package_chr}{Package (a character vector)}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 }
 \description{
-transform_alg_to_ref_cls_nm() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform alg to ref cls a name. Function argument st_class_fn_chr specifies the object to be updated. Argument package_chr provides the object to be updated.The function is called for its side effects and does not return a value.
+transform_alg_to_ref_cls_nm() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform alg to ref cls a name. Function argument alg_to_ref_cls_nm specifies the object to be updated. Argument pkg_nm_1L_chr provides the object to be updated.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

@@ -6,39 +6,41 @@
 \usage{
 \method{make_and_update}{ready4_class_make_tb}(
   x,
-  dev_pckg_namespace = ready4fun::get_dev_pkg_nm(),
-  name_prefix = paste0(ready4fun::get_dev_pkg_nm(), "_"),
-  output_dir = "R",
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
+  name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"),
+  output_dir_1L_chr = "R",
   delete_cdn_ptrn_chr = NA_character_,
-  file_exists_logic = "overwrite",
+  file_exists_cdn_1L_chr = "overwrite",
   init_class_pt_lup = NULL,
-  ignore_ns_chr = NA_character_,
-  required_pckg_chr_vec = NA_character_,
-  class_in_cache_logic_chr = "stop"
+  nss_to_ignore_chr = NA_character_,
+  req_pkgs_chr = NA_character_,
+  class_in_cache_cdn_1L_chr = "stop"
 )
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{dev_pckg_namespace}{PARAM_DESCRIPTION, Default: ready4fun::get_dev_pkg_nm()}
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
 
-\item{name_prefix}{PARAM_DESCRIPTION, Default: paste0(ready4fun::get_dev_pkg_nm(), "_")}
+\item{name_pfx_1L_chr}{Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")}
 
-\item{output_dir}{PARAM_DESCRIPTION, Default: 'R'}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: 'R'}
 
-\item{delete_cdn_ptrn_chr}{PARAM_DESCRIPTION, Default: 'NA'}
+\item{delete_cdn_ptrn_chr}{Delete condition pattern (a character vector), Default: 'NA'}
 
-\item{file_exists_logic}{PARAM_DESCRIPTION, Default: 'overwrite'}
+\item{file_exists_cdn_1L_chr}{File exists condition (a character vector of length one), Default: 'overwrite'}
 
 \item{init_class_pt_lup}{Init class prototype (a lookup table), Default: NULL}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector), Default: 'NA'}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
 
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION, Default: 'NA'}
+\item{req_pkgs_chr}{Req packages (a character vector), Default: 'NA'}
 
-\item{class_in_cache_logic_chr}{Class in cache logic (a character vector), Default: 'stop'}
+\item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
+}
+\value{
+Inst of ready4 class prototype (a lookup table)
 }
 \description{
-make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
+make_and_update.ready4_class_make_tb() is a Make and Update method that applies a Make method and then updates the output of that method. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 }
-\keyword{internal}

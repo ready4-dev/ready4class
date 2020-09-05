@@ -5,31 +5,33 @@
 \title{Make generic method pair}
 \usage{
 make_gnrc_mthd_pair_ls(
-  name_chr,
-  args_chr_vec = c("x"),
-  signature_chr = NA_character_,
-  package_chr = NA_character_,
-  where_chr = NA_character_,
-  class_chr,
+  name_1L_chr,
+  args_chr = c("x"),
+  signature_1L_chr = NA_character_,
+  pkg_nm_1L_chr = NA_character_,
+  where_1L_chr = NA_character_,
+  class_nm_1L_chr,
   fn
 )
 }
 \arguments{
-\item{name_chr}{Name (a character vector)}
+\item{name_1L_chr}{Name (a character vector of length one)}
 
-\item{args_chr_vec}{PARAM_DESCRIPTION, Default: c("x")}
+\item{args_chr}{Arguments (a character vector), Default: c("x")}
 
-\item{signature_chr}{Signature (a character vector), Default: 'NA'}
+\item{signature_1L_chr}{Signature (a character vector of length one), Default: 'NA'}
 
-\item{package_chr}{Package (a character vector), Default: 'NA'}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one), Default: 'NA'}
 
-\item{where_chr}{Where (a character vector), Default: 'NA'}
+\item{where_1L_chr}{Where (a character vector of length one), Default: 'NA'}
 
-\item{class_chr}{Class (a character vector)}
+\item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
 \item{fn}{Function (a function)}
 }
-\description{
-make_gnrc_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc mthd pair.The function is called for its side effects and does not return a value.
+\value{
+Gnrc mthd pair (a list)
 }
-\keyword{internal}
+\description{
+make_gnrc_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make gnrc mthd pair.The function returns gnrc mthd pair (a list).
+}

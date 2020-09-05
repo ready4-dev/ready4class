@@ -5,25 +5,27 @@
 \title{Make prototype}
 \usage{
 make_pt_ls(
-  class_slots,
-  type = NULL,
-  values = NULL,
-  make_val_string = TRUE,
+  slots_chr,
+  type_chr = NULL,
+  vals_ls = NULL,
+  make_val_1L_lgl = TRUE,
   prototype_lup
 )
 }
 \arguments{
-\item{class_slots}{PARAM_DESCRIPTION}
+\item{slots_chr}{Slots (a character vector)}
 
-\item{type}{PARAM_DESCRIPTION, Default: NULL}
+\item{type_chr}{Type (a character vector), Default: NULL}
 
-\item{values}{PARAM_DESCRIPTION, Default: NULL}
+\item{vals_ls}{Values (a list), Default: NULL}
 
-\item{make_val_string}{PARAM_DESCRIPTION, Default: TRUE}
+\item{make_val_1L_lgl}{Make value (a logical vector of length one), Default: TRUE}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 }
-\description{
-make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function is called for its side effects and does not return a value.
+\value{
+Prototype (a list)
 }
-\keyword{internal}
+\description{
+make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function returns a prototype (a list).
+}

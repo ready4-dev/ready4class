@@ -5,19 +5,21 @@
 \title{Get names of classes to inc}
 \usage{
 get_nms_of_clss_to_inc(
-  parent_chr,
+  parent_cls_nm_1L_chr,
   parent_ns_ls,
-  prespecified_includes_chr = NULL
+  base_set_of_clss_to_inc_chr = NULL
 )
 }
 \arguments{
-\item{parent_chr}{Parent (a character vector)}
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
 
-\item{prespecified_includes_chr}{Prespecified includes (a character vector), Default: NULL}
+\item{base_set_of_clss_to_inc_chr}{Base set of classes to inc (a character vector), Default: NULL}
+}
+\value{
+Names of clss to inc (a character vector)
 }
 \description{
-get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of clss to inc. Function argument parent_chr specifies the where to look for the required object.The function is called for its side effects and does not return a value.
+get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of clss to inc. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns names of clss to inc (a character vector).
 }
-\keyword{internal}

@@ -4,14 +4,16 @@
 \alias{make_one_row_class_pt_tb}
 \title{Make one row class prototype}
 \usage{
-make_one_row_class_pt_tb(class_type_mk_ls, make_s3_lgl = T)
+make_one_row_class_pt_tb(class_type_mk_ls, make_s3_1L_lgl = T)
 }
 \arguments{
 \item{class_type_mk_ls}{Class type make (a list)}
 
-\item{make_s3_lgl}{Make S3 (a logical vector), Default: T}
+\item{make_s3_1L_lgl}{Make S3 (a logical vector of length one), Default: T}
+}
+\value{
+One row class prototype (a tibble)
 }
 \description{
-make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a class prototype.The function is called for its side effects and does not return a value.
+make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make one row a class prototype.The function returns one row class prototype (a tibble).
 }
-\keyword{internal}

@@ -4,18 +4,22 @@
 \alias{write_mthds_for_r3_or_r4_clss}
 \title{Write methods for readyforwhatsnext S3 or readyforwhatsnext S4 classes}
 \usage{
-write_mthds_for_r3_or_r4_clss(methods_tb, fn_ls, package_chr, output_dir_chr)
+write_mthds_for_r3_or_r4_clss(
+  methods_tb,
+  fn_ls,
+  pkg_nm_1L_chr,
+  output_dir_1L_chr
+)
 }
 \arguments{
 \item{methods_tb}{Methods (a tibble)}
 
 \item{fn_ls}{Function list (a list of functions)}
 
-\item{package_chr}{Package (a character vector)}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 
-\item{output_dir_chr}{Output directory (a character vector)}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 }
 \description{
 write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write mthds for a readyforwhatsnext S3 or a readyforwhatsnext S4 clss.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

@@ -6,33 +6,32 @@
 \usage{
 \method{make_classes}{ready4_class_make_tb}(
   x,
-  name_prefix,
-  output_dir,
-  file_exists_logic = NULL,
+  name_pfx_1L_chr,
+  output_dir_1L_chr,
+  file_exists_cdn_1L_chr = NULL,
   prototype_lup = NULL,
-  ignore_ns_chr,
-  required_pckg_chr_vec = NA_character_,
-  class_in_cache_logic_chr = "stop"
+  nss_to_ignore_chr,
+  req_pkgs_chr = NA_character_,
+  class_in_cache_cdn_1L_chr = "stop"
 )
 }
 \arguments{
 \item{x}{PARAM_DESCRIPTION}
 
-\item{name_prefix}{PARAM_DESCRIPTION}
+\item{name_pfx_1L_chr}{Name prefix (a character vector of length one)}
 
-\item{output_dir}{PARAM_DESCRIPTION}
+\item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 
-\item{file_exists_logic}{PARAM_DESCRIPTION, Default: NULL}
+\item{file_exists_cdn_1L_chr}{File exists condition (a character vector of length one), Default: NULL}
 
 \item{prototype_lup}{Prototype (a lookup table), Default: NULL}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector)}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION, Default: 'NA'}
+\item{req_pkgs_chr}{Req packages (a character vector), Default: 'NA'}
 
-\item{class_in_cache_logic_chr}{Class in cache logic (a character vector), Default: 'stop'}
+\item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
 }
 \description{
 make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
-\keyword{internal}

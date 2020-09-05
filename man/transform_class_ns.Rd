@@ -4,14 +4,16 @@
 \alias{transform_class_ns}
 \title{Transform class namespace}
 \usage{
-transform_class_ns(class_ns_chr, dev_pckg_ns_chr)
+transform_class_ns(class_ns_1L_chr, dev_pkg_ns_1L_chr)
 }
 \arguments{
-\item{class_ns_chr}{Class namespace (a character vector)}
+\item{class_ns_1L_chr}{Class namespace (a character vector of length one)}
 
-\item{dev_pckg_ns_chr}{Development pckg namespace (a character vector)}
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one)}
+}
+\value{
+Tfd class namespace (a character vector of length one)
 }
 \description{
-transform_class_ns() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform class namespace. Function argument class_ns_chr specifies the object to be updated. Argument dev_pckg_ns_chr provides the object to be updated.The function is called for its side effects and does not return a value.
+transform_class_ns() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform class namespace. Function argument class_ns_1L_chr specifies the object to be updated. Argument dev_pkg_ns_1L_chr provides the object to be updated.The function returns tfd class namespace (a character vector of length one).
 }
-\keyword{internal}

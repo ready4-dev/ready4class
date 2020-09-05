@@ -93,7 +93,7 @@ usethis::use_data(prototype_lup,overwrite = T, internal = T)
 prototype_lup <- make_and_update(classes_to_make_tb,
                                  dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                  name_pfx_1L_chr = name_pfx_1L_chr,
-                                 outp_dir_1L_chr = "R",
+                                 output_dir_1L_chr = "R",
                                  file_exists_cdn_1L_chr = "overwrite")
 ## 11. Update the internal system data.
 usethis::use_data(prototype_lup,overwrite = T, internal = T)

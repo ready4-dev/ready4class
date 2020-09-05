@@ -5,34 +5,33 @@
 \title{Write scripts to make classes}
 \usage{
 write_scripts_to_mk_clss(
-  new_classes_ls,
-  pckg_name_chr,
-  class_pfx_chr,
-  R_dir_chr = "R",
+  pts_for_new_clss_ls,
+  pkg_nm_1L_chr,
+  class_pfx_1L_chr,
+  R_dir_1L_chr = "R",
   pt_lup,
   description_ls = NULL,
-  ignore_ns_chr = NA_character_,
-  required_pckg_chr_vec = NA_character_
+  nss_to_ignore_chr = NA_character_,
+  req_pkgs_chr = NA_character_
 )
 }
 \arguments{
-\item{new_classes_ls}{New classes (a list)}
+\item{pts_for_new_clss_ls}{Prototypes for new classes (a list)}
 
-\item{pckg_name_chr}{Pckg name (a character vector)}
+\item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 
-\item{class_pfx_chr}{Class prefix (a character vector)}
+\item{class_pfx_1L_chr}{Class prefix (a character vector of length one)}
 
-\item{R_dir_chr}{R directory (a character vector), Default: 'R'}
+\item{R_dir_1L_chr}{R directory (a character vector of length one), Default: 'R'}
 
 \item{pt_lup}{Prototype (a lookup table)}
 
 \item{description_ls}{Description (a list), Default: NULL}
 
-\item{ignore_ns_chr}{Ignore namespace (a character vector), Default: 'NA'}
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
 
-\item{required_pckg_chr_vec}{PARAM_DESCRIPTION, Default: 'NA'}
+\item{req_pkgs_chr}{Req packages (a character vector), Default: 'NA'}
 }
 \description{
 write_scripts_to_mk_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to mk clss.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}
