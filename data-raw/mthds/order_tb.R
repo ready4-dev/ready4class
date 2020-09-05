@@ -1,9 +1,9 @@
 order_tb.ready4_class_make_tb <- function(x,
                                           name_pfx_1L_chr){
   ordering_tb <- x %>%
-    dplyr::select(name_stub_chr,pt_ls,parent_class) %>%
+    dplyr::select(name_stub_chr,pt_ls,parent_class_chr) %>%
     dplyr::mutate(class_name_chr = paste0(name_pfx_1L_chr,name_stub_chr)) %>%
-    dplyr::mutate(preceeded_by = purrr::map2(prototype,parent_class,
+    dplyr::mutate(preceeded_by = purrr::map2(pt_ls,parent_class_chr,
                                              ~ if(is.na(.y)){
                                                unlist(.x)[unlist(.x) %in% class_name_chr]
                                              }else{
