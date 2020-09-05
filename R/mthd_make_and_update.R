@@ -4,7 +4,7 @@
 #' @param dev_pckg_namespace PARAM_DESCRIPTION, Default: ready4fun::get_dev_pkg_nm()
 #' @param name_prefix PARAM_DESCRIPTION, Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir PARAM_DESCRIPTION, Default: 'R'
-#' @param write_to_delete_fls_with_ptrn_pattern_chr_vec PARAM_DESCRIPTION, Default: 'NA'
+#' @param delete_cdn_ptrn_chr PARAM_DESCRIPTION, Default: 'NA'
 #' @param file_exists_logic PARAM_DESCRIPTION, Default: 'overwrite'
 #' @param init_class_pt_lup Init class prototype (a lookup table), Default: NULL
 #' @param ignore_ns_chr Ignore namespace (a character vector), Default: 'NA'
@@ -18,7 +18,7 @@
 #' @keywords internal
 make_and_update.ready4_class_make_tb <- function (x, dev_pckg_namespace = ready4fun::get_dev_pkg_nm(), 
     name_prefix = paste0(ready4fun::get_dev_pkg_nm(), "_"), output_dir = "R", 
-    write_to_delete_fls_with_ptrn_pattern_chr_vec = NA_character_, 
+    delete_cdn_ptrn_chr = NA_character_, 
     file_exists_logic = "overwrite", init_class_pt_lup = NULL, 
     ignore_ns_chr = NA_character_, required_pckg_chr_vec = NA_character_, 
     class_in_cache_logic_chr = "stop") 
@@ -28,7 +28,7 @@ make_and_update.ready4_class_make_tb <- function (x, dev_pckg_namespace = ready4
     x <- order_tb(x, name_prefix)
     if (file_exists_logic == "overwrite") {
         write_to_delete_gnrc_fn_fls(x, output_dir = output_dir)
-        purrr::walk(write_to_delete_fls_with_ptrn_pattern_chr_vec, 
+        purrr::walk(delete_cdn_ptrn_chr, 
             ~write_to_delete_fls_with_ptrn(dir_chr = output_dir, 
                 pattern_chr = .x))
     }

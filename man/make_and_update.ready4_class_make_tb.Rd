@@ -9,7 +9,7 @@
   dev_pckg_namespace = ready4fun::get_dev_pkg_nm(),
   name_prefix = paste0(ready4fun::get_dev_pkg_nm(), "_"),
   output_dir = "R",
-  write_to_delete_fls_with_ptrn_pattern_chr_vec = NA_character_,
+  delete_cdn_ptrn_chr = NA_character_,
   file_exists_logic = "overwrite",
   init_class_pt_lup = NULL,
   ignore_ns_chr = NA_character_,
@@ -26,7 +26,7 @@
 
 \item{output_dir}{PARAM_DESCRIPTION, Default: 'R'}
 
-\item{write_to_delete_fls_with_ptrn_pattern_chr_vec}{PARAM_DESCRIPTION, Default: 'NA'}
+\item{delete_cdn_ptrn_chr}{PARAM_DESCRIPTION, Default: 'NA'}
 
 \item{file_exists_logic}{PARAM_DESCRIPTION, Default: 'overwrite'}
 

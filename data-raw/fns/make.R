@@ -672,7 +672,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                        "())) %>% ",
                                        "dplyr::arrange(variable)",
                                        ")")
-    obj_components_vec <- c(toupper(type_1L_chr),ifelse(type=="list","elements","columns"))
+    obj_components_vec <- c(toupper(type_1L_chr),ifelse(type_1L_chr=="list","elements","columns"))
     stop_msg_call_in_validator_1 <- paste0("paste0(\"",
                                            obj_components_vec[1],
                                            " must include ",

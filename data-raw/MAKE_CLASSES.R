@@ -15,7 +15,7 @@
 #ready4fun::read_fns("data-raw/mthds/")
 ##
 ## 3. Specify details about this package and the prefix we will use on all classes we create in this package.
-name_prefix <- "ready4_"
+name_pfx_1L_chr <- "ready4_"
 dev_pkg_ns <- "ready4class"
 ## 2. Create a table with metadata about frequently used class prototypes
 prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df"), ## CHANGED FROM POSIXt
@@ -43,7 +43,7 @@ classes_to_make_tb <- tibble::tribble(
                                                                            inc_clss_ls = "list()"), NULL, NULL, NULL, "MAKE CLASS TABLE Readyforwhatsnext S3 class of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
 ## 4. Convert the metadata table into a new S3 class called ready4_class_make_tb
 write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
-              name_prefix = name_prefix,
+              name_pfx_1L_chr = name_pfx_1L_chr,
               output_dir_1L_chr = "R",
               class_desc_chr = classes_to_make_tb$class_desc_chr,
               type_1L_chr = classes_to_make_tb$pt_ls[[1]],
@@ -56,7 +56,7 @@ write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]],
               start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]],
               prototype_lup = prototype_lup,
-              file_exists_logic = "overwrite")
+              file_exists_cdn_1L_chr = "overwrite")
 ## 5. Convert the classes_to_make_tb tibble we created  into an instance of the ready4_class_make_tb class also created in that step.
 classes_to_make_tb <- classes_to_make_tb %>%
   ready4_class_make_tb()
@@ -74,9 +74,9 @@ classes_to_make_tb <- classes_to_make_tb %>%
 ##    Note: In addition to creating a new class (ready4_class_pt_lup) the call to the below method recreates the script to make the ready4_class_make_tb class. That duplication is of no importance in this step,
 ##    but having all the classes we have made summarised in one table (classes_to_make_tb) is necessary for a subsequent step (see DATASET.R in the data-raw directory.)
 make_classes(classes_to_make_tb %>% dplyr::filter(name_stub_chr == "class_pt_lup"),
-             name_prefix = name_prefix,
+             name_pfx_1L_chr = name_pfx_1L_chr,
              output_dir = "R",
              prototype_lup = prototype_lup,
-             file_exists_logic = "overwrite")
+             file_exists_cdn_1L_chr = "overwrite")
 
 

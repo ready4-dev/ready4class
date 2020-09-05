@@ -39,10 +39,10 @@ ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, First time script is
 #
 # 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
-ready4fun::write_abbr_lup(short_name_chr = c("alg","chkr","cls","col","curr","dif","gen","gnrc","inhtc","inst","lnt","mk","mthd","ptrn",
+ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","inhtc","inst","lnt","mk","mthd","ptrn",
                                              "ready4_class_make_tb","ready4_class_pt_lup",
                                              "ref","tf","tfd","unvd","val","vld","vldd"),
-                            long_name_chr = c("algorithm","checker","class","column","current","different","generate","generic","inheritance","instance","length","make","method","pattern",
+                            long_name_chr = c("algorithm","condition","checker","class","column","current","different","generate","generic","inheritance","instance","length","make","method","pattern",
                                                   "Class Make Table readyforwhatsnext S3 class",
                                                   "Class Prototype Lookup Table readyforwhatsnext S3 class",
                                               "reference","transform","transformed","unvalidated","value","valid","validated"),
@@ -92,9 +92,9 @@ usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ## 10. Remake the classes we previously created, this time using the new, preferred make_and_update method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
 prototype_lup <- make_and_update(classes_to_make_tb,
                                  dev_pkg_ns = dev_pkg_ns,
-                                 name_prefix = name_prefix,
+                                 name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir = "R",
-                                 file_exists_logic = "overwrite")
+                                 file_exists_cdn_1L_chr = "overwrite")
 ## 11. Update the internal system data.
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
