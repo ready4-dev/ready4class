@@ -17,3 +17,4 @@ Inst of ready4 class make (a tibble)
 \description{
 order_tb.ready4_class_make_tb() is an Order Tibble method that orders a tibble. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class make (a tibble).
 }
+\keyword{internal}
