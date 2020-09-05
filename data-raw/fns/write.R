@@ -135,7 +135,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                       c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype_ls", "s3_validator_ls", "s3_checker")),
                  ~ make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1,
                                                   fn_body_1L_chr = ..2,
-                                                  fn_type = ..3,
+                                                  fn_type_1L_chr = ..3,
                                                   class_nm_1L_chr = class_nm_1L_chr,
                                                   class_desc_1L_chr = class_desc_1L_chr))
     ready4fun::close_open_sinks()
