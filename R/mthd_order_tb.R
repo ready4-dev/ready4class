@@ -8,7 +8,6 @@
 #' @importFrom dplyr select mutate pull
 #' @importFrom purrr map2 reduce
 #' @importFrom stringr str_remove
-#' @keywords internal
 order_tb.ready4_class_make_tb <- function (x, name_pfx_1L_chr) 
 {
     ordering_tb <- x %>% dplyr::select(name_stub_chr, pt_ls, 

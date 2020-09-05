@@ -14,7 +14,6 @@
 #' @rdname add_class.ready4_class_pt_lup
 #' @export 
 #' @importFrom dplyr slice pull filter bind_rows
-#' @keywords internal
 add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop") 
