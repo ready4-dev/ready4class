@@ -592,10 +592,10 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                        slots,
                        "\n",
                        collapse="")
-  clss_to_inc <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+  clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                      parent_ns_ls = parent_ns_ls,
                                                      base_set_of_clss_to_inc_chr = clss_to_inc_chr)
-  include_tags_chr <- make_dmt_inc_tag(clss_to_inc, s3_1L_lgl = F)
+  include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
   if(print_set_cls_1L_lgl){
     sink(output_file_class)
     writeLines(paste0(paste0("#' ",class_nm_1L_chr,"\n"),

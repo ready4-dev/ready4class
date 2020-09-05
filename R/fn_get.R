@@ -40,6 +40,7 @@ get_class_ns <- function (prototype_lup, class_nm_1L_chr)
 
 get_nms_of_clss_to_inc <- function (parent_cls_nm_1L_chr, parent_ns_ls, base_set_of_clss_to_inc_chr = NULL) 
 {
+    nms_of_clss_to_inc_chr <- NULL
     if (!is.null(parent_cls_nm_1L_chr) & parent_ns_ls$transformed_1L_chr == 
         "") {
         if (!is.null(base_set_of_clss_to_inc_chr)) {
