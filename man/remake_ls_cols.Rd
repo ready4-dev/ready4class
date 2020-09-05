@@ -14,3 +14,4 @@ remake_ls_cols(x, ...)
 \description{
 remake_ls_cols() is a Remake List Columns generic that remakes list columns.NA
 }
+\keyword{internal}

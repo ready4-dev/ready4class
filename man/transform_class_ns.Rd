@@ -17,3 +17,4 @@ Tfd class namespace (a character vector of length one)
 \description{
 transform_class_ns() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform class namespace. Function argument class_ns_1L_chr specifies the object to be updated. Argument dev_pkg_ns_1L_chr provides the object to be updated.The function returns tfd class namespace (a character vector of length one).
 }
+\keyword{internal}

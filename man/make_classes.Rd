@@ -14,3 +14,4 @@ make_classes(x, ...)
 \description{
 make_classes() is a Make Classes generic that writes new classes.NA
 }
+\keyword{internal}
