@@ -15,3 +15,4 @@ Inst of ready4 class make (a tibble)
 \description{
 remake_ls_cols.ready4_class_make_tb() is a Remake List Columns method that remakes list columns. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class make (a tibble).
 }
+\keyword{internal}

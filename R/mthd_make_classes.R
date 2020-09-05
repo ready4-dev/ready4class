@@ -13,6 +13,7 @@
 #' @export 
 #' @importFrom purrr pwalk
 #' @importFrom dplyr filter
+#' @keywords internal
 make_classes.ready4_class_make_tb <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, nss_to_ignore_chr, req_pkgs_chr = NA_character_, 
     class_in_cache_cdn_1L_chr = "stop") 
