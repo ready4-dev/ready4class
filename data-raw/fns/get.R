@@ -39,8 +39,8 @@ get_nms_of_curr_gnrcs <- function(req_pkgs_chr,
   current_gens_s4 <- methods::getGenerics()
   packages_chr <- current_gens_s4@package
   curr_gnrcs_chr <- names(packages_chr) %>% stringr::str_replace_all("..GlobalEnv","")
-  global_env_chr_vec <- packages_chr %in% c(".GlobalEnv")
-  in_global_1L_lgl <- generic_1L_chr %in% curr_gnrcs_chr[global_env_chr_vec]
+  global_env_chr <- packages_chr %in% c(".GlobalEnv")
+  in_global_1L_lgl <- generic_1L_chr %in% curr_gnrcs_chr[global_env_chr]
   nms_of_curr_gnrcs_ls <- list(curr_gnrcs_chr = curr_gnrcs_chr,
                                packages_chr = packages_chr,
                                in_global_1L_lgl = in_global_1L_lgl)

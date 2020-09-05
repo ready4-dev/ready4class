@@ -16,7 +16,7 @@
 ##
 ## 3. Specify details about this package and the prefix we will use on all classes we create in this package.
 name_pfx_1L_chr <- "ready4_"
-dev_pkg_ns <- "ready4class"
+dev_pkg_ns_1L_chr <- "ready4class"
 ## 2. Create a table with metadata about frequently used class prototypes
 prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df"), ## CHANGED FROM POSIXt
                                 val_chr = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()"),
@@ -75,7 +75,7 @@ classes_to_make_tb <- classes_to_make_tb %>%
 ##    but having all the classes we have made summarised in one table (classes_to_make_tb) is necessary for a subsequent step (see DATASET.R in the data-raw directory.)
 make_classes(classes_to_make_tb %>% dplyr::filter(name_stub_chr == "class_pt_lup"),
              name_pfx_1L_chr = name_pfx_1L_chr,
-             output_dir = "R",
+             output_dir_1L_chr = "R",
              prototype_lup = prototype_lup,
              file_exists_cdn_1L_chr = "overwrite")
 

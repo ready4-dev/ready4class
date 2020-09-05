@@ -262,7 +262,7 @@ write_scripts_to_mk_clss <- function(pts_for_new_clss_ls,
   reset_pkg_files_R(pkg_nm_1L_chr,
                     description_ls = description_ls)
   pt_lup <- make_class_pts_tb(pts_for_new_clss_ls) %>%
-    make_and_update(dev_pkg_ns = pkg_nm_1L_chr,
+    make_and_update(dev_pkg_ns_1L_chr = pkg_nm_1L_chr,
                     name_pfx_1L_chr = class_pfx_1L_chr,
                     output_dir_1L_chr = R_dir_1L_chr,
                     file_exists_cdn_1L_chr = "overwrite",
@@ -504,21 +504,21 @@ write_std_mthd <- function(fn,
 write_to_delete_fls_with_ptrn <- function(dir_1L_chr,
                                           pattern_1L_chr){
   if(!is.na(pattern_1L_chr)){
-    files_chr_vec <- list.files(dir_1L_chr, pattern = pattern_1L_chr)
-    if(!identical(files_chr_vec, character(0)))
-      paste0(dir_1L_chr,"/",files_chr_vec) %>% file.remove()
+    files_chr <- list.files(dir_1L_chr, pattern = pattern_1L_chr)
+    if(!identical(files_chr, character(0)))
+      paste0(dir_1L_chr,"/",files_chr) %>% file.remove()
   }
 }
 write_to_delete_gnrc_fn_fls <- function(x,
                                         output_dir_1L_chr){ ## NEEDS TO BE TESTED AND COMPARED TO DELETE_FILES FUNCITON
-  delete_vec <- x %>%
+  delete_chr <- x %>%
     dplyr::pull(slots_ls) %>%
     purrr::compact() %>%
     purrr::flatten() %>%
     purrr::flatten_chr()
-  if(!identical(delete_vec,character(0)))
+  if(!identical(delete_chr,character(0)))
     paste0(output_dir_1L_chr,"/gnrc_",
-           purrr::reduce(delete_vec ,
+           purrr::reduce(delete_chr ,
                          ~ append(.x,.y[!.y %in% .x])),
            ".R") %>%
     purrr::walk(~ if(file.exists(.x))
@@ -577,13 +577,13 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                           ",\nwhere =  ",
                           "globalenv()",
                           ")")
-    parent_slots_chr_vec <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+    parent_slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                     parent_ns_ls = parent_ns_ls)
-    parent_prototype_chr_vec <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+     <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                    parent_ns_ls = parent_ns_ls,
-                                                   slot_names_chr = parent_slots_chr_vec)
-    parent_prototype_chr_vec <- `names<-`(parent_prototype_chr_vec,parent_slots_chr_vec)
-    slots <- c(slots, parent_prototype_chr_vec)
+                                                   slot_names_chr = parent_slots_chr)
+    parent_pt_chr <- `names<-`(parent_pt_chr,parent_slots_chr)
+    slots <- c(slots, parent_pt_chr)
     slots <- slots[!duplicated(names(slots))]
   }
   slots_tags <- paste0("#' @slot ",
@@ -592,10 +592,10 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                        slots,
                        "\n",
                        collapse="")
-  included_classes_chr_vec <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+  clss_to_inc <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                      parent_ns_ls = parent_ns_ls,
                                                      base_set_of_clss_to_inc_chr = clss_to_inc_chr)
-  include_tags_chr <- make_dmt_inc_tag(included_classes_chr_vec, s3_1L_lgl = F)
+  include_tags_chr <- make_dmt_inc_tag(clss_to_inc, s3_1L_lgl = F)
   if(print_set_cls_1L_lgl){
     sink(output_file_class)
     writeLines(paste0(paste0("#' ",class_nm_1L_chr,"\n"),

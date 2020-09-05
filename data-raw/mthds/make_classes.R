@@ -1,6 +1,6 @@
 make_classes.ready4_class_make_tb <- function(x,
                                               name_pfx_1L_chr,
-                                              output_dir,
+                                              output_dir_1L_chr,
                                               file_exists_cdn_1L_chr = NULL,
                                               prototype_lup = NULL,
                                               nss_to_ignore_chr,
@@ -9,7 +9,7 @@ make_classes.ready4_class_make_tb <- function(x,
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T),
                ~ write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2,
                                name_pfx_1L_chr = name_pfx_1L_chr,
-                               output_dir_1L_chr = output_dir,
+                               output_dir_1L_chr = output_dir_1L_chr,
                                class_desc_1L_chr = ..10,
                                parent_cls_nm_1L_chr = if(is.na(..11)){
                                  NULL}else{
@@ -27,7 +27,7 @@ make_classes.ready4_class_make_tb <- function(x,
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
                                name_pfx_1L_chr = name_pfx_1L_chr,
-                               output_dir_1L_chr = output_dir,
+                               output_dir_1L_chr = output_dir_1L_chr,
                                class_desc_1L_chr = ..10,
                                parent = if(is.na(..11)){
                                  NULL}else{

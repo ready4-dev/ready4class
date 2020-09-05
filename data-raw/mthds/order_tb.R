@@ -12,10 +12,10 @@ order_tb.ready4_class_make_tb <- function(x,
     dplyr::mutate(sequence = purrr::map2(preceeded_by,
                                          class_name_chr,
                                          ~ c(.x,.y)))
-  ordering_vec <- purrr::reduce(ordering_tb %>%
+  ordering_chr <- purrr::reduce(ordering_tb %>%
                                   dplyr::pull(sequence),
                                 ~ append(.x,.y[!.y %in% .x])) %>%
     stringr::str_remove(name_pfx_1L_chr)
-
-  x[match(ordering_vec, x$name_stub_chr),]
+  inst_of_ready4_class_make_tb <- x[match(ordering_chr, x$name_stub_chr),]
+  return(inst_of_ready4_class_make_tb)
 }

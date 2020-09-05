@@ -78,7 +78,7 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
                                                allowed_vals_ls = NULL,
                                                names_must_match_ls = NULL,
                                                print_validator_1L_lgl = FALSE){
-  same_lngth_cond <- allowed_cond_vec <- names_include_vec <- NA_character_
+  same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
   all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% names()
   if(!is.null(parent_cls_nm_1L_chr)){
     parental_slots <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% names()
@@ -92,7 +92,7 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
                                          .x)) %>%
         stringr::str_c(sep="",collapse=",") %>%
         paste0("list(",.,")")
-      same_lngth_cond <- paste0("if(length(unique(lengths(",
+      same_lnt_cdn_1L_chr <- paste0("if(length(unique(lengths(",
                                 slot_ls,
                                 "))) > 1)\n",
                                 "msg <- c(msg, ",
@@ -105,7 +105,7 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
     }
   }
   if(!is.null(allowed_vals_ls)){
-    allowed_cond_vec <- purrr::map2_chr(names(allowed_vals_ls),
+    allowed_cdn_chr <- purrr::map2_chr(names(allowed_vals_ls),
                                         allowed_vals_ls,
                                         ~ paste0("if(!identical(",
                                                  "object@",
@@ -130,7 +130,7 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
                                                   .x %>%
                                                     stringr::str_c(sep="",collapse="\",\""),
                                                   "\")"))
-    names_include_vec <- purrr::map2_chr(names(names_must_match_ls),
+    names_inc_chr <- purrr::map2_chr(names(names_must_match_ls),
                                          names_include_conc,
                                          ~ paste0("if(!identical(",
                                                   .y ,
@@ -155,9 +155,9 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
   ## https://stackoverflow.com/questions/27744214/how-to-use-validity-functions-correctly-with-inherited-s4-classes-in-r
   valid_function <- paste0("function(object){\n",
                            "msg <- NULL\n",
-                           ifelse(is.na(same_lngth_cond),"",paste0(same_lngth_cond,"\n")),
-                           ifelse(is.na(allowed_cond_vec),"",allowed_cond_vec), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
-                           ifelse(is.na(names_include_vec),"",names_include_vec), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
+                           ifelse(is.na(same_lnt_cdn_1L_chr),"",paste0(same_lnt_cdn_1L_chr,"\n")),
+                           ifelse(is.na(allowed_cdn_chr),"",allowed_cdn_chr), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
+                           ifelse(is.na(names_inc_chr),"",names_inc_chr), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
                            "if (is.null(msg)) TRUE else msg",
                            "\n}")
   alg_to_set_validity_of_r4_cls_1L_chr <- paste0("methods::setValidity(",
@@ -356,12 +356,12 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function(req_pkgs_chr,
   curr_gnrcs_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
                                                generic_1L_chr = generic_1L_chr)
   if(is.na(nss_to_ignore_chr[1])){
-    dependencies_chr_vec <- character(0)
+    dependencies_chr <- character(0)
   }else{
-    dependencies_chr_vec <- gtools::getDependencies(nss_to_ignore_chr[1])
+    dependencies_chr <- gtools::getDependencies(nss_to_ignore_chr[1])
   }
   if(!req_pkgs_chr %>% purrr::discard(is.na) %>% identical(character(0)))
-    req_pkgs_chr <- req_pkgs_chr[!req_pkgs_chr %in% dependencies_chr_vec]
+    req_pkgs_chr <- req_pkgs_chr[!req_pkgs_chr %in% dependencies_chr]
   if(curr_gnrcs_ls$in_global_1L_lgl){
     ready4fun::unload_packages(package_chr = req_pkgs_chr[req_pkgs_chr != nss_to_ignore_chr[1]])
     curr_gnrcs_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
@@ -672,19 +672,19 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                        "())) %>% ",
                                        "dplyr::arrange(variable)",
                                        ")")
-    obj_components_vec <- c(toupper(type_1L_chr),ifelse(type_1L_chr=="list","elements","columns"))
+    obj_components_chr <- c(toupper(type_1L_chr),ifelse(type_1L_chr=="list","elements","columns"))
     stop_msg_call_in_validator_1 <- paste0("paste0(\"",
-                                           obj_components_vec[1],
+                                           obj_components_chr[1],
                                            " must include ",
-                                           obj_components_vec[2],
+                                           obj_components_chr[2],
                                            " named: \",\n",
                                            "names(",
                                            s3_prototype_ls$fn_name_1L_chr,
                                            "()) %>% stringr::str_c(sep=\"\", collapse = \", \"))")
     stop_msg_call_in_validator_2 <- paste0("paste0(\"",
-                                           obj_components_vec[1],
+                                           obj_components_chr[1],
                                            " ",
-                                           obj_components_vec[2],
+                                           obj_components_chr[2],
                                            " should be of the following classes: \",\n",
                                            "purrr::map2_chr(",
                                            var_class_lup,
