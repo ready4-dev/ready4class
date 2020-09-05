@@ -35,4 +35,3 @@
 \description{
 make_classes.ready4_class_make_tb() is a Make Classes method that writes new classes. This method is implemented for the Class Make Table readyforwhatsnext S3 class.NA
 }
-\keyword{internal}

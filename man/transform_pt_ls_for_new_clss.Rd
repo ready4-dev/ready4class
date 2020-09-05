@@ -15,4 +15,3 @@ Tfd prototypes for new clss (a list)
 \description{
 transform_pt_ls_for_new_clss() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform prototype list for new clss. Function argument pts_for_new_clss_ls specifies the object to be updated. Argument NA provides the object to be updated.The function returns tfd prototypes for new clss (a list).
 }
-\keyword{internal}

@@ -15,4 +15,3 @@ Function (a character vector of length one)
 \description{
 transform_fn_into_chr() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform function into. Function argument fn specifies the object to be updated. Argument NA provides the object to be updated.The function returns a function (a character vector of length one).
 }
-\keyword{internal}
