@@ -117,7 +117,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
       file.remove(class_file_chr)
   }
   if(file_exists_cdn_1L_chr %in% c("append","overwrite")){
-    s3_components_ls <- make_pt_ls_for_new_r3_cls(class_name_chr = class_nm_1L_chr,
+    s3_components_ls <- make_pt_ls_for_new_r3_cls(class_name_1L_chr = class_nm_1L_chr,
                                                   type_1L_chr = type_1L_chr,
                                                   pt_ns_1L_chr = pt_ns_1L_chr,
                                                   pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr,

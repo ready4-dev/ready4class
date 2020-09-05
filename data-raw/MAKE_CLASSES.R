@@ -45,7 +45,7 @@ classes_to_make_tb <- tibble::tribble(
 write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               name_pfx_1L_chr = name_pfx_1L_chr,
               output_dir_1L_chr = "R",
-              class_desc_chr = classes_to_make_tb$class_desc_chr,
+              class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
               type_1L_chr = classes_to_make_tb$pt_ls[[1]],
               pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]],
               pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]] %in% c("base"),
