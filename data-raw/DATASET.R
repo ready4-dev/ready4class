@@ -91,7 +91,7 @@ prototype_lup <- prototype_lup %>%
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ## 10. Remake the classes we previously created, this time using the new, preferred write_classes_and_make_lup method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
 prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
-                                 dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+                                 dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                  name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir_1L_chr = "R",
                                  file_exists_cdn_1L_chr = "overwrite")
