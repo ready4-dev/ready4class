@@ -85,7 +85,7 @@ ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                      dev_pkgs_chr = "ready4fun")
 ##
 ## 9. Run script to make package classes.
-source("data-raw/write_classes.R")
+source("data-raw/WRITE_CLASSES.R")
 prototype_lup <- prototype_lup %>%
   ready4_class_pt_lup()
 usethis::use_data(prototype_lup,overwrite = T, internal = T)

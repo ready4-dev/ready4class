@@ -2,7 +2,7 @@ update_lup_for_ns.ready4_class_pt_lup <- function(x,
                                                 attached_nss_chr){
   attached_nss_chr <- c("base",attached_nss_chr) %>% unique()
   inst_of_ready4_class_pt_lup <- x %>%
-    dplyr::mutate(value = purrr::pmap_chr(dplyr::select(x,
+    dplyr::mutate(val_chr = purrr::pmap_chr(dplyr::select(x,
                                                         pt_ns_chr,
                                                         fn_to_call_chr,
                                                         default_val_chr),

@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Readyforwhatsnext Tools For Creating And Extending
     Classes.
-Version: 0.0.0.9092
+Version: 0.0.0.9093
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
