@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Readyforwhatsnext Tools For Creating And Extending
     Classes.
-Version: 0.0.0.9097
+Version: 0.0.0.9098
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -43,6 +43,7 @@ Imports:
     stringr,
     testit,
     tibble,
-    usethis
+    usethis,
+    tidyr
 Remotes: 
     readyforwhatsnext/ready4fun
