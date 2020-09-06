@@ -329,6 +329,7 @@ make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            class_desc_1L_chr){
   ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                           fn_type_1L_chr = fn_type_1L_chr,
+                          fn_title_1L_chr = fn_name_1L_chr,
                           fn = eval(parse(text = fn_body_1L_chr)),
                           class_name_1L_chr = class_nm_1L_chr,
                           details_1L_chr = class_desc_1L_chr)
