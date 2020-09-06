@@ -23,4 +23,3 @@ Names of clss to inc (a character vector)
 \description{
 get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of clss to inc. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns names of clss to inc (a character vector).
 }
-\keyword{internal}
