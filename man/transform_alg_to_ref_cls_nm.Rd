@@ -14,4 +14,3 @@ transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm, pkg_nm_1L_chr)
 \description{
 transform_alg_to_ref_cls_nm() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to a transform alg to ref cls a name. Function argument alg_to_ref_cls_nm specifies the object to be updated. Argument pkg_nm_1L_chr provides the object to be updated.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}
