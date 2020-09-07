@@ -371,7 +371,7 @@ make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, or
 make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_chr, pt_ns_1L_chr, class_nm_1L_chr, 
     s3_prototype_ls) 
 {
-    name_of_fn_to_construct_instance <- paste0("new_", class_nm_1L_chr)
+    name_of_fn_to_construct_instance <- paste0("make_new_", class_nm_1L_chr)
     stop_cndn_in_constructor <- ifelse(type_1L_chr == "factor", 
         "TRUE", paste0(pt_ns_1L_chr, ifelse(pt_ns_1L_chr == "", 
             "", "::"), pt_chkr_pfx_1L_chr, type_1L_chr, "(x)"))
