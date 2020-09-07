@@ -29,3 +29,4 @@ Prototype (a list)
 \description{
 make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype.The function returns a prototype (a list).
 }
+\keyword{internal}
