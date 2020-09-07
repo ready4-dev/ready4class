@@ -106,7 +106,7 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
 #' @return NULL
 #' @rdname write_script_to_make_gnrc
 #' @export 
-#' @importFrom ready4fun write_fn_dmt close_open_sinks
+#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
 write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mthd_pair_ls, 
     fn_name_1L_chr, fn_type_1L_chr, fn_desc_1L_chr = NA_character_, 
@@ -121,7 +121,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
             write_file_ls$new_file_lgl | overwrite_1L_lgl)) {
             sink(write_file_ls$gnr_file, append = ifelse(fn_type_1L_chr %in% 
                 c("gen_std_s3_mthd", "gen_std_s4_mthd"), F, write_file_ls$new_file_lgl))
-            ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
+            ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
                 fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = gen_mthd_pair_ls$gen_fn_chr)), 
                 fn_desc_1L_chr = fn_desc_1L_chr, fn_out_type_1L_chr = fn_outp_type_1L_chr, 
                 fn_title_1L_chr = fn_title_1L_chr, doc_in_class_1L_lgl = doc_in_class_1L_lgl)
@@ -163,7 +163,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @return NULL
 #' @rdname write_script_to_make_mthd
 #' @export 
-#' @importFrom ready4fun write_fn_dmt close_open_sinks
+#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_name_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
@@ -174,7 +174,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_na
         sink(write_file_ls$meth_file, append = ifelse(identical(write_file_ls$gen_file, 
             write_file_ls$meth_file), T, ifelse(fn_type_1L_chr %in% 
             c("gen_std_s3_mthd", "gen_std_s4_mthd"), T, write_file_ls$new_file_lgl)))
-        ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
+        ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
             fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = gen_mthd_pair_ls$meth_fn_chr)), 
             fn_desc_1L_chr = fn_desc_1L_chr, fn_out_type_1L_chr = fn_outp_type_1L_chr, 
             class_name_1L_chr = class_name_chr, import_chr = imports_chr, 
@@ -363,7 +363,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @return NULL
 #' @rdname write_scripts_to_mk_r4_cls
 #' @export 
-#' @importFrom ready4fun write_fn_dmt close_open_sinks
+#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
 write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "ready4_", output_dir_1L_chr = "data-raw", 
@@ -400,7 +400,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     eval(parse(text = helper_function))
     if (print_helper) {
         sink(output_file_class, append = TRUE)
-        ready4fun::write_fn_dmt(fn_name_1L_chr = class_nm_1L_chr, 
+        ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr, 
             fn_type_1L_chr = "set_class", fn = eval(parse(text = class_nm_1L_chr)), 
             class_name_chr = class_nm_1L_chr)
         writeLines(helper_function)

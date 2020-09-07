@@ -45,7 +45,8 @@ write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
               start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
               prototype_lup = prototype_lup,
-              file_exists_cdn_1L_chr = "overwrite")
+              file_exists_cdn_1L_chr = "overwrite",
+              abbreviations_lup = abbreviations_lup)
 ## 5. Convert the classes_to_make_tb tibble we created  into an instance of the ready4_class_make_tb class also created in that step.
 classes_to_make_tb <- classes_to_make_tb %>%
   ready4_class_make_tb()

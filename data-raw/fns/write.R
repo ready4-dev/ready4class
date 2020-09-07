@@ -210,7 +210,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   eval(parse(text=helper_function))
   if(print_helper){
     sink(output_file_class, append = TRUE)
-    ready4fun::write_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
+    ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
                  fn = eval(parse(text = class_nm_1L_chr)),
                  class_name_chr = class_nm_1L_chr)
@@ -302,7 +302,7 @@ write_script_to_make_gnrc <- function(write_file_ls,
       sink(write_file_ls$gnr_file,
            append = ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                               "gen_std_s4_mthd"),F,write_file_ls$new_file_lgl))
-      ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
+      ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                               fn_type_1L_chr = fn_type_1L_chr,
                               fn = eval(parse(text=gen_mthd_pair_ls$gen_fn_chr)),
                               fn_desc_1L_chr = fn_desc_1L_chr,
@@ -405,7 +405,7 @@ write_script_to_make_mthd <- function(write_file_ls,
                                                    T,
                                                    ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                                                              "gen_std_s4_mthd"),T,write_file_ls$new_file_lgl)))
-    ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
+    ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                             fn_type_1L_chr = fn_type_1L_chr,
                             fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
                             fn_desc_1L_chr = fn_desc_1L_chr,
