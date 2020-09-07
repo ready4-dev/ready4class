@@ -612,17 +612,20 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
 #' @param fn_type_1L_chr Function type (a character vector of length one)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param class_desc_1L_chr Class description (a character vector of length one)
+#' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @return NULL
 #' @rdname make_lines_for_writing_dmtd_fn
 #' @export 
 #' @importFrom ready4fun write_fn_dmt
 make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_type_1L_chr, class_nm_1L_chr, 
-    class_desc_1L_chr) 
+    class_desc_1L_chr, abbreviations_lup = NULL) 
 {
+    if (is.null(abbreviations_lup)) 
+        data("abbreviations_lup", package = "ready4class", envir = environment())
     ready4fun::write_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
         fn_type_1L_chr = fn_type_1L_chr, fn_title_1L_chr = fn_name_1L_chr, 
         fn = eval(parse(text = fn_body_1L_chr)), class_name_1L_chr = class_nm_1L_chr, 
-        details_1L_chr = class_desc_1L_chr)
+        details_1L_chr = class_desc_1L_chr, abbreviations_lup = abbreviations_lup)
     writeLines(fn_body_1L_chr)
 }
 #' Make list of packages to import

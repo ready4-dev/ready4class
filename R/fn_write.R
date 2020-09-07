@@ -289,6 +289,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @param prototype_lup Prototype (a lookup table)
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: 'skip'
+#' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @return NULL
 #' @rdname write_scripts_to_mk_r3_cls
 #' @export 
@@ -300,8 +301,10 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     pt_ns_1L_chr = "", pt_chkr_pfx_1L_chr = "is.", vals_ls = NULL, 
     ordered_1L_lgl = FALSE, allowed_vals_ls = NULL, min_max_vals_dbl = NULL, 
     start_end_vals_dbl = NULL, prototype_lup, nss_to_ignore_chr = NA_character_, 
-    file_exists_cdn_1L_chr = "skip") 
+    file_exists_cdn_1L_chr = "skip", abbreviations_lup = NULL) 
 {
+    if (is.null(abbreviations_lup)) 
+        data("abbreviations_lup", package = "ready4class", envir = environment())
     if (!dir.exists(output_dir_1L_chr)) 
         dir.create(output_dir_1L_chr)
     class_nm_1L_chr <- paste0(name_pfx_1L_chr, name_stub_1L_chr)
@@ -326,7 +329,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
                 "s3_prototype", "s3_validator", "s3_checker")), 
             ~make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1, 
                 fn_body_1L_chr = ..2, fn_type_1L_chr = ..3, class_nm_1L_chr = class_nm_1L_chr, 
-                class_desc_1L_chr = class_desc_1L_chr))
+                class_desc_1L_chr = class_desc_1L_chr, abbreviations_lup = abbreviations_lup))
         ready4fun::close_open_sinks()
     }
     devtools::document()

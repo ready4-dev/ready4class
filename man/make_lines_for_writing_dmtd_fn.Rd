@@ -9,7 +9,8 @@ make_lines_for_writing_dmtd_fn(
   fn_body_1L_chr,
   fn_type_1L_chr,
   class_nm_1L_chr,
-  class_desc_1L_chr
+  class_desc_1L_chr,
+  abbreviations_lup = NULL
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ make_lines_for_writing_dmtd_fn(
 \item{class_nm_1L_chr}{Class name (a character vector of length one)}
 
 \item{class_desc_1L_chr}{Class description (a character vector of length one)}
+
+\item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \description{
 make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make lines for writing documented.The function is called for its side effects and does not return a value.

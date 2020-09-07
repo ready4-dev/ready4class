@@ -2,14 +2,6 @@ add_class <- function(x,
                       ...){
   UseMethod("add_class",x)
 }
-write_classes_and_make_lup <- function(x,
-                            ...){
-  UseMethod("write_classes_and_make_lup",x)
-}
-write_classes <- function(x,
-                         ...){
-  UseMethod("write_classes",x)
-}
 make_lup <- function(x,
                      ...){
   UseMethod("make_lup",x)
@@ -27,3 +19,12 @@ update_lup_for_ns <- function(x,
                               ...){
   UseMethod("update_lup_for_ns",x)
 }
+write_classes <- function(x,
+                          ...){
+  UseMethod("write_classes",x)
+}
+write_classes_and_make_lup <- function(x,
+                                       ...){
+  UseMethod("write_classes_and_make_lup",x)
+}
+

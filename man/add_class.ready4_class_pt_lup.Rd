@@ -14,7 +14,8 @@
   file_exists_cdn_1L_chr,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
-  class_in_cache_cdn_1L_chr = "stop"
+  class_in_cache_cdn_1L_chr = "stop",
+  abbreviations_lup = NULL
 )
 }
 \arguments{
@@ -37,6 +38,8 @@
 \item{req_pkgs_chr}{Req packages (a character vector), Default: 'NA'}
 
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
+
+\item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \value{
 Inst of ready4 class prototype (a lookup table)

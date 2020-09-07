@@ -7,7 +7,11 @@ add_class.ready4_class_pt_lup <- function(x,
                                           file_exists_cdn_1L_chr,
                                           nss_to_ignore_chr = NA_character_,
                                           req_pkgs_chr = NA_character_,
-                                          class_in_cache_cdn_1L_chr = "stop"){
+                                          class_in_cache_cdn_1L_chr = "stop",
+                                          abbreviations_lup = NULL){
+  if(is.null(abbreviations_lup))
+    data("abbreviations_lup", package = "ready4class",
+         envir = environment())
   make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
   write_classes(make_tb,
                name_pfx_1L_chr = name_pfx_1L_chr,
@@ -16,7 +20,8 @@ add_class.ready4_class_pt_lup <- function(x,
                prototype_lup = x,
                nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, nss_to_ignore_chr),
                req_pkgs_chr = req_pkgs_chr,
-               class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr)
+               class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
+               abbreviations_lup = abbreviations_lup)
   new_pt_lup <- make_lup(make_tb,
                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                          prefix = name_pfx_1L_chr)

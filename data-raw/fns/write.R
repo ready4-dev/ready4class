@@ -105,7 +105,11 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                         start_end_vals_dbl = NULL,
                                         prototype_lup,
                                         nss_to_ignore_chr  = NA_character_,
-                                        file_exists_cdn_1L_chr = "skip"){
+                                        file_exists_cdn_1L_chr = "skip",
+                                       abbreviations_lup = NULL){
+  if(is.null(abbreviations_lup))
+    data("abbreviations_lup", package = "ready4class",
+         envir = environment())
   if(!dir.exists(output_dir_1L_chr))
     dir.create(output_dir_1L_chr)
   class_nm_1L_chr <- paste0(name_pfx_1L_chr,name_stub_1L_chr)
@@ -137,7 +141,8 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                                   fn_body_1L_chr = ..2,
                                                   fn_type_1L_chr = ..3,
                                                   class_nm_1L_chr = class_nm_1L_chr,
-                                                  class_desc_1L_chr = class_desc_1L_chr))
+                                                  class_desc_1L_chr = class_desc_1L_chr,
+                                                  abbreviations_lup = abbreviations_lup))
     ready4fun::close_open_sinks()
   }
   devtools::document()
