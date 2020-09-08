@@ -13,5 +13,5 @@ make_one_row_pt_tb_for_new_r4_cls(x)
 One row class prototype (a tibble)
 }
 \description{
-make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new readyforwhatsnext s4 class. The function returns one row class prototype (a tibble).
+make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new readyforwhatsnext s4 class. The function returns One row class prototype (a tibble).
 }

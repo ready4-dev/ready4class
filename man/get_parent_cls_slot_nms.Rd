@@ -12,8 +12,8 @@ get_parent_cls_slot_nms(parent_cls_nm_1L_chr, parent_ns_ls)
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
 \value{
-Parent cls slot names (a character vector)
+Parent class slot names (a character vector)
 }
 \description{
-get_parent_cls_slot_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class slot names. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns parent class slot names (a character vector).
+get_parent_cls_slot_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class slot names. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class slot names (a character vector).
 }

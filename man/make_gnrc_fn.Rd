@@ -12,8 +12,8 @@ make_gnrc_fn(name_1L_chr, args_chr)
 \item{args_chr}{Arguments (a character vector)}
 }
 \value{
-Gnrc function (a character vector of length one)
+Generic function (a character vector of length one)
 }
 \description{
-make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make generic function. The function returns a generic function (a character vector of length one).
+make_gnrc_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make generic function. The function returns Generic function (a character vector of length one).
 }

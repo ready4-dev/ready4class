@@ -13,5 +13,5 @@ make_class_pts_tb(class_mk_ls)
 Class prototypes (a tibble)
 }
 \description{
-make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototypes tibble. The function returns a class prototypes (a tibble).
+make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototypes tibble. The function returns Class prototypes (a tibble).
 }

@@ -1,6 +1,6 @@
-#' 
+#' Write classes method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.
 #' @description write_classes.ready4_constructor_tbl() is a Write Classes method that writes new classes. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
-#' @param x An instance of 
+#' @param x An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: NULL

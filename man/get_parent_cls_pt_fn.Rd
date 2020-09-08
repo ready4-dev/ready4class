@@ -12,8 +12,8 @@ get_parent_cls_pt_fn(parent_cls_nm_1L_chr, prototype_lup)
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \value{
-Parent cls prototype (a function)
+Parent class prototype (a function)
 }
 \description{
-get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns parent class prototype (a function).
+get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype (a function).
 }

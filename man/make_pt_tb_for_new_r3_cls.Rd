@@ -10,8 +10,8 @@ make_pt_tb_for_new_r3_cls(x)
 \item{x}{PARAM_DESCRIPTION}
 }
 \value{
-Prototype tibble for new readyforwhatsnext S3 cls (a tibble)
+Prototype tibble for new readyforwhatsnext S3 class (a tibble)
 }
 \description{
-make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new readyforwhatsnext s3 class. The function returns a prototype tibble for new readyforwhatsnext s3 class (a tibble).
+make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new readyforwhatsnext s3 class. The function returns Prototype tibble for new readyforwhatsnext S3 class (a tibble).
 }

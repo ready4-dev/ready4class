@@ -12,8 +12,8 @@ make_alg_to_gen_ref_to_cls(class_nm_1L_chr, pkg_nm_1L_chr = ".GlobalEnv")
 \item{pkg_nm_1L_chr}{Package name (a character vector of length one), Default: '.GlobalEnv'}
 }
 \value{
-Alg to gen ref to cls (a character vector of length one)
+Algorithm to generate reference to class (a character vector of length one)
 }
 \description{
-make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to generate reference to class. The function returns an algorithm to generate reference to class (a character vector of length one).
+make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to generate reference to class. The function returns Algorithm to generate reference to class (a character vector of length one).
 }

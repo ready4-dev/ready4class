@@ -41,11 +41,11 @@ ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, First time script is
 data("abbreviations_lup",package = "ready4fun")
 ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","idx","inc","inhtc","inst","lnt","mk","mthd","ptrn",
                                              "ready4_constructor_tbl","ready4_class_pt_lup",
-                                             "ref","tf","tfd","unvd","val","vld","vldd"),
+                                             "ref","ret","tf","tfd","unvd","val","vld","vldd"),
                             long_name_chr = c("algorithm","condition","checker","class","column","current","different","generate","generic","index","include","inheritance","instance","length","make","method","pattern",
                                                   "readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE",
                                                   "readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE",
-                                              "reference","transform","transformed","unvalidated","value","valid","validated"),
+                                              "reference","return","transform","transformed","unvalidated","value","valid","validated"),
                             no_plural_chr = c("Class Constructor Table readyforwhatsnext S3 class",
                                               "Class Prototype Lookup Table readyforwhatsnext S3 class",
                                               "transformed","unvalidated","valid","validated"),

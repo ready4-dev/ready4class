@@ -30,5 +30,5 @@ make_helper_fn(
 Helper function (a character vector of length one)
 }
 \description{
-make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make helper function. The function returns helper function (a character vector of length one).
+make_helper_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make helper function. The function returns Helper function (a character vector of length one).
 }

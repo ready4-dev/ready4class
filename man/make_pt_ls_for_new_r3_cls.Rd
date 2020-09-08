@@ -42,8 +42,8 @@ make_pt_ls_for_new_r3_cls(
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 }
 \value{
-Prototype list for new readyforwhatsnext S3 cls (a list)
+Prototype list for new readyforwhatsnext S3 class (a list)
 }
 \description{
-make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new readyforwhatsnext s3 class. The function returns a prototype list for new readyforwhatsnext s3 class (a list).
+make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new readyforwhatsnext s3 class. The function returns Prototype list for new readyforwhatsnext S3 class (a list).
 }

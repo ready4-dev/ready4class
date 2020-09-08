@@ -29,6 +29,9 @@ make_alg_to_write_gtr_str_mthds(
 
 \item{parent_ns_ls}{Parent namespace (a list)}
 }
+\value{
+Algorithm to write getter setter (methods)
+}
 \description{
 make_alg_to_write_gtr_str_mthds() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to write getter setter methods. The function is called for its side effects and does not return a value.
 }

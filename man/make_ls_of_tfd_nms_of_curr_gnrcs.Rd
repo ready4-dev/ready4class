@@ -18,8 +18,8 @@ make_ls_of_tfd_nms_of_curr_gnrcs(
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 }
 \value{
-Curr gnrcs (a list)
+Current generics (a list)
 }
 \description{
-make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make list of transformed names of current generics. The function returns a current generics (a list).
+make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make list of transformed names of current generics. The function returns Current generics (a list).
 }
