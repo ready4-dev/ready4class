@@ -11,7 +11,7 @@ update_lup_for_ns(x, attached_nss_chr, ...)
 
 \item{attached_nss_chr}{Attached namespaces (a character vector)}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.NA

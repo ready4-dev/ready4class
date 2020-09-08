@@ -9,7 +9,7 @@ remake_ls_cols(x, ...)
 \arguments{
 \item{x}{An object}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 remake_ls_cols() is a Remake List Columns generic that remakes list columns.NA

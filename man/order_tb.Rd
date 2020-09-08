@@ -9,7 +9,7 @@ order_tb(x, ...)
 \arguments{
 \item{x}{An object}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 order_tb() is an Order Tibble generic that orders a tibble.NA

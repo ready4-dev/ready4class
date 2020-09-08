@@ -9,7 +9,7 @@ add_class(x, ...)
 \arguments{
 \item{x}{An object}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 add_class() is an Add Class generic that adds information about a class.NA

@@ -9,7 +9,7 @@ write_classes_and_make_lup(x, ...)
 \arguments{
 \item{x}{An object}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 write_classes_and_make_lup() is a Write Classes and Make Lookup Table generic that makes new classes and creates or updates a class prototype lookup table.NA

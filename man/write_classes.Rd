@@ -9,7 +9,7 @@ write_classes(x, ...)
 \arguments{
 \item{x}{An object}
 
-\item{...}{PARAM_DESCRIPTION}
+\item{...}{Additional arguments}
 }
 \description{
 write_classes() is a Write Classes generic that writes new classes.NA
