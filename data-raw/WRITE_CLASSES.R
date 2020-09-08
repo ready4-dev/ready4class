@@ -67,6 +67,7 @@ write_classes(classes_to_make_tb %>% dplyr::filter(name_stub_chr == "class_pt_lu
              name_pfx_1L_chr = name_pfx_1L_chr,
              output_dir_1L_chr = "R",
              prototype_lup = prototype_lup,
-             file_exists_cdn_1L_chr = "overwrite")
+             file_exists_cdn_1L_chr = "overwrite",
+             abbreviations_lup = abbreviations_lup)
 
 
