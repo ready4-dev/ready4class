@@ -54,7 +54,7 @@ ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","cur
                             seed_lup = abbreviations_lup)
 data("abbreviations_lup")
 # 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
-data("fn_type_lup_tb")
+data("fn_type_lup_tb",package = "ready4fun")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
   ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class",

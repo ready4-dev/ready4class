@@ -11,7 +11,7 @@ add_class <- function (x, ...)
     UseMethod("add_class", x)
 }
 #' Make lookup table
-#' @description make_lup() is a Make Lookup Table generic that makes a lookup table.NA
+#' @description make_lup() is a Make Lookup Table generic that applies a Make method and then updates the output of that method.NA
 #' @param x PARAM_DESCRIPTION
 #' @param ... PARAM_DESCRIPTION
 #' @return NULL
@@ -58,4 +58,28 @@ remake_ls_cols <- function (x, ...)
 update_lup_for_ns <- function (x, attached_nss_chr, ...) 
 {
     UseMethod("update_lup_for_ns", x)
+}
+#' Write classes
+#' @description write_classes() is a Write Classes generic that writes new classes.NA
+#' @param x PARAM_DESCRIPTION
+#' @param ... PARAM_DESCRIPTION
+#' @return NULL
+#' @rdname write_classes
+#' @export 
+
+write_classes <- function (x, ...) 
+{
+    UseMethod("write_classes", x)
+}
+#' Write classes and make lookup table
+#' @description write_classes_and_make_lup() is a Write Classes and Make Lookup Table generic that makes new classes and creates or updates a class prototype lookup table.NA
+#' @param x PARAM_DESCRIPTION
+#' @param ... PARAM_DESCRIPTION
+#' @return NULL
+#' @rdname write_classes_and_make_lup
+#' @export 
+
+write_classes_and_make_lup <- function (x, ...) 
+{
+    UseMethod("write_classes_and_make_lup", x)
 }
