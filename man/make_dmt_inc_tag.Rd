@@ -17,3 +17,4 @@ Documentation inc tag (a character vector of length one)
 \description{
 make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make documentation inc tag.The function returns documentation inc tag (a character vector of length one).
 }
+\keyword{internal}
