@@ -1,14 +1,13 @@
-#' Make lookup table method applied to Class Make Table readyforwhatsnext S3 class.
-#' @description make_lup.ready4_class_make_tb() is a Make Lookup Table method that makes a lookup table. This method is implemented for the Class Make Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+#' Make lookup table method applied to CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.
+#' @description make_lup.ready4_constructor_tbl() is a Make Lookup Table method that makes a lookup table. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 #' @param x PARAM_DESCRIPTION
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
 #' @param prefix_1L_chr Prefix (a character vector of length one)
 #' @return Inst of ready4 class prototype (a lookup table)
-#' @rdname make_lup.ready4_class_make_tb
+#' @rdname make_lup.ready4_constructor_tbl
 #' @export 
 #' @importFrom dplyr mutate select
-#' @keywords internal
-make_lup.ready4_class_make_tb <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
+make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
 {
     inst_of_ready4_class_pt_lup <- x %>% dplyr::mutate(type_chr = paste0(prefix_1L_chr, 
         name_stub_chr), pt_ns_chr = dev_pkg_ns_1L_chr, val_chr = "", 

@@ -1,4 +1,4 @@
-write_classes.ready4_class_make_tb <- function(x,
+write_classes.ready4_constructor_tbl <- function(x,
                                               name_pfx_1L_chr,
                                               output_dir_1L_chr,
                                               file_exists_cdn_1L_chr = NULL,

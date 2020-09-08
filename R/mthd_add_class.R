@@ -1,5 +1,5 @@
-#' Add class method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.
-#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+#' Add class method applied to CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.
+#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 #' @param x PARAM_DESCRIPTION
 #' @param row_idx_1L_int Row idx (an integer vector of length one)
 #' @param make_tb Make (a tibble)
@@ -15,7 +15,6 @@
 #' @rdname add_class.ready4_class_pt_lup
 #' @export 
 #' @importFrom dplyr slice pull filter bind_rows
-#' @keywords internal
 add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 

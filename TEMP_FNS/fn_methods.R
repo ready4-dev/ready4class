@@ -510,7 +510,7 @@ make_gnrc_mthd_pair_ls <- function(name_chr,
 make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_lgl = T){
   cl_mk_tb <- class_type_mk_ls  %>%
-    purrr:::reduce(.init = ready4_class_make_tb(),
+    purrr:::reduce(.init = ready4_constructor_tbl(),
                    ~ {
                      testit::assert(paste0("Allowable list element names are: ", names(.x) %>% paste0(collapse = ",")),names(.y) %in% names(.x))
                      rlang::exec(tibble::add_case,.x,!!!.y)

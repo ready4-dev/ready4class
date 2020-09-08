@@ -1,5 +1,5 @@
-#' Update lookup table for namespace method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.
-#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+#' Update lookup table for namespace method applied to CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.
+#' @description update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 #' @param x PARAM_DESCRIPTION
 #' @param attached_nss_chr Attached namespaces (a character vector)
 #' @return Inst of ready4 class prototype (a lookup table)
@@ -7,7 +7,6 @@
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
-#' @keywords internal
 update_lup_for_ns.ready4_class_pt_lup <- function (x, attached_nss_chr) 
 {
     attached_nss_chr <- c("base", attached_nss_chr) %>% unique()

@@ -1,4 +1,4 @@
-write_classes_and_make_lup.ready4_class_make_tb  <- function(x,
+write_classes_and_make_lup.ready4_constructor_tbl  <- function(x,
                                                   dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                                   name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(),"_"),
                                                   output_dir_1L_chr = "R",

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mthd_update_lup_for_ns.R
 \name{update_lup_for_ns.ready4_class_pt_lup}
 \alias{update_lup_for_ns.ready4_class_pt_lup}
-\title{Update lookup table for namespace method applied to Class Prototype Lookup Table readyforwhatsnext S3 class.}
+\title{Update lookup table for namespace method applied to CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.}
 \usage{
 \method{update_lup_for_ns}{ready4_class_pt_lup}(x, attached_nss_chr)
 }
@@ -15,6 +15,5 @@
 Inst of ready4 class prototype (a lookup table)
 }
 \description{
-update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the Class Prototype Lookup Table readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
 }
-\keyword{internal}
