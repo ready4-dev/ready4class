@@ -17,6 +17,5 @@ get_parent_cls_pts(parent_cls_nm_1L_chr, parent_ns_ls, slot_names_chr)
 Parent cls prototypes (a character vector)
 }
 \description{
-get_parent_cls_pts() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent cls prototypes. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns parent cls prototypes (a character vector).
+get_parent_cls_pts() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototypes. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns parent cls prototypes (a character vector).
 }
-\keyword{internal}

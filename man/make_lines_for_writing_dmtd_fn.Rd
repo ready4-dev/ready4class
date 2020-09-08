@@ -27,6 +27,5 @@ make_lines_for_writing_dmtd_fn(
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \description{
-make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make lines for writing documented.The function is called for its side effects and does not return a value.
+make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make lines for writing documented function.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

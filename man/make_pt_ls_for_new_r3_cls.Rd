@@ -45,6 +45,5 @@ make_pt_ls_for_new_r3_cls(
 Prototype list for new readyforwhatsnext S3 cls (a list)
 }
 \description{
-make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make prototype for new a readyforwhatsnext S3 cls.The function returns a prototype list for new readyforwhatsnext s3 cls (a list).
+make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new readyforwhatsnext s3 class.The function returns a prototype list for new readyforwhatsnext s3 cls (a list).
 }
-\keyword{internal}

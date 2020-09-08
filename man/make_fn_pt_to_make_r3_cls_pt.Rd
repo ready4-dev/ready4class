@@ -30,6 +30,5 @@ make_fn_pt_to_make_r3_cls_pt(
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \description{
-make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make function prototype to a make readyforwhatsnext S3 cls a prototype.The function is called for its side effects and does not return a value.
+make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make readyforwhatsnext s3 class prototype.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

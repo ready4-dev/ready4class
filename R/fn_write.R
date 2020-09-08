@@ -1,5 +1,5 @@
 #' Write getter setter methods for
-#' @description write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a getter setter mthds for.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for readyforwhatsnext s4.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param slot_nm_1L_chr Slot name (a character vector of length one)
 #' @param set_only_1L_lgl Set only (a logical vector of length one)
 #' @param pkgs_to_imp_ls Packages to import (a list)
@@ -10,7 +10,6 @@
 #' @rdname write_gtr_str_mthds_for_r4
 #' @export 
 #' @importFrom purrr reduce
-#' @keywords internal
 write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to_imp_ls, class_nm_1L_chr, 
     print_gtrs_strs_1L_lgl, output_dir_1L_chr) 
 {
@@ -39,7 +38,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
     }
 }
 #' Write getter setter methods for slots
-#' @description write_gtr_str_mthds_for_slots() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a getter setter mthds for slots.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_gtr_str_mthds_for_slots() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for slots.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param slot_names_chr Slot names (a character vector)
 #' @param set_only_chr Set only (a character vector)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
@@ -53,7 +52,6 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @export 
 #' @importFrom purrr map_chr walk
 #' @importFrom stringr str_replace
-#' @keywords internal
 write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
     nss_to_ignore_chr, req_pkgs_chr) 
@@ -69,7 +67,7 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
         req_pkgs_chr = req_pkgs_chr))
 }
 #' Write methods for readyforwhatsnext S3 or readyforwhatsnext S4 classes
-#' @description write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write mthds for a readyforwhatsnext S3 or a readyforwhatsnext S4 clss.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write methods for readyforwhatsnext s3 or readyforwhatsnext s4 classes.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param methods_tb Methods (a tibble)
 #' @param fn_ls Function list (a list of functions)
 #' @param pkg_nm_1L_chr Package name (a character vector of length one)
@@ -79,7 +77,6 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
 #' @export 
 #' @importFrom purrr pwalk
 #' @importFrom dplyr mutate
-#' @keywords internal
 write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, output_dir_1L_chr) 
 {
     purrr::pwalk(methods_tb %>% dplyr::mutate(first_lgl = c(T, 
@@ -91,7 +88,7 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
         signature_1L_chr = ..8, append_1L_lgl = ..10, first_1L_lgl = ..9))
 }
 #' Write script to make generic
-#' @description write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to a make gnrc.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param write_file_ls Write file (a list)
 #' @param gnrc_exists_1L_lgl Generic exists (a logical vector of length one)
 #' @param gen_mthd_pair_ls Generate method pair (a list)
@@ -111,7 +108,6 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
-#' @keywords internal
 write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mthd_pair_ls, 
     fn_name_1L_chr, fn_type_1L_chr, fn_desc_1L_chr = NA_character_, 
     fn_outp_type_1L_chr = NA_character_, fn_title_1L_chr = NA_character_, 
@@ -152,7 +148,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
     write_file_ls
 }
 #' Write script to make method
-#' @description write_script_to_make_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to a make mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_script_to_make_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make method.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param write_file_ls Write file (a list)
 #' @param gen_mthd_pair_ls Generate method pair (a list)
 #' @param class_name_chr Class name (a character vector)
@@ -169,7 +165,6 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace
-#' @keywords internal
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_name_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F) 
@@ -190,7 +185,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_na
     }
 }
 #' Write scripts to make generic and method
-#' @description write_scripts_to_make_gnrc_and_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to a make gnrc and mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_scripts_to_make_gnrc_and_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make generic and method.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param fn_name_1L_chr Function name (a character vector of length one)
 #' @param args_chr Arguments (a character vector), Default: c("x")
 #' @param signature_1L_chr Signature (a character vector of length one), Default: 'NA'
@@ -215,7 +210,6 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_na
 #' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export 
 
-#' @keywords internal
 write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
     pkg_nm_1L_chr = NA_character_, where_chr = NA_character_, 
     class_nm_1L_chr, fn, fn_type_chr, fn_desc_chr = rep(NA_character_, 
@@ -246,7 +240,7 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
     write_file_ls
 }
 #' Write scripts to make classes
-#' @description write_scripts_to_mk_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to mk clss.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_scripts_to_mk_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make classes.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param pts_for_new_clss_ls Prototypes for new classes (a list)
 #' @param pkg_nm_1L_chr Package name (a character vector of length one)
 #' @param class_pfx_1L_chr Class prefix (a character vector of length one)
@@ -261,7 +255,6 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
 #' @importFrom usethis use_data
 #' @importFrom ready4fun write_pt_lup_db
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_pfx_1L_chr, 
     R_dir_1L_chr = "R", pt_lup, description_ls = NULL, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_) 
@@ -279,7 +272,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
     pt_lup
 }
 #' Write scripts to make readyforwhatsnext S3 class
-#' @description write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to mk a readyforwhatsnext S3 cls.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make readyforwhatsnext s3 class.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param name_stub_1L_chr Name stub (a character vector of length one)
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: 'ready4_'
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'data-raw'
@@ -303,7 +296,6 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @importFrom purrr pwalk
 #' @importFrom ready4fun close_open_sinks
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "ready4_", output_dir_1L_chr = "data-raw", 
     class_desc_1L_chr = "", parent_cls_nm_1L_chr = NULL, type_1L_chr, 
     pt_ns_1L_chr = "", pt_chkr_pfx_1L_chr = "is.", vals_ls = NULL, 
@@ -344,7 +336,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     devtools::load_all()
 }
 #' Write scripts to make readyforwhatsnext S4 class
-#' @description write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to mk a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make readyforwhatsnext s4 class.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param name_stub_1L_chr Name stub (a character vector of length one)
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: 'ready4_'
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'data-raw'
@@ -374,7 +366,6 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "ready4_", output_dir_1L_chr = "data-raw", 
     outp_sub_dir_1L_chr = NULL, class_desc_1L_chr = "", parent_cls_nm_1L_chr = NULL, 
     slots_chr, type_chr, meaningful_nms_ls = NULL, vals_ls = NULL, 
@@ -447,7 +438,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     devtools::load_all()
 }
 #' Write slot getter setter methods
-#' @description write_slot_gtr_str_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write slot a getter setter mthds.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_slot_gtr_str_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write slot getter setter methods.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param slot_nm_1L_chr Slot name (a character vector of length one)
 #' @param set_only_1L_lgl Set only (a logical vector of length one)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
@@ -460,7 +451,6 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @rdname write_slot_gtr_str_mthds
 #' @export 
 
-#' @keywords internal
 write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
     nss_to_ignore_chr, req_pkgs_chr) 
@@ -475,7 +465,7 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
         output_dir_1L_chr = output_dir_1L_chr)
 }
 #' Write standard method
-#' @description write_std_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write a standard mthd.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_std_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write standard method.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param fn Function (a function)
 #' @param fn_name_1L_chr Function name (a character vector of length one)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
@@ -492,7 +482,6 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @export 
 #' @importFrom testit assert
 #' @importFrom purrr discard
-#' @keywords internal
 write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn_title_1L_chr, 
     fn_outp_type_1L_chr, pkg_nm_1L_chr, output_dir_1L_chr, signature_1L_chr = NA_character_, 
     append_1L_lgl = T, first_1L_lgl = T) 
@@ -531,14 +520,13 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
     write_file_ls
 }
 #' Write to delete files with pattern
-#' @description write_to_delete_fls_with_ptrn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete files with ptrn.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_to_delete_fls_with_ptrn() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete files with pattern.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param dir_1L_chr Directory (a character vector of length one)
 #' @param pattern_1L_chr Pattern (a character vector of length one)
 #' @return NULL
 #' @rdname write_to_delete_fls_with_ptrn
 #' @export 
 
-#' @keywords internal
 write_to_delete_fls_with_ptrn <- function (dir_1L_chr, pattern_1L_chr) 
 {
     if (!is.na(pattern_1L_chr)) {
@@ -548,7 +536,7 @@ write_to_delete_fls_with_ptrn <- function (dir_1L_chr, pattern_1L_chr)
     }
 }
 #' Write to delete generic function files
-#' @description write_to_delete_gnrc_fn_fls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete gnrc a function files.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_to_delete_gnrc_fn_fls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete generic function files.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param x PARAM_DESCRIPTION
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @return NULL
@@ -556,7 +544,6 @@ write_to_delete_fls_with_ptrn <- function (dir_1L_chr, pattern_1L_chr)
 #' @export 
 #' @importFrom dplyr pull
 #' @importFrom purrr compact flatten flatten_chr reduce walk
-#' @keywords internal
 write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr) 
 {
     delete_chr <- x %>% dplyr::pull(slots_ls) %>% purrr::compact() %>% 
@@ -567,7 +554,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
             file.remove(.x))
 }
 #' Write to make readyforwhatsnext S4 class
-#' @description write_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to mk a readyforwhatsnext S4 cls.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+#' @description write_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to make readyforwhatsnext s4 class.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param slots_chr Slots (a character vector)
 #' @param type_chr Type (a character vector)
@@ -586,7 +573,6 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom ready4fun update_ns close_open_sinks
-#' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, proto_ls, parent_cls_nm_1L_chr, 
     print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class, 
     clss_to_inc_chr, prototype_lup, helper_lgl = F, parent_ns_ls) 

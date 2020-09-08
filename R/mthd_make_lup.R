@@ -7,7 +7,6 @@
 #' @rdname make_lup.ready4_constructor_tbl
 #' @export 
 #' @importFrom dplyr mutate select
-#' @keywords internal
 make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
 {
     inst_of_ready4_class_pt_lup <- x %>% dplyr::mutate(type_chr = paste0(prefix_1L_chr, 

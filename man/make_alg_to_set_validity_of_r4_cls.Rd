@@ -30,6 +30,5 @@ make_alg_to_set_validity_of_r4_cls(
 Alg to set validity of readyforwhatsnext S4 cls (a character vector of length one)
 }
 \description{
-make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set validity of a readyforwhatsnext S4 cls.The function returns alg to set validity of readyforwhatsnext s4 cls (a character vector of length one).
+make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of readyforwhatsnext s4 class.The function returns alg to set validity of readyforwhatsnext s4 cls (a character vector of length one).
 }
-\keyword{internal}
