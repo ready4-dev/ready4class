@@ -2,7 +2,7 @@
 #' @description order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
 #' @param x An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
-#' @return Instance of (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
+#' @return Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
 #' @rdname order_tb.ready4_constructor_tbl
 #' @export 
 #' @importFrom dplyr select mutate pull
@@ -23,7 +23,7 @@ order_tb.ready4_constructor_tbl <- function (x, name_pfx_1L_chr)
         class_name_chr, ~c(.x, .y)))
     ordering_chr <- purrr::reduce(ordering_tb %>% dplyr::pull(sequence), 
         ~append(.x, .y[!.y %in% .x])) %>% stringr::str_remove(name_pfx_1L_chr)
-    inst_of_ready4_constructor_tbl <- x[match(ordering_chr, x$name_stub_chr), 
+    inst_ready4_constructor_tbl <- x[match(ordering_chr, x$name_stub_chr), 
         ]
-    return(inst_of_ready4_constructor_tbl)
+    return(inst_ready4_constructor_tbl)
 }

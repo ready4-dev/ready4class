@@ -21,7 +21,7 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function(x,
                 ~ write_to_delete_fls_with_ptrn(dir_1L_chr = output_dir_1L_chr,
                                                 pattern_1L_chr = .x))
   }
-  inst_of_ready4_class_pt_lup <- purrr::reduce(1:nrow(x),
+  inst_ready4_class_pt_lup <- purrr::reduce(1:nrow(x),
                                                .init = init_class_pt_lup %>% update_lup_for_ns(dev_pkg_ns_1L_chr),
                                                ~ add_class(.x,
                                                            row_idx_1L_int = .y,
@@ -34,7 +34,7 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function(x,
                                                            req_pkgs_chr = req_pkgs_chr,
                                                            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                                            abbreviations_lup = abbreviations_lup))
-  return(inst_of_ready4_class_pt_lup)
+  return(inst_ready4_class_pt_lup)
 }
 
 

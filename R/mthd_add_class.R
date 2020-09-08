@@ -1,5 +1,5 @@
 #' Add class method applied to readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE.
-#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance of (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
+#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
 #' @param x An instance of readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)
@@ -11,7 +11,7 @@
 #' @param req_pkgs_chr Req packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
-#' @return Instance of (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+#' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
 #' @rdname add_class.ready4_class_pt_lup
 #' @export 
 #' @importFrom dplyr slice pull filter bind_rows
@@ -32,7 +32,7 @@ add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_n
     new_pt_lup <- make_lup(make_tb, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
         prefix = name_pfx_1L_chr)
     classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
-    inst_of_ready4_class_pt_lup <- x %>% dplyr::filter(!type_chr %in% 
+    inst_ready4_class_pt_lup <- x %>% dplyr::filter(!type_chr %in% 
         classes_to_add_chr) %>% dplyr::bind_rows(new_pt_lup)
-    return(inst_of_ready4_class_pt_lup)
+    return(inst_ready4_class_pt_lup)
 }

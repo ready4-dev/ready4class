@@ -16,6 +16,6 @@ order_tb.ready4_constructor_tbl <- function(x,
                                   dplyr::pull(sequence),
                                 ~ append(.x,.y[!.y %in% .x])) %>%
     stringr::str_remove(name_pfx_1L_chr)
-  inst_of_ready4_constructor_tbl <- x[match(ordering_chr, x$name_stub_chr),]
-  return(inst_of_ready4_constructor_tbl)
+  inst_ready4_constructor_tbl <- x[match(ordering_chr, x$name_stub_chr),]
+  return(inst_ready4_constructor_tbl)
 }

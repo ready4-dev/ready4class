@@ -26,8 +26,8 @@ add_class.ready4_class_pt_lup <- function(x,
                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                          prefix = name_pfx_1L_chr)
   classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
-  inst_of_ready4_class_pt_lup <- x %>%
+  inst_ready4_class_pt_lup <- x %>%
     dplyr::filter(!type_chr %in% classes_to_add_chr)  %>%
     dplyr::bind_rows(new_pt_lup)
-  return(inst_of_ready4_class_pt_lup)
+  return(inst_ready4_class_pt_lup)
 }
