@@ -79,8 +79,10 @@ fn_type_lup_tb %>%
 data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
 all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
-                                                                       inc_for_main_user_lgl_ls = list(force_true_chr = c("write_classes_and_make_lup",
-                                                                                                                          "remake_ls_cols"),
+                                                                       inc_for_main_user_lgl_ls = list(force_true_chr = c("remake_ls_cols",
+                                                                                                                          "remake_ls_cols.ready4_constructor_tbl",
+                                                                                                                          "write_classes_and_make_lup",
+                                                                                                                          "write_classes_and_make_lup.ready4_constructor_tbl"),
                                                                             force_false_chr = NA_character_),
                                                            args_ls_ls = NULL),
                                       fn_type_lup_tb = fn_type_lup_tb,
