@@ -17,4 +17,3 @@ One row class prototype (a tibble)
 \description{
 make_one_row_class_pt_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row class prototype tibble.The function returns one row class prototype (a tibble).
 }
-\keyword{internal}

@@ -19,4 +19,3 @@ Packages to import (a list)
 \description{
 make_ls_of_pkgs_to_imp() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make list of packages to import.The function returns packages to import (a list).
 }
-\keyword{internal}

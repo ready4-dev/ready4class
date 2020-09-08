@@ -53,7 +53,7 @@ write_scripts_to_mk_r4_cls(
 
 \item{allowed_vals_ls}{Allowed values (a list), Default: NULL}
 
-\item{clss_to_inc_chr}{Classes to inc (a character vector), Default: NULL}
+\item{clss_to_inc_chr}{Classes to include (a character vector), Default: NULL}
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
@@ -80,4 +80,3 @@ write_scripts_to_mk_r4_cls(
 \description{
 write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make readyforwhatsnext s4 class.The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

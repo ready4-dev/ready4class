@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_dmt_inc_tag}
 \alias{make_dmt_inc_tag}
-\title{Make documentation inc tag}
+\title{Make documentation include tag}
 \usage{
 make_dmt_inc_tag(class_names_chr, s3_1L_lgl = T)
 }
@@ -15,6 +15,5 @@ make_dmt_inc_tag(class_names_chr, s3_1L_lgl = T)
 Documentation inc tag (a character vector of length one)
 }
 \description{
-make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make documentation inc tag.The function returns documentation inc tag (a character vector of length one).
+make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make documentation include tag.The function returns documentation inc tag (a character vector of length one).
 }
-\keyword{internal}

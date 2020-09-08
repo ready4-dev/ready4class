@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_nms_of_clss_to_inc}
 \alias{get_nms_of_clss_to_inc}
-\title{Get names of classes to inc}
+\title{Get names of classes to include}
 \usage{
 get_nms_of_clss_to_inc(
   parent_cls_nm_1L_chr,
@@ -15,12 +15,11 @@ get_nms_of_clss_to_inc(
 
 \item{parent_ns_ls}{Parent namespace (a list)}
 
-\item{base_set_of_clss_to_inc_chr}{Base set of classes to inc (a character vector), Default: NULL}
+\item{base_set_of_clss_to_inc_chr}{Base set of classes to include (a character vector), Default: NULL}
 }
 \value{
 Names of clss to inc (a character vector)
 }
 \description{
-get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of classes to inc. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns names of clss to inc (a character vector).
+get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of classes to include. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object.The function returns names of clss to inc (a character vector).
 }
-\keyword{internal}

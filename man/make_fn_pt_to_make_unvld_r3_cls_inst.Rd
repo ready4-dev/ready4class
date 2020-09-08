@@ -26,4 +26,3 @@ make_fn_pt_to_make_unvld_r3_cls_inst(
 \description{
 make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make unvld readyforwhatsnext s3 class instance.The function is called for its side effects and does not return a value.
 }
-\keyword{internal}
