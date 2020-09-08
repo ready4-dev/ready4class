@@ -107,7 +107,12 @@ prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  file_exists_cdn_1L_chr = "overwrite",
                                  abbreviations_lup = abbreviations_lup)
 ## 12. Update the internal system data.
-usethis::use_data(prototype_lup,overwrite = T, internal = T)
+ready4fun::write_and_doc_ds(prototype_lup,
+                            db_1L_chr = "prototype_lup",
+                            title_1L_chr = "Class prototype lookup table",
+                            desc_1L_chr = "Metadata on classes used in readyforwhatsnext suite")
+
+#usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 13. MANUAL STEP - WRITE vignettes
 # ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
