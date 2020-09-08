@@ -35,9 +35,9 @@ ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, First time script is
   delete_contents_of_R_dir = T)
 # PAUSE FOR INTERACTIVE
 #
-# 3. MANUAL STEP: WRITE FUNCTION & METHODS FILES
+# 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
-# 4. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
+# 6. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("abbreviations_lup",package = "ready4fun")
 ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","inhtc","inst","lnt","mk","mthd","ptrn",
                                              "ready4_constructor_tbl","ready4_class_pt_lup",
@@ -53,7 +53,7 @@ ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","cur
                             url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                             seed_lup = abbreviations_lup)
 data("abbreviations_lup")
-# 6. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
+# 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 data("fn_type_lup_tb")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
@@ -72,7 +72,7 @@ fn_type_lup_tb %>%
   ready4fun::write_dmtd_fn_type_lup(url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
 data("fn_type_lup_tb")
-# 7. Create a table of all functions to document
+# 8. Create a table of all functions to document
 all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
                                                                        inc_for_main_user_lgl_ls = list(force_true_chr = c("write_classes_and_make_lup",
                                                                                                                           "remake_ls_cols",
@@ -83,37 +83,37 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
                                       fn_type_lup_tb = fn_type_lup_tb,
                                       abbreviations_lup = abbreviations_lup)
 
-## 8. Write and document.
+## 9. Write and document.
 ## Note files to be rewritten cannot be open in RStudio.
 # ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
 #                      r_dir_1L_chr = "R",
 #                      dev_pkgs_chr = "ready4fun")
 ##
-## 9. Run script to make package classes.
+## 10. Run script to make package classes.
 source("data-raw/WRITE_CLASSES.R")
 prototype_lup <- prototype_lup %>%
   ready4_class_pt_lup()
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
-## 10. Remake the classes we previously created, this time using the new, preferred write_classes_and_make_lup method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
+## 11. Remake the classes we previously created, this time using the new, preferred write_classes_and_make_lup method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
 prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                  name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir_1L_chr = "R",
                                  file_exists_cdn_1L_chr = "overwrite",
                                  abbreviations_lup = abbreviations_lup)
-## 11. Update the internal system data.
+## 12. Update the internal system data.
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
-# 12. MANUAL STEP - WRITE vignettes
+# 13. MANUAL STEP - WRITE vignettes
 # ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
-# 13. Update documentation
+# 14. Update documentation
 ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun")
 #ready4fun::write_ns_imps_to_desc()
 #
-# 14. Manual step: Push changes
+# 15. Manual step: Push changes
 
 
 

@@ -17,3 +17,4 @@ Names of curr gnrcs (a list)
 \description{
 get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of curr gnrcs. Function argument req_pkgs_chr specifies the where to look for the required object.The function returns names of curr gnrcs (a list).
 }
+\keyword{internal}

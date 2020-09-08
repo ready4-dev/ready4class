@@ -6,6 +6,7 @@
 #' @export 
 #' @importFrom dplyr mutate_at vars
 #' @importFrom purrr map
+#' @keywords internal
 remake_ls_cols.ready4_constructor_tbl <- function (x) 
 {
     inst_of_ready4_constructor_tbl <- x %>% dplyr::mutate_at(dplyr::vars(pt_ls, 

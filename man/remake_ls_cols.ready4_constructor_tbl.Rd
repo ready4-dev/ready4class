@@ -12,3 +12,4 @@
 \description{
 remake_ls_cols.ready4_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.NA
 }
+\keyword{internal}
