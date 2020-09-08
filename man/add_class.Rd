@@ -14,3 +14,4 @@ add_class(x, ...)
 \description{
 add_class() is an Add Class generic that adds information about a class.NA
 }
+\keyword{internal}
