@@ -15,3 +15,4 @@ Function body (a character vector of length one)
 \description{
 replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to a replace NA in. Function argument fn_body_1L_chr specifies the object to be updated.The function returns a function body (a character vector of length one).
 }
+\keyword{internal}

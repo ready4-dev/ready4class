@@ -7,6 +7,7 @@
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
+#' @keywords internal
 update_lup_for_ns.ready4_class_pt_lup <- function (x, attached_nss_chr) 
 {
     attached_nss_chr <- c("base", attached_nss_chr) %>% unique()

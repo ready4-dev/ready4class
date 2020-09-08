@@ -17,3 +17,4 @@ Alg to set old clss (a character vector of length one)
 \description{
 make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to a make alg to set old clss.The function returns alg to set old clss (a character vector of length one).
 }
+\keyword{internal}
