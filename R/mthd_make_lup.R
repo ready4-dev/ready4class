@@ -1,5 +1,5 @@
 #' Make lookup table method applied to CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.
-#' @description make_lup.ready4_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+#' @description make_lup.ready4_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class. The function returns an instance of (a CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class).
 #' @param x PARAM_DESCRIPTION
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
 #' @param prefix_1L_chr Prefix (a character vector of length one)

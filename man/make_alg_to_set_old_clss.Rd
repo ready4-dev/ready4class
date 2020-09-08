@@ -15,5 +15,5 @@ make_alg_to_set_old_clss(type_chr, prototype_lup)
 Alg to set old clss (a character vector of length one)
 }
 \description{
-make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set old classes.The function returns alg to set old clss (a character vector of length one).
+make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set old classes. The function returns an algorithm to set old classes (a character vector of length one).
 }

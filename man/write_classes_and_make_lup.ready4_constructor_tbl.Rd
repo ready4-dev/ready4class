@@ -45,5 +45,5 @@
 Inst of ready4 class prototype (a lookup table)
 }
 \description{
-write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class. The function returns an instance of (a CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class).
 }

@@ -27,5 +27,5 @@ make_alg_to_set_mthd(
 Alg to set mthd (a character vector of length one)
 }
 \description{
-make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set method.The function returns alg to set mthd (a character vector of length one).
+make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set method. The function returns an algorithm to set method (a character vector of length one).
 }

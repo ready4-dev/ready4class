@@ -12,5 +12,5 @@ remove_class_from_cache(class_name_chr, class_in_cache_cdn_1L_chr = "stop")
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
 }
 \description{
-remove_class_from_cache() is a Remove function that edits an object, removing a specified element or elements. Specifically, this function implements an algorithm to remove class from cache. Function argument class_name_chr specifies the object to be updated. Argument class_in_cache_cdn_1L_chr provides the object to be updated.The function is called for its side effects and does not return a value.
+remove_class_from_cache() is a Remove function that edits an object, removing a specified element or elements. Specifically, this function implements an algorithm to remove class from cache. Function argument class_name_chr specifies the object to be updated. Argument class_in_cache_cdn_1L_chr provides the object to be updated. The function is called for its side effects and does not return a value.
 }

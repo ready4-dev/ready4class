@@ -15,5 +15,5 @@
 Inst of ready4 class prototype (a lookup table)
 }
 \description{
-update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.The function returns inst of ready4 class prototype (a lookup table).
+update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class. The function returns an instance of (a CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class).
 }

@@ -24,5 +24,5 @@ make_child_cls_fn_body(
 Child cls function body (a character vector of length one)
 }
 \description{
-make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child class function body.The function returns child cls function body (a character vector of length one).
+make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child class function body. The function returns child class function body (a character vector of length one).
 }

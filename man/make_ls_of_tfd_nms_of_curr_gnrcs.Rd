@@ -21,5 +21,5 @@ make_ls_of_tfd_nms_of_curr_gnrcs(
 Curr gnrcs (a list)
 }
 \description{
-make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make list of transformed names of current generics.The function returns curr gnrcs (a list).
+make_ls_of_tfd_nms_of_curr_gnrcs() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make list of transformed names of current generics. The function returns a current generics (a list).
 }

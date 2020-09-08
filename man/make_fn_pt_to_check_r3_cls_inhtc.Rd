@@ -12,5 +12,5 @@ make_fn_pt_to_check_r3_cls_inhtc(class_nm_1L_chr, s3_validator_ls)
 \item{s3_validator_ls}{S3 validator (a list)}
 }
 \description{
-make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to check readyforwhatsnext s3 class inheritance.The function is called for its side effects and does not return a value.
+make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to check readyforwhatsnext s3 class inheritance. The function is called for its side effects and does not return a value.
 }
