@@ -35,3 +35,4 @@ Gnrc mthd pair (a list)
 \description{
 make_gnrc_mthd_pair_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make generic method pair list.The function returns gnrc mthd pair (a list).
 }
+\keyword{internal}

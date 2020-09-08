@@ -14,3 +14,4 @@ order_tb(x, ...)
 \description{
 order_tb() is an Order Tibble generic that orders a tibble.NA
 }
+\keyword{internal}

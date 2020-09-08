@@ -38,3 +38,4 @@
 \description{
 write_classes.ready4_constructor_tbl() is a Write Classes method that writes new classes. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.NA
 }
+\keyword{internal}

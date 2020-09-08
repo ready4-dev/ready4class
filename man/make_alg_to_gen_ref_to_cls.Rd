@@ -17,3 +17,4 @@ Alg to gen ref to cls (a character vector of length one)
 \description{
 make_alg_to_gen_ref_to_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to generate reference to class.The function returns alg to gen ref to cls (a character vector of length one).
 }
+\keyword{internal}
