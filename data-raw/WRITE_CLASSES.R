@@ -59,7 +59,7 @@ classes_to_make_tb <- classes_to_make_tb %>%
                                                                             pt_ns_chr = "character(0)",
                                                                             fn_to_call_chr = "character(0)",
                                                                             default_val_chr = "character(0)",
-                                                                            old_class_lgl = "logical(0)"), NULL, NULL, NULL, "PROTOTYPE LOOKUP Readyforwhatsnext S3 class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
+                                                                            old_class_lgl = "logical(0)"), NULL, NULL, NULL, "CLASS PROTOTYPE LOOKUP TABLE Readyforwhatsnext S3 class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
 ## 7. Call the write_classes method that we have defined in our R directory to create the scripts that will create scripts to make the classes in this table and save these scripts to the package R directory.
 ##    Note: In addition to creating a new class (ready4_class_pt_lup) the call to the below method recreates the script to make the ready4_constructor_tbl class. That duplication is of no importance in this step,
 ##    but having all the classes we have made summarised in one table (classes_to_make_tb) is necessary for a subsequent step (see DATASET.R in the data-raw directory.)

@@ -13,5 +13,5 @@ A prototype for CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
 Create a new prototype for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
 }
 \details{
-PROTOTYPE LOOKUP Readyforwhatsnext S3 class of metadata of prototype classes.
+CLASS PROTOTYPE LOOKUP TABLE Readyforwhatsnext S3 class of metadata of prototype classes.
 }

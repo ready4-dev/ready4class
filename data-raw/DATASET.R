@@ -85,9 +85,9 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
 
 ## 8. Write and document.
 ## Note files to be rewritten cannot be open in RStudio.
-ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
-                     r_dir_1L_chr = "R",
-                     dev_pkgs_chr = "ready4fun")
+# ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
+#                      r_dir_1L_chr = "R",
+#                      dev_pkgs_chr = "ready4fun")
 ##
 ## 9. Run script to make package classes.
 source("data-raw/WRITE_CLASSES.R")
@@ -99,7 +99,8 @@ prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                  name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir_1L_chr = "R",
-                                 file_exists_cdn_1L_chr = "overwrite")
+                                 file_exists_cdn_1L_chr = "overwrite",
+                                 abbreviations_lup = abbreviations_lup)
 ## 11. Update the internal system data.
 usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
