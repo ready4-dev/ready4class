@@ -2,19 +2,19 @@
 % Please edit documentation in R/C3_ready4_constructor_tbl.R
 \name{validate_ready4_constructor_tbl}
 \alias{validate_ready4_constructor_tbl}
-\title{Validate CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class}
+\title{Validate readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
 validate_ready4_constructor_tbl(x)
 }
 \arguments{
-\item{x}{An unvalidated instance of the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class}
+\item{x}{An unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
 }
 \value{
-A prototpe for CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class
+A prototpe for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \description{
-Validate an instance of the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class
+Validate an instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
-CLASS CONSTRUCTOR TABLE Readyforwhatsnext S3 class of metadata required to make new classes.
+Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 }

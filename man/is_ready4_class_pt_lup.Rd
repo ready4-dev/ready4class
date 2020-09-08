@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4_class_pt_lup.R
 \name{is_ready4_class_pt_lup}
 \alias{is_ready4_class_pt_lup}
-\title{Is CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class}
+\title{Is readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
 \usage{
 is_ready4_class_pt_lup(x)
 }
@@ -10,11 +10,11 @@ is_ready4_class_pt_lup(x)
 \item{x}{An object of any type}
 }
 \value{
-A logical value, TRUE if a valid instance of the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
+A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \description{
-Check whether an object is a valid instance of the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
+Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
-CLASS PROTOTYPE LOOKUP TABLE Readyforwhatsnext S3 class of metadata of prototype classes.
+Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 }

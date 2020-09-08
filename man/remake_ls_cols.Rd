@@ -7,7 +7,7 @@
 remake_ls_cols(x, ...)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{An object}
 
 \item{...}{PARAM_DESCRIPTION}
 }

@@ -2,16 +2,16 @@
 % Please edit documentation in R/C3_ready4_class_pt_lup.R
 \name{make_prototype_ready4_class_pt_lup}
 \alias{make_prototype_ready4_class_pt_lup}
-\title{Make prototype CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class}
+\title{Make prototype readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
 \usage{
 make_prototype_ready4_class_pt_lup()
 }
 \value{
-A prototype for CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
+A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \description{
-Create a new prototype for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class
+Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
-CLASS PROTOTYPE LOOKUP TABLE Readyforwhatsnext S3 class of metadata of prototype classes.
+Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 }

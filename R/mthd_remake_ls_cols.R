@@ -1,6 +1,6 @@
-#' Remake list columns method applied to CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.
-#' @description remake_ls_cols.ready4_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.NA
-#' @param x PARAM_DESCRIPTION
+#' 
+#' @description remake_ls_cols.ready4_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
+#' @param x An instance of 
 #' @return NULL
 #' @rdname remake_ls_cols.ready4_constructor_tbl
 #' @export 

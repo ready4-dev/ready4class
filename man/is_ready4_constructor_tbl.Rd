@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4_constructor_tbl.R
 \name{is_ready4_constructor_tbl}
 \alias{is_ready4_constructor_tbl}
-\title{Is CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class}
+\title{Is readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
 is_ready4_constructor_tbl(x)
 }
@@ -10,11 +10,11 @@ is_ready4_constructor_tbl(x)
 \item{x}{An object of any type}
 }
 \value{
-A logical value, TRUE if a valid instance of the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class
+A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \description{
-Check whether an object is a valid instance of the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class
+Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
-CLASS CONSTRUCTOR TABLE Readyforwhatsnext S3 class of metadata required to make new classes.
+Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 }

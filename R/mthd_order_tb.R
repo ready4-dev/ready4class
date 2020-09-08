@@ -1,6 +1,6 @@
-#' Order tibble method applied to CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.
-#' @description order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.NA
-#' @param x PARAM_DESCRIPTION
+#' 
+#' @description order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
+#' @param x An instance of 
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @return NULL
 #' @rdname order_tb.ready4_constructor_tbl

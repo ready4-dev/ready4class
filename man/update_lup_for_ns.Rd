@@ -7,7 +7,7 @@
 update_lup_for_ns(x, attached_nss_chr, ...)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{An object}
 
 \item{attached_nss_chr}{Attached namespaces (a character vector)}
 

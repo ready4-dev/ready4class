@@ -1,7 +1,7 @@
-#' Add class method applied to CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class.
-#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class. The function returns an instance of (a CLASS PROTOTYPE LOOKUP TABLE readyforwhatsnext S3 class).
-#' @param x PARAM_DESCRIPTION
-#' @param row_idx_1L_int Row idx (an integer vector of length one)
+#' 
+#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns an instance of (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
+#' @param x An instance of 
+#' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
