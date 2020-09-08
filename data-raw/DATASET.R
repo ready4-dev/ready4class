@@ -57,16 +57,21 @@ data("abbreviations_lup")
 data("fn_type_lup_tb")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
-  ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class","Make and Update",
-                                                "Make Classes", # Should be "write" titled
-                                                "Make Lookup Table","Order Tibble","Remake List Columns","Update Lookup Table for Namespace"),
+  ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class",
+                                                "Make Lookup Table",
+                                                "Order Tibble",
+                                                "Remake List Columns",
+                                                "Update Lookup Table for Namespace",
+                                                "Write Classes",
+                                                "Write Classes and Make Lookup Table"
+                                                ),
                              fn_type_desc_chr = c("Adds information about a class.",
                                                   "Applies a Make method and then updates the output of that method.",
-                                                  "Writes new classes.", # Should be "write" titled
-                                                  "Makes a lookup table.",
                                                   "Orders a tibble.",
                                                   "Remakes list columns.",
-                                                  "Updates a lookup table with namespace data."),
+                                                  "Updates a lookup table with namespace data.",
+                                                  "Writes new classes.",
+                                                  "Makes new classes and creates or updates a class prototype lookup table."),
                              is_generic_lgl = T,
                              is_method_lgl = T) %>%
   ready4fun::write_dmtd_fn_type_lup(url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
@@ -75,9 +80,7 @@ data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
 all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
                                                                        inc_for_main_user_lgl_ls = list(force_true_chr = c("write_classes_and_make_lup",
-                                                                                                                          "remake_ls_cols",
-                                                                                                                          "ready4_constructor_tbl",
-                                                                                                                          "ready4_class_pt_tb"),
+                                                                                                                          "remake_ls_cols"),
                                                                             force_false_chr = NA_character_),
                                                            args_ls_ls = NULL),
                                       fn_type_lup_tb = fn_type_lup_tb,

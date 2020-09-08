@@ -14,4 +14,3 @@
 \description{
 order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the CLASS CONSTRUCTOR TABLE readyforwhatsnext S3 class.NA
 }
-\keyword{internal}
