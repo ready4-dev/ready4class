@@ -14,3 +14,4 @@ write_classes(x, ...)
 \description{
 write_classes() is a Write Classes generic that writes new classes.NA
 }
+\keyword{internal}
