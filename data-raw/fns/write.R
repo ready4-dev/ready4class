@@ -353,11 +353,11 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                                                 overwrite_1L_lgl = F,
                                                 s3_1L_lgl,
                                                 write_1L_lgl){
-  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_chr = fn_name_1L_chr,
+  gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_1L_chr = fn_name_1L_chr,
                                              args_chr = args_chr,
                                              signature_1L_chr = signature_1L_chr,
                                              pkg_nm_1L_chr = pkg_nm_1L_chr,
-                                             where_chr = where_chr,
+                                             where_1L_chr = where_chr,
                                              class_nm_1L_chr = class_nm_1L_chr,
                                              fn = fn)
   write_file_ls <- write_script_to_make_gnrc(write_file_ls = write_file_ls,
