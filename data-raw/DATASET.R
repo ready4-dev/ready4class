@@ -57,14 +57,8 @@ data("abbreviations_lup")
 data("fn_type_lup_tb",package = "ready4fun")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
-  ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = c("Add Class",
-                                                "Make Lookup Table",
-                                                "Order Tibble",
-                                                "Remake List Columns",
-                                                "Update Lookup Table for Namespace",
-                                                "Write Classes",
-                                                "Write Classes and Make Lookup Table"
-                                                ),
+  ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = ready4fun::get_new_fn_types(abbreviations_lup = abbreviations_lup,
+                                                                                  fn_type_lup_tb = fn_type_lup_tb),
                              fn_type_desc_chr = c("Adds information about a class.",
                                                   "Applies a Make method and then updates the output of that method.",
                                                   "Orders a tibble.",

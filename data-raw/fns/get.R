@@ -68,9 +68,9 @@ get_parent_cls_pt_fn <- function(parent_cls_nm_1L_chr,
   parent_cls_pt_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                      match_var_nm_1L_chr = "type_chr",
                                                      match_value_xx = parent_cls_nm_1L_chr,
-                                                     target_var_nm_1L_chr = "vals_ls",
+                                                     target_var_nm_1L_chr = "val_chr",
                                                      evaluate_lgl = F)
-  return(parent_cls_pt_fn)
+  return(parent_cls_pt_fn_chr)
 }
 get_parent_cls_pts <- function(parent_cls_nm_1L_chr,
                                parent_ns_ls,
