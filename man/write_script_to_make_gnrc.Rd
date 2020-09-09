@@ -13,7 +13,7 @@ write_script_to_make_gnrc(
   fn_desc_1L_chr = NA_character_,
   fn_outp_type_1L_chr = NA_character_,
   fn_title_1L_chr = NA_character_,
-  class_name_chr = NA_character_,
+  class_nm_1L_chr = NA_character_,
   output_dir_1L_chr = NA_character_,
   overwrite_1L_lgl = F,
   s3_1L_lgl = F,
@@ -38,7 +38,7 @@ write_script_to_make_gnrc(
 
 \item{fn_title_1L_chr}{Function title (a character vector of length one), Default: 'NA'}
 
-\item{class_name_chr}{Class name (a character vector), Default: 'NA'}
+\item{class_nm_1L_chr}{Class name (a character vector of length one), Default: 'NA'}
 
 \item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: 'NA'}
 
@@ -53,4 +53,3 @@ write_script_to_make_gnrc(
 \description{
 write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}
