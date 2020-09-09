@@ -178,7 +178,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
     if(!dir.exists(output_dir_1L_chr))
       dir.create(output_dir_1L_chr)
   }
-  proto_ls <- make_pt_ls(slots_chr = slots_chr,
+  pt_ls <- make_pt_ls(slots_chr = slots_chr,
                          type_chr = type_chr,
                          vals_ls = vals_ls,
                          prototype_lup = prototype_lup)
@@ -192,7 +192,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   write_to_mk_r4_cls(class_nm_1L_chr = class_nm_1L_chr,
                      slots_chr = slots_chr,
                      type_chr = type_chr,
-                     proto_ls = proto_ls,
+                     pt_ls = pt_ls,
                      parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                      print_set_cls_1L_lgl = print_set_cls_1L_lgl,
                      class_desc_1L_chr = class_desc_1L_chr,
@@ -204,7 +204,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     slots_chr = slots_chr,
-                                    proto_ls = proto_ls,
+                                    pt_ls = pt_ls,
                                     prototype_lup = prototype_lup,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
@@ -532,7 +532,7 @@ write_to_delete_gnrc_fn_fls <- function(x,
 write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                slots_chr,
                                type_chr,
-                               proto_ls,
+                               pt_ls,
                                parent_cls_nm_1L_chr,
                                print_set_cls_1L_lgl,
                                class_desc_1L_chr,
@@ -557,14 +557,14 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
   }else{
     old_class_tb_extension <- ""
   }
-  prototype <- eval(parse(text = proto_ls))
+  prototype <- eval(parse(text = pt_ls))
   if(is.null(parent_cls_nm_1L_chr)){
     st_class_fn <- paste0("methods::setClass(",
                           make_alg_to_gen_ref_to_cls(class_nm_1L_chr),
                           ",\nslots = ",
                           slot_str,
                           ",\nprototype =  ",
-                          proto_ls,
+                          pt_ls,
                           ",\nwhere =  ",
                           "globalenv()",
                           ")")
@@ -578,7 +578,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                           "\",\nslots = ",
                           slot_str,
                           ",\nprototype =  ",
-                          proto_ls,
+                          pt_ls,
                           ",\nwhere =  ",
                           "globalenv()",
                           ")")

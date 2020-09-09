@@ -8,7 +8,7 @@ write_to_mk_r4_cls(
   class_nm_1L_chr,
   slots_chr,
   type_chr,
-  proto_ls,
+  pt_ls,
   parent_cls_nm_1L_chr,
   print_set_cls_1L_lgl,
   class_desc_1L_chr,
@@ -26,7 +26,7 @@ write_to_mk_r4_cls(
 
 \item{type_chr}{Type (a character vector)}
 
-\item{proto_ls}{Proto (a list)}
+\item{pt_ls}{Prototype (a list)}
 
 \item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
@@ -47,4 +47,3 @@ write_to_mk_r4_cls(
 \description{
 write_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to make readyforwhatsnext s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}
