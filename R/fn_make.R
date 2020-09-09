@@ -6,7 +6,6 @@
 #' @rdname make_alg_to_gen_ref_to_cls
 #' @export 
 
-#' @keywords internal
 make_alg_to_gen_ref_to_cls <- function (class_nm_1L_chr, pkg_nm_1L_chr = ".GlobalEnv") 
 {
     alg_to_gen_ref_to_cls_1L_chr <- paste0("methods::className(\"", 
@@ -23,7 +22,6 @@ make_alg_to_gen_ref_to_cls <- function (class_nm_1L_chr, pkg_nm_1L_chr = ".Globa
 #' @rdname make_alg_to_get_pt_val
 #' @export 
 
-#' @keywords internal
 make_alg_to_get_pt_val <- function (pt_ns_1L_chr = "", fn_to_call_1L_chr = "", default_val_1L_chr = "", 
     attached_nss_chr = c("base")) 
 {
@@ -43,7 +41,6 @@ make_alg_to_get_pt_val <- function (pt_ns_1L_chr = "", fn_to_call_1L_chr = "", d
 #' @rdname make_alg_to_set_gnrc
 #' @export 
 
-#' @keywords internal
 make_alg_to_set_gnrc <- function (name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
     where_1L_chr = NA_character_) 
 {
@@ -67,7 +64,6 @@ make_alg_to_set_gnrc <- function (name_1L_chr, args_chr = c("x"), signature_1L_c
 #' @rdname make_alg_to_set_mthd
 #' @export 
 
-#' @keywords internal
 make_alg_to_set_mthd <- function (name_1L_chr, class_nm_1L_chr, fn, pkg_nm_1L_chr = NA_character_, 
     where_1L_chr = NA_character_) 
 {
@@ -89,7 +85,6 @@ make_alg_to_set_mthd <- function (name_1L_chr, class_nm_1L_chr, fn, pkg_nm_1L_ch
 #' @importFrom purrr map_lgl map_chr
 #' @importFrom ready4fun get_from_lup_obj
 #' @importFrom stringr str_c
-#' @keywords internal
 make_alg_to_set_old_clss <- function (type_chr, prototype_lup) 
 {
     index_of_s3_lgl <- purrr::map_lgl(type_chr, ~ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
@@ -121,7 +116,6 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup)
 #' @importFrom purrr map_chr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom stringi stri_replace_last
-#' @keywords internal
 make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_of_dif_lnts_chr = NULL, 
     allowed_vals_ls = NULL, names_must_match_ls = NULL, print_validator_1L_lgl = FALSE) 
 {
@@ -191,7 +185,6 @@ make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1
 #' @export 
 #' @importFrom ready4fun get_r4_obj_slots
 #' @importFrom stringr str_c
-#' @keywords internal
 make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, print_gtrs_strs_1L_lgl, 
     output_dir_1L_chr, nss_to_ignore_chr, req_pkgs_chr, parent_ns_ls) 
 {
@@ -226,7 +219,6 @@ make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_c
 #' @rdname make_child_cls_fn_body
 #' @export 
 #' @importFrom stringr str_c
-#' @keywords internal
 make_child_cls_fn_body <- function (child_ext_fn_1L_chr, parent_cls_nm_1L_chr, prototype_lup, 
     prepend_1L_lgl = T) 
 {
@@ -257,7 +249,6 @@ make_child_cls_fn_body <- function (child_ext_fn_1L_chr, parent_cls_nm_1L_chr, p
 #' @export 
 #' @importFrom purrr map2_dfr
 #' @importFrom rlang exec
-#' @keywords internal
 make_class_pt_tb_for_r3_and_r4_clss <- function (class_mk_ls) 
 {
     class_pt_tb_for_r3_and_r4_clss_tb <- purrr::map2_dfr(class_mk_ls, 
@@ -279,7 +270,6 @@ make_class_pt_tb_for_r3_and_r4_clss <- function (class_mk_ls)
 #' @rdname make_class_pts_tb
 #' @export 
 #' @importFrom purrr map2_dfr
-#' @keywords internal
 make_class_pts_tb <- function (class_mk_ls) 
 {
     class_pts_tb <- purrr::map2_dfr(class_mk_ls, names(class_mk_ls), 
@@ -295,7 +285,6 @@ make_class_pts_tb <- function (class_mk_ls)
 #' @rdname make_dmt_inc_tag
 #' @export 
 #' @importFrom stringr str_c
-#' @keywords internal
 make_dmt_inc_tag <- function (class_names_chr, s3_1L_lgl = T) 
 {
     dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr), paste0("#' @include ", 
@@ -311,7 +300,6 @@ make_dmt_inc_tag <- function (class_names_chr, s3_1L_lgl = T)
 #' @rdname make_fn_pt_to_check_r3_cls_inhtc
 #' @export 
 
-#' @keywords internal
 make_fn_pt_to_check_r3_cls_inhtc <- function (class_nm_1L_chr, s3_validator_ls) 
 {
     name_of_fn_to_check_if_is_valid_instance <- paste0("is_", 
@@ -337,7 +325,6 @@ make_fn_pt_to_check_r3_cls_inhtc <- function (class_nm_1L_chr, s3_validator_ls)
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c
-#' @keywords internal
 make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, ordered_1L_lgl, 
     class_nm_1L_chr, parent_cls_nm_1L_chr, prototype_lup) 
 {
@@ -381,7 +368,6 @@ make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, or
 #' @rdname make_fn_pt_to_make_unvld_r3_cls_inst
 #' @export 
 
-#' @keywords internal
 make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_chr, pt_ns_1L_chr, class_nm_1L_chr, 
     s3_prototype_ls) 
 {
@@ -411,7 +397,6 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
 #' @export 
 #' @importFrom purrr compact map2_chr
 #' @importFrom stringr str_c
-#' @keywords internal
 make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3_prototype_ls, min_max_vals_dbl, 
     start_end_vals_dbl, vals_ls) 
 {
@@ -525,7 +510,6 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
 #' @rdname make_fn_pt_to_make_vldd_r3_cls_inst
 #' @export 
 
-#' @keywords internal
 make_fn_pt_to_make_vldd_r3_cls_inst <- function (class_nm_1L_chr, s3_prototype_ls, s3_constructor_ls, 
     s3_validator_ls) 
 {
@@ -547,7 +531,6 @@ make_fn_pt_to_make_vldd_r3_cls_inst <- function (class_nm_1L_chr, s3_prototype_l
 #' @rdname make_gnrc_fn
 #' @export 
 
-#' @keywords internal
 make_gnrc_fn <- function (name_1L_chr, args_chr) 
 {
     if (all(!is.na(args_chr))) {
@@ -573,7 +556,6 @@ make_gnrc_fn <- function (name_1L_chr, args_chr)
 #' @rdname make_gnrc_mthd_pair_ls
 #' @export 
 
-#' @keywords internal
 make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
     pkg_nm_1L_chr = NA_character_, where_1L_chr = NA_character_, 
     class_nm_1L_chr, fn) 
@@ -598,7 +580,6 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
 #' @rdname make_helper_fn
 #' @export 
 #' @importFrom stringr str_sub str_replace str_replace_all str_c
-#' @keywords internal
 make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt_ls, 
     prototype_lup, parent_ns_ls) 
 {
@@ -636,7 +617,6 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
 #' @rdname make_lines_for_writing_dmtd_fn
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt
-#' @keywords internal
 make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_type_1L_chr, class_nm_1L_chr, 
     class_desc_1L_chr, abbreviations_lup = NULL) 
 {
@@ -657,7 +637,6 @@ make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_t
 #' @rdname make_ls_of_pkgs_to_imp
 #' @export 
 #' @importFrom purrr map2_lgl
-#' @keywords internal
 make_ls_of_pkgs_to_imp <- function (curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore_chr) 
 {
     packages_chr <- curr_gnrcs_ls$packages_chr[!curr_gnrcs_ls$packages_chr %in% 
@@ -666,7 +645,7 @@ make_ls_of_pkgs_to_imp <- function (curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore
         ~((.x == fn_name_1L_chr | .y == paste0(fn_name_1L_chr, 
             ".", .x)) & !.x %in% nss_to_ignore_chr))
     gnrc_gtr_exists_1L_lgl <- any(gnrc_gtr_exists_lgl)
-    gtr_imps_chr <- ifelse(gen_get_exists_lgl, packages_chr[gnrc_gtr_exists_lgl], 
+    gtr_imps_chr <- ifelse(gnrc_gtr_exists_1L_lgl, packages_chr[gnrc_gtr_exists_lgl], 
         NA_character_)
     gnrc_str_exists_lgl <- purrr::map2_lgl(packages_chr, names(packages_chr), 
         ~((.x == paste0(fn_name_1L_chr, "<-") | .y == paste0(fn_name_1L_chr, 
@@ -691,7 +670,6 @@ make_ls_of_pkgs_to_imp <- function (curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore
 #' @importFrom gtools getDependencies
 #' @importFrom purrr discard
 #' @importFrom ready4fun unload_packages
-#' @keywords internal
 make_ls_of_tfd_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr, nss_to_ignore_chr) 
 {
     curr_gnrcs_ls <- get_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr, 
@@ -724,7 +702,6 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr, nss_
 #' @importFrom rlang exec
 #' @importFrom tibble add_case
 #' @importFrom dplyr mutate mutate_at
-#' @keywords internal
 make_one_row_class_pt_tb <- function (class_type_mk_ls, make_s3_1L_lgl = T) 
 {
     one_row_class_pt_tb <- class_type_mk_ls %>% purrr:::reduce(.init = ready4_constructor_tbl(), 
@@ -748,7 +725,6 @@ make_one_row_class_pt_tb <- function (class_type_mk_ls, make_s3_1L_lgl = T)
 #' @rdname make_one_row_pt_tb_for_new_r3_cls
 #' @export 
 
-#' @keywords internal
 make_one_row_pt_tb_for_new_r3_cls <- function (x) 
 {
     one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub_chr = x@name_stub_chr, 
@@ -766,7 +742,6 @@ make_one_row_pt_tb_for_new_r3_cls <- function (x)
 #' @rdname make_one_row_pt_tb_for_new_r4_cls
 #' @export 
 
-#' @keywords internal
 make_one_row_pt_tb_for_new_r4_cls <- function (x) 
 {
     one_row_class_pt_tb <- make_one_row_class_pt_tb(list(name_stub_chr = x@name_stub_chr, 
@@ -789,7 +764,6 @@ make_one_row_pt_tb_for_new_r4_cls <- function (x)
 #' @importFrom purrr map2_chr pmap_chr
 #' @importFrom ready4fun get_from_lup_obj
 #' @importFrom stringr str_c
-#' @keywords internal
 make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_lgl = TRUE, 
     prototype_lup) 
 {
@@ -831,7 +805,6 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
 #' @rdname make_pt_ls_for_new_r3_cls
 #' @export 
 
-#' @keywords internal
 make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_chr, pt_chkr_pfx_1L_chr, 
     vals_ls, ordered_1L_lgl, parent_cls_nm_1L_chr, prototype_lup, 
     min_max_vals_dbl, start_end_vals_dbl, nss_to_ignore_chr) 
@@ -875,7 +848,6 @@ make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_
 #' @rdname make_pt_tb_for_new_r3_cls
 #' @export 
 #' @importFrom purrr map_dfr
-#' @keywords internal
 make_pt_tb_for_new_r3_cls <- function (x) 
 {
     pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r3_cls(.x))
@@ -888,7 +860,6 @@ make_pt_tb_for_new_r3_cls <- function (x)
 #' @rdname make_pt_tb_for_new_r4_cls
 #' @export 
 #' @importFrom purrr map_dfr
-#' @keywords internal
 make_pt_tb_for_new_r4_cls <- function (x) 
 {
     pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r4_cls(.x))
@@ -903,7 +874,6 @@ make_pt_tb_for_new_r4_cls <- function (x)
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c
-#' @keywords internal
 make_show_mthd_fn <- function (class_nm_1L_chr, meaningful_nms_ls) 
 {
     descriptive_str <- purrr::map2_chr(names(meaningful_nms_ls), 

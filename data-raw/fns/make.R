@@ -346,7 +346,7 @@ make_ls_of_pkgs_to_imp <- function(curr_gnrcs_ls,
   packages_chr <- curr_gnrcs_ls$packages_chr[!curr_gnrcs_ls$packages_chr %in% c(".GlobalEnv")]
   gnrc_gtr_exists_lgl <- purrr::map2_lgl(packages_chr, names(packages_chr), ~ ((.x == fn_name_1L_chr | .y == paste0(fn_name_1L_chr,".",.x)) & !.x %in% nss_to_ignore_chr))
   gnrc_gtr_exists_1L_lgl <- any(gnrc_gtr_exists_lgl)
-  gtr_imps_chr <- ifelse(gen_get_exists_lgl,packages_chr[gnrc_gtr_exists_lgl],NA_character_)
+  gtr_imps_chr <- ifelse(gnrc_gtr_exists_1L_lgl,packages_chr[gnrc_gtr_exists_lgl],NA_character_)
   gnrc_str_exists_lgl <- purrr::map2_lgl(packages_chr, names(packages_chr), ~ ((.x == paste0(fn_name_1L_chr,"<-") | .y == paste0(fn_name_1L_chr,"<-.",.x)) & !.x %in% nss_to_ignore_chr))
   gnrc_str_exists_1L_lgl <- any(gnrc_str_exists_lgl)
   str_imps_chr <- ifelse(gnrc_str_exists_1L_lgl,packages_chr[gnrc_str_exists_lgl],NA_character_)
