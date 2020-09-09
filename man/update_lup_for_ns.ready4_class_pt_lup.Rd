@@ -17,3 +17,4 @@ Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
 \description{
 update_lup_for_ns.ready4_class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }
+\keyword{internal}
