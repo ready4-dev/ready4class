@@ -213,7 +213,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
                  fn = eval(parse(text = class_nm_1L_chr)),
-                 class_nm_1L_chr = class_nm_1L_chr)
+                 class_name_1L_chr = class_nm_1L_chr)
     writeLines(helper_function)
     ready4fun::close_open_sinks()
   }
