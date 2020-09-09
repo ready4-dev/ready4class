@@ -433,7 +433,7 @@ make_pt_ls <- function(slots_chr,
                                        ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                                    match_var_nm_1L_chr = "type_chr",
                                                                    match_value_xx = .y,
-                                                                   target_var_nm_1L_chr = "vals_ls",
+                                                                   target_var_nm_1L_chr = "val_chr",
                                                                    evaluate_lgl = FALSE)
                               ))
   if(!is.null(vals_ls)){
