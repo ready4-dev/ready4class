@@ -119,13 +119,12 @@ ready4fun::write_and_doc_ds(prototype_lup,
 # ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
 # 14. Update documentation
+pkgdown::build_site()
 ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
                                 update_pkgdown_1L_lgl = T)
 
-#ready4fun::write_ns_imps_to_desc()
-#
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 
