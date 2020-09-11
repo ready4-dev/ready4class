@@ -40,6 +40,7 @@ ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
                     github_repo_1L_chr = "readyforwhatsnext/ready4class",
                     lifecycle_stage_1L_chr = "experimental")
 # PAUSE FOR INTERACTIVE
+travis::use_travis_deploy()
 #
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
