@@ -29,7 +29,8 @@ options(usethis.description = list(
   utils::person("VicHealth",role = c("fnd")),
   utils::person("Victoria University", role =c("fnd"))
   ),
-  License = usethis::use_gpl3_license()
+  License = usethis::use_gpl3_license("Orygen"),
+  URL = c("https://readyforwhatsnext.github.io/ready4class/, https://github.com/readyforwhatsnext/ready4class, https://readyforwhatsnext.github.io/readyforwhatsnext/") # Updated from first run
 ))
 ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
                     delete_contents_of_R_dir = T,
