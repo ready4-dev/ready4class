@@ -1,0 +1,9 @@
+development:
+  mode: auto
+reference:
+- title: "Datasets"
+- contents:
+  - abbreviations_lup
+  - fn_type_lup_tb
+  - generics_lup_tb
+  - prototype_lup
