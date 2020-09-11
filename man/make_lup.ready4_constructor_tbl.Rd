@@ -19,3 +19,4 @@ Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
 \description{
 make_lup.ready4_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }
+\keyword{internal}
