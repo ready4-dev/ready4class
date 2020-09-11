@@ -126,6 +126,7 @@ ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
 #ready4fun::write_ns_imps_to_desc()
 #
 # 15. Manual step: Push changes
+## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 
 
 
