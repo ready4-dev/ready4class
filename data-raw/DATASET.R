@@ -37,7 +37,7 @@ ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
                     copyright_holders_chr = "Orygen",
                     use_travis_1L_lgl = T,
                     path_to_pkg_logo_1L_chr = "../../../../Documentation/Images/ready4class-logo/default.png",
-                    github_repo = "readyforwhatsnext/ready4class",
+                    github_repo_1L_chr = "readyforwhatsnext/ready4class",
                     lifecycle_stage_1L_chr = "experimental")
 # PAUSE FOR INTERACTIVE
 #

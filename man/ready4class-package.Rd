@@ -27,6 +27,15 @@ testing. If you have any questions, please contact the authors
 To learn more about ready4class, start with the vignettes:
 \code{browseVignettes(package = "ready4class")}
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://readyforwhatsnext.github.io/ready4class/}
+  \item \url{https://github.com/readyforwhatsnext/ready4class}
+  \item \url{https://readyforwhatsnext.github.io/readyforwhatsnext/}
+}
+
+}
 \author{
 \strong{Maintainer}: Matthew Hamilton \email{matthew.hamilton@orygen.org.au} (\href{https://orcid.org/0000-0001-7407-9194}{ORCID})
 

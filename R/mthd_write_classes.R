@@ -14,7 +14,6 @@
 #' @export 
 #' @importFrom purrr pwalk
 #' @importFrom dplyr filter
-#' @keywords internal
 write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, nss_to_ignore_chr, req_pkgs_chr = NA_character_, 
     class_in_cache_cdn_1L_chr = "stop", abbreviations_lup = NULL) 

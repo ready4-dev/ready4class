@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Readyforwhatsnext Tools For Creating And Extending
     Classes.
-Version: 0.0.0.9128
+Version: 0.0.0.9129
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -35,6 +35,9 @@ Description: ready4class provides classes and methods that
     testing. If you have any questions, please contact the authors
     (matthew.hamilton@orygen.org.au).
 License: GPL-3
+URL: https://readyforwhatsnext.github.io/ready4class/,
+    https://github.com/readyforwhatsnext/ready4class,
+    https://readyforwhatsnext.github.io/readyforwhatsnext/
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
