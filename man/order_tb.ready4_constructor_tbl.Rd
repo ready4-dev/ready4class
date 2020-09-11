@@ -17,4 +17,3 @@ Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
 \description{
 order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
 }
-\keyword{internal}
