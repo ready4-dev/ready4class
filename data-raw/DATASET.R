@@ -11,7 +11,9 @@ ready4fun::write_fn_type_dirs()
 options(usethis.description = list(
   Package = ready4fun::get_dev_pkg_nm(),
   Title =  "Readyforwhatsnext Tools For Creating And Extending Classes.",
-  Description = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.",
+  Description = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
+  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. That means this should be regarded as UNTESTED software, which is provided for free WITHOUT ANY WARRANTY. Importantly, the tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
+  While we welcome and appreciate anyone who takes the time to provide us with feedback on this test release, we caution you that you should only test this software if you feel confident you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
   `Authors@R` = c(utils::person(
     given = "Matthew",family = "Hamilton", email =
       "matthew.hamilton@orygen.org.au",role = c("aut",
@@ -29,10 +31,13 @@ options(usethis.description = list(
   ),
   License = usethis::use_gpl3_license()
 ))
-# Deletes contents of R directory and resets DESCRIPTION and NAMESPACE files.
-ready4fun::write_pkg_setup_fls(#make_tmpl_vignette_lgl = T, First time script is run this should be un-commented then switched off again.
-  incr_ver_1L_lgl = F,
-  delete_contents_of_R_dir = T)
+ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
+                    delete_contents_of_R_dir = T,
+                    copyright_holders_chr = "Orygen",
+                    use_travis_1L_lgl = T,
+                    path_to_pkg_logo_1L_chr = "../../../../Documentation/Images/ready4class-logo/default.png",
+                    github_repo = "readyforwhatsnext/ready4class",
+                    lifecycle_stage_1L_chr = "experimental")
 # PAUSE FOR INTERACTIVE
 #
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
@@ -114,7 +119,9 @@ ready4fun::write_and_doc_ds(prototype_lup,
 # 14. Update documentation
 ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
-                                dev_pkgs_chr = "ready4fun")
+                                dev_pkgs_chr = "ready4fun",
+                                update_pkgdown_1L_lgl = T)
+
 #ready4fun::write_ns_imps_to_desc()
 #
 # 15. Manual step: Push changes
