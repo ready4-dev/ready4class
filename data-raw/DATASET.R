@@ -1,4 +1,7 @@
 #
+# Prior to running this script, the gh-pages orphan branch should be set up using instructions at:
+# https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/
+#
 # 1. Load magrittr package to that the pipe operator ("%>%") can be used in this script.
 library(magrittr)
 #
