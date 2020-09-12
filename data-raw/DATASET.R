@@ -120,7 +120,7 @@ ready4fun::write_and_doc_ds(prototype_lup,
 #
 # 14. Update documentation
 pkgdown::build_site()
-ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
+ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
                                 update_pkgdown_1L_lgl = T)
