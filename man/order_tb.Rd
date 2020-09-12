@@ -12,5 +12,5 @@ order_tb(x, ...)
 \item{...}{Additional arguments}
 }
 \description{
-order_tb() is an Order Tibble generic that orders a tibble.NA
+order_tb() is an Order Tibble generic that orders a tibble.
 }

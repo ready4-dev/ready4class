@@ -12,5 +12,5 @@ remake_ls_cols(x, ...)
 \item{...}{Additional arguments}
 }
 \description{
-remake_ls_cols() is a Remake List Columns generic that remakes list columns.NA
+remake_ls_cols() is a Remake List Columns generic that remakes list columns.
 }

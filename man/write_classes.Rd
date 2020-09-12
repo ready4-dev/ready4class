@@ -12,5 +12,5 @@ write_classes(x, ...)
 \item{...}{Additional arguments}
 }
 \description{
-write_classes() is a Write Classes generic that writes new classes.NA
+write_classes() is a Write Classes generic that writes new classes.
 }

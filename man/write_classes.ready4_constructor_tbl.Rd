@@ -36,5 +36,5 @@
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \description{
-write_classes.ready4_constructor_tbl() is a Write Classes method that writes new classes. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.NA
+write_classes.ready4_constructor_tbl() is a Write Classes method that writes new classes. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }

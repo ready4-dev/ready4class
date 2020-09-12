@@ -87,10 +87,10 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
                                                                                                                           "remake_ls_cols.ready4_constructor_tbl",
                                                                                                                           "write_classes_and_make_lup",
                                                                                                                           "write_classes_and_make_lup.ready4_constructor_tbl"),
-                                                                            force_false_chr = NA_character_),
-                                                           args_ls_ls = NULL),
-                                      fn_type_lup_tb = fn_type_lup_tb,
-                                      abbreviations_lup = abbreviations_lup)
+                                                                                                       force_false_chr = NA_character_),
+                                                                       args_ls_ls = NULL),
+                                                  fn_type_lup_tb = fn_type_lup_tb,
+                                                  abbreviations_lup = abbreviations_lup)
 
 ## 9. Write and document.
 ## Note files to be rewritten cannot be open in RStudio.

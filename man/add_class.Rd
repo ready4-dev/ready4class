@@ -12,5 +12,5 @@ add_class(x, ...)
 \item{...}{Additional arguments}
 }
 \description{
-add_class() is an Add Class generic that adds information about a class.NA
+add_class() is an Add Class generic that adds information about a class.
 }
