@@ -115,7 +115,7 @@ ready4fun::write_and_doc_ds(prototype_lup,
                             db_1L_chr = "prototype_lup",
                             title_1L_chr = "Class prototype lookup table",
                             desc_1L_chr = "Metadata on classes used in readyforwhatsnext suite")
-
+#
 #usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##
 # 13. MANUAL STEP - WRITE vignettes
