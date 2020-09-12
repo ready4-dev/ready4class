@@ -7,3 +7,15 @@ reference:
   - fn_type_lup_tb
   - generics_lup_tb
   - prototype_lup
+- title: "Classes"
+- contents:
+  - ready4_constructor_tbl
+  - ready4_class_pt_lup
+- title: "Generics"
+- contents:
+  - remake_ls_cols
+  - write_classes_and_make_lup
+- title: "Methods"
+- contents:
+  - remake_ls_cols.ready4_constructor_tbl
+  - write_classes_and_make_lup.ready4_constructor_tbl
