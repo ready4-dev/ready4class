@@ -5,7 +5,6 @@
 #' @param ... Additional arguments
 #' @export 
 
-#' @keywords internal
 add_class <- function (x, ...) 
 {
     UseMethod("add_class", x)
@@ -17,7 +16,6 @@ add_class <- function (x, ...)
 #' @param ... Additional arguments
 #' @export 
 
-#' @keywords internal
 make_lup <- function (x, ...) 
 {
     UseMethod("make_lup", x)
@@ -29,7 +27,6 @@ make_lup <- function (x, ...)
 #' @param ... Additional arguments
 #' @export 
 
-#' @keywords internal
 order_tb <- function (x, ...) 
 {
     UseMethod("order_tb", x)
@@ -53,7 +50,6 @@ remake_ls_cols <- function (x, ...)
 #' @param ... Additional arguments
 #' @export 
 
-#' @keywords internal
 update_lup_for_ns <- function (x, attached_nss_chr, ...) 
 {
     UseMethod("update_lup_for_ns", x)
@@ -65,7 +61,6 @@ update_lup_for_ns <- function (x, attached_nss_chr, ...)
 #' @param ... Additional arguments
 #' @export 
 
-#' @keywords internal
 write_classes <- function (x, ...) 
 {
     UseMethod("write_classes", x)
