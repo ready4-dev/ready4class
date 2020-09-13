@@ -3,6 +3,7 @@
 ## Readyforwhatsnext Tools For Creating And Extending Classes.
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/readyforwhatsnext/ready4class.svg?branch=master)](https://travis-ci.com/readyforwhatsnext/ready4class)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 

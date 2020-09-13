@@ -43,7 +43,7 @@ ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
                     github_repo_1L_chr = "readyforwhatsnext/ready4class",
                     lifecycle_stage_1L_chr = "experimental")
 # PAUSE FOR INTERACTIVE
-travis::use_travis_deploy()
+#travis::use_travis_deploy()
 #
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
@@ -126,7 +126,7 @@ ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
                                 update_pkgdown_1L_lgl = T)
-pkgdown::build_site()
+#pkgdown::build_site()
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 
