@@ -323,7 +323,7 @@ write_script_to_make_gnrc <- function(write_file_ls,
                                                                   "gen_std_s4_mthd"),
                                                "/mthd_",
                                                "/gs_"),
-                                               fn_name_1L_chr,
+                                               fn_name_1L_chr %>% stringr::str_remove("<-"),
                                                ".R")
       if(!file.exists(write_file_ls$meth_file))
         file.create(write_file_ls$meth_file)
