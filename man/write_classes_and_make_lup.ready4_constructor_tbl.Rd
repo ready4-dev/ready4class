@@ -4,7 +4,7 @@
 \alias{write_classes_and_make_lup.ready4_constructor_tbl}
 \title{Write classes and make lookup table method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.}
 \usage{
-\method{write_classes_and_make_lup}{ready4_constructor_tbl}(
+write_classes_and_make_lup.ready4_constructor_tbl(
   x,
   dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
   name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"),

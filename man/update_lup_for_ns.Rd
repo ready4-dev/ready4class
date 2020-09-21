@@ -16,4 +16,3 @@ update_lup_for_ns(x, attached_nss_chr, ...)
 \description{
 update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.
 }
-\keyword{internal}

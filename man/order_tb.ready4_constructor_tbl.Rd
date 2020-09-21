@@ -4,7 +4,7 @@
 \alias{order_tb.ready4_constructor_tbl}
 \title{Order tibble method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.}
 \usage{
-\method{order_tb}{ready4_constructor_tbl}(x, name_pfx_1L_chr)
+order_tb.ready4_constructor_tbl(x, name_pfx_1L_chr)
 }
 \arguments{
 \item{x}{An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
@@ -17,4 +17,3 @@ Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
 \description{
 order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

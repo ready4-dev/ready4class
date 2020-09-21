@@ -4,7 +4,7 @@
 \alias{remake_ls_cols.ready4_constructor_tbl}
 \title{Remake list columns method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.}
 \usage{
-\method{remake_ls_cols}{ready4_constructor_tbl}(x)
+remake_ls_cols.ready4_constructor_tbl(x)
 }
 \arguments{
 \item{x}{An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}

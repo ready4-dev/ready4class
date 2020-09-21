@@ -4,7 +4,7 @@
 \alias{add_class.ready4_class_pt_lup}
 \title{Add class method applied to readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE.}
 \usage{
-\method{add_class}{ready4_class_pt_lup}(
+add_class.ready4_class_pt_lup(
   x,
   row_idx_1L_int,
   make_tb,
@@ -47,4 +47,3 @@ Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
 \description{
 add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }
-\keyword{internal}
