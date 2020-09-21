@@ -21,9 +21,19 @@ reference:
   - ready4_class_pt_lup
 - title: "Generics"
 - contents:
+  - add_class
+  - make_lup
+  - order_tb
   - remake_ls_cols
+  - update_lup_for_ns
+  - write_classes
   - write_classes_and_make_lup
 - title: "Methods"
 - contents:
+  - add_class.ready4_class_pt_lup
+  - make_lup.ready4_constructor_tbl
+  - order_tb.ready4_constructor_tbl
   - remake_ls_cols.ready4_constructor_tbl
+  - update_lup_for_ns.ready4_class_pt_lup
+  - write_classes.ready4_constructor_tbl
   - write_classes_and_make_lup.ready4_constructor_tbl
