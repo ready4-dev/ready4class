@@ -32,3 +32,4 @@ Function prototype to make valid readyforwhatsnext S3 class (an instance)
 \description{
 make_fn_pt_to_make_vld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make valid readyforwhatsnext s3 class instance. The function is called for its side effects and does not return a value.
 }
+\keyword{internal}
