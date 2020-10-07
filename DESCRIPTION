@@ -43,23 +43,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    lifecycle,
-    ready4fun (>= 0.0.0.9223),
-    devtools,
-    dplyr,
-    gtools,
-    magrittr,
-    methods,
-    purrr,
-    rlang,
-    stringi,
-    stringr,
-    testit,
-    tibble,
-    tidyr,
-    usethis
+    lifecycle
 RdMacros: lifecycle
 Depends: 
     R (>= 2.10)
-Remotes: 
-    readyforwhatsnext/ready4fun

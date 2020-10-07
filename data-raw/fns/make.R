@@ -40,12 +40,13 @@ make_alg_to_get_pt_val <- function(pt_ns_1L_chr = "",
 }
 make_alg_to_set_mthd <- function(name_1L_chr,
                                  class_nm_1L_chr,
-                                 fn,
-                                 pkg_nm_1L_chr = NA_character_ ,
+                                 fn = NULL,
+                                 fn_nm_1L_chr =  NA_character_,
+                                 pkg_nm_1L_chr = NA_character_,
                                  where_1L_chr = NA_character_){
   alg_to_set_mthd_1L_chr <- paste0('methods::setMethod(\"', name_1L_chr, '\"',
          ', ',ifelse(is.na(pkg_nm_1L_chr[1]),paste0('\"',class_nm_1L_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_nm_1L_chr,pkg_nm_1L_chr=pkg_nm_1L_chr))),
-         ', ', transform_fn_into_chr(fn),
+         ', ', ifelse(!is.na(fn_nm_1L_chr),fn_nm_1L_chr,transform_fn_into_chr(fn)),
          ifelse(is.na(where_1L_chr[1]),'',paste0(',\nwhere =  ', where_1L_chr)),
          ')')
   return(alg_to_set_mthd_1L_chr)
@@ -281,17 +282,17 @@ make_gnrc_mthd_pair_ls <- function(name_1L_chr,
                                   class_nm_1L_chr,
                                   fn){
   gnrc_mthd_pair_ls <- list(generic_1L_chr = make_alg_to_set_gnrc(name_1L_chr,
-                                      args_chr = args_chr,
-                                      signature_1L_chr = signature_1L_chr,
-                                      where_1L_chr = where_1L_chr),
-       method_chr = make_alg_to_set_mthd(name_1L_chr,
-                                    class_nm_1L_chr = class_nm_1L_chr,
-                                    fn = fn,
-                                    pkg_nm_1L_chr = pkg_nm_1L_chr,
-                                    where_1L_chr = where_1L_chr),
-       gen_fn_chr = make_gnrc_fn(name_1L_chr,
-                                    args_chr = args_chr),
-       meth_fn_chr = transform_fn_into_chr(fn))
+                                                                  args_chr = args_chr,
+                                                                  signature_1L_chr = signature_1L_chr,
+                                                                  where_1L_chr = where_1L_chr),
+                            method_chr = make_alg_to_set_mthd(name_1L_chr,
+                                                              class_nm_1L_chr = class_nm_1L_chr,
+                                                              fn = fn,
+                                                              pkg_nm_1L_chr = pkg_nm_1L_chr,
+                                                              where_1L_chr = where_1L_chr),
+                            gen_fn_chr = make_gnrc_fn(name_1L_chr,
+                                                      args_chr = args_chr),
+                            meth_fn_chr = transform_fn_into_chr(fn))
   return(gnrc_mthd_pair_ls)
 }
 make_helper_fn <- function(class_nm_1L_chr,
