@@ -1,4 +1,5 @@
 
+setOldClass(c("ready4_class_pt_lup","tbl_df", "tbl", "data.frame"))
 #' readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @description Create a new valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param x A prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE, Default: make_prototype_ready4_class_pt_lup()

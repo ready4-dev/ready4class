@@ -1,4 +1,5 @@
 
+setOldClass(c("ready4_constructor_tbl","tbl_df", "tbl", "data.frame"))
 #' readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @description Create a new valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param x A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_prototype_ready4_constructor_tbl()

@@ -4,12 +4,12 @@
 \alias{make_alg_to_set_old_clss}
 \title{Make algorithm to set old classes}
 \usage{
-make_alg_to_set_old_clss(type_chr, prototype_lup)
+make_alg_to_set_old_clss(type_chr, prototype_lup = NULL)
 }
 \arguments{
 \item{type_chr}{Type (a character vector)}
 
-\item{prototype_lup}{Prototype (a lookup table)}
+\item{prototype_lup}{Prototype (a lookup table), Default: NULL}
 }
 \value{
 Algorithm to set old classes (a character vector of length one)
@@ -17,4 +17,3 @@ Algorithm to set old classes (a character vector of length one)
 \description{
 make_alg_to_set_old_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set old classes. The function returns Algorithm to set old classes (a character vector of length one).
 }
-\keyword{internal}

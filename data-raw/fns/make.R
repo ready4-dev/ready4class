@@ -51,21 +51,25 @@ make_alg_to_set_mthd <- function(name_1L_chr,
   return(alg_to_set_mthd_1L_chr)
 }
 make_alg_to_set_old_clss <- function(type_chr,
-                                     prototype_lup){
-  index_of_s3_lgl <- purrr::map_lgl(type_chr,
-                                ~ ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
-                                                              match_var_nm_1L_chr = "type_chr",
-                                                              match_value_xx = .x,
-                                                              target_var_nm_1L_chr = "old_class_lgl",
-                                                              evaluate_lgl = FALSE)
-  )
+                                     prototype_lup = NULL){
+  if(is.null(prototype_lup)){
+    index_of_s3_lgl <- T
+  }else{
+    index_of_s3_lgl <- purrr::map_lgl(type_chr,
+                                      ~ ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                                                    match_var_nm_1L_chr = "type_chr",
+                                                                    match_value_xx = .x,
+                                                                    target_var_nm_1L_chr = "old_class_lgl",
+                                                                    evaluate_lgl = FALSE)
+    )
+  }
   if(!identical(type_chr[index_of_s3_lgl],character(0))){
     alg_to_set_old_clss_1L_chr <- purrr::map_chr(type_chr[index_of_s3_lgl],
                    ~ paste0("setOldClass(c(\"",
                             .x,
                             "\",\"tbl_df\", \"tbl\", \"data.frame\")",
-                            ",where =  ",
-                            "globalenv()",
+                            ifelse(!is.null(prototype_lup),",where =  ",""),
+                            ifelse(!is.null(prototype_lup),"globalenv()",""),
                             ")")) %>% stringr::str_c(sep="",collapse="\n")
   }else{
     alg_to_set_old_clss_1L_chr <- character(0)
