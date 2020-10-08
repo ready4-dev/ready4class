@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Readyforwhatsnext Tools For Creating And Extending
     Classes.
-Version: 0.0.0.9147
+Version: 0.0.0.9148
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -43,7 +43,23 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    lifecycle
+    lifecycle,
+    ready4fun (>= 0.0.0.9227),
+    devtools,
+    dplyr,
+    gtools,
+    magrittr,
+    methods,
+    purrr,
+    rlang,
+    stringi,
+    stringr,
+    testit,
+    tibble,
+    tidyr,
+    usethis
 RdMacros: lifecycle
 Depends: 
     R (>= 2.10)
+Remotes: 
+    readyforwhatsnext/ready4fun
