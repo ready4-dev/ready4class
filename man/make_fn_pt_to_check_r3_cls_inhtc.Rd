@@ -17,4 +17,3 @@ Function prototype to check readyforwhatsnext S3 class (an inheritance)
 \description{
 make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to check readyforwhatsnext s3 class inheritance. The function is called for its side effects and does not return a value.
 }
-\keyword{internal}
