@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ready4class</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9144</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9151</span>
       </span>
     </div>
 
@@ -128,13 +128,14 @@
     <p>make_alg_to_set_mthd() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set method. The function returns Algorithm to set method (a character vector of length one).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_alg_to_set_mthd</span>(
-  <span class='kw'>name_1L_chr</span>,
-  <span class='kw'>class_nm_1L_chr</span>,
-  <span class='kw'>fn</span>,
-  pkg_nm_1L_chr = <span class='fl'>NA_character_</span>,
-  where_1L_chr = <span class='fl'>NA_character_</span>
-)</pre>
+    <pre class="usage"><span class='fu'>make_alg_to_set_mthd</span><span class='op'>(</span>
+  <span class='va'>name_1L_chr</span>,
+  <span class='va'>class_nm_1L_chr</span>,
+  fn <span class='op'>=</span> <span class='cn'>NULL</span>,
+  fn_nm_1L_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
+  pkg_nm_1L_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
+  where_1L_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,7 +150,11 @@
     </tr>
     <tr>
       <th>fn</th>
-      <td><p>Function (a function)</p></td>
+      <td><p>Function (a function), Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>fn_nm_1L_chr</th>
+      <td><p>Function name (a character vector of length one), Default: 'NA'</p></td>
     </tr>
     <tr>
       <th>pkg_nm_1L_chr</th>
