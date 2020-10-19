@@ -516,8 +516,8 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                  base_set_of_clss_to_inc_chr = NULL) %>%
     make_dmt_inc_tag(s3_1L_lgl = T)
   pt_ls_for_new_r3_cls_ls <- list(fn_name_ls = fn_name_ls,
-       fn_body_1L_chr_ls = fn_body_1L_chr_ls,
-       include_tags_chr = include_tags_chr)
+                                  fn_body_1L_chr_ls = fn_body_1L_chr_ls,
+                                  include_tags_chr = include_tags_chr)
   return(pt_ls_for_new_r3_cls_ls)
 }
 make_pt_tb_for_new_r3_cls <- function(x){

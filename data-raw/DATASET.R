@@ -102,7 +102,7 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
 source("data-raw/WRITE_CLASSES.R")
 prototype_lup <- prototype_lup %>%
   ready4_class_pt_lup()
-usethis::use_data(prototype_lup,overwrite = T, internal = T)
+usethis::use_data(prototype_lup, overwrite = T, internal = T)
 ## 11. Remake the classes we previously created, this time using the new, preferred write_classes_and_make_lup method, which appends the metadata on the new classes to our instance of the ready4_class_pt_lup class.
 prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),

@@ -7,11 +7,11 @@
 name_pfx_1L_chr <- "ready4_"
 #dev_pkg_ns_1L_chr <- ready4fun::get_dev_pkg_nm()
 ## 3. Create a table with metadata about frequently used class prototypes
-prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df"), ## CHANGED FROM POSIXt
-                                val_chr = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()"),
-                                pt_ns_chr = c("base", "base", "base", "base", "base", "sf", "tibble"),
-                                fn_to_call_chr = c("", "list", "", "", ".POSIXct", "st_sf", "tibble"),
-                                default_val_chr = c("NA_character_", "list()", "NA", "NA_real_", "NA_character_", "sf::st_sfc()", ""),
+prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df","integer"), ## CHANGED FROM POSIXt
+                                val_chr = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()","NA_integer_"),
+                                pt_ns_chr = c("base", "base", "base", "base", "base", "sf", "tibble","base"),
+                                fn_to_call_chr = c("", "list", "", "", ".POSIXct", "st_sf", "tibble",""),
+                                default_val_chr = c("NA_character_", "list()", "NA", "NA_real_", "NA_character_", "sf::st_sfc()", "","NA_integer_"),
                                 old_class_lgl = FALSE)
 ## 4. Create a table with the metadata for the ready4_constructor_tbl class that we wish to create.
 classes_to_make_tb <- tibble::tribble(

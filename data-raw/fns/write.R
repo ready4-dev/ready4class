@@ -132,10 +132,11 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                                   min_max_vals_dbl = min_max_vals_dbl,
                                                   start_end_vals_dbl = start_end_vals_dbl,
                                                   nss_to_ignore_chr = nss_to_ignore_chr)
-
     sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr =="append",TRUE,FALSE))
     writeLines(s3_components_ls$include_tags_chr)
-    writeLines(make_alg_to_set_old_clss(class_nm_1L_chr))
+    if(type_1L_chr =="tibble"){
+      writeLines(make_alg_to_set_old_clss(class_nm_1L_chr))
+    }
     purrr::pwalk(list(s3_components_ls$fn_name_ls,
                       s3_components_ls$fn_body_1L_chr_ls,
                       c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype", "s3_validator", "s3_checker")),
