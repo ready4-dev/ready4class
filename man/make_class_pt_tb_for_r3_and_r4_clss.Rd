@@ -15,3 +15,4 @@ Class prototype tibble for readyforwhatsnext S3 and readyforwhatsnext S4 classes
 \description{
 make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototype tibble for readyforwhatsnext s3 and readyforwhatsnext s4 classes. The function returns Class prototype tibble for readyforwhatsnext S3 and readyforwhatsnext S4 classes (a tibble).
 }
+\keyword{internal}
