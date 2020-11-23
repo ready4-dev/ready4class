@@ -12,6 +12,7 @@
 #' @return NULL
 #' @rdname write_classes.ready4_constructor_tbl
 #' @export 
+#' @importFrom utils data
 #' @importFrom purrr pwalk
 #' @importFrom dplyr filter
 write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
@@ -19,7 +20,8 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
     class_in_cache_cdn_1L_chr = "stop", abbreviations_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
-        data("abbreviations_lup", package = "ready4class", envir = environment())
+        utils::data("abbreviations_lup", package = "ready4class", 
+            envir = environment())
     purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T), ~write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2, 
         name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
         class_desc_1L_chr = ..10, parent_cls_nm_1L_chr = if (is.na(..11)) {

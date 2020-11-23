@@ -14,6 +14,7 @@
 #' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
 #' @rdname add_class.ready4_class_pt_lup
 #' @export 
+#' @importFrom utils data
 #' @importFrom dplyr slice pull filter bind_rows
 add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
@@ -21,7 +22,8 @@ add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_n
     abbreviations_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
-        data("abbreviations_lup", package = "ready4class", envir = environment())
+        utils::data("abbreviations_lup", package = "ready4class", 
+            envir = environment())
     make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
     write_classes(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
         output_dir_1L_chr = output_dir_1L_chr, file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 

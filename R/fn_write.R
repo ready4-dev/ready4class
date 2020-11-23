@@ -293,6 +293,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @return NULL
 #' @rdname write_scripts_to_mk_r3_cls
 #' @export 
+#' @importFrom utils data
 #' @importFrom purrr pwalk
 #' @importFrom ready4fun close_open_sinks
 #' @importFrom devtools document load_all
@@ -304,7 +305,8 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     file_exists_cdn_1L_chr = "skip", abbreviations_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
-        data("abbreviations_lup", package = "ready4class", envir = environment())
+        utils::data("abbreviations_lup", package = "ready4class", 
+            envir = environment())
     if (!dir.exists(output_dir_1L_chr)) 
         dir.create(output_dir_1L_chr)
     class_nm_1L_chr <- paste0(name_pfx_1L_chr, name_stub_1L_chr)
@@ -484,6 +486,7 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @rdname write_std_mthd
 #' @export 
 #' @importFrom testit assert
+#' @importFrom utils installed.packages
 #' @importFrom purrr discard
 write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn_title_1L_chr, 
     fn_outp_type_1L_chr, pkg_nm_1L_chr, output_dir_1L_chr, signature_1L_chr = NA_character_, 
@@ -499,10 +502,12 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
         "/meth_", fn_name_1L_chr, ".R"))
     curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, 
         generic_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
-            rownames(installed.packages()), pkg_nm_1L_chr, NA_character_))
+            rownames(utils::installed.packages()), pkg_nm_1L_chr, 
+            NA_character_))
     pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls, 
         fn_name_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
-            rownames(installed.packages()), pkg_nm_1L_chr, NA_character_))
+            rownames(utils::installed.packages()), pkg_nm_1L_chr, 
+            NA_character_))
     gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
     imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr != 
         pkg_nm_1L_chr]

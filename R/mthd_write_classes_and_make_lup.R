@@ -15,6 +15,7 @@
 #' @rdname write_classes_and_make_lup.ready4_constructor_tbl
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
+#' @importFrom utils data
 #' @importFrom purrr walk reduce
 write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"), 
@@ -24,7 +25,8 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_
     class_in_cache_cdn_1L_chr = "stop", abbreviations_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
-        data("abbreviations_lup", package = "ready4class", envir = environment())
+        utils::data("abbreviations_lup", package = "ready4class", 
+            envir = environment())
     if (is.null(init_class_pt_lup)) 
         init_class_pt_lup <- prototype_lup
     x <- order_tb(x, name_pfx_1L_chr)
