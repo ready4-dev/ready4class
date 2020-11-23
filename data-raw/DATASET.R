@@ -125,8 +125,8 @@ ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
                                 update_pkgdown_1L_lgl = T)
-ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138.pdf",
-                          developer_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138_dev.pdf")
+# ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138.pdf",
+#                           developer_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138_dev.pdf")
 
 usethis::use_build_ignore("initial_setup.R")
 #pkgdown::build_site()
