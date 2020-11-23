@@ -29,6 +29,6 @@ If you plan on testing this software you can install it by running the following
 ```r
 utils::install.packages("devtools")
 
-devtools::install_github("ready4-dev/ready4fun")
+devtools::install_github("ready4-dev/ready4class")
 
 ```
