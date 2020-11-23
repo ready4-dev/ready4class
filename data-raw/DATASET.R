@@ -11,39 +11,38 @@ ready4fun::write_fn_type_dirs()
 # 3. MANUAL STEP. Write all your functions to R files in the new "fns" directory.
 #
 # 4. Set-up package structure
-options(usethis.description = list(
-  Package = ready4fun::get_dev_pkg_nm(),
-  Title =  "Readyforwhatsnext Tools For Creating And Extending Classes.",
-  Description = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
+ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For Creating And Extending Classes For Use As Part of The Ready4 Suite",
+                 pkg_desc_1L_chr = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
   This development version of the ready4class package has been made available as part of the process of testing and documenting the package. That means this should be regarded as UNTESTED software, which is provided for free WITHOUT ANY WARRANTY. Importantly, the tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
   While we welcome and appreciate anyone who takes the time to provide us with feedback on this test release, we caution you that you should only test this software if you feel confident you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
-  `Authors@R` = c(utils::person(
-    given = "Matthew",family = "Hamilton", email =
-      "matthew.hamilton@orygen.org.au",role = c("aut",
-                                                "cre"),comment = c(ORCID = "0000-0001-7407-9194")
-  ),
-  utils::person("Glen", "Wiesner", email = "Glen.Wiesner@vu.edu.au",
-                role = c("aut"), comment = c(ORCID = "0000-0002-0071-130X")),
-  #person("Alexandra", "Parker", email =  "Alex.Parker@vu.edu.au", role = c("rev"), comment = c(ORCID ="0000-0002-2398-6306")),
-  #person("Cathrine", "Mihalopoulos",email = "cathy.mihalopoulos@deakin.edu.au", role = c("rev"), comment = c(ORCID = "0000-0002-7127-9462")),
-  #person("Jonathan", "Karnon", email ="Jonathan.Karnon@flinders.edu.au", role = c("rev"), comment =c(ORCID = "0000-0003-3220-2099")),
-  #person("Petra","Plencnerova", email = "Petra.Plencnerova@vu.edu.au", role =c("rev"), comment = c(ORCID = "0000-0001-9698-9084")),
-  utils::person("Orygen", role = c("cph", "fnd")),
-  utils::person("VicHealth",role = c("fnd")),
-  utils::person("Victoria University", role =c("fnd"))
-  ),
-  License = usethis::use_gpl3_license("Orygen"),
-  URL = c("https://readyforwhatsnext.github.io/ready4class/, https://github.com/readyforwhatsnext/ready4class, https://readyforwhatsnext.github.io/readyforwhatsnext/") # Updated from first run
-))
-ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
-                    delete_contents_of_R_dir = T,
-                    copyright_holders_chr = "Orygen",
-                    use_travis_1L_lgl = F, # Change back when textshaping Travis issue is resolved
-                    path_to_pkg_logo_1L_chr = "../../../../Documentation/Images/ready4class-logo/default.png",
-                    github_repo_1L_chr = "readyforwhatsnext/ready4class",
-                    lifecycle_stage_1L_chr = "experimental")
+                 authors_prsns = c(utils::person(
+                   given = "Matthew",family = "Hamilton", email =
+                     "matthew.hamilton@orygen.org.au",role = c("aut",
+                                                               "cre"),comment = c(ORCID = "0000-0001-7407-9194")
+                 ),
+                 utils::person("Glen", "Wiesner", email = "Glen.Wiesner@vu.edu.au",
+                               role = c("aut"), comment = c(ORCID = "0000-0002-0071-130X")),
+                 #person("Alexandra", "Parker", email =  "Alex.Parker@vu.edu.au", role = c("rev"), comment = c(ORCID ="0000-0002-2398-6306")),
+                 #person("Cathrine", "Mihalopoulos",email = "cathy.mihalopoulos@deakin.edu.au", role = c("rev"), comment = c(ORCID = "0000-0002-7127-9462")),
+                 #person("Jonathan", "Karnon", email ="Jonathan.Karnon@flinders.edu.au", role = c("rev"), comment =c(ORCID = "0000-0003-3220-2099")),
+                 #person("Petra","Plencnerova", email = "Petra.Plencnerova@vu.edu.au", role =c("rev"), comment = c(ORCID = "0000-0001-9698-9084")),
+                 utils::person("Orygen", role = c("cph", "fnd")),
+                 utils::person("VicHealth",role = c("fnd")),
+                 utils::person("Victoria University", role =c("fnd"))
+                 ),
+                 urls_chr = c("https://ready4-dev.github.io/ready4class/",
+                              "https://github.com/ready4-dev/ready4class",
+                              "https://ready4-dev.github.io/ready4/")) %>%
+  ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
+                      delete_contents_of_R_dir = T,
+                      copyright_holders_chr = "Orygen",
+                      check_type_1L_chr = "gh",
+                      path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4fun-logo/default.png",
+                      github_repo = "ready4-dev/ready4fun",
+                      lifecycle_stage_1L_chr = "experimental",
+                      badges_lup = ready4fun::badges_lup,
+                      addl_badges_ls = list(ready4 = "development"))
 # PAUSE FOR INTERACTIVE
-#travis::use_travis_deploy()
 #
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_set_validity_of_r4_cls}
 \alias{make_alg_to_set_validity_of_r4_cls}
-\title{Make algorithm to set validity of readyforwhatsnext S4 class}
+\title{Make algorithm to set validity of ready4 S4 class}
 \usage{
 make_alg_to_set_validity_of_r4_cls(
   class_nm_1L_chr,
@@ -27,9 +27,8 @@ make_alg_to_set_validity_of_r4_cls(
 \item{print_validator_1L_lgl}{Print validator (a logical vector of length one), Default: FALSE}
 }
 \value{
-Algorithm to set validity of readyforwhatsnext S4 class (a character vector of length one)
+Algorithm to set validity of ready4 S4 class (a character vector of length one)
 }
 \description{
-make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of readyforwhatsnext s4 class. The function returns Algorithm to set validity of readyforwhatsnext S4 class (a character vector of length one).
+make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of ready4 s4 class. The function returns Algorithm to set validity of ready4 S4 class (a character vector of length one).
 }
-\keyword{internal}

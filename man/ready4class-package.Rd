@@ -4,8 +4,8 @@
 \name{ready4class-package}
 \alias{ready4class}
 \alias{ready4class-package}
-\title{ready4class: Readyforwhatsnext Tools For Creating And Extending
-Classes.}
+\title{ready4class: Standardised Developer Tools For Creating And Extending
+Classes For Use As Part of The Ready4 Suite}
 \description{
 ready4class provides classes and methods that
 are designed to standardise and streamline the process for extending
@@ -30,9 +30,9 @@ To learn more about ready4class, start with the vignettes:
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://readyforwhatsnext.github.io/ready4class/}
-  \item \url{https://github.com/readyforwhatsnext/ready4class}
-  \item \url{https://readyforwhatsnext.github.io/readyforwhatsnext/}
+  \item \url{https://ready4-dev.github.io/ready4class/}
+  \item \url{https://github.com/ready4-dev/ready4class}
+  \item \url{https://ready4-dev.github.io/ready4/}
 }
 
 }

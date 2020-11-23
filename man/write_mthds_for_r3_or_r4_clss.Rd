@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_mthds_for_r3_or_r4_clss}
 \alias{write_mthds_for_r3_or_r4_clss}
-\title{Write methods for readyforwhatsnext S3 or readyforwhatsnext S4 classes}
+\title{Write methods for ready4 S3 or ready4 S4 classes}
 \usage{
 write_mthds_for_r3_or_r4_clss(
   methods_tb,
@@ -21,6 +21,5 @@ write_mthds_for_r3_or_r4_clss(
 \item{output_dir_1L_chr}{Output directory (a character vector of length one)}
 }
 \description{
-write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write methods for readyforwhatsnext s3 or readyforwhatsnext s4 classes. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write methods for ready4 s3 or ready4 s4 classes. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

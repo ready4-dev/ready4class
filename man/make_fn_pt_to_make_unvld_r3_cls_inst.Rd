@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_fn_pt_to_make_unvld_r3_cls_inst}
 \alias{make_fn_pt_to_make_unvld_r3_cls_inst}
-\title{Make function prototype to make unvld readyforwhatsnext S3 class instance}
+\title{Make function prototype to make unvld ready4 S3 class instance}
 \usage{
 make_fn_pt_to_make_unvld_r3_cls_inst(
   type_1L_chr,
@@ -24,9 +24,8 @@ make_fn_pt_to_make_unvld_r3_cls_inst(
 \item{s3_prototype_ls}{S3 prototype (a list)}
 }
 \value{
-Function prototype to make unvld readyforwhatsnext S3 class (an instance)
+Function prototype to make unvld ready4 S3 class (an instance)
 }
 \description{
-make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make unvld readyforwhatsnext s3 class instance. The function is called for its side effects and does not return a value.
+make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make unvld ready4 s3 class instance. The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

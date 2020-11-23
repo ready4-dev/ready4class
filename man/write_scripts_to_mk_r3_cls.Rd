@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_scripts_to_mk_r3_cls}
 \alias{write_scripts_to_mk_r3_cls}
-\title{Write scripts to make readyforwhatsnext S3 class}
+\title{Write scripts to make ready4 S3 class}
 \usage{
 write_scripts_to_mk_r3_cls(
   name_stub_1L_chr,
@@ -60,6 +60,5 @@ write_scripts_to_mk_r3_cls(
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \description{
-write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make readyforwhatsnext s3 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s3 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}
