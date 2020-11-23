@@ -10,7 +10,7 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function(x,
                                                               class_in_cache_cdn_1L_chr = "stop",
                                                               abbreviations_lup = NULL){
   if(is.null(abbreviations_lup))
-    data("abbreviations_lup", package = "ready4class",
+    utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
   if(is.null(init_class_pt_lup))
     init_class_pt_lup <- prototype_lup

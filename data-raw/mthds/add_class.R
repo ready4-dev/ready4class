@@ -10,7 +10,7 @@ add_class.ready4_class_pt_lup <- function(x,
                                           class_in_cache_cdn_1L_chr = "stop",
                                           abbreviations_lup = NULL){
   if(is.null(abbreviations_lup))
-    data("abbreviations_lup", package = "ready4class",
+    utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
   make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
   write_classes(make_tb,

@@ -47,7 +47,7 @@ ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
 # 6. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
-data("abbreviations_lup",package = "ready4fun")
+utils::data("abbreviations_lup",package = "ready4fun")
 ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","idx","inc","inhtc","inst","lnt","mk","mthd","ptrn",
                                              "ready4_constructor_tbl","ready4_class_pt_lup",
                                              "ref","ret","tf","tfd","unvd","val","vld","vldd"),
@@ -61,9 +61,9 @@ ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","cur
                           custom_plural_ls = list(class = "classes", index = "indices"),
                             url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                             seed_lup = abbreviations_lup)
-data("abbreviations_lup")
+utils::data("abbreviations_lup")
 # 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
-data("fn_type_lup_tb",package = "ready4fun")
+utils::data("fn_type_lup_tb",package = "ready4fun")
 ## Get below working and add arrange.
 fn_type_lup_tb %>%
   ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = ready4fun::get_new_fn_types(abbreviations_lup = abbreviations_lup,
@@ -79,7 +79,7 @@ fn_type_lup_tb %>%
                              is_method_lgl = T) %>%
   ready4fun::write_dmtd_fn_type_lup(url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
                        abbreviations_lup = abbreviations_lup)
-data("fn_type_lup_tb")
+utils::data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
 all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
                                                                        inc_for_main_user_lgl_ls = list(force_true_chr = c("remake_ls_cols",
@@ -128,6 +128,7 @@ ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
 ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138.pdf",
                           developer_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138_dev.pdf")
 
+usethis::use_build_ignore("initial_setup.R")
 #pkgdown::build_site()
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html

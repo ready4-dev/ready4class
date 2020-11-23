@@ -108,7 +108,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                         file_exists_cdn_1L_chr = "skip",
                                        abbreviations_lup = NULL){
   if(is.null(abbreviations_lup))
-    data("abbreviations_lup", package = "ready4class",
+    utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
   if(!dir.exists(output_dir_1L_chr))
     dir.create(output_dir_1L_chr)
@@ -474,13 +474,13 @@ write_std_mthd <- function(fn,
                                            ".R"))
   curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
                                                           generic_1L_chr = fn_name_1L_chr,
-                                                          nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(installed.packages()),
+                                                          nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
                                                                                  pkg_nm_1L_chr,
                                                                                  NA_character_))
   ## NB: Ensure latest ready4 bundle (ready4dev and ready4mod) is installed.
   pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
                                                fn_name_1L_chr = fn_name_1L_chr,
-                                               nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(installed.packages()),
+                                               nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
                                                                       pkg_nm_1L_chr,
                                                                       NA_character_))
   gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl

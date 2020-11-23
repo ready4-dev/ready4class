@@ -8,7 +8,7 @@ write_classes.ready4_constructor_tbl <- function(x,
                                                  class_in_cache_cdn_1L_chr = "stop",
                                                  abbreviations_lup = NULL){
   if(is.null(abbreviations_lup))
-    data("abbreviations_lup", package = "ready4class",
+    utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T),
                ~ write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2,

@@ -334,7 +334,7 @@ make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            class_desc_1L_chr,
                                            abbreviations_lup = NULL){
   if (is.null(abbreviations_lup))
-    data("abbreviations_lup", package = "ready4class",
+    utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
   ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                           fn_type_1L_chr = fn_type_1L_chr,
@@ -383,7 +383,7 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function(req_pkgs_chr,
 make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_1L_lgl = T){
   one_row_class_pt_tb <- class_type_mk_ls  %>%
-    purrr:::reduce(.init = ready4_constructor_tbl(),
+    purrr::reduce(.init = ready4_constructor_tbl(),
                    ~ {
                      testit::assert(paste0("Allowable list element names are: ", names(.x) %>% paste0(collapse = ",")),names(.y) %in% names(.x))
                      rlang::exec(tibble::add_case,.x,!!!.y)
