@@ -31,8 +31,8 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
             ..11
         }, type_1L_chr = ..3[[1]], pt_chkr_pfx_1L_chr = ..4[[1]], 
         pt_ns_1L_chr = ifelse(..5[[1]] %in% c("base"), "", ..5[[1]]), 
-        vals_ls = ..6, allowed_vals_ls = ..7, min_max_vals_dbl = ..8[[1]][[1]], 
-        start_end_vals_dbl = ..9[[1]][[1]], file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
+        vals_ls = ..6, allowed_vals_ls = ..7, min_max_vals_dbl = ..8[[1]], 
+        start_end_vals_dbl = ..9[[1]], file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
         prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
         abbreviations_lup = abbreviations_lup))
     purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T), ~write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2, 

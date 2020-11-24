@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Standardised Developer Tools For Creating And Extending
     Classes For Use As Part of The Ready4 Suite
-Version: 0.0.0.9158
+Version: 0.0.0.9159
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
