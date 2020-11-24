@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make prototype tibble for new ready4 S4 class — make_pt_tb_for_new_r4_cls • ready4class</title>
+<title>Order tibble — order_tb • ready4class</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Make prototype tibble for new ready4 S4 class — make_pt_tb_for_new_r4_cls" />
-<meta property="og:description" content="make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 s4 class. The function returns Prototype tibble for new ready4 S3 class (a tibble)." />
+<meta property="og:title" content="Order tibble — order_tb" />
+<meta property="og:description" content="order_tb() is an Order Tibble generic that orders a tibble.
+order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,29 +120,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make prototype tibble for new ready4 S4 class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/fn_make.R'><code>R/fn_make.R</code></a></small>
-    <div class="hidden name"><code>make_pt_tb_for_new_r4_cls.Rd</code></div>
+    <h1>Order tibble</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/grp_generics.R'><code>R/grp_generics.R</code></a>, <a href='https://github.com/ready4-dev/ready4class/blob/master/R/mthd_order_tb.R'><code>R/mthd_order_tb.R</code></a></small>
+    <div class="hidden name"><code>order_tb-methods.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 s4 class. The function returns Prototype tibble for new ready4 S3 class (a tibble).</p>
+    <p>order_tb() is an Order Tibble generic that orders a tibble.</p>
+<p>order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_pt_tb_for_new_r4_cls</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>order_tb</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>order_tb.ready4_constructor_tbl</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>name_pfx_1L_chr</span><span class='op'>)</span>
+
+<span class='co'># S4 method for ready4_constructor_tbl</span>
+<span class='fu'>order_tb</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>name_pfx_1L_chr</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>PARAM_DESCRIPTION</p></td>
+      <td><p>An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments</p></td>
+    </tr>
+    <tr>
+      <th>name_pfx_1L_chr</th>
+      <td><p>Name prefix (a character vector of length one)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Prototype tibble for new ready4 S3 class (a tibble)</p>
+    <p>Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
