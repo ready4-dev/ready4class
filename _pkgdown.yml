@@ -13,7 +13,6 @@ reference:
 - contents:
   - abbreviations_lup
   - fn_type_lup_tb
-  - generics_lup_tb
   - prototype_lup
 - title: "Classes"
 - contents:
