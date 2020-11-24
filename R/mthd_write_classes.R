@@ -10,7 +10,7 @@
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @return NULL
-#' @rdname write_classes.ready4_constructor_tbl
+#' @rdname write_classes-methods
 #' @export 
 #' @importFrom utils data
 #' @importFrom purrr pwalk
@@ -47,4 +47,6 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
         prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr))
 }
+#' @rdname write_classes-methods
+#' @aliases write_classes,ready4_constructor_tbl-method
 methods::setMethod("write_classes", "ready4_constructor_tbl", write_classes.ready4_constructor_tbl)

@@ -12,7 +12,7 @@
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
-#' @rdname add_class.ready4_class_pt_lup
+#' @rdname add_class-methods
 #' @export 
 #' @importFrom utils data
 #' @importFrom dplyr slice pull filter bind_rows
@@ -38,4 +38,6 @@ add_class.ready4_class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_n
         classes_to_add_chr) %>% dplyr::bind_rows(new_pt_lup)
     return(inst_ready4_class_pt_lup)
 }
+#' @rdname add_class-methods
+#' @aliases add_class,ready4_class_pt_lup-method
 methods::setMethod("add_class", "ready4_class_pt_lup", add_class.ready4_class_pt_lup)

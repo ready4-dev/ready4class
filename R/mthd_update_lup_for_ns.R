@@ -3,7 +3,7 @@
 #' @param x An instance of readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param attached_nss_chr Attached namespaces (a character vector)
 #' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
-#' @rdname update_lup_for_ns.ready4_class_pt_lup
+#' @rdname update_lup_for_ns-methods
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
@@ -15,4 +15,6 @@ update_lup_for_ns.ready4_class_pt_lup <- function (x, attached_nss_chr)
         fn_to_call_1L_chr = ..2, default_val_1L_chr = ..3, attached_nss_chr = attached_nss_chr)))
     return(inst_ready4_class_pt_lup)
 }
+#' @rdname update_lup_for_ns-methods
+#' @aliases update_lup_for_ns,ready4_class_pt_lup-method
 methods::setMethod("update_lup_for_ns", "ready4_class_pt_lup", update_lup_for_ns.ready4_class_pt_lup)

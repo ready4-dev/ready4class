@@ -1,5 +1,5 @@
 #' Add class
-#' @name add_class
+#' @rdname add_class-methods
 #' @description add_class() is an Add Class generic that adds information about a class.
 #' @param x An object
 #' @param ... Additional arguments
@@ -11,7 +11,7 @@ add_class <- function (x, ...)
 }
 methods::setGeneric("add_class")
 #' Make lookup table
-#' @name make_lup
+#' @rdname make_lup-methods
 #' @description make_lup() is a Make Lookup Table generic that applies a Make method and then updates the output of that method.
 #' @param x An object
 #' @param ... Additional arguments
@@ -23,7 +23,7 @@ make_lup <- function (x, ...)
 }
 methods::setGeneric("make_lup")
 #' Order tibble
-#' @name order_tb
+#' @rdname order_tb-methods
 #' @description order_tb() is an Order Tibble generic that orders a tibble.
 #' @param x An object
 #' @param ... Additional arguments
@@ -35,7 +35,7 @@ order_tb <- function (x, ...)
 }
 methods::setGeneric("order_tb")
 #' Remake list columns
-#' @name remake_ls_cols
+#' @rdname remake_ls_cols-methods
 #' @description remake_ls_cols() is a Remake List Columns generic that remakes list columns.
 #' @param x An object
 #' @param ... Additional arguments
@@ -47,7 +47,7 @@ remake_ls_cols <- function (x, ...)
 }
 methods::setGeneric("remake_ls_cols")
 #' Update lookup table for namespace
-#' @name update_lup_for_ns
+#' @rdname update_lup_for_ns-methods
 #' @description update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.
 #' @param x An object
 #' @param attached_nss_chr Attached namespaces (a character vector)
@@ -60,7 +60,7 @@ update_lup_for_ns <- function (x, attached_nss_chr, ...)
 }
 methods::setGeneric("update_lup_for_ns")
 #' Write classes
-#' @name write_classes
+#' @rdname write_classes-methods
 #' @description write_classes() is a Write Classes generic that writes new classes.
 #' @param x An object
 #' @param ... Additional arguments
@@ -72,7 +72,7 @@ write_classes <- function (x, ...)
 }
 methods::setGeneric("write_classes")
 #' Write classes and make lookup table
-#' @name write_classes_and_make_lup
+#' @rdname write_classes_and_make_lup-methods
 #' @description write_classes_and_make_lup() is a Write Classes and Make Lookup Table generic that makes new classes and creates or updates a class prototype lookup table.
 #' @param x An object
 #' @param ... Additional arguments

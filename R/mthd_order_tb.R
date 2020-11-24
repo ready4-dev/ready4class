@@ -3,7 +3,7 @@
 #' @param x An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @return Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
-#' @rdname order_tb.ready4_constructor_tbl
+#' @rdname order_tb-methods
 #' @export 
 #' @importFrom dplyr select mutate pull
 #' @importFrom purrr map2 reduce
@@ -27,4 +27,6 @@ order_tb.ready4_constructor_tbl <- function (x, name_pfx_1L_chr)
         ]
     return(inst_ready4_constructor_tbl)
 }
+#' @rdname order_tb-methods
+#' @aliases order_tb,ready4_constructor_tbl-method
 methods::setMethod("order_tb", "ready4_constructor_tbl", order_tb.ready4_constructor_tbl)

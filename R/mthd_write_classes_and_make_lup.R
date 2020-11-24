@@ -12,7 +12,7 @@
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
-#' @rdname write_classes_and_make_lup.ready4_constructor_tbl
+#' @rdname write_classes_and_make_lup-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
 #' @importFrom utils data
@@ -44,4 +44,6 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_
         abbreviations_lup = abbreviations_lup))
     return(inst_ready4_class_pt_lup)
 }
+#' @rdname write_classes_and_make_lup-methods
+#' @aliases write_classes_and_make_lup,ready4_constructor_tbl-method
 methods::setMethod("write_classes_and_make_lup", "ready4_constructor_tbl", write_classes_and_make_lup.ready4_constructor_tbl)
