@@ -202,7 +202,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                      output_file_class = output_file_class,
                      clss_to_inc_chr = clss_to_inc_chr,
                      prototype_lup = prototype_lup,
-                     helper_lgl = print_helper,
+                     helper_lgl = F,#print_helper,
                      parent_ns_ls = parent_ns_ls)
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
@@ -211,7 +211,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                     prototype_lup = prototype_lup,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
-  if(print_helper){
+  if(helper_lgl){ #print_helper
     sink(output_file_class, append = TRUE)
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
@@ -416,8 +416,10 @@ write_script_to_make_mthd <- function(write_file_ls,
                                      class_name_1L_chr = class_nm_1L_chr,
                                      import_chr = imports_chr,
                                      doc_in_class_1L_lgl = doc_in_class_1L_lgl)
-    writeLines(gen_mthd_pair_ls$method_chr %>% stringr::str_replace(paste0(",\nwhere =  ",
-                                                                           "globalenv\\(\\)"),""))
+    writeLines(gen_mthd_pair_ls$method_chr %>%
+                 stringr::str_replace(paste0(",\nwhere =  ",
+                                             "globalenv\\(\\)"),"") %>%
+                 stringr::str_replace_all(",..GlobalEnv", ""))
     # if(fn_type_1L_chr=="meth_std_s3_mthd")
     #   writeLines(make_alg_to_set_mthd(name_1L_chr = fn_name_1L_chr, # Args are wrong
     #                                   class_nm_1L_chr = class_nm_1L_chr,

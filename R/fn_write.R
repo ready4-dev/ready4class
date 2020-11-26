@@ -164,7 +164,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @rdname write_script_to_make_mthd
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
-#' @importFrom stringr str_replace
+#' @importFrom stringr str_replace str_replace_all
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F) 
@@ -180,7 +180,8 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
             class_name_1L_chr = class_nm_1L_chr, import_chr = imports_chr, 
             doc_in_class_1L_lgl = doc_in_class_1L_lgl)
         writeLines(gen_mthd_pair_ls$method_chr %>% stringr::str_replace(paste0(",\nwhere =  ", 
-            "globalenv\\(\\)"), ""))
+            "globalenv\\(\\)"), "") %>% stringr::str_replace_all(",..GlobalEnv", 
+            ""))
         ready4fun::close_open_sinks()
     }
 }
@@ -397,13 +398,12 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
         type_chr = type_chr, pt_ls = pt_ls, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         print_set_cls_1L_lgl = print_set_cls_1L_lgl, class_desc_1L_chr = class_desc_1L_chr, 
         output_file_class = output_file_class, clss_to_inc_chr = clss_to_inc_chr, 
-        prototype_lup = prototype_lup, helper_lgl = print_helper, 
-        parent_ns_ls = parent_ns_ls)
+        prototype_lup = prototype_lup, helper_lgl = F, parent_ns_ls = parent_ns_ls)
     helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_chr = slots_chr, 
         pt_ls = pt_ls, prototype_lup = prototype_lup, parent_ns_ls = parent_ns_ls)
     eval(parse(text = helper_function))
-    if (print_helper) {
+    if (helper_lgl) {
         sink(output_file_class, append = TRUE)
         ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr, 
             fn_type_1L_chr = "set_class", fn = eval(parse(text = class_nm_1L_chr)), 
