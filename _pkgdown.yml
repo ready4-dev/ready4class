@@ -1,11 +1,3 @@
-home:
-  links:
-  - text: User manual (PDF)
-    href: https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138.pdf
-  - text: Developer version of usual manual (PDF)
-    href: https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138_dev.pdf
-  - text: Project website
-    href: https://ready4-dev.github.io/ready4/
 development:
   mode: auto
 reference:
