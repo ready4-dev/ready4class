@@ -420,7 +420,7 @@ write_script_to_make_mthd <- function(write_file_ls,
     writeLines(gen_mthd_pair_ls$method_chr %>%
                  stringr::str_replace(paste0(",\nwhere =  ",
                                              "globalenv\\(\\)"),"") %>%
-                 stringr::str_replace_all(",..GlobalEnv", ""))
+                 stringr::str_replace_all(",..GlobalEnv\"", ""))
     # if(fn_type_1L_chr=="meth_std_s3_mthd")
     #   writeLines(make_alg_to_set_mthd(name_1L_chr = fn_name_1L_chr, # Args are wrong
     #                                   class_nm_1L_chr = class_nm_1L_chr,
