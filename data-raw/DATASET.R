@@ -13,8 +13,8 @@ ready4fun::write_fn_type_dirs()
 # 4. Set-up package structure
 ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For Creating And Extending Classes For Use As Part of The Ready4 Suite",
                  pkg_desc_1L_chr = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
-  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. That means this should be regarded as UNTESTED software, which is provided for free WITHOUT ANY WARRANTY. Importantly, the tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
-  While we welcome and appreciate anyone who takes the time to provide us with feedback on this test release, we caution you that you should only test this software if you feel confident you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
+  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. The tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
+  Therefore, you should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
                  authors_prsns = c(utils::person(
                    given = "Matthew",family = "Hamilton", email =
                      "matthew.hamilton@orygen.org.au",role = c("aut",
@@ -121,6 +121,7 @@ ready4fun::write_and_doc_ds(prototype_lup,
 # ENSURE that ready4fun::write_pkg_setup_fls function argument make_tmpl_vignette_lgl is not set to TRUE earlier in this script.
 #
 # 14. Update documentation
+usethis::use_build_ignore("initial_setup.R")
 ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
@@ -129,7 +130,6 @@ ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
 #                           developer_manual_url_1L_chr = "https://ready4-dev.github.io/ready4/pdfs/ready4class_0.0.0.9138_dev.pdf")
 # readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
 #   writeLines(".github/workflows/R-CMD-check.yaml")
-usethis::use_build_ignore("initial_setup.R")
 #pkgdown::build_site()
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
