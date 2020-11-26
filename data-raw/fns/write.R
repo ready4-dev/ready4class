@@ -168,6 +168,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         req_pkgs_chr = NA_character_,
                                         names_must_match_ls = NULL,
                                         slots_of_dif_lnts_chr = NULL,
+                                       helper_1L_lgl = F,
                                         print_set_cls_1L_lgl = TRUE,
                                         print_helper = TRUE,
                                         print_gtrs_strs_1L_lgl = TRUE,
@@ -202,7 +203,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                      output_file_class = output_file_class,
                      clss_to_inc_chr = clss_to_inc_chr,
                      prototype_lup = prototype_lup,
-                     helper_lgl = F,#print_helper,
+                     helper_1L_lgl = F,#print_helper,
                      parent_ns_ls = parent_ns_ls)
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
@@ -211,7 +212,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                     prototype_lup = prototype_lup,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
-  if(helper_lgl){ #print_helper
+  if(helper_1L_lgl){ #print_helper
     sink(output_file_class, append = TRUE)
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
@@ -548,7 +549,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                output_file_class,
                                clss_to_inc_chr,
                                prototype_lup,
-                               helper_lgl = F,
+                               helper_1L_lgl = F,
                                parent_ns_ls){
   slot_str <- purrr::map2_chr(slots_chr,
                               type_chr,
@@ -630,8 +631,8 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                             parent_ns_ls$transformed_1L_chr!="")),
                              "",
                              paste0("#' @import ",parent_ns_ls$transformed_1L_chr,"\n")),
-                      ifelse(helper_lgl,"",paste0("#' @exportClass ",class_nm_1L_chr,"\n")),
-                      ifelse(helper_lgl,"",paste0(class_nm_1L_chr," <- ")),
+                      ifelse(helper_1L_lgl,"",paste0("#' @exportClass ",class_nm_1L_chr,"\n")),
+                      ifelse(helper_1L_lgl,"",paste0(class_nm_1L_chr," <- ")),
                       st_class_fn %>%
                         stringr::str_replace(paste0(",\nwhere =  ",
                                                     "globalenv\\(\\)"),"") %>%

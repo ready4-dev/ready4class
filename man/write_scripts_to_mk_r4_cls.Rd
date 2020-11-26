@@ -22,6 +22,7 @@ write_scripts_to_mk_r4_cls(
   req_pkgs_chr = NA_character_,
   names_must_match_ls = NULL,
   slots_of_dif_lnts_chr = NULL,
+  helper_1L_lgl = F,
   print_set_cls_1L_lgl = TRUE,
   print_helper = TRUE,
   print_gtrs_strs_1L_lgl = TRUE,
@@ -65,6 +66,8 @@ write_scripts_to_mk_r4_cls(
 
 \item{slots_of_dif_lnts_chr}{Slots of different lengths (a character vector), Default: NULL}
 
+\item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
+
 \item{print_set_cls_1L_lgl}{Print set class (a logical vector of length one), Default: TRUE}
 
 \item{print_helper}{PARAM_DESCRIPTION, Default: TRUE}
@@ -80,4 +83,3 @@ write_scripts_to_mk_r4_cls(
 \description{
 write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}
