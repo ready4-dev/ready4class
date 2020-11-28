@@ -5,6 +5,7 @@ reference:
 - contents:
   - abbreviations_lup
   - fn_type_lup_tb
+  - fns_dmt_tb
   - prototype_lup
 - title: "Classes"
 - contents:
