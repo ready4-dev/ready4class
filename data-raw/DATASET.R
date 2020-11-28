@@ -81,7 +81,7 @@ fn_type_lup_tb %>%
                        abbreviations_lup = abbreviations_lup)
 utils::data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
-all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
+fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,
                                                                        inc_for_main_user_lgl_ls = list(force_true_chr = c("remake_ls_cols",
                                                                                                                           "remake_ls_cols.ready4_constructor_tbl",
                                                                                                                           "write_classes_and_make_lup",
@@ -90,10 +90,16 @@ all_fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_l
                                                                        args_ls_ls = NULL),
                                                   fn_type_lup_tb = fn_type_lup_tb,
                                                   abbreviations_lup = abbreviations_lup)
-
+pkg_dss_tb <- fns_dmt_tb %>%
+  ready4fun::write_and_doc_ds(db_1L_chr = "fns_dmt_tb",
+                              title_1L_chr = "ready4u function documentation table",
+                              desc_1L_chr = "Meta-data on each ready4u function used to create package documentation",
+                              url_1L_chr = "https://ready4-dev.github.io/ready4u/",
+                              abbreviations_lup = abbreviations_lup,
+                              pkg_dss_tb = pkg_dss_tb)
 ## 9. Write and document.
 ## Note files to be rewritten cannot be open in RStudio.
-# ready4fun::write_and_doc_fn_fls(all_fns_dmt_tb,
+# ready4fun::write_and_doc_fn_fls(fns_dmt_tb,
 #                      r_dir_1L_chr = "R",
 #                      dev_pkgs_chr = "ready4fun")
 ##
@@ -124,7 +130,7 @@ ready4fun::write_and_doc_ds(prototype_lup,
 usethis::use_build_ignore("initial_setup.R")
 readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
   writeLines(".github/workflows/R-CMD-check.yaml")
-ready4fun::write_and_doc_fn_fls(fns_dmt_tb = all_fns_dmt_tb,
+ready4fun::write_and_doc_fn_fls(fns_dmt_tb = fns_dmt_tb,
                                 r_dir_1L_chr = "R",
                                 dev_pkgs_chr = "ready4fun",
                                 update_pkgdown_1L_lgl = T)
