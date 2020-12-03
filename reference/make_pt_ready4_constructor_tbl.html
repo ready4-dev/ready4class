@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write scripts to make ready4 S4 class — write_scripts_to_mk_r4_cls • ready4class</title>
+<title>Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE — make_pt_ready4_constructor_tbl • ready4class</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Write scripts to make ready4 S4 class — write_scripts_to_mk_r4_cls" />
-<meta property="og:description" content="write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour" />
+<meta property="og:title" content="Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE — make_pt_ready4_constructor_tbl" />
+<meta property="og:description" content="Create a new prototype for the" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,143 +119,99 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write scripts to make ready4 S4 class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/fn_write.R'><code>R/fn_write.R</code></a></small>
-    <div class="hidden name"><code>write_scripts_to_mk_r4_cls.Rd</code></div>
+    <h1>Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/C3_ready4_constructor_tbl.R'><code>R/C3_ready4_constructor_tbl.R</code></a></small>
+    <div class="hidden name"><code>make_pt_ready4_constructor_tbl.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour</p>
+    <p>Create a new prototype for the</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_scripts_to_mk_r4_cls</span><span class='op'>(</span>
-  <span class='va'>name_stub_1L_chr</span>,
-  name_pfx_1L_chr <span class='op'>=</span> <span class='st'>"ready4_"</span>,
-  output_dir_1L_chr <span class='op'>=</span> <span class='st'>"data-raw"</span>,
-  outp_sub_dir_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
-  class_desc_1L_chr <span class='op'>=</span> <span class='st'>""</span>,
-  parent_cls_nm_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>slots_chr</span>,
-  <span class='va'>type_chr</span>,
-  meaningful_nms_ls <span class='op'>=</span> <span class='cn'>NULL</span>,
-  vals_ls <span class='op'>=</span> <span class='cn'>NULL</span>,
-  allowed_vals_ls <span class='op'>=</span> <span class='cn'>NULL</span>,
-  clss_to_inc_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>prototype_lup</span>,
-  nss_to_ignore_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
-  req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
-  names_must_match_ls <span class='op'>=</span> <span class='cn'>NULL</span>,
-  slots_of_dif_lnts_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
-  helper_1L_lgl <span class='op'>=</span> <span class='cn'>F</span>,
-  print_set_cls_1L_lgl <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  print_helper <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  print_gtrs_strs_1L_lgl <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  print_validator_1L_lgl <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  print_meaningful_nms_ls_1L_lgl <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>
+    <pre class="usage"><span class='fu'>make_pt_ready4_constructor_tbl</span><span class='op'>(</span>
+  make_s3_lgl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/logical.html'>logical</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  name_stub_chr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  pt_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  pt_chkr_pfx_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  pt_ns_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  vals_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  allowed_vals_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  min_max_vals_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  start_end_vals_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  class_desc_chr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  parent_class_chr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>)</span>,
+  slots_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  meaningful_nms_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>,
+  inc_clss_ls <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>name_stub_1L_chr</th>
-      <td><p>Name stub (a character vector of length one)</p></td>
+      <th>make_s3_lgl</th>
+      <td><p>Make S3 (a logical vector), Default: logical(0)</p></td>
     </tr>
     <tr>
-      <th>name_pfx_1L_chr</th>
-      <td><p>Name prefix (a character vector of length one), Default: 'ready4_'</p></td>
+      <th>name_stub_chr</th>
+      <td><p>Name stub (a character vector), Default: character(0)</p></td>
     </tr>
     <tr>
-      <th>output_dir_1L_chr</th>
-      <td><p>Output directory (a character vector of length one), Default: 'data-raw'</p></td>
+      <th>pt_ls</th>
+      <td><p>Prototype (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>outp_sub_dir_1L_chr</th>
-      <td><p>Output sub directory (a character vector of length one), Default: NULL</p></td>
+      <th>pt_chkr_pfx_ls</th>
+      <td><p>Prototype checker prefix (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>class_desc_1L_chr</th>
-      <td><p>Class description (a character vector of length one), Default: ''</p></td>
-    </tr>
-    <tr>
-      <th>parent_cls_nm_1L_chr</th>
-      <td><p>Parent class name (a character vector of length one), Default: NULL</p></td>
-    </tr>
-    <tr>
-      <th>slots_chr</th>
-      <td><p>Slots (a character vector)</p></td>
-    </tr>
-    <tr>
-      <th>type_chr</th>
-      <td><p>Type (a character vector)</p></td>
-    </tr>
-    <tr>
-      <th>meaningful_nms_ls</th>
-      <td><p>Meaningful names (a list), Default: NULL</p></td>
+      <th>pt_ns_ls</th>
+      <td><p>Prototype namespace (a list), Default: list()</p></td>
     </tr>
     <tr>
       <th>vals_ls</th>
-      <td><p>Values (a list), Default: NULL</p></td>
+      <td><p>Values (a list), Default: list()</p></td>
     </tr>
     <tr>
       <th>allowed_vals_ls</th>
-      <td><p>Allowed values (a list), Default: NULL</p></td>
+      <td><p>Allowed values (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>clss_to_inc_chr</th>
-      <td><p>Classes to include (a character vector), Default: NULL</p></td>
+      <th>min_max_vals_ls</th>
+      <td><p>Min max values (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>prototype_lup</th>
-      <td><p>Prototype (a lookup table)</p></td>
+      <th>start_end_vals_ls</th>
+      <td><p>Start end values (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>nss_to_ignore_chr</th>
-      <td><p>Namespaces to ignore (a character vector), Default: 'NA'</p></td>
+      <th>class_desc_chr</th>
+      <td><p>Class description (a character vector), Default: character(0)</p></td>
     </tr>
     <tr>
-      <th>req_pkgs_chr</th>
-      <td><p>Req packages (a character vector), Default: 'NA'</p></td>
+      <th>parent_class_chr</th>
+      <td><p>Parent class (a character vector), Default: character(0)</p></td>
     </tr>
     <tr>
-      <th>names_must_match_ls</th>
-      <td><p>Names must match (a list), Default: NULL</p></td>
+      <th>slots_ls</th>
+      <td><p>Slots (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>slots_of_dif_lnts_chr</th>
-      <td><p>Slots of different lengths (a character vector), Default: NULL</p></td>
+      <th>meaningful_nms_ls</th>
+      <td><p>Meaningful names (a list), Default: list()</p></td>
     </tr>
     <tr>
-      <th>helper_1L_lgl</th>
-      <td><p>Helper (a logical vector of length one), Default: F</p></td>
-    </tr>
-    <tr>
-      <th>print_set_cls_1L_lgl</th>
-      <td><p>Print set class (a logical vector of length one), Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>print_helper</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>print_gtrs_strs_1L_lgl</th>
-      <td><p>Print getters setters (a logical vector of length one), Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>print_validator_1L_lgl</th>
-      <td><p>Print validator (a logical vector of length one), Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>print_meaningful_nms_ls_1L_lgl</th>
-      <td><p>Print meaningful names list (a logical vector of length one), Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>class_in_cache_cdn_1L_chr</th>
-      <td><p>Class in cache condition (a character vector of length one), Default: 'stop'</p></td>
+      <th>inc_clss_ls</th>
+      <td><p>Include classes (a list), Default: list()</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A prototype for</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
