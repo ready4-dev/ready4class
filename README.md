@@ -1,6 +1,6 @@
 # ready4class <img src="man/figures/fav120.png" align="right" />
 
-## Standardised Developer Tools For Creating And Extending Classes For Use As Part of The Ready4 Suite
+## Standardised Developer Tools for Creating and Extending Classes for Use as Part of the Ready4 Suite
 
 <!-- badges: start -->
 [![R build status](https://github.com/ready4-dev/ready4class/workflows/R-CMD-check/badge.svg)](https://github.com/ready4-dev/ready4class/actions)

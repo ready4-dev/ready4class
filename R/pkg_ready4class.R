@@ -1,5 +1,5 @@
-#' ready4class: Standardised Developer Tools For Creating And Extending
-#' Classes For Use As Part of The Ready4 Suite
+#' ready4class: Standardised Developer Tools for Creating and Extending
+#' Classes for Use as Part of the Ready4 Suite
 #'
 #' ready4class provides classes and methods that
 #' are designed to standardise and streamline the process for extending

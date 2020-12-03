@@ -6,6 +6,7 @@
 \usage{
 make_child_cls_fn_body(
   child_ext_fn_1L_chr,
+  checker_1L_chr = NA_character_,
   parent_cls_nm_1L_chr,
   prototype_lup,
   prepend_1L_lgl = T
@@ -13,6 +14,8 @@ make_child_cls_fn_body(
 }
 \arguments{
 \item{child_ext_fn_1L_chr}{Child ext function (a character vector of length one)}
+
+\item{checker_1L_chr}{Checker (a character vector of length one), Default: 'NA'}
 
 \item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
@@ -26,4 +29,3 @@ Child class function body (a character vector of length one)
 \description{
 make_child_cls_fn_body() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make child class function body. The function returns Child class function body (a character vector of length one).
 }
-\keyword{internal}
