@@ -4,10 +4,10 @@
 \alias{ready4_class_pt_lup}
 \title{readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
 \usage{
-ready4_class_pt_lup(x = make_prototype_ready4_class_pt_lup())
+ready4_class_pt_lup(x = make_pt_ready4_class_pt_lup())
 }
 \arguments{
-\item{x}{A prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE, Default: make_prototype_ready4_class_pt_lup()}
+\item{x}{A prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE, Default: make_pt_ready4_class_pt_lup()}
 }
 \value{
 A validated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE

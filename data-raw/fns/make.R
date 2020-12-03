@@ -606,7 +606,49 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                            prototype_lup){
   ## Part 2 - Make Prototype Function
   if(type_1L_chr %in% c("tibble","list")){
-    fn_call_to_create_prototype <- paste0(ifelse(type_1L_chr=="tibble","tibble::tibble(","list("),
+    fn_call_to_create_prototype <- paste0("arg_lgths_dbl <- list(",
+                                          names(vals_ls) %>%
+                                            stringr::str_c(sep="",collapse=",\n"),
+                                          ") %>% purrr::map_dbl(~length(.x))\n",# GET MAX LENGTH,
+                                          "arg_max_lgth_1L_dbl <- max(arg_lgths_dbl)\n",
+                                          "if(arg_max_lgth_1L_dbl >0){\n",
+                                          purrr::pmap_chr(list(names(vals_ls),
+                                                          1:length(vals_ls),
+                                                          vals_ls),
+                                                          ~ {
+                                                            val_xx <- eval(parse(text = ..3))
+                                                            paste0("if(0 == arg_lgths_dbl[",
+                                                                   ..2,
+                                                                   "] & arg_lgths_dbl[",
+                                                                   ..2,
+                                                                   "] != arg_max_lgth_1L_dbl){\n",
+                                                                   ..1,
+                                                                   " <- ",
+                                                                   ifelse(is.character(val_xx),
+                                                                          "NA_character_",
+                                                                          ifelse(is.integer(val_xx),
+                                                                                 "NA_integer_",
+                                                                                 ifelse(is.complex(val_xx),
+                                                                                        "NA_complex_",
+                                                                                        ifelse(is.numeric(val_xx),
+                                                                                               "NA_real_",
+                                                                                               ifelse(is.logical(val_xx),
+                                                                                                      "NA",
+                                                                                                      "list(NULL)"))))),
+                                                                   # "eval(parse(text = ",
+                                                                   # "stringr::str_replace(",
+                                                                   # "deparse(substitute(",..3,"))",
+                                                                   # ",\"(0)\",",
+                                                                   # "paste0(\"(\",arg_max_lgth_1L_dbl,\")\")",
+                                                                   # ")))",
+                                                                   "\n}\n")
+                                                          }
+                                                          ) %>%
+                                            stringr::str_c(sep="",collapse="\n"),
+                                          "}\n",# IF MAX LENGTH > 0, FOR ZERO LENGTH ARGS, REPLACE WITH REP(NA,MAX_LENGTH)
+                                          ifelse(type_1L_chr=="tibble",
+                                                 "tibble::tibble(",
+                                                 "list("),
                                           purrr::map_chr(names(vals_ls),
                                                           ~ paste0(.x,
                                                                    " = ",
@@ -636,8 +678,8 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
     }
 
   }
-  name_of_fn_to_make_prototype <- paste0("make_prototype_",class_nm_1L_chr)
-  fn_to_make_prototype <- paste0(name_of_fn_to_make_prototype,
+  name_of_fn_to_make_pt <- paste0("make_pt_",class_nm_1L_chr)
+  fn_to_make_pt <- paste0(name_of_fn_to_make_pt,
                                  " <- function(",
                                  ifelse(type_1L_chr %in% c("tibble","list"),
                                         purrr::map2_chr(names(vals_ls),
@@ -650,8 +692,8 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                  "){ \n",
                                  fn_call_to_create_prototype,
                                  "\n}")
-  fn_pt_to_make_r3_cls_pt <- list(fn_name_1L_chr = name_of_fn_to_make_prototype,
-       fn_body_1L_chr = fn_to_make_prototype)
+  fn_pt_to_make_r3_cls_pt <- list(fn_name_1L_chr = name_of_fn_to_make_pt,
+       fn_body_1L_chr = fn_to_make_pt)
   return(fn_pt_to_make_r3_cls_pt)
 
 }

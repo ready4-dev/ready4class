@@ -4,10 +4,10 @@
 \alias{ready4_constructor_tbl}
 \title{readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
-ready4_constructor_tbl(x = make_prototype_ready4_constructor_tbl())
+ready4_constructor_tbl(x = make_pt_ready4_constructor_tbl())
 }
 \arguments{
-\item{x}{A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_prototype_ready4_constructor_tbl()}
+\item{x}{A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()}
 }
 \value{
 A validated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
