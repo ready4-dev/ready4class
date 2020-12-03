@@ -4,7 +4,7 @@ setOldClass(c("ready4_constructor_tbl","tbl_df", "tbl", "data.frame"))
 #' @description Create a new valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param x A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()
 #' @return A validated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+#' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname ready4_constructor_tbl
 #' @export 
 
@@ -15,7 +15,7 @@ validate_ready4_constructor_tbl(make_new_ready4_constructor_tbl(x))
 #' @description Create a new unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param x A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @return An unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+#' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_new_ready4_constructor_tbl
 #' @export 
 #' @importFrom tibble is_tibble
@@ -42,7 +42,7 @@ x
 #' @param meaningful_nms_ls Meaningful names (a list), Default: list()
 #' @param inc_clss_ls Include classes (a list), Default: list()
 #' @return A prototype for 
-#' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+#' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_pt_ready4_constructor_tbl
 #' @export 
 #' @importFrom purrr map_dbl
@@ -152,7 +152,7 @@ inc_clss_ls = inc_clss_ls)
 #' @description Validate an instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param x An unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @return A prototpe for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+#' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname validate_ready4_constructor_tbl
 #' @export 
 #' @importFrom stringr str_detect str_c
@@ -192,7 +192,7 @@ x}
 #' @description Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+#' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname is_ready4_constructor_tbl
 #' @export 
 

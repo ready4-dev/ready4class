@@ -16,5 +16,5 @@ A validated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TA
 Create a new valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
-Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
+ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 }

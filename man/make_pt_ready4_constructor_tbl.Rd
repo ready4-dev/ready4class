@@ -57,5 +57,5 @@ A prototype for
 Create a new prototype for the
 }
 \details{
-Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 }

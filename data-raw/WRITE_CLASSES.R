@@ -29,7 +29,7 @@ classes_to_make_tb <- tibble::tribble(
                                                                            parent_class_chr = "character(0)",
                                                                            slots_ls = "list()",
                                                                            meaningful_nms_ls = "list()",
-                                                                           inc_clss_ls = "list()"), NULL, NULL, NULL, "Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
+                                                                           inc_clss_ls = "list()"), NULL, NULL, NULL, "ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.", NA_character_, NULL, NULL, NULL)
 ## 5. Convert the metadata table into a new S3 class called ready4_constructor_tbl
 write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               name_pfx_1L_chr = name_pfx_1L_chr,
@@ -59,7 +59,7 @@ classes_to_make_tb <- classes_to_make_tb %>%
                                                                             pt_ns_chr = "character(0)",
                                                                             fn_to_call_chr = "character(0)",
                                                                             default_val_chr = "character(0)",
-                                                                            old_class_lgl = "logical(0)"), NULL, NULL, NULL, "Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
+                                                                            old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.", NA_character_, NULL, NULL, NULL))
 ## 7. Call the write_classes method that we have defined in our R directory to create the scripts that will create scripts to make the classes in this table and save these scripts to the package R directory.
 ##    Note: In addition to creating a new class (ready4_class_pt_lup) the call to the below method recreates the script to make the ready4_constructor_tbl class. That duplication is of no importance in this step,
 ##    but having all the classes we have made summarised in one table (classes_to_make_tb) is necessary for a subsequent step (see DATASET.R in the data-raw directory.)

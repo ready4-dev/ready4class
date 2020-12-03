@@ -16,5 +16,5 @@ A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLAS
 Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
-Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
+ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 }

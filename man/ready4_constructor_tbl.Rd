@@ -16,5 +16,5 @@ A validated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 Create a new valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
-Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
+ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 }
