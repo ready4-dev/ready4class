@@ -27,14 +27,26 @@ x
 }
 #' Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @description Create a new prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-
+#' @param make_s3_lgl Make S3 (a logical vector), Default: logical(0)
+#' @param name_stub_chr Name stub (a character vector), Default: character(0)
+#' @param pt_ls Prototype (a list), Default: list()
+#' @param pt_chkr_pfx_ls Prototype checker prefix (a list), Default: list()
+#' @param pt_ns_ls Prototype namespace (a list), Default: list()
+#' @param vals_ls Values (a list), Default: list()
+#' @param allowed_vals_ls Allowed values (a list), Default: list()
+#' @param min_max_vals_ls Min max values (a list), Default: list()
+#' @param start_end_vals_ls Start end values (a list), Default: list()
+#' @param class_desc_chr Class description (a character vector), Default: character(0)
+#' @param parent_class_chr Parent class (a character vector), Default: character(0)
+#' @param slots_ls Slots (a list), Default: list()
+#' @param meaningful_nms_ls Meaningful names (a list), Default: list()
+#' @param inc_clss_ls Include classes (a list), Default: list()
 #' @return A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @details Readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_prototype_ready4_constructor_tbl
 #' @export 
 #' @importFrom tibble tibble
-make_prototype_ready4_constructor_tbl <- function(){ 
-tibble::tibble(make_s3_lgl = logical(0),
+make_prototype_ready4_constructor_tbl <- function(make_s3_lgl = logical(0),
 name_stub_chr = character(0),
 pt_ls = list(),
 pt_chkr_pfx_ls = list(),
@@ -47,7 +59,21 @@ class_desc_chr = character(0),
 parent_class_chr = character(0),
 slots_ls = list(),
 meaningful_nms_ls = list(),
-inc_clss_ls = list())
+inc_clss_ls = list()){ 
+tibble::tibble(make_s3_lgl = make_s3_lgl,
+name_stub_chr = name_stub_chr,
+pt_ls = pt_ls,
+pt_chkr_pfx_ls = pt_chkr_pfx_ls,
+pt_ns_ls = pt_ns_ls,
+vals_ls = vals_ls,
+allowed_vals_ls = allowed_vals_ls,
+min_max_vals_ls = min_max_vals_ls,
+start_end_vals_ls = start_end_vals_ls,
+class_desc_chr = class_desc_chr,
+parent_class_chr = parent_class_chr,
+slots_ls = slots_ls,
+meaningful_nms_ls = meaningful_nms_ls,
+inc_clss_ls = inc_clss_ls)
 }
 #' Validate readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @description Validate an instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE

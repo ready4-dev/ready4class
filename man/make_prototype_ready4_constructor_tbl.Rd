@@ -4,7 +4,51 @@
 \alias{make_prototype_ready4_constructor_tbl}
 \title{Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
-make_prototype_ready4_constructor_tbl()
+make_prototype_ready4_constructor_tbl(
+  make_s3_lgl = logical(0),
+  name_stub_chr = character(0),
+  pt_ls = list(),
+  pt_chkr_pfx_ls = list(),
+  pt_ns_ls = list(),
+  vals_ls = list(),
+  allowed_vals_ls = list(),
+  min_max_vals_ls = list(),
+  start_end_vals_ls = list(),
+  class_desc_chr = character(0),
+  parent_class_chr = character(0),
+  slots_ls = list(),
+  meaningful_nms_ls = list(),
+  inc_clss_ls = list()
+)
+}
+\arguments{
+\item{make_s3_lgl}{Make S3 (a logical vector), Default: logical(0)}
+
+\item{name_stub_chr}{Name stub (a character vector), Default: character(0)}
+
+\item{pt_ls}{Prototype (a list), Default: list()}
+
+\item{pt_chkr_pfx_ls}{Prototype checker prefix (a list), Default: list()}
+
+\item{pt_ns_ls}{Prototype namespace (a list), Default: list()}
+
+\item{vals_ls}{Values (a list), Default: list()}
+
+\item{allowed_vals_ls}{Allowed values (a list), Default: list()}
+
+\item{min_max_vals_ls}{Min max values (a list), Default: list()}
+
+\item{start_end_vals_ls}{Start end values (a list), Default: list()}
+
+\item{class_desc_chr}{Class description (a character vector), Default: character(0)}
+
+\item{parent_class_chr}{Parent class (a character vector), Default: character(0)}
+
+\item{slots_ls}{Slots (a list), Default: list()}
+
+\item{meaningful_nms_ls}{Meaningful names (a list), Default: list()}
+
+\item{inc_clss_ls}{Include classes (a list), Default: list()}
 }
 \value{
 A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE

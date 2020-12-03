@@ -607,12 +607,11 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
   ## Part 2 - Make Prototype Function
   if(type_1L_chr %in% c("tibble","list")){
     fn_call_to_create_prototype <- paste0(ifelse(type_1L_chr=="tibble","tibble::tibble(","list("),
-                                          purrr::map2_chr(names(vals_ls),
-                                                          vals_ls,
+                                          purrr::map_chr(names(vals_ls),
                                                           ~ paste0(.x,
                                                                    " = ",
-                                                                   .y)) %>%
-                                            stringr::str_c(sep="",collapse=",\n") ,
+                                                                   .x)) %>%
+                                            stringr::str_c(sep="",collapse=",\n"),
                                           ")")
     fn_call_to_create_prototype <- make_child_cls_fn_body(child_ext_fn_1L_chr = fn_call_to_create_prototype,
                                                           parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
@@ -639,7 +638,16 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
   }
   name_of_fn_to_make_prototype <- paste0("make_prototype_",class_nm_1L_chr)
   fn_to_make_prototype <- paste0(name_of_fn_to_make_prototype,
-                                 " <- function(){ \n",
+                                 " <- function(",
+                                 ifelse(type_1L_chr %in% c("tibble","list"),
+                                        purrr::map2_chr(names(vals_ls),
+                                                        vals_ls,
+                                                        ~ paste0(.x,
+                                                                 " = ",
+                                                                 .y)) %>%
+                                          stringr::str_c(sep="",collapse=",\n"),
+                                        ""),
+                                 "){ \n",
                                  fn_call_to_create_prototype,
                                  "\n}")
   fn_pt_to_make_r3_cls_pt <- list(fn_name_1L_chr = name_of_fn_to_make_prototype,

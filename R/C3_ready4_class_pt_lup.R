@@ -27,19 +27,29 @@ x
 }
 #' Make prototype readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @description Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-
+#' @param type_chr Type (a character vector), Default: character(0)
+#' @param val_chr Value (a character vector), Default: character(0)
+#' @param pt_ns_chr Prototype namespace (a character vector), Default: character(0)
+#' @param fn_to_call_chr Function to call (a character vector), Default: character(0)
+#' @param default_val_chr Default value (a character vector), Default: character(0)
+#' @param old_class_lgl Old class (a logical vector), Default: logical(0)
 #' @return A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details Readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname make_prototype_ready4_class_pt_lup
 #' @export 
 #' @importFrom tibble tibble
-make_prototype_ready4_class_pt_lup <- function(){ 
-tibble::tibble(type_chr = character(0),
+make_prototype_ready4_class_pt_lup <- function(type_chr = character(0),
 val_chr = character(0),
 pt_ns_chr = character(0),
 fn_to_call_chr = character(0),
 default_val_chr = character(0),
-old_class_lgl = logical(0))
+old_class_lgl = logical(0)){ 
+tibble::tibble(type_chr = type_chr,
+val_chr = val_chr,
+pt_ns_chr = pt_ns_chr,
+fn_to_call_chr = fn_to_call_chr,
+default_val_chr = default_val_chr,
+old_class_lgl = old_class_lgl)
 }
 #' Validate readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @description Validate an instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE

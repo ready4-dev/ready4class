@@ -26,4 +26,3 @@ Algorithm to get prototype value (a character vector of length one)
 \description{
 make_alg_to_get_pt_val() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to get prototype value. The function returns Algorithm to get prototype value (a character vector of length one).
 }
-\keyword{internal}
