@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Standardised Developer Tools for Creating and Extending
     Classes for Use as Part of the Ready4 Suite
-Version: 0.0.0.9170
+Version: 0.0.0.9171
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -42,7 +42,7 @@ Imports:
     testthat,
     knitr,
     lifecycle,
-    ready4fun (>= 0.0.0.9258),
+    ready4fun (>= 0.0.0.9259),
     devtools,
     dplyr,
     gtools,

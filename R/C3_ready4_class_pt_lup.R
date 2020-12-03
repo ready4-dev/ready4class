@@ -26,14 +26,14 @@ class(x))
 x
 }
 #' Make prototype readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Create a new prototype for the 
+#' @description Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param type_chr Type (a character vector), Default: character(0)
 #' @param val_chr Value (a character vector), Default: character(0)
 #' @param pt_ns_chr Prototype namespace (a character vector), Default: character(0)
 #' @param fn_to_call_chr Function to call (a character vector), Default: character(0)
 #' @param default_val_chr Default value (a character vector), Default: character(0)
 #' @param old_class_lgl Old class (a logical vector), Default: logical(0)
-#' @return A prototype for 
+#' @return A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname make_pt_ready4_class_pt_lup
 #' @export 

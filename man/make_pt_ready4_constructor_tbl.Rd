@@ -51,10 +51,10 @@ make_pt_ready4_constructor_tbl(
 \item{inc_clss_ls}{Include classes (a list), Default: list()}
 }
 \value{
-A prototype for
+A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \description{
-Create a new prototype for the
+Create a new prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
 ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.

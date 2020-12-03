@@ -27,10 +27,10 @@ make_pt_ready4_class_pt_lup(
 \item{old_class_lgl}{Old class (a logical vector), Default: logical(0)}
 }
 \value{
-A prototype for
+A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \description{
-Create a new prototype for the
+Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
 ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.

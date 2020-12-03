@@ -26,7 +26,7 @@ class(x))
 x
 }
 #' Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Create a new prototype for the 
+#' @description Create a new prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @param make_s3_lgl Make S3 (a logical vector), Default: logical(0)
 #' @param name_stub_chr Name stub (a character vector), Default: character(0)
 #' @param pt_ls Prototype (a list), Default: list()
@@ -41,7 +41,7 @@ x
 #' @param slots_ls Slots (a list), Default: list()
 #' @param meaningful_nms_ls Meaningful names (a list), Default: list()
 #' @param inc_clss_ls Include classes (a list), Default: list()
-#' @return A prototype for 
+#' @return A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_pt_ready4_constructor_tbl
 #' @export 
