@@ -695,7 +695,6 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
   fn_pt_to_make_r3_cls_pt <- list(fn_name_1L_chr = name_of_fn_to_make_pt,
        fn_body_1L_chr = fn_to_make_pt)
   return(fn_pt_to_make_r3_cls_pt)
-
 }
 make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                                  class_nm_1L_chr,
