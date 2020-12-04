@@ -104,6 +104,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                         min_max_vals_dbl = NULL,
                                         start_end_vals_dbl = NULL,
                                         prototype_lup,
+                                       dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                         nss_to_ignore_chr  = NA_character_,
                                         file_exists_cdn_1L_chr = "skip",
                                        abbreviations_lup = NULL){
@@ -131,6 +132,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                                   prototype_lup = prototype_lup,
                                                   min_max_vals_dbl = min_max_vals_dbl,
                                                   start_end_vals_dbl = start_end_vals_dbl,
+                                                  dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                                   nss_to_ignore_chr = nss_to_ignore_chr)
     sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr =="append",TRUE,FALSE))
     writeLines(s3_components_ls$include_tags_chr)

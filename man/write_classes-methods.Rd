@@ -14,6 +14,7 @@ write_classes.ready4_constructor_tbl(
   output_dir_1L_chr,
   file_exists_cdn_1L_chr = NULL,
   prototype_lup = NULL,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
   nss_to_ignore_chr,
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
@@ -26,6 +27,7 @@ write_classes.ready4_constructor_tbl(
   output_dir_1L_chr,
   file_exists_cdn_1L_chr = NULL,
   prototype_lup = NULL,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
   nss_to_ignore_chr,
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
@@ -44,6 +46,8 @@ write_classes.ready4_constructor_tbl(
 \item{file_exists_cdn_1L_chr}{File exists condition (a character vector of length one), Default: NULL}
 
 \item{prototype_lup}{Prototype (a lookup table), Default: NULL}
+
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
 
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 

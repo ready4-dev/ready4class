@@ -4,17 +4,22 @@
 \alias{get_parent_cls_pt_fn}
 \title{Get parent class prototype}
 \usage{
-get_parent_cls_pt_fn(parent_cls_nm_1L_chr, prototype_lup)
+get_parent_cls_pt_fn(
+  parent_cls_nm_1L_chr,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
+  prototype_lup
+)
 }
 \arguments{
 \item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
+
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \value{
-Parent class prototype function (a character vector)
+Parent class prototype function (a character vector of length one)
 }
 \description{
-get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype function (a character vector).
+get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype function (a character vector of length one).
 }
-\keyword{internal}

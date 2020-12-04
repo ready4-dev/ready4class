@@ -45,7 +45,7 @@ x
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_pt_ready4_constructor_tbl
 #' @export 
-#' @importFrom purrr map_dbl
+#' @importFrom rlang exec
 #' @importFrom tibble tibble
 make_pt_ready4_constructor_tbl <- function(make_s3_lgl = logical(0),
 name_stub_chr = character(0),
@@ -61,79 +61,7 @@ parent_class_chr = character(0),
 slots_ls = list(),
 meaningful_nms_ls = list(),
 inc_clss_ls = list()){ 
-arg_lgths_dbl <- list(make_s3_lgl,
-name_stub_chr,
-pt_ls,
-pt_chkr_pfx_ls,
-pt_ns_ls,
-vals_ls,
-allowed_vals_ls,
-min_max_vals_ls,
-start_end_vals_ls,
-class_desc_chr,
-parent_class_chr,
-slots_ls,
-meaningful_nms_ls,
-inc_clss_ls) %>% purrr::map_dbl(~length(.x))
-arg_max_lgth_1L_dbl <- max(arg_lgths_dbl)
-if(arg_max_lgth_1L_dbl >0){
-if(0 == arg_lgths_dbl[1] & arg_lgths_dbl[1] != arg_max_lgth_1L_dbl){
-make_s3_lgl <- NA
-}
-
-if(0 == arg_lgths_dbl[2] & arg_lgths_dbl[2] != arg_max_lgth_1L_dbl){
-name_stub_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[3] & arg_lgths_dbl[3] != arg_max_lgth_1L_dbl){
-pt_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[4] & arg_lgths_dbl[4] != arg_max_lgth_1L_dbl){
-pt_chkr_pfx_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[5] & arg_lgths_dbl[5] != arg_max_lgth_1L_dbl){
-pt_ns_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[6] & arg_lgths_dbl[6] != arg_max_lgth_1L_dbl){
-vals_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[7] & arg_lgths_dbl[7] != arg_max_lgth_1L_dbl){
-allowed_vals_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[8] & arg_lgths_dbl[8] != arg_max_lgth_1L_dbl){
-min_max_vals_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[9] & arg_lgths_dbl[9] != arg_max_lgth_1L_dbl){
-start_end_vals_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[10] & arg_lgths_dbl[10] != arg_max_lgth_1L_dbl){
-class_desc_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[11] & arg_lgths_dbl[11] != arg_max_lgth_1L_dbl){
-parent_class_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[12] & arg_lgths_dbl[12] != arg_max_lgth_1L_dbl){
-slots_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[13] & arg_lgths_dbl[13] != arg_max_lgth_1L_dbl){
-meaningful_nms_ls <- list(NULL)
-}
-
-if(0 == arg_lgths_dbl[14] & arg_lgths_dbl[14] != arg_max_lgth_1L_dbl){
-inc_clss_ls <- list(NULL)
-}
-}
-tibble::tibble(make_s3_lgl = make_s3_lgl,
+args_ls <- list(make_s3_lgl = make_s3_lgl,
 name_stub_chr = name_stub_chr,
 pt_ls = pt_ls,
 pt_chkr_pfx_ls = pt_chkr_pfx_ls,
@@ -146,7 +74,8 @@ class_desc_chr = class_desc_chr,
 parent_class_chr = parent_class_chr,
 slots_ls = slots_ls,
 meaningful_nms_ls = meaningful_nms_ls,
-inc_clss_ls = inc_clss_ls)
+inc_clss_ls = inc_clss_ls) %>% update_pt_fn_args_ls()
+rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' Validate readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
 #' @description Validate an instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE

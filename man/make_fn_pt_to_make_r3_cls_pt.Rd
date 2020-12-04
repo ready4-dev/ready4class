@@ -11,6 +11,7 @@ make_fn_pt_to_make_r3_cls_pt(
   ordered_1L_lgl,
   class_nm_1L_chr,
   parent_cls_nm_1L_chr,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
   prototype_lup
 )
 }
@@ -27,6 +28,8 @@ make_fn_pt_to_make_r3_cls_pt(
 
 \item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
+
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \value{
@@ -35,4 +38,3 @@ Function prototype to make ready4 S3 class (a prototype)
 \description{
 make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make ready4 s3 class prototype. The function is called for its side effects and does not return a value.
 }
-\keyword{internal}

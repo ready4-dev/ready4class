@@ -37,7 +37,7 @@ x
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname make_pt_ready4_class_pt_lup
 #' @export 
-#' @importFrom purrr map_dbl
+#' @importFrom rlang exec
 #' @importFrom tibble tibble
 make_pt_ready4_class_pt_lup <- function(type_chr = character(0),
 val_chr = character(0),
@@ -45,44 +45,13 @@ pt_ns_chr = character(0),
 fn_to_call_chr = character(0),
 default_val_chr = character(0),
 old_class_lgl = logical(0)){ 
-arg_lgths_dbl <- list(type_chr,
-val_chr,
-pt_ns_chr,
-fn_to_call_chr,
-default_val_chr,
-old_class_lgl) %>% purrr::map_dbl(~length(.x))
-arg_max_lgth_1L_dbl <- max(arg_lgths_dbl)
-if(arg_max_lgth_1L_dbl >0){
-if(0 == arg_lgths_dbl[1] & arg_lgths_dbl[1] != arg_max_lgth_1L_dbl){
-type_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[2] & arg_lgths_dbl[2] != arg_max_lgth_1L_dbl){
-val_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[3] & arg_lgths_dbl[3] != arg_max_lgth_1L_dbl){
-pt_ns_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[4] & arg_lgths_dbl[4] != arg_max_lgth_1L_dbl){
-fn_to_call_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[5] & arg_lgths_dbl[5] != arg_max_lgth_1L_dbl){
-default_val_chr <- NA_character_
-}
-
-if(0 == arg_lgths_dbl[6] & arg_lgths_dbl[6] != arg_max_lgth_1L_dbl){
-old_class_lgl <- NA
-}
-}
-tibble::tibble(type_chr = type_chr,
+args_ls <- list(type_chr = type_chr,
 val_chr = val_chr,
 pt_ns_chr = pt_ns_chr,
 fn_to_call_chr = fn_to_call_chr,
 default_val_chr = default_val_chr,
-old_class_lgl = old_class_lgl)
+old_class_lgl = old_class_lgl) %>% update_pt_fn_args_ls()
+rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' Validate readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @description Validate an instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE

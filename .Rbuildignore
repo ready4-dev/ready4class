@@ -24,3 +24,5 @@
 ^data-raw/RENAME_FNS\.R$
 ^data-raw/WRITE_CLASSES\.R$
 ^initial_setup\.R$
+^data-raw/fns/update\.R$
+^data-raw/tests/test_mk_pt_fn\.R$

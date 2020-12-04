@@ -315,58 +315,30 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                          ordered_1L_lgl,
                                          class_nm_1L_chr,
                                          parent_cls_nm_1L_chr,
+                                         dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                          prototype_lup){
   if(type_1L_chr %in% c("tibble","list")){
-    checker_1L_chr <- paste0("arg_lgths_dbl <- list(",
-                                          names(vals_ls) %>%
-                                            stringr::str_c(sep="",collapse=",\n"),
-                                          ") %>% purrr::map_dbl(~length(.x))\n",
-                                          "arg_max_lgth_1L_dbl <- max(arg_lgths_dbl)\n",
-                                          "if(arg_max_lgth_1L_dbl >0){\n",
-                                          purrr::pmap_chr(list(names(vals_ls),
-                                                               1:length(vals_ls),
-                                                               vals_ls),
-                                                          ~ {
-                                                            val_xx <- eval(parse(text = ..3))
-                                                            paste0("if(0 == arg_lgths_dbl[",
-                                                                   ..2,
-                                                                   "] & arg_lgths_dbl[",
-                                                                   ..2,
-                                                                   "] != arg_max_lgth_1L_dbl){\n",
-                                                                   ..1,
-                                                                   " <- ",
-                                                                   ifelse(is.character(val_xx),
-                                                                          "NA_character_",
-                                                                          ifelse(is.integer(val_xx),
-                                                                                 "NA_integer_",
-                                                                                 ifelse(is.complex(val_xx),
-                                                                                        "NA_complex_",
-                                                                                        ifelse(is.numeric(val_xx),
-                                                                                               "NA_real_",
-                                                                                               ifelse(is.logical(val_xx),
-                                                                                                      "NA",
-                                                                                                      "list(NULL)"))))),
-                                                                   "\n}\n")
-                                                          }
-                                          ) %>%
-                                            stringr::str_c(sep="",collapse="\n"),
-                                          "}\n")
-    main_body_1L_chr <- paste0(ifelse(type_1L_chr=="tibble",
-                                     "tibble::tibble(",
-                                     "list("),
-                              purrr::map_chr(names(vals_ls),
-                                                         ~ paste0(.x,
-                                                                  " = ",
-                                                                  .x)) %>%
-                                            stringr::str_c(sep="",collapse=",\n"),
-                                          ")")
-    #fn_call_to_create_prototype <- paste0(checker_1L_chr, main_body_1L_chr)
-    fn_call_to_create_prototype <- make_child_cls_fn_body(child_ext_fn_1L_chr = main_body_1L_chr,#fn_call_to_create_prototype,
-                                                          checker_1L_chr = checker_1L_chr,
-                                                          parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                                          prototype_lup = prototype_lup,
-                                                          prepend_1L_lgl = T)
-
+    if(!is.null(parent_cls_nm_1L_chr)){
+    parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                                dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+                                                prototype_lup = prototype_lup)
+    vals_ls <- append(parse(text = parent_proto_fn_chr) %>% eval() %>% as.list %>% purrr::map(~ deparse(.x)),
+           vals_ls)
+    }
+    args_1L_chr <- paste0("args_ls <- list(",
+                             purrr::map_chr(names(vals_ls),
+                                            ~ paste0(.x,
+                                                     " = ",
+                                                     .x)) %>%
+                               stringr::str_c(sep="",collapse=",\n"),
+                             ") %>% update_pt_fn_args_ls()\n")
+    main_body_1L_chr <- paste0("rlang::exec(",
+                               ifelse(type_1L_chr=="tibble",
+                                     "tibble::tibble",
+                                     "list"),
+                               ",!!!args_ls",
+                               ")")
+    fn_call_to_create_prototype <- paste0(args_1L_chr, main_body_1L_chr)
   }else{
     if(type_1L_chr == "factor"){
       fn_call_to_create_prototype <- paste0("factor(x = character(),\nlevels=c(\"",
@@ -383,7 +355,6 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                             "(0)"
       )
     }
-
   }
   name_of_fn_to_make_pt <- paste0("make_pt_",class_nm_1L_chr)
   fn_to_make_pt <- paste0(name_of_fn_to_make_pt,
@@ -792,6 +763,7 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                   prototype_lup,
                                   min_max_vals_dbl,
                                   start_end_vals_dbl,
+                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                   nss_to_ignore_chr){
   s3_prototype_ls <- make_fn_pt_to_make_r3_cls_pt(type_1L_chr = type_1L_chr,
                                           pt_ns_1L_chr = pt_ns_1L_chr,
@@ -799,6 +771,7 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                           ordered_1L_lgl = ordered_1L_lgl,
                                           class_nm_1L_chr = class_name_1L_chr,
                                           parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                           prototype_lup = prototype_lup)
   s3_constructor_ls <- make_fn_pt_to_make_unvld_r3_cls_inst(type_1L_chr = type_1L_chr,
                                               pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr,

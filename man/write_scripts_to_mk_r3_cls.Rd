@@ -19,6 +19,7 @@ write_scripts_to_mk_r3_cls(
   min_max_vals_dbl = NULL,
   start_end_vals_dbl = NULL,
   prototype_lup,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
   nss_to_ignore_chr = NA_character_,
   file_exists_cdn_1L_chr = "skip",
   abbreviations_lup = NULL
@@ -53,6 +54,8 @@ write_scripts_to_mk_r3_cls(
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
+
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
 
 \item{file_exists_cdn_1L_chr}{File exists condition (a character vector of length one), Default: 'skip'}
@@ -62,4 +65,3 @@ write_scripts_to_mk_r3_cls(
 \description{
 write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s3 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 }
-\keyword{internal}

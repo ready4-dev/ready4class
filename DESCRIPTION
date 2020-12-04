@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Standardised Developer Tools for Creating and Extending
     Classes for Use as Part of the Ready4 Suite
-Version: 0.0.0.9172
+Version: 0.0.0.9173
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -50,6 +50,7 @@ Imports:
     methods,
     purrr,
     rlang,
+    stats,
     stringi,
     stringr,
     testit,

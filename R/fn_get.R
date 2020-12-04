@@ -7,7 +7,6 @@
 #' @rdname get_class_fl_nms
 #' @export 
 
-#' @keywords internal
 get_class_fl_nms <- function (class_names_chr, s3_1L_lgl = T, output_dir_1L_chr = NA) 
 {
     class_fl_nms_chr <- paste0(ifelse(is.na(output_dir_1L_chr), 
@@ -23,7 +22,6 @@ get_class_fl_nms <- function (class_names_chr, s3_1L_lgl = T, output_dir_1L_chr 
 #' @rdname get_class_ns
 #' @export 
 #' @importFrom ready4fun get_from_lup_obj
-#' @keywords internal
 get_class_ns <- function (prototype_lup, class_nm_1L_chr) 
 {
     class_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
@@ -40,7 +38,6 @@ get_class_ns <- function (prototype_lup, class_nm_1L_chr)
 #' @rdname get_nms_of_clss_to_inc
 #' @export 
 
-#' @keywords internal
 get_nms_of_clss_to_inc <- function (parent_cls_nm_1L_chr, parent_ns_ls, base_set_of_clss_to_inc_chr = NULL) 
 {
     nms_of_clss_to_inc_chr <- NULL
@@ -68,7 +65,6 @@ get_nms_of_clss_to_inc <- function (parent_cls_nm_1L_chr, parent_ns_ls, base_set
 #' @importFrom ready4fun force_instl_of_reqd_pkg
 #' @importFrom methods getGenerics
 #' @importFrom stringr str_replace_all
-#' @keywords internal
 get_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr) 
 {
     if (!req_pkgs_chr %>% purrr::discard(is.na) %>% identical(character(0))) 
@@ -92,7 +88,6 @@ get_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr)
 #' @rdname get_parent_cls_ns
 #' @export 
 
-#' @keywords internal
 get_parent_cls_ns <- function (prototype_lup, parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr) 
 {
     if (!is.null(parent_cls_nm_1L_chr)) {
@@ -109,20 +104,27 @@ get_parent_cls_ns <- function (prototype_lup, parent_cls_nm_1L_chr, dev_pkg_ns_1
     return(parent_cls_ns)
 }
 #' Get parent class prototype
-#' @description get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype function (a character vector).
+#' @description get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype function (a character vector of length one).
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
+#' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param prototype_lup Prototype (a lookup table)
-#' @return Parent class prototype function (a character vector)
+#' @return Parent class prototype function (a character vector of length one)
 #' @rdname get_parent_cls_pt_fn
 #' @export 
-#' @importFrom ready4fun get_from_lup_obj
-#' @keywords internal
-get_parent_cls_pt_fn <- function (parent_cls_nm_1L_chr, prototype_lup) 
+#' @importFrom ready4fun get_dev_pkg_nm get_from_lup_obj
+get_parent_cls_pt_fn <- function (parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
+    prototype_lup) 
 {
-    parent_cls_pt_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
+    parent_cls_pt_fn_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
         match_var_nm_1L_chr = "type_chr", match_value_xx = parent_cls_nm_1L_chr, 
         target_var_nm_1L_chr = "val_chr", evaluate_lgl = F)
-    return(parent_cls_pt_fn_chr)
+    parent_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
+        match_var_nm_1L_chr = "type_chr", match_value_xx = parent_cls_nm_1L_chr, 
+        target_var_nm_1L_chr = "pt_ns_chr", evaluate_lgl = F)
+    if (!parent_ns_1L_chr %in% c("base", dev_pkg_ns_1L_chr)) 
+        parent_cls_pt_fn_1L_chr <- paste0(parent_ns_1L_chr, "::", 
+            parent_cls_pt_fn_1L_chr)
+    return(parent_cls_pt_fn_1L_chr)
 }
 #' Get parent class prototypes
 #' @description get_parent_cls_pts() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototypes. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototypes (a character vector).
@@ -134,7 +136,6 @@ get_parent_cls_pt_fn <- function (parent_cls_nm_1L_chr, prototype_lup)
 #' @export 
 #' @importFrom ready4fun force_instl_of_reqd_pkg get_r4_obj_slots
 #' @importFrom purrr map_chr
-#' @keywords internal
 get_parent_cls_pts <- function (parent_cls_nm_1L_chr, parent_ns_ls, slot_names_chr) 
 {
     if (ifelse(is.null(parent_ns_ls$transformed_1L_chr), F, ifelse(is.na(parent_ns_ls$transformed_1L_chr), 
@@ -152,7 +153,6 @@ get_parent_cls_pts <- function (parent_cls_nm_1L_chr, parent_ns_ls, slot_names_c
 #' @rdname get_parent_cls_slot_nms
 #' @export 
 #' @importFrom ready4fun force_instl_of_reqd_pkg get_r4_obj_slots
-#' @keywords internal
 get_parent_cls_slot_nms <- function (parent_cls_nm_1L_chr, parent_ns_ls) 
 {
     if (ifelse(is.null(parent_ns_ls$transformed_1L_chr), F, ifelse(is.na(parent_ns_ls$transformed_1L_chr), 

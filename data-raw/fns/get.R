@@ -64,13 +64,21 @@ get_parent_cls_ns <- function(prototype_lup,
   return(parent_cls_ns)
 }
 get_parent_cls_pt_fn <- function(parent_cls_nm_1L_chr,
-                                    prototype_lup){
-  parent_cls_pt_fn_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                 dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
+                                 prototype_lup){
+  parent_cls_pt_fn_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                      match_var_nm_1L_chr = "type_chr",
                                                      match_value_xx = parent_cls_nm_1L_chr,
                                                      target_var_nm_1L_chr = "val_chr",
                                                      evaluate_lgl = F)
-  return(parent_cls_pt_fn_chr)
+  parent_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                                  match_var_nm_1L_chr = "type_chr",
+                                                  match_value_xx = parent_cls_nm_1L_chr,
+                                                  target_var_nm_1L_chr = "pt_ns_chr",
+                                                  evaluate_lgl = F)
+  if(!parent_ns_1L_chr %in% c("base",dev_pkg_ns_1L_chr))
+    parent_cls_pt_fn_1L_chr <- paste0(parent_ns_1L_chr,"::",parent_cls_pt_fn_1L_chr)
+  return(parent_cls_pt_fn_1L_chr)
 }
 get_parent_cls_pts <- function(parent_cls_nm_1L_chr,
                                parent_ns_ls,
