@@ -48,7 +48,7 @@ ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For
 #
 # 6. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 utils::data("abbreviations_lup",package = "ready4fun")
-ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","idx","inc","inhtc","inst","lnt","mk","mthd","ptrn",
+pkg_dss_tb <- ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","cls","col","curr","dif","gen","gnrc","idx","inc","inhtc","inst","lnt","mk","mthd","ptrn",
                                              "ready4_constructor_tbl","ready4_class_pt_lup",
                                              "ref","ret","tf","tfd","unvd","val","vld","vldd"),
                             long_name_chr = c("algorithm","condition","checker","class","column","current","different","generate","generic","index","include","inheritance","instance","length","make","method","pattern",
@@ -65,7 +65,7 @@ utils::data("abbreviations_lup")
 # 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 utils::data("fn_type_lup_tb",package = "ready4fun")
 ## Get below working and add arrange.
-fn_type_lup_tb %>%
+pkg_dss_tb <- fn_type_lup_tb %>%
   ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = ready4fun::get_new_fn_types(abbreviations_lup = abbreviations_lup,
                                                                                   fn_type_lup_tb = fn_type_lup_tb),
                              fn_type_desc_chr = c("Adds information about a class.",
@@ -77,8 +77,9 @@ fn_type_lup_tb %>%
                                                   "Makes new classes and creates or updates a class prototype lookup table."),
                              is_generic_lgl = T,
                              is_method_lgl = T) %>%
-  ready4fun::write_dmtd_fn_type_lup(url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
-                       abbreviations_lup = abbreviations_lup)
+  ready4fun::write_dmtd_fn_type_lup(url_1L_chr = "https://ready4-dev.github.io/ready4-dev/",
+                                    abbreviations_lup = abbreviations_lup,
+                                    pkg_dss_tb = pkg_dss_tb)
 utils::data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
 fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = NULL,

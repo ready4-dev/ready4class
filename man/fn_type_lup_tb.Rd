@@ -8,7 +8,7 @@
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 23 rows and 6 columns.
 }
 \source{
-\url{https://readyforwhatsnext.github.io/readyforwhatsnext/}
+\url{https://ready4-dev.github.io/ready4-dev/}
 }
 \usage{
 fn_type_lup_tb

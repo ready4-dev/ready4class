@@ -6,7 +6,6 @@
 #' @export 
 #' @importFrom purrr map_dbl map2
 #' @importFrom stats setNames
-#' @keywords internal
 update_pt_fn_args_ls <- function (args_ls) 
 {
     arg_lgths_dbl <- args_ls %>% purrr::map_dbl(~length(.x))
