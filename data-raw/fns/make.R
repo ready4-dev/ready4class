@@ -209,34 +209,6 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                       ")")
   return(alg_to_write_gtr_str_mthds)
 }
-make_child_cls_fn_body <- function(child_ext_fn_1L_chr,
-                                   checker_1L_chr = NA_character_,
-                                   parent_cls_nm_1L_chr,
-                                   prototype_lup,
-                                   prepend_1L_lgl = T){
-  if(!is.null(parent_cls_nm_1L_chr)){
-    parent_proto_fn_chr <- get_parent_cls_pt_fn(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                                prototype_lup = prototype_lup)
-    child_extension_tb <- eval(parse(text=child_ext_fn_1L_chr))
-    new_fn_chr <- paste0("purrr::reduce(names(",
-                        child_ext_fn_1L_chr,
-                        "),\n.init = ",
-                        parent_proto_fn_chr,
-                        ",\n ~ .x %>% dplyr::mutate(!!rlang::sym(.y) := eval(parse(text=",
-                        child_ext_fn_1L_chr,
-                        "[.y]))))")
-    if(prepend_1L_lgl)
-      new_fn_chr <-paste0(new_fn_chr,
-                          "%>% dplyr::select(c(",
-                          c(names(child_extension_tb),names(parse(text = parent_proto_fn_chr) %>% eval())) %>%
-                            stringr::str_c(collapse = ","),
-                          "))")
-    child_cls_fn_body_1L_chr <- paste0(checker_1L_chr, new_fn_chr) # new_fn_chr
-  }else{
-    child_cls_fn_body_1L_chr <- paste0(checker_1L_chr, child_ext_fn_1L_chr)
-  }
-  return(child_cls_fn_body_1L_chr)
-}
 make_class_pt_tb_for_r3_and_r4_clss <- function(class_mk_ls){
   class_pt_tb_for_r3_and_r4_clss_tb <- purrr::map2_dfr(class_mk_ls,
                   names(class_mk_ls),
@@ -326,12 +298,14 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
            vals_ls)
     }
     args_1L_chr <- paste0("args_ls <- list(",
-                             purrr::map_chr(names(vals_ls),
-                                            ~ paste0(.x,
-                                                     " = ",
-                                                     .x)) %>%
-                               stringr::str_c(sep="",collapse=",\n"),
-                             ") %>% update_pt_fn_args_ls()\n")
+                          purrr::map_chr(names(vals_ls),
+                                         ~ paste0(.x,
+                                                  " = ",
+                                                  .x)) %>%
+                            stringr::str_c(sep="",collapse=",\n"),
+                          ") %>% ",
+                          ifelse(dev_pkg_ns_1L_chr=="ready4class","","ready4class::"),
+                          "update_pt_fn_args_ls()\n")
     main_body_1L_chr <- paste0("rlang::exec(",
                                ifelse(type_1L_chr=="tibble",
                                      "tibble::tibble",
