@@ -239,8 +239,10 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   if(print_validator_1L_lgl){
     sink(output_file_class, append = TRUE)
     writeLines(paste0("\n",
-                      valid_txt %>% stringr::str_replace(paste0(",\nwhere =  ",
-                                                                "globalenv\\(\\)"),"")))
+                      valid_txt %>%
+                        stringr::str_replace(paste0(",\nwhere =  ",
+                                                                "globalenv\\(\\)"),"") %>%
+                        stringr::str_replace(",\".GlobalEnv\"",""))) # BOTH LINES MAY NOT BE NEEDED
     ready4fun::close_open_sinks()
   }
   eval(parse(text=valid_txt))
@@ -561,7 +563,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                        '"')) %>%
     stringr::str_c(sep="",collapse=",") %>%
     paste0("c(",.,")")
-  slots <- eval(parse(text = slot_str))
+  named_slots_chr <- eval(parse(text = slot_str))
   old_class_tb_extension <- make_alg_to_set_old_clss(type_chr = type_chr,
                                                      prototype_lup = prototype_lup)
   if(!identical(old_class_tb_extension,character(0))){
@@ -581,6 +583,14 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                           "globalenv()",
                           ")")
   }else{
+    parent_slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                                    parent_ns_ls = parent_ns_ls)
+    parent_pt_chr <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                                   parent_ns_ls = parent_ns_ls,
+                                                   slot_names_chr = parent_slots_chr)
+    parent_pt_chr <- `names<-`(parent_pt_chr,parent_slots_chr)
+    named_slots_chr <- c(named_slots_chr, parent_pt_chr)
+    named_slots_chr <- named_slots_chr[!duplicated(names(named_slots_chr))]
     st_class_fn <- paste0("methods::setClass(",
                           make_alg_to_gen_ref_to_cls(class_nm_1L_chr,
                                                      pkg_nm_1L_chr = transform_parent_ns_ls(parent_ns_ls) %>%
@@ -588,25 +598,25 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                           ",\ncontains = \"",
                           parent_cls_nm_1L_chr,
                           "\",\nslots = ",
-                          slot_str,
+                          #slot_str,
+                          purrr::map2_chr(names(named_slots_chr),
+                                          named_slots_chr,
+                                          ~ paste0(.x,
+                                                   ' = "',
+                                                   .y,
+                                                   '"')) %>%
+                            stringr::str_c(sep="",collapse=",") %>%
+                            paste0("c(",.,")"),
                           ",\nprototype =  ",
                           pt_ls,
                           ",\nwhere =  ",
                           "globalenv()",
                           ")")
-    parent_slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                                    parent_ns_ls = parent_ns_ls)
-    parent_pt_chr <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                                   parent_ns_ls = parent_ns_ls,
-                                                   slot_names_chr = parent_slots_chr)
-    parent_pt_chr <- `names<-`(parent_pt_chr,parent_slots_chr)
-    slots <- c(slots, parent_pt_chr)
-    slots <- slots[!duplicated(names(slots))]
   }
   slots_tags <- paste0("#' @slot ",
-                       names(slots),
+                       names(named_slots_chr),
                        " ",
-                       slots,
+                       named_slots_chr,
                        "\n",
                        collapse="")
   clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
