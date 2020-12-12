@@ -15,7 +15,7 @@
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
 #' @importFrom utils data
-#' @importFrom purrr pwalk flatten_chr
+#' @importFrom purrr pwalk
 #' @importFrom dplyr filter
 write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
@@ -45,9 +45,8 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
         }
         else {
             ..11
-        }, slots_chr = ..12[[1]] %>% purrr::flatten_chr(), type_chr = ..3[[1]] %>% 
-            purrr::flatten_chr(), meaningful_nms_ls = ..13, vals_ls = ..6[[1]], 
-        allowed_vals_ls = ..7[[1]], clss_to_inc_chr = ..14[[1]], 
+        }, slots_chr = ..12[[1]], type_chr = ..3[[1]], meaningful_nms_ls = ..13, 
+        vals_ls = ..6[[1]], allowed_vals_ls = ..7[[1]], clss_to_inc_chr = ..14[[1]], 
         prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr))
 }

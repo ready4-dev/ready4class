@@ -39,8 +39,8 @@ write_classes.ready4_constructor_tbl <- function(x,
                                             parent_cls_nm_1L_chr = if(is.na(..11)){
                                               NULL}else{
                                                 ..11},
-                                            slots_chr = ..12[[1]] %>% purrr::flatten_chr(),
-                                            type_chr = ..3[[1]] %>% purrr::flatten_chr(),
+                                            slots_chr = ..12[[1]],# %>% purrr::flatten_chr()
+                                            type_chr = ..3[[1]], # %>% purrr::flatten_chr()
                                             meaningful_nms_ls = ..13,
                                             vals_ls = ..6[[1]],
                                             allowed_vals_ls = ..7[[1]],
