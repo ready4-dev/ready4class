@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4_constructor_tbl.R
 \name{make_pt_ready4_constructor_tbl}
 \alias{make_pt_ready4_constructor_tbl}
-\title{Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
+\title{Make prototype ready4 S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
 make_pt_ready4_constructor_tbl(
   make_s3_lgl = logical(0),
@@ -51,10 +51,10 @@ make_pt_ready4_constructor_tbl(
 \item{inc_clss_ls}{Include classes (a list), Default: list()}
 }
 \value{
-A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+A prototype for ready4 S3 class CLASS CONSTRUCTOR TABLE
 }
 \description{
-Create a new prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+Create a new prototype for the ready4 S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
 ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.

@@ -2,18 +2,18 @@
 % Please edit documentation in R/C3_ready4_constructor_tbl.R
 \name{ready4_constructor_tbl}
 \alias{ready4_constructor_tbl}
-\title{readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
+\title{ready4 S3 class CLASS CONSTRUCTOR TABLE}
 \usage{
 ready4_constructor_tbl(x = make_pt_ready4_constructor_tbl())
 }
 \arguments{
-\item{x}{A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()}
+\item{x}{A prototype for the ready4 S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()}
 }
 \value{
-A validated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+A validated instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 }
 \description{
-Create a new valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+Create a new valid instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 }
 \details{
 ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.

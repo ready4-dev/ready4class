@@ -12,7 +12,7 @@ ready4fun::write_fn_type_dirs()
 #
 # 4. Set-up package structure
 ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For Creating And Extending Classes For Use As Part of The Ready4 Suite",
-                 pkg_desc_1L_chr = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the readyforwhatsnext data synthesis and simulation framework with new classes.
+                 pkg_desc_1L_chr = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the ready4 data synthesis and simulation framework with new classes.
   This development version of the ready4class package has been made available as part of the process of testing and documenting the package. The tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
   Therefore, you should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
                  authors_prsns = c(utils::person(
@@ -52,14 +52,14 @@ pkg_dss_tb <- ready4fun::write_abbr_lup(short_name_chr = c("alg","cdn","chkr","c
                                              "ready4_constructor_tbl","ready4_class_pt_lup",
                                              "ref","ret","tf","tfd","unvd","val","vld","vldd"),
                             long_name_chr = c("algorithm","condition","checker","class","column","current","different","generate","generic","index","include","inheritance","instance","length","make","method","pattern",
-                                                  "readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE",
-                                                  "readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE",
+                                                  "ready4 S3 class CLASS CONSTRUCTOR TABLE",
+                                                  "ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE",
                                               "reference","return","transform","transformed","unvalidated","value","valid","validated"),
-                            no_plural_chr = c("Class Constructor Table readyforwhatsnext S3 class",
-                                              "Class Prototype Lookup Table readyforwhatsnext S3 class",
+                            no_plural_chr = c("Class Constructor Table ready4 S3 class",
+                                              "Class Prototype Lookup Table ready4 S3 class",
                                               "transformed","unvalidated","valid","validated"),
                           custom_plural_ls = list(class = "classes", index = "indices"),
-                            url_1L_chr = "https://readyforwhatsnext.github.io/readyforwhatsnext/",
+                            url_1L_chr = "https://ready4-dev.github.io/ready4-dev/",
                             seed_lup = abbreviations_lup)
 utils::data("abbreviations_lup")
 # 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
@@ -116,7 +116,7 @@ prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
 ready4fun::write_and_doc_ds(prototype_lup,
                             db_1L_chr = "prototype_lup",
                             title_1L_chr = "Class prototype lookup table",
-                            desc_1L_chr = "Metadata on classes used in readyforwhatsnext suite")
+                            desc_1L_chr = "Metadata on classes used in ready4 suite")
 #
 #usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##

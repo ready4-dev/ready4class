@@ -1,9 +1,9 @@
 
 setOldClass(c("ready4_constructor_tbl","tbl_df", "tbl", "data.frame"))
-#' readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Create a new valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @param x A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()
-#' @return A validated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @description Create a new valid instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @param x A prototype for the ready4 S3 class CLASS CONSTRUCTOR TABLE, Default: make_pt_ready4_constructor_tbl()
+#' @return A validated instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname ready4_constructor_tbl
 #' @export 
@@ -11,10 +11,10 @@ setOldClass(c("ready4_constructor_tbl","tbl_df", "tbl", "data.frame"))
 ready4_constructor_tbl <- function(x = make_pt_ready4_constructor_tbl()){ 
 validate_ready4_constructor_tbl(make_new_ready4_constructor_tbl(x))
 }
-#' Make new readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Create a new unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @param x A prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @return An unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Make new ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @description Create a new unvalidated instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @param x A prototype for the ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @return An unvalidated instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_new_ready4_constructor_tbl
 #' @export 
@@ -25,8 +25,8 @@ class(x) <- append(c("ready4_constructor_tbl",setdiff(make_pt_ready4_constructor
 class(x))
 x
 }
-#' Make prototype readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Create a new prototype for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Make prototype ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @description Create a new prototype for the ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @param make_s3_lgl Make S3 (a logical vector), Default: logical(0)
 #' @param name_stub_chr Name stub (a character vector), Default: character(0)
 #' @param pt_ls Prototype (a list), Default: list()
@@ -41,7 +41,7 @@ x
 #' @param slots_ls Slots (a list), Default: list()
 #' @param meaningful_nms_ls Meaningful names (a list), Default: list()
 #' @param inc_clss_ls Include classes (a list), Default: list()
-#' @return A prototype for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' @return A prototype for ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_pt_ready4_constructor_tbl
 #' @export 
@@ -77,10 +77,10 @@ meaningful_nms_ls = meaningful_nms_ls,
 inc_clss_ls = inc_clss_ls) %>% update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
-#' Validate readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Validate an instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @param x An unvalidated instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @return A prototpe for readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Validate ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @description Validate an instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @param x An unvalidated instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @return A prototpe for ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname validate_ready4_constructor_tbl
 #' @export 
@@ -117,10 +117,10 @@ stringr::str_c(sep="", collapse = ", ")),
 call. = FALSE)
 }
 x}
-#' Is readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
-#' @description Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Is ready4 S3 class CLASS CONSTRUCTOR TABLE
+#' @description Check whether an object is a valid instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @param x An object of any type
-#' @return A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' @return A logical value, TRUE if a valid instance of the ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname is_ready4_constructor_tbl
 #' @export 

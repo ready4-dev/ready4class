@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4_class_pt_lup.R
 \name{make_pt_ready4_class_pt_lup}
 \alias{make_pt_ready4_class_pt_lup}
-\title{Make prototype readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
+\title{Make prototype ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE}
 \usage{
 make_pt_ready4_class_pt_lup(
   type_chr = character(0),
@@ -27,10 +27,10 @@ make_pt_ready4_class_pt_lup(
 \item{old_class_lgl}{Old class (a logical vector), Default: logical(0)}
 }
 \value{
-A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+A prototype for ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \description{
-Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+Create a new prototype for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
 ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.

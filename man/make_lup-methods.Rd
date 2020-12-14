@@ -13,7 +13,7 @@ make_lup.ready4_constructor_tbl(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 \S4method{make_lup}{ready4_constructor_tbl}(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 }
 \arguments{
-\item{x}{An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
+\item{x}{An instance of ready4 S3 class CLASS CONSTRUCTOR TABLE}
 
 \item{...}{Additional arguments}
 
@@ -22,10 +22,10 @@ make_lup.ready4_constructor_tbl(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 \item{prefix_1L_chr}{Prefix (a character vector of length one)}
 }
 \value{
-Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 }
 \description{
 make_lup() is a Make Lookup Table generic that applies a Make method and then updates the output of that method.
 
-make_lup.ready4_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
+make_lup.ready4_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the ready4 S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }

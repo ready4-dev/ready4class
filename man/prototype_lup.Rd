@@ -11,7 +11,7 @@ An object of class \code{ready4_class_pt_lup} (inherits from \code{tbl_df}, \cod
 prototype_lup
 }
 \description{
-Metadata on classes used in readyforwhatsnext suite
+Metadata on classes used in ready4 suite
 }
 \details{
 A tibble

@@ -1,6 +1,6 @@
-#' Write classes and make lookup table method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.
-#' @description write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
-#' @param x An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Write classes and make lookup table method applied to ready4 S3 class CLASS CONSTRUCTOR TABLE.
+#' @description write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE).
+#' @param x An instance of ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
@@ -11,7 +11,7 @@
 #' @param req_pkgs_chr Req packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
-#' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+#' @return Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 #' @rdname write_classes_and_make_lup-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm

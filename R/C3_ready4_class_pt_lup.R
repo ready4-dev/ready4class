@@ -1,9 +1,9 @@
 
 setOldClass(c("ready4_class_pt_lup","tbl_df", "tbl", "data.frame"))
-#' readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Create a new valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @param x A prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE, Default: make_pt_ready4_class_pt_lup()
-#' @return A validated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @description Create a new valid instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @param x A prototype for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE, Default: make_pt_ready4_class_pt_lup()
+#' @return A validated instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname ready4_class_pt_lup
 #' @export 
@@ -11,10 +11,10 @@ setOldClass(c("ready4_class_pt_lup","tbl_df", "tbl", "data.frame"))
 ready4_class_pt_lup <- function(x = make_pt_ready4_class_pt_lup()){ 
 validate_ready4_class_pt_lup(make_new_ready4_class_pt_lup(x))
 }
-#' Make new readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Create a new unvalidated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @param x A prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @return An unvalidated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' Make new ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @description Create a new unvalidated instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @param x A prototype for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @return An unvalidated instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname make_new_ready4_class_pt_lup
 #' @export 
@@ -25,15 +25,15 @@ class(x) <- append(c("ready4_class_pt_lup",setdiff(make_pt_ready4_class_pt_lup()
 class(x))
 x
 }
-#' Make prototype readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Create a new prototype for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' Make prototype ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @description Create a new prototype for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param type_chr Type (a character vector), Default: character(0)
 #' @param val_chr Value (a character vector), Default: character(0)
 #' @param pt_ns_chr Prototype namespace (a character vector), Default: character(0)
 #' @param fn_to_call_chr Function to call (a character vector), Default: character(0)
 #' @param default_val_chr Default value (a character vector), Default: character(0)
 #' @param old_class_lgl Old class (a logical vector), Default: logical(0)
-#' @return A prototype for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @return A prototype for ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname make_pt_ready4_class_pt_lup
 #' @export 
@@ -53,10 +53,10 @@ default_val_chr = default_val_chr,
 old_class_lgl = old_class_lgl) %>% update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
-#' Validate readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Validate an instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @param x An unvalidated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @return A prototpe for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' Validate ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @description Validate an instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @param x An unvalidated instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @return A prototpe for ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname validate_ready4_class_pt_lup
 #' @export 
@@ -93,10 +93,10 @@ stringr::str_c(sep="", collapse = ", ")),
 call. = FALSE)
 }
 x}
-#' Is readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
-#' @description Check whether an object is a valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' Is ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @description Check whether an object is a valid instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param x An object of any type
-#' @return A logical value, TRUE if a valid instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' @return A logical value, TRUE if a valid instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @details ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.
 #' @rdname is_ready4_class_pt_lup
 #' @export 

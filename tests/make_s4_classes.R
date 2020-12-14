@@ -1,6 +1,6 @@
 ## Most of the code for S4 classes included in this package was generated automatically with the following function calls.
 ## NOTE: EITHER DO NOT LOAD PACKAGE OR REMOVE LOADED CLASS DEFINITIONS (methods::classRemove) when running the scripts to create parent classes.
-## STEP 1: CREATE NEW PARENT READYFORWHATSNEXT S4 CLASSES THAT DO NOT CONTAIN ANY OTHER READYFORWHATSNEXT S4 CLASSES
+## STEP 1: CREATE NEW PARENT ready4 S4 CLASSES THAT DO NOT CONTAIN ANY OTHER ready4 S4 CLASSES
 # devtools::load_all()
 # write_scripts_to_mk_r4_clss(name_stub = "agents",
 #                 name_prefix = "r4test_",
@@ -17,7 +17,7 @@
 # write_scripts_to_mk_r4_clss(name_stub = "lookup",
 #                 name_prefix = "r4test_",
 #                 output_folder = "data-raw",
-#                 class_desc = "Look up tables to use throughout readyforwhatsnext suite",
+#                 class_desc = "Look up tables to use throughout ready4 suite",
 #                 parent = NULL,
 #                 class_slots = c("sp_abbreviations_lup","sp_import_lup","sp_data_pack_lup","sp_resolution_lup","sp_site_coord_lup","sp_starter_sf_lup","sp_uid_lup"),
 #                 type = c("rfwn_sp_abbreviations_lup","rfwn_sp_import_lup","rfwn_sp_data_pack_lup","rfwn_sp_resolution_lup","rfwn_sp_site_coord_lup","rfwn_sp_starter_sf_lup","rfwn_sp_uid_lup"),
@@ -53,7 +53,7 @@
 # ## NOTE: EITHER RUN PARENT CLASS CREATION CODE FIRST OR LOAD PACKAGE BEFORE RUNNING SCRIPTS TO CREATE CHILD CLASSES.
 # # devtools::load_all()
 # # methods::removeClass("ready_profiled_area")
-# ## STEP 2: CREATE NEW PARENT READYFORWHATSNEXT S4 CLASSES THAT CONTAIN OTHER READYFORWHATSNEXT S4 CLASSES CREATED IN STEP 1.
+# ## STEP 2: CREATE NEW PARENT ready4 S4 CLASSES THAT CONTAIN OTHER ready4 S4 CLASSES CREATED IN STEP 1.
 # prototype_tb <- prototype_tb %>%
 #   tibble::add_case(type = "r4test_lookup",
 #                    value = "r4test_lookup()",
@@ -86,7 +86,7 @@
 #                 allowed_values = NULL,
 #                 include_classes = c("r4test_agents","r4test_env"),
 #                 prototype_tb = prototype_tb)
-# ## STEP 3: CREATE NEW READYFORWHATSNEXT S4 CLASSES, THAT ARE CHILDREN OF CLASSES CREATED IN STEPS 1-2.
+# ## STEP 3: CREATE NEW ready4 S4 CLASSES, THAT ARE CHILDREN OF CLASSES CREATED IN STEPS 1-2.
 # prototype_tb <- prototype_tb %>%
 #   tibble::add_case(type = c("r4test_struc"),
 #                    value = c("r4test_struc()"),

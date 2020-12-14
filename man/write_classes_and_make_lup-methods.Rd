@@ -38,7 +38,7 @@ write_classes_and_make_lup.ready4_constructor_tbl(
 )
 }
 \arguments{
-\item{x}{An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
+\item{x}{An instance of ready4 S3 class CLASS CONSTRUCTOR TABLE}
 
 \item{...}{Additional arguments}
 
@@ -63,10 +63,10 @@ write_classes_and_make_lup.ready4_constructor_tbl(
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \value{
-Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 }
 \description{
 write_classes_and_make_lup() is a Write Classes and Make Lookup Table generic that makes new classes and creates or updates a class prototype lookup table.
 
-write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
+write_classes_and_make_lup.ready4_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class CLASS CONSTRUCTOR TABLE. The function returns Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }

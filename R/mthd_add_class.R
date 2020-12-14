@@ -1,6 +1,6 @@
-#' Add class method applied to readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE.
-#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
-#' @param x An instance of readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+#' Add class method applied to ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE.
+#' @description add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE).
+#' @param x An instance of ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
@@ -11,7 +11,7 @@
 #' @param req_pkgs_chr Req packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
-#' @return Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+#' @return Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 #' @rdname add_class-methods
 #' @export 
 #' @importFrom utils data

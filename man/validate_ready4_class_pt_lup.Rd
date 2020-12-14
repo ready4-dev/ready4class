@@ -2,18 +2,18 @@
 % Please edit documentation in R/C3_ready4_class_pt_lup.R
 \name{validate_ready4_class_pt_lup}
 \alias{validate_ready4_class_pt_lup}
-\title{Validate readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
+\title{Validate ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE}
 \usage{
 validate_ready4_class_pt_lup(x)
 }
 \arguments{
-\item{x}{An unvalidated instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
+\item{x}{An unvalidated instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE}
 }
 \value{
-A prototpe for readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+A prototpe for ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \description{
-Validate an instance of the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE
+Validate an instance of the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE
 }
 \details{
 ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE class of metadata of prototype classes.

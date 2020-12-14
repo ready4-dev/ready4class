@@ -1,6 +1,6 @@
 #' Class prototype lookup table
 #' 
-#' Metadata on classes used in readyforwhatsnext suite
+#' Metadata on classes used in ready4 suite
 #' 
 #' A tibble
 #' 

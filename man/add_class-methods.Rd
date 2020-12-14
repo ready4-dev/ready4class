@@ -37,7 +37,7 @@ add_class.ready4_class_pt_lup(
 )
 }
 \arguments{
-\item{x}{An instance of readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE}
+\item{x}{An instance of ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE}
 
 \item{...}{Additional arguments}
 
@@ -62,10 +62,10 @@ add_class.ready4_class_pt_lup(
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 }
 \value{
-Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE)
+Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 }
 \description{
 add_class() is an Add Class generic that adds information about a class.
 
-add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a readyforwhatsnext S3 class CLASS PROTOTYPE LOOKUP TABLE).
+add_class.ready4_class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE. The function returns Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE).
 }

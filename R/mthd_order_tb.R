@@ -1,8 +1,8 @@
-#' Order tibble method applied to readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE.
-#' @description order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.
-#' @param x An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE
+#' Order tibble method applied to ready4 S3 class CLASS CONSTRUCTOR TABLE.
+#' @description order_tb.ready4_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the ready4 S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.
+#' @param x An instance of ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
-#' @return Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
+#' @return Instance (a ready4 S3 class CLASS CONSTRUCTOR TABLE)
 #' @rdname order_tb-methods
 #' @export 
 #' @importFrom dplyr select mutate pull

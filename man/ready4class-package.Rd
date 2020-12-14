@@ -9,9 +9,9 @@ Classes for Use as Part of the Ready4 Suite}
 \description{
 ready4class provides classes and methods that
 are designed to standardise and streamline the process for extending
-the readyforwhatsnext data synthesis and simulation framework with new
-classes.  This development version of the ready4class package has been
-made available as part of the process of testing and documenting the
+the ready4 data synthesis and simulation framework with new classes.
+This development version of the ready4class package has been made
+available as part of the process of testing and documenting the
 package. The tools contained in this test release automate a number of
 tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
 Therefore, you should only trial this software if you feel confident

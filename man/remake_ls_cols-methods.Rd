@@ -13,15 +13,15 @@ remake_ls_cols.ready4_constructor_tbl(x)
 \S4method{remake_ls_cols}{ready4_constructor_tbl}(x)
 }
 \arguments{
-\item{x}{An instance of readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE}
+\item{x}{An instance of ready4 S3 class CLASS CONSTRUCTOR TABLE}
 
 \item{...}{Additional arguments}
 }
 \value{
-Instance (a readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE)
+Instance (a ready4 S3 class CLASS CONSTRUCTOR TABLE)
 }
 \description{
 remake_ls_cols() is a Remake List Columns generic that remakes list columns.
 
-remake_ls_cols.ready4_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the readyforwhatsnext S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.
+remake_ls_cols.ready4_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the ready4 S3 class CLASS CONSTRUCTOR TABLE. The function is called for its side effects and does not return a value.
 }
