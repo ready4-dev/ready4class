@@ -41,7 +41,7 @@ ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For
                       github_repo = "ready4-dev/ready4class",
                       lifecycle_stage_1L_chr = "experimental",
                       badges_lup = ready4fun::badges_lup,
-                      addl_badges_ls = list(ready4 = "development"))
+                      addl_badges_ls = list(ready4 = "authoring"))
 # PAUSE FOR INTERACTIVE
 #
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
