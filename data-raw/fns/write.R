@@ -107,7 +107,8 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                        dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                         nss_to_ignore_chr  = NA_character_,
                                         file_exists_cdn_1L_chr = "skip",
-                                       abbreviations_lup = NULL){
+                                       abbreviations_lup = NULL,
+                                       asserts_ls = NULL){
   if(is.null(abbreviations_lup))
     utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
@@ -133,7 +134,8 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                                   min_max_vals_dbl = min_max_vals_dbl,
                                                   start_end_vals_dbl = start_end_vals_dbl,
                                                   dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
-                                                  nss_to_ignore_chr = nss_to_ignore_chr)
+                                                  nss_to_ignore_chr = nss_to_ignore_chr,
+                                                  asserts_ls = asserts_ls)
     sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr =="append",TRUE,FALSE))
     writeLines(s3_components_ls$include_tags_chr)
     if(type_1L_chr =="tibble"){
@@ -176,7 +178,8 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         print_gtrs_strs_1L_lgl = TRUE,
                                         print_validator_1L_lgl = TRUE,
                                         print_meaningful_nms_ls_1L_lgl = TRUE,
-                                        class_in_cache_cdn_1L_chr = "stop"){
+                                        class_in_cache_cdn_1L_chr = "stop",
+                                       asserts_ls = NULL){
   if(!is.null(outp_sub_dir_1L_chr)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
                             "/",
@@ -235,7 +238,8 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                                   parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                   slots_of_dif_lnts_chr = slots_of_dif_lnts_chr,
                                                   allowed_vals_ls = allowed_vals_ls,
-                                                  names_must_match_ls = names_must_match_ls)
+                                                  names_must_match_ls = names_must_match_ls,
+                                                  asserts_ls = asserts_ls)
   if(print_validator_1L_lgl){
     sink(output_file_class, append = TRUE)
     writeLines(paste0("\n",

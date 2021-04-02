@@ -299,6 +299,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: 'skip'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
+#' @param asserts_ls Asserts (a list), Default: NULL
 #' @return NULL
 #' @rdname write_scripts_to_mk_r3_cls
 #' @export 
@@ -313,7 +314,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     ordered_1L_lgl = FALSE, allowed_vals_ls = NULL, min_max_vals_dbl = NULL, 
     start_end_vals_dbl = NULL, prototype_lup, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr = NA_character_, file_exists_cdn_1L_chr = "skip", 
-    abbreviations_lup = NULL) 
+    abbreviations_lup = NULL, asserts_ls = NULL) 
 {
     if (is.null(abbreviations_lup)) 
         utils::data("abbreviations_lup", package = "ready4class", 
@@ -334,7 +335,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
             ordered_1L_lgl = ordered_1L_lgl, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
             prototype_lup = prototype_lup, min_max_vals_dbl = min_max_vals_dbl, 
             start_end_vals_dbl = start_end_vals_dbl, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
-            nss_to_ignore_chr = nss_to_ignore_chr)
+            nss_to_ignore_chr = nss_to_ignore_chr, asserts_ls = asserts_ls)
         sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr == 
             "append", TRUE, FALSE))
         writeLines(s3_components_ls$include_tags_chr)
@@ -378,6 +379,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: TRUE
 #' @param print_meaningful_nms_ls_1L_lgl Print meaningful names list (a logical vector of length one), Default: TRUE
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
+#' @param asserts_ls Asserts (a list), Default: NULL
 #' @return NULL
 #' @rdname write_scripts_to_mk_r4_cls
 #' @export 
@@ -393,7 +395,8 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     names_must_match_ls = NULL, slots_of_dif_lnts_chr = NULL, 
     helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_helper = TRUE, 
     print_gtrs_strs_1L_lgl = TRUE, print_validator_1L_lgl = TRUE, 
-    print_meaningful_nms_ls_1L_lgl = TRUE, class_in_cache_cdn_1L_chr = "stop") 
+    print_meaningful_nms_ls_1L_lgl = TRUE, class_in_cache_cdn_1L_chr = "stop", 
+    asserts_ls = NULL) 
 {
     if (!is.null(outp_sub_dir_1L_chr)) {
         output_dir_1L_chr <- paste0(output_dir_1L_chr, "/", outp_sub_dir_1L_chr)
@@ -431,7 +434,8 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     eval(parse(text = accessors %>% replace_NA_in_fn()))
     valid_txt <- make_alg_to_set_validity_of_r4_cls(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_of_dif_lnts_chr = slots_of_dif_lnts_chr, 
-        allowed_vals_ls = allowed_vals_ls, names_must_match_ls = names_must_match_ls)
+        allowed_vals_ls = allowed_vals_ls, names_must_match_ls = names_must_match_ls, 
+        asserts_ls = asserts_ls)
     if (print_validator_1L_lgl) {
         sink(output_file_class, append = TRUE)
         writeLines(paste0("\n", valid_txt %>% stringr::str_replace(paste0(",\nwhere =  ", 

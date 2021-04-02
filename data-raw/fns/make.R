@@ -82,7 +82,8 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
                                                slots_of_dif_lnts_chr = NULL,
                                                allowed_vals_ls = NULL,
                                                names_must_match_ls = NULL,
-                                               print_validator_1L_lgl = FALSE){
+                                               print_validator_1L_lgl = FALSE,
+                                               asserts_ls = NULL){
   same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
   all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% names()
   if(!is.null(parent_cls_nm_1L_chr)){
@@ -161,8 +162,19 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
   valid_function <- paste0("function(object){\n",
                            "msg <- NULL\n",
                            ifelse(is.na(same_lnt_cdn_1L_chr),"",paste0(same_lnt_cdn_1L_chr,"\n")),
-                           ifelse(is.na(allowed_cdn_chr),"",allowed_cdn_chr), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
-                           ifelse(is.na(names_inc_chr),"",names_inc_chr), ## POTENTIAL ERROR - VECTOR ARGUMENT TO IFELSE
+                           ifelse(is.na(allowed_cdn_chr),"",allowed_cdn_chr %>% paste0(collapse = "")),
+                           ifelse(is.na(names_inc_chr),"",names_inc_chr %>% paste0(collapse = "")),
+                           ifelse(!is.null(asserts_ls),
+                                  purrr::map_chr(asserts_ls,
+                                                 ~ {
+                                                   paste0("rlang::exec(",
+                                                          .x$assert_fn_1L_chr,
+                                                          ",object,",
+                                                          "!!!",
+                                                          deparse(.x$args_ls),
+                                                          ")\n")
+                                                 }) %>% paste0(collapse = ""),
+                                  ""),
                            "if (is.null(msg)) TRUE else msg",
                            "\n}")
   alg_to_set_validity_of_r4_cls_1L_chr <- paste0("methods::setValidity(",
@@ -353,7 +365,8 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                                s3_prototype_ls,
                                                min_max_vals_dbl,
                                                start_end_vals_dbl,
-                                               vals_ls){
+                                               vals_ls,
+                                               asserts_ls = NULL){
   name_of_fn_to_validate_instance <- paste0("validate_",class_nm_1L_chr)
   validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
   if(type_1L_chr %in% c("tibble","list")){
@@ -414,11 +427,11 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
       stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
       if(!is.na(min_max_vals_dbl[1])){
         stop_cndn_in_validator_1 <- paste0("any(",
-                                           ifelse(type_1L_chr == "character","stringr::str_length(x)","x"),
+                                           ifelse(type_1L_chr == "character","stringr::str_length(x)","x[!is.na(x)]"),
                                            " < ",
                                            min_max_vals_dbl[1],
                                            ")")
-        stop_msg_call_in_validator_1 <- paste0("\"All values in valid ",
+        stop_msg_call_in_validator_1 <- paste0("\"All non-missing values in valid ",
                                                class_nm_1L_chr,
                                                " object must be ",
                                                ifelse(type_1L_chr == "character","of length ",""),
@@ -428,10 +441,10 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
       }
       if(!is.na(min_max_vals_dbl[2])){
         stop_cndn_in_validator_2 <- paste0("any(",
-                                           ifelse(type_1L_chr == "character","stringr::str_length(x)","x"),
+                                           ifelse(type_1L_chr == "character","stringr::str_length(x)","x[!is.na(x)]"),
                                            " > ",
                                            min_max_vals_dbl[2],")")
-        stop_msg_call_in_validator_2 <- paste0("\"All values in valid ",
+        stop_msg_call_in_validator_2 <- paste0("\"All non-missing values in valid ",
                                                class_nm_1L_chr,
                                                " object must be ",
                                                ifelse(type_1L_chr == "character","of length ",""),
@@ -504,6 +517,17 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                                     )) %>%
                                       stringr::str_c(sep="",
                                                      collapse = "\n "),
+                                    ifelse(!is.null(asserts_ls),
+                                           purrr::map_chr(asserts_ls,
+                                                          ~ {
+                                                            paste0("rlang::exec(",
+                                                                   .x$assert_fn_1L_chr,
+                                                                   ",x,",
+                                                                   "!!!",
+                                                                   deparse(.x$args_ls),
+                                                                   ")\n")
+                                                          }) %>% paste0(collapse = ""),
+                                           ""),
                                     "\nx}")
   fn_pt_to_make_vld_r3_cls_inst <- list(fn_name_1L_chr = name_of_fn_to_validate_instance,
                                         fn_body_1L_chr = fn_to_validate_instance)
@@ -738,7 +762,8 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                   min_max_vals_dbl,
                                   start_end_vals_dbl,
                                   dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-                                  nss_to_ignore_chr){
+                                  nss_to_ignore_chr,
+                                  asserts_ls = NULL){
   s3_prototype_ls <- make_fn_pt_to_make_r3_cls_pt(type_1L_chr = type_1L_chr,
                                           pt_ns_1L_chr = pt_ns_1L_chr,
                                           vals_ls = vals_ls,
@@ -757,7 +782,8 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                           s3_prototype_ls = s3_prototype_ls,
                                           min_max_vals_dbl = min_max_vals_dbl,
                                           start_end_vals_dbl = start_end_vals_dbl,
-                                          vals_ls = vals_ls)
+                                          vals_ls = vals_ls,
+                                          asserts_ls = asserts_ls)
   s3_valid_instance <- make_fn_pt_to_make_vldd_r3_cls_inst(class_nm_1L_chr = class_name_1L_chr,
                                                     s3_prototype_ls = s3_prototype_ls,
                                                     s3_constructor_ls = s3_constructor_ls,

@@ -10,7 +10,8 @@ make_fn_pt_to_make_vld_r3_cls_inst(
   s3_prototype_ls,
   min_max_vals_dbl,
   start_end_vals_dbl,
-  vals_ls
+  vals_ls,
+  asserts_ls = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ make_fn_pt_to_make_vld_r3_cls_inst(
 \item{start_end_vals_dbl}{Start end values (a double vector)}
 
 \item{vals_ls}{Values (a list)}
+
+\item{asserts_ls}{Asserts (a list), Default: NULL}
 }
 \value{
 Function prototype to make valid ready4 S3 class (an instance)

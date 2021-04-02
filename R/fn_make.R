@@ -121,6 +121,7 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
 #' @param allowed_vals_ls Allowed values (a list), Default: NULL
 #' @param names_must_match_ls Names must match (a list), Default: NULL
 #' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: FALSE
+#' @param asserts_ls Asserts (a list), Default: NULL
 #' @return Algorithm to set validity of ready4 S4 class (a character vector of length one)
 #' @rdname make_alg_to_set_validity_of_r4_cls
 #' @export 
@@ -130,7 +131,8 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
 #' @importFrom stringi stri_replace_last
 #' @keywords internal
 make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_of_dif_lnts_chr = NULL, 
-    allowed_vals_ls = NULL, names_must_match_ls = NULL, print_validator_1L_lgl = FALSE) 
+    allowed_vals_ls = NULL, names_must_match_ls = NULL, print_validator_1L_lgl = FALSE, 
+    asserts_ls = NULL) 
 {
     same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
     all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% 
@@ -176,8 +178,13 @@ make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1
     }
     valid_function <- paste0("function(object){\n", "msg <- NULL\n", 
         ifelse(is.na(same_lnt_cdn_1L_chr), "", paste0(same_lnt_cdn_1L_chr, 
-            "\n")), ifelse(is.na(allowed_cdn_chr), "", allowed_cdn_chr), 
-        ifelse(is.na(names_inc_chr), "", names_inc_chr), "if (is.null(msg)) TRUE else msg", 
+            "\n")), ifelse(is.na(allowed_cdn_chr), "", allowed_cdn_chr %>% 
+            paste0(collapse = "")), ifelse(is.na(names_inc_chr), 
+            "", names_inc_chr %>% paste0(collapse = "")), ifelse(!is.null(asserts_ls), 
+            purrr::map_chr(asserts_ls, ~{
+                paste0("rlang::exec(", .x$assert_fn_1L_chr, ",object,", 
+                  "!!!", deparse(.x$args_ls), ")\n")
+            }) %>% paste0(collapse = ""), ""), "if (is.null(msg)) TRUE else msg", 
         "\n}")
     alg_to_set_validity_of_r4_cls_1L_chr <- paste0("methods::setValidity(", 
         make_alg_to_gen_ref_to_cls(class_nm_1L_chr), ",\n", valid_function, 
@@ -393,14 +400,15 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
 #' @param min_max_vals_dbl Min max values (a double vector)
 #' @param start_end_vals_dbl Start end values (a double vector)
 #' @param vals_ls Values (a list)
+#' @param asserts_ls Asserts (a list), Default: NULL
 #' @return Function prototype to make valid ready4 S3 class (an instance)
 #' @rdname make_fn_pt_to_make_vld_r3_cls_inst
 #' @export 
-#' @importFrom purrr compact map2_chr
+#' @importFrom purrr compact map2_chr map_chr
 #' @importFrom stringr str_c
 #' @keywords internal
 make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3_prototype_ls, min_max_vals_dbl, 
-    start_end_vals_dbl, vals_ls) 
+    start_end_vals_dbl, vals_ls, asserts_ls = NULL) 
 {
     name_of_fn_to_validate_instance <- paste0("validate_", class_nm_1L_chr)
     validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
@@ -438,18 +446,18 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
             if (!is.na(min_max_vals_dbl[1])) {
                 stop_cndn_in_validator_1 <- paste0("any(", ifelse(type_1L_chr == 
-                  "character", "stringr::str_length(x)", "x"), 
+                  "character", "stringr::str_length(x)", "x[!is.na(x)]"), 
                   " < ", min_max_vals_dbl[1], ")")
-                stop_msg_call_in_validator_1 <- paste0("\"All values in valid ", 
+                stop_msg_call_in_validator_1 <- paste0("\"All non-missing values in valid ", 
                   class_nm_1L_chr, " object must be ", ifelse(type_1L_chr == 
                     "character", "of length ", ""), "greater than or equal to ", 
                   min_max_vals_dbl[1], ".\"")
             }
             if (!is.na(min_max_vals_dbl[2])) {
                 stop_cndn_in_validator_2 <- paste0("any(", ifelse(type_1L_chr == 
-                  "character", "stringr::str_length(x)", "x"), 
+                  "character", "stringr::str_length(x)", "x[!is.na(x)]"), 
                   " > ", min_max_vals_dbl[2], ")")
-                stop_msg_call_in_validator_2 <- paste0("\"All values in valid ", 
+                stop_msg_call_in_validator_2 <- paste0("\"All non-missing values in valid ", 
                   class_nm_1L_chr, " object must be ", ifelse(type_1L_chr == 
                     "character", "of length ", ""), "less than or equal to ", 
                   min_max_vals_dbl[2], ".\"")
@@ -497,7 +505,11 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
         " <- function(x){\n", purrr::map2_chr(validator_stop_cond_ls, 
             validator_stop_msg_call_ls, ~paste0("if(", .x, "){\n", 
                 "stop(", .y, ",\ncall. = FALSE)\n}")) %>% stringr::str_c(sep = "", 
-            collapse = "\n "), "\nx}")
+            collapse = "\n "), ifelse(!is.null(asserts_ls), purrr::map_chr(asserts_ls, 
+            ~{
+                paste0("rlang::exec(", .x$assert_fn_1L_chr, ",x,", 
+                  "!!!", deparse(.x$args_ls), ")\n")
+            }) %>% paste0(collapse = ""), ""), "\nx}")
     fn_pt_to_make_vld_r3_cls_inst <- list(fn_name_1L_chr = name_of_fn_to_validate_instance, 
         fn_body_1L_chr = fn_to_validate_instance)
     return(fn_pt_to_make_vld_r3_cls_inst)
@@ -817,6 +829,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
 #' @param start_end_vals_dbl Start end values (a double vector)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
+#' @param asserts_ls Asserts (a list), Default: NULL
 #' @return Prototype list for new ready4 S3 class (a list)
 #' @rdname make_pt_ls_for_new_r3_cls
 #' @export 
@@ -825,7 +838,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
 make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_chr, pt_chkr_pfx_1L_chr, 
     vals_ls, ordered_1L_lgl, parent_cls_nm_1L_chr, prototype_lup, 
     min_max_vals_dbl, start_end_vals_dbl, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
-    nss_to_ignore_chr) 
+    nss_to_ignore_chr, asserts_ls = NULL) 
 {
     s3_prototype_ls <- make_fn_pt_to_make_r3_cls_pt(type_1L_chr = type_1L_chr, 
         pt_ns_1L_chr = pt_ns_1L_chr, vals_ls = vals_ls, ordered_1L_lgl = ordered_1L_lgl, 
@@ -837,7 +850,7 @@ make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_
     s3_validator_ls <- make_fn_pt_to_make_vld_r3_cls_inst(type_1L_chr = type_1L_chr, 
         class_nm_1L_chr = class_name_1L_chr, s3_prototype_ls = s3_prototype_ls, 
         min_max_vals_dbl = min_max_vals_dbl, start_end_vals_dbl = start_end_vals_dbl, 
-        vals_ls = vals_ls)
+        vals_ls = vals_ls, asserts_ls = asserts_ls)
     s3_valid_instance <- make_fn_pt_to_make_vldd_r3_cls_inst(class_nm_1L_chr = class_name_1L_chr, 
         s3_prototype_ls = s3_prototype_ls, s3_constructor_ls = s3_constructor_ls, 
         s3_validator_ls = s3_validator_ls)

@@ -16,7 +16,8 @@ make_pt_ls_for_new_r3_cls(
   min_max_vals_dbl,
   start_end_vals_dbl,
   dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-  nss_to_ignore_chr
+  nss_to_ignore_chr,
+  asserts_ls = NULL
 )
 }
 \arguments{
@@ -43,6 +44,8 @@ make_pt_ls_for_new_r3_cls(
 \item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
 
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
+
+\item{asserts_ls}{Asserts (a list), Default: NULL}
 }
 \value{
 Prototype list for new ready4 S3 class (a list)

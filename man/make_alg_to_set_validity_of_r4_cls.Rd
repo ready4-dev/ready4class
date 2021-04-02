@@ -10,7 +10,8 @@ make_alg_to_set_validity_of_r4_cls(
   slots_of_dif_lnts_chr = NULL,
   allowed_vals_ls = NULL,
   names_must_match_ls = NULL,
-  print_validator_1L_lgl = FALSE
+  print_validator_1L_lgl = FALSE,
+  asserts_ls = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ make_alg_to_set_validity_of_r4_cls(
 \item{names_must_match_ls}{Names must match (a list), Default: NULL}
 
 \item{print_validator_1L_lgl}{Print validator (a logical vector of length one), Default: FALSE}
+
+\item{asserts_ls}{Asserts (a list), Default: NULL}
 }
 \value{
 Algorithm to set validity of ready4 S4 class (a character vector of length one)

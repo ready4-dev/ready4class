@@ -18,7 +18,8 @@ make_pt_ready4_constructor_tbl(
   parent_class_chr = character(0),
   slots_ls = list(),
   meaningful_nms_ls = list(),
-  inc_clss_ls = list()
+  inc_clss_ls = list(),
+  asserts_ls = list()
 )
 }
 \arguments{
@@ -49,6 +50,8 @@ make_pt_ready4_constructor_tbl(
 \item{meaningful_nms_ls}{Meaningful names (a list), Default: list()}
 
 \item{inc_clss_ls}{Include classes (a list), Default: list()}
+
+\item{asserts_ls}{Asserts (a list), Default: list()}
 }
 \value{
 A prototype for ready4 S3 class CLASS CONSTRUCTOR TABLE

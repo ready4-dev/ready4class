@@ -30,7 +30,8 @@ write_classes.ready4_constructor_tbl <- function(x,
                                             prototype_lup = prototype_lup,
                                             dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                             nss_to_ignore_chr = nss_to_ignore_chr,
-                                            abbreviations_lup = abbreviations_lup))
+                                            abbreviations_lup = abbreviations_lup,
+                                            asserts_ls = ..15))
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,
@@ -54,7 +55,8 @@ write_classes.ready4_constructor_tbl <- function(x,
                                             prototype_lup = prototype_lup,
                                             nss_to_ignore_chr = nss_to_ignore_chr,
                                             req_pkgs_chr = req_pkgs_chr,
-                                            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr))
+                                            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
+                                            asserts_ls = ..15[[1]]))
 }
 
 

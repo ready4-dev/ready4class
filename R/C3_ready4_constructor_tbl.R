@@ -41,6 +41,7 @@ x
 #' @param slots_ls Slots (a list), Default: list()
 #' @param meaningful_nms_ls Meaningful names (a list), Default: list()
 #' @param inc_clss_ls Include classes (a list), Default: list()
+#' @param asserts_ls Asserts (a list), Default: list()
 #' @return A prototype for ready4 S3 class CLASS CONSTRUCTOR TABLE
 #' @details ready4 S3 class CLASS CONSTRUCTOR TABLE of metadata required to make new classes.
 #' @rdname make_pt_ready4_constructor_tbl
@@ -60,7 +61,8 @@ class_desc_chr = character(0),
 parent_class_chr = character(0),
 slots_ls = list(),
 meaningful_nms_ls = list(),
-inc_clss_ls = list()){ 
+inc_clss_ls = list(),
+asserts_ls = list()){ 
 args_ls <- list(make_s3_lgl = make_s3_lgl,
 name_stub_chr = name_stub_chr,
 pt_ls = pt_ls,
@@ -74,7 +76,8 @@ class_desc_chr = class_desc_chr,
 parent_class_chr = parent_class_chr,
 slots_ls = slots_ls,
 meaningful_nms_ls = meaningful_nms_ls,
-inc_clss_ls = inc_clss_ls) %>% update_pt_fn_args_ls()
+inc_clss_ls = inc_clss_ls,
+asserts_ls = asserts_ls) %>% update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' Validate ready4 S3 class CLASS CONSTRUCTOR TABLE

@@ -32,9 +32,9 @@ ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For
                  ),
                  urls_chr = c("https://ready4-dev.github.io/ready4class/",
                               "https://github.com/ready4-dev/ready4class",
-                              "https://ready4-dev.github.io/ready4/")) %>%
+                              "https://www.ready4-dev.com/")) %>%
   ready4fun::write_pkg_setup_fls(incr_ver_1L_lgl = F,
-                      delete_contents_of_R_dir = T,
+                      delete_r_dir_cnts_1L_lgl = T,
                       copyright_holders_chr = "Orygen",
                       check_type_1L_chr = "gh",
                       path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",

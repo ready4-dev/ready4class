@@ -28,7 +28,8 @@ write_scripts_to_mk_r4_cls(
   print_gtrs_strs_1L_lgl = TRUE,
   print_validator_1L_lgl = TRUE,
   print_meaningful_nms_ls_1L_lgl = TRUE,
-  class_in_cache_cdn_1L_chr = "stop"
+  class_in_cache_cdn_1L_chr = "stop",
+  asserts_ls = NULL
 )
 }
 \arguments{
@@ -79,6 +80,8 @@ write_scripts_to_mk_r4_cls(
 \item{print_meaningful_nms_ls_1L_lgl}{Print meaningful names list (a logical vector of length one), Default: TRUE}
 
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
+
+\item{asserts_ls}{Asserts (a list), Default: NULL}
 }
 \description{
 write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
