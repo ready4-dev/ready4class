@@ -24,7 +24,6 @@ write_scripts_to_mk_r4_cls(
   slots_of_dif_lnts_chr = NULL,
   helper_1L_lgl = F,
   print_set_cls_1L_lgl = TRUE,
-  print_helper = TRUE,
   print_gtrs_strs_1L_lgl = TRUE,
   print_validator_1L_lgl = TRUE,
   print_meaningful_nms_ls_1L_lgl = TRUE,
@@ -70,8 +69,6 @@ write_scripts_to_mk_r4_cls(
 \item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
 
 \item{print_set_cls_1L_lgl}{Print set class (a logical vector of length one), Default: TRUE}
-
-\item{print_helper}{PARAM_DESCRIPTION, Default: TRUE}
 
 \item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one), Default: TRUE}
 

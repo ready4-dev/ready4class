@@ -4,10 +4,10 @@
 \alias{transform_alg_to_ref_cls_nm}
 \title{Transform algorithm to reference class name}
 \usage{
-transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm, pkg_nm_1L_chr)
+transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm_1L_chr, pkg_nm_1L_chr)
 }
 \arguments{
-\item{alg_to_ref_cls_nm}{PARAM_DESCRIPTION}
+\item{alg_to_ref_cls_nm_1L_chr}{Algorithm to reference class name (a character vector of length one)}
 
 \item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 }
@@ -15,6 +15,6 @@ transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm, pkg_nm_1L_chr)
 Transformed algorithm to reference class (a name)
 }
 \description{
-transform_alg_to_ref_cls_nm() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform algorithm to reference class name. Function argument alg_to_ref_cls_nm specifies the object to be updated. Argument pkg_nm_1L_chr provides the object to be updated. The function is called for its side effects and does not return a value.
+transform_alg_to_ref_cls_nm() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform algorithm to reference class name. Function argument alg_to_ref_cls_nm_1L_chr specifies the object to be updated. Argument pkg_nm_1L_chr provides the object to be updated. The function is called for its side effects and does not return a value.
 }
 \keyword{internal}

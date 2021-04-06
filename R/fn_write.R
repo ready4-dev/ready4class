@@ -374,7 +374,6 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @param slots_of_dif_lnts_chr Slots of different lengths (a character vector), Default: NULL
 #' @param helper_1L_lgl Helper (a logical vector of length one), Default: F
 #' @param print_set_cls_1L_lgl Print set class (a logical vector of length one), Default: TRUE
-#' @param print_helper PARAM_DESCRIPTION, Default: TRUE
 #' @param print_gtrs_strs_1L_lgl Print getters setters (a logical vector of length one), Default: TRUE
 #' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: TRUE
 #' @param print_meaningful_nms_ls_1L_lgl Print meaningful names list (a logical vector of length one), Default: TRUE
@@ -393,10 +392,9 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     allowed_vals_ls = NULL, clss_to_inc_chr = NULL, prototype_lup, 
     nss_to_ignore_chr = NA_character_, req_pkgs_chr = NA_character_, 
     names_must_match_ls = NULL, slots_of_dif_lnts_chr = NULL, 
-    helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_helper = TRUE, 
-    print_gtrs_strs_1L_lgl = TRUE, print_validator_1L_lgl = TRUE, 
-    print_meaningful_nms_ls_1L_lgl = TRUE, class_in_cache_cdn_1L_chr = "stop", 
-    asserts_ls = NULL) 
+    helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
+    print_validator_1L_lgl = TRUE, print_meaningful_nms_ls_1L_lgl = TRUE, 
+    class_in_cache_cdn_1L_chr = "stop", asserts_ls = NULL) 
 {
     if (!is.null(outp_sub_dir_1L_chr)) {
         output_dir_1L_chr <- paste0(output_dir_1L_chr, "/", outp_sub_dir_1L_chr)
@@ -406,21 +404,22 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
     pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = type_chr, 
         vals_ls = vals_ls, prototype_lup = prototype_lup)
     class_nm_1L_chr <- paste0(name_pfx_1L_chr, name_stub_1L_chr)
-    output_file_class <- get_class_fl_nms(class_names_chr = class_nm_1L_chr, 
+    output_file_class_1L_chr <- get_class_fl_nms(class_names_chr = class_nm_1L_chr, 
         s3_1L_lgl = F, output_dir_1L_chr = output_dir_1L_chr)
     parent_ns_ls <- get_parent_cls_ns(prototype_lup = prototype_lup, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr = nss_to_ignore_chr[1])
     write_to_mk_r4_cls(class_nm_1L_chr = class_nm_1L_chr, slots_chr = slots_chr, 
         type_chr = type_chr, pt_ls = pt_ls, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         print_set_cls_1L_lgl = print_set_cls_1L_lgl, class_desc_1L_chr = class_desc_1L_chr, 
-        output_file_class = output_file_class, clss_to_inc_chr = clss_to_inc_chr, 
-        prototype_lup = prototype_lup, helper_1L_lgl = F, parent_ns_ls = parent_ns_ls)
+        output_file_class_1L_chr = output_file_class_1L_chr, 
+        clss_to_inc_chr = clss_to_inc_chr, prototype_lup = prototype_lup, 
+        helper_1L_lgl = F, parent_ns_ls = parent_ns_ls)
     helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_chr = slots_chr, 
         pt_ls = pt_ls, prototype_lup = prototype_lup, parent_ns_ls = parent_ns_ls)
     eval(parse(text = helper_function))
     if (helper_1L_lgl) {
-        sink(output_file_class, append = TRUE)
+        sink(output_file_class_1L_chr, append = TRUE)
         ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr, 
             fn_type_1L_chr = "set_class", fn = eval(parse(text = class_nm_1L_chr)), 
             class_name_1L_chr = class_nm_1L_chr)
@@ -437,7 +436,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
         allowed_vals_ls = allowed_vals_ls, names_must_match_ls = names_must_match_ls, 
         asserts_ls = asserts_ls)
     if (print_validator_1L_lgl) {
-        sink(output_file_class, append = TRUE)
+        sink(output_file_class_1L_chr, append = TRUE)
         writeLines(paste0("\n", valid_txt %>% stringr::str_replace(paste0(",\nwhere =  ", 
             "globalenv\\(\\)"), "") %>% stringr::str_replace(",\".GlobalEnv\"", 
             "")))
@@ -449,7 +448,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
             meaningful_nms_ls = meaningful_nms_ls)
         eval(parse(text = meaningful_txt))
         if (print_meaningful_nms_ls_1L_lgl) {
-            sink(output_file_class, append = TRUE)
+            sink(output_file_class_1L_chr, append = TRUE)
             writeLines(paste0("\n", meaningful_txt %>% stringr::str_replace(paste0(",\nwhere =  ", 
                 "globalenv\\(\\)"), "") %>% stringr::str_replace_all("\\\\n\\\",", 
                 "\\\\n\\\",\n") %>% stringr::str_replace("\\nsep", 
@@ -592,7 +591,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param print_set_cls_1L_lgl Print set class (a logical vector of length one)
 #' @param class_desc_1L_chr Class description (a character vector of length one)
-#' @param output_file_class PARAM_DESCRIPTION
+#' @param output_file_class_1L_chr Output file class (a character vector of length one)
 #' @param clss_to_inc_chr Classes to include (a character vector)
 #' @param prototype_lup Prototype (a lookup table)
 #' @param helper_1L_lgl Helper (a logical vector of length one), Default: F
@@ -605,7 +604,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @importFrom ready4fun update_ns close_open_sinks
 #' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, parent_cls_nm_1L_chr, 
-    print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class, 
+    print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class_1L_chr, 
     clss_to_inc_chr, prototype_lup, helper_1L_lgl = F, parent_ns_ls) 
 {
     slot_str <- purrr::map2_chr(slots_chr, type_chr, ~paste0(.x, 
@@ -649,7 +648,7 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
         parent_ns_ls = parent_ns_ls, base_set_of_clss_to_inc_chr = clss_to_inc_chr)
     include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
     if (print_set_cls_1L_lgl) {
-        sink(output_file_class)
+        sink(output_file_class_1L_chr)
         writeLines(paste0(paste0("#' ", class_nm_1L_chr, "\n"), 
             paste0("#' @name ", class_nm_1L_chr, "\n"), "#' @description An S4 class to represent ", 
             class_desc_1L_chr, "\n", include_tags_chr, old_class_tb_extension %>% 

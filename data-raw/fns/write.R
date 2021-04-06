@@ -174,7 +174,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         slots_of_dif_lnts_chr = NULL,
                                        helper_1L_lgl = F,
                                         print_set_cls_1L_lgl = TRUE,
-                                        print_helper = TRUE,
+                                        #print_helper = TRUE,
                                         print_gtrs_strs_1L_lgl = TRUE,
                                         print_validator_1L_lgl = TRUE,
                                         print_meaningful_nms_ls_1L_lgl = TRUE,
@@ -192,7 +192,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                          vals_ls = vals_ls,
                          prototype_lup = prototype_lup)
   class_nm_1L_chr <- paste0(name_pfx_1L_chr,name_stub_1L_chr)
-  output_file_class <- get_class_fl_nms(class_names_chr = class_nm_1L_chr,
+  output_file_class_1L_chr <- get_class_fl_nms(class_names_chr = class_nm_1L_chr,
                                         s3_1L_lgl = F,
                                         output_dir_1L_chr = output_dir_1L_chr)
   parent_ns_ls <- get_parent_cls_ns(prototype_lup = prototype_lup,
@@ -205,7 +205,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                      parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                      print_set_cls_1L_lgl = print_set_cls_1L_lgl,
                      class_desc_1L_chr = class_desc_1L_chr,
-                     output_file_class = output_file_class,
+                     output_file_class_1L_chr = output_file_class_1L_chr,
                      clss_to_inc_chr = clss_to_inc_chr,
                      prototype_lup = prototype_lup,
                      helper_1L_lgl = F,#print_helper,
@@ -218,7 +218,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
   if(helper_1L_lgl){ #print_helper
-    sink(output_file_class, append = TRUE)
+    sink(output_file_class_1L_chr, append = TRUE)
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
                  fn = eval(parse(text = class_nm_1L_chr)),
@@ -241,7 +241,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                                   names_must_match_ls = names_must_match_ls,
                                                   asserts_ls = asserts_ls)
   if(print_validator_1L_lgl){
-    sink(output_file_class, append = TRUE)
+    sink(output_file_class_1L_chr, append = TRUE)
     writeLines(paste0("\n",
                       valid_txt %>%
                         stringr::str_replace(paste0(",\nwhere =  ",
@@ -255,7 +255,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         meaningful_nms_ls = meaningful_nms_ls)
     eval(parse(text = meaningful_txt))
     if(print_meaningful_nms_ls_1L_lgl){
-      sink(output_file_class, append = TRUE)
+      sink(output_file_class_1L_chr, append = TRUE)
       writeLines(paste0("\n",
                         meaningful_txt %>%
                           stringr::str_replace(paste0(",\nwhere =  ",
@@ -554,7 +554,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                parent_cls_nm_1L_chr,
                                print_set_cls_1L_lgl,
                                class_desc_1L_chr,
-                               output_file_class,
+                               output_file_class_1L_chr,
                                clss_to_inc_chr,
                                prototype_lup,
                                helper_1L_lgl = F,
@@ -628,7 +628,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                                      base_set_of_clss_to_inc_chr = clss_to_inc_chr)
   include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
   if(print_set_cls_1L_lgl){
-    sink(output_file_class)
+    sink(output_file_class_1L_chr)
     writeLines(paste0(paste0("#' ",class_nm_1L_chr,"\n"),
                       paste0("#' @name ",class_nm_1L_chr,"\n"),
                       "#' @description An S4 class to represent ",

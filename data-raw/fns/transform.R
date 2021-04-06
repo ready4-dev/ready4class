@@ -1,6 +1,6 @@
-transform_alg_to_ref_cls_nm <- function(alg_to_ref_cls_nm,
+transform_alg_to_ref_cls_nm <- function(alg_to_ref_cls_nm_1L_chr,
                                         pkg_nm_1L_chr){
-  tfd_alg_to_ref_cls_nm <- alg_to_ref_cls_nm %>%
+  tfd_alg_to_ref_cls_nm <- alg_to_ref_cls_nm_1L_chr %>%
     stringr::str_replace("methods::className\\(",
                          "")%>%
     stringr::str_replace(paste0(",\"",pkg_nm_1L_chr,"\"\\)"),

@@ -12,7 +12,7 @@ write_to_mk_r4_cls(
   parent_cls_nm_1L_chr,
   print_set_cls_1L_lgl,
   class_desc_1L_chr,
-  output_file_class,
+  output_file_class_1L_chr,
   clss_to_inc_chr,
   prototype_lup,
   helper_1L_lgl = F,
@@ -34,7 +34,7 @@ write_to_mk_r4_cls(
 
 \item{class_desc_1L_chr}{Class description (a character vector of length one)}
 
-\item{output_file_class}{PARAM_DESCRIPTION}
+\item{output_file_class_1L_chr}{Output file class (a character vector of length one)}
 
 \item{clss_to_inc_chr}{Classes to include (a character vector)}
 

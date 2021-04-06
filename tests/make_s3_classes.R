@@ -97,7 +97,7 @@
 #                            values = values,
 #                            prototype_tb = prototype_tb)
 # class_name <- paste0(name_prefix,name_stub)
-# output_file_class <- paste0(output_folder,"/",class_name,".R")
+# output_file_class_1L_chr <- paste0(output_folder,"/",class_name,".R")
 # ##
 # write_to_mk_r4_cls(class_name = class_name,
 #                 class_slots = class_slots,
@@ -106,7 +106,7 @@
 #                 parent = parent,
 #                 print_set_class = print_set_class,
 #                 class_desc = class_desc,
-#                 output_file_class = output_file_class,
+#                 output_file_class_1L_chr = output_file_class_1L_chr,
 #                 include_classes = include_classes,
 #                 prototype_tb = prototype_tb)
 # ##
@@ -118,7 +118,7 @@
 #                                        prototype_tb = prototype_tb)
 # eval(parse(text=helper_function))
 # if(print_helper){
-#   sink(output_file_class, append = TRUE)
+#   sink(output_file_class_1L_chr, append = TRUE)
 #   create_fun_tags(class_name,
 #                   fn_type = "set_class")
 #   writeLines(helper_function %>% stringr::str_replace("<<-","<-"))
@@ -137,7 +137,7 @@
 #                             allowed_values = allowed_values,
 #                             names_include = names_include)
 # if(print_validator)
-#   sink(output_file_class, append = TRUE)
+#   sink(output_file_class_1L_chr, append = TRUE)
 # writeLines(paste0("#'\n",
 #                   "#' @param Object An S4 object of class: ",
 #                   class_name,
@@ -152,7 +152,7 @@
 #                                            meaningful_names = meaningful_names)
 #   eval(parse(text = meaningful_txt))
 #   if(print_meaningful_names){
-#     sink(output_file_class, append = TRUE)
+#     sink(output_file_class_1L_chr, append = TRUE)
 #     writeLines(paste0("#'\n",
 #                       "#' Extends 'show' generic from the methods package to ",
 #                       class_name,
