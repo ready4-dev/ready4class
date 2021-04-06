@@ -26,3 +26,7 @@
 ^initial_setup\.R$
 ^data-raw/fns/update\.R$
 ^data-raw/tests/test_mk_pt_fn\.R$
+^data-raw/dataverse/abbreviations_lup/abbreviations_lup\.csv$
+^data-raw/dataverse/abbreviations_lup/abbreviations_lup\.RDS$
+^data-raw/dataverse/fn_type_lup_tb/fn_type_lup_tb\.csv$
+^data-raw/dataverse/fn_type_lup_tb/fn_type_lup_tb\.RDS$

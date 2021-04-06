@@ -1,4 +1,4 @@
-#' ready4u function documentation table
+#' ready4class function documentation table
 #' 
 #' Meta-data on each ready4class function used to create package documentation
 #' 

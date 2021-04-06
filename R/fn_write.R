@@ -10,7 +10,6 @@
 #' @rdname write_gtr_str_mthds_for_r4
 #' @export 
 #' @importFrom purrr reduce
-#' @keywords internal
 write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to_imp_ls, class_nm_1L_chr, 
     print_gtrs_strs_1L_lgl, output_dir_1L_chr) 
 {
@@ -53,7 +52,6 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @export 
 #' @importFrom purrr map_chr walk
 #' @importFrom stringr str_replace
-#' @keywords internal
 write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
     nss_to_ignore_chr, req_pkgs_chr) 
@@ -79,7 +77,6 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
 #' @export 
 #' @importFrom purrr pwalk
 #' @importFrom dplyr mutate
-#' @keywords internal
 write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, output_dir_1L_chr) 
 {
     purrr::pwalk(methods_tb %>% dplyr::mutate(first_lgl = c(T, 
@@ -111,7 +108,6 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_remove
-#' @keywords internal
 write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mthd_pair_ls, 
     fn_name_1L_chr, fn_type_1L_chr, fn_desc_1L_chr = NA_character_, 
     fn_outp_type_1L_chr = NA_character_, fn_title_1L_chr = NA_character_, 
@@ -169,7 +165,6 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
-#' @keywords internal
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F) 
@@ -216,7 +211,6 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
 #' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export 
 
-#' @keywords internal
 write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
     pkg_nm_1L_chr = NA_character_, where_chr = NA_character_, 
     class_nm_1L_chr, fn, fn_type_chr, fn_desc_chr = rep(NA_character_, 
@@ -262,7 +256,6 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
 #' @importFrom usethis use_data
 #' @importFrom ready4fun write_pt_lup_db
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_pfx_1L_chr, 
     R_dir_1L_chr = "R", pt_lup, description_ls = NULL, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_) 
@@ -307,7 +300,6 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @importFrom utils data
 #' @importFrom purrr pwalk
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "ready4_", output_dir_1L_chr = "data-raw", 
     class_desc_1L_chr = "", parent_cls_nm_1L_chr = NULL, type_1L_chr, 
     pt_ns_1L_chr = "", pt_chkr_pfx_1L_chr = "is.", vals_ls = NULL, 
@@ -386,7 +378,6 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
-#' @keywords internal
 write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "ready4_", output_dir_1L_chr = "data-raw", 
     outp_sub_dir_1L_chr = NULL, class_desc_1L_chr = "", parent_cls_nm_1L_chr = NULL, 
     slots_chr, type_chr, meaningful_nms_ls = NULL, vals_ls = NULL, 
@@ -474,7 +465,6 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr = "rea
 #' @rdname write_slot_gtr_str_mthds
 #' @export 
 
-#' @keywords internal
 write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
     nss_to_ignore_chr, req_pkgs_chr) 
@@ -507,7 +497,6 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @importFrom testit assert
 #' @importFrom utils installed.packages
 #' @importFrom purrr discard
-#' @keywords internal
 write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn_title_1L_chr, 
     fn_outp_type_1L_chr, pkg_nm_1L_chr, output_dir_1L_chr, signature_1L_chr = NA_character_, 
     append_1L_lgl = T, first_1L_lgl = T) 
@@ -555,7 +544,6 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
 #' @rdname write_to_delete_fls_with_ptrn
 #' @export 
 
-#' @keywords internal
 write_to_delete_fls_with_ptrn <- function (dir_1L_chr, pattern_1L_chr) 
 {
     if (!is.na(pattern_1L_chr)) {
@@ -566,14 +554,13 @@ write_to_delete_fls_with_ptrn <- function (dir_1L_chr, pattern_1L_chr)
 }
 #' Write to delete generic function files
 #' @description write_to_delete_gnrc_fn_fls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write to delete generic function files. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
-#' @param x PARAM_DESCRIPTION
+#' @param x An object
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @return NULL
 #' @rdname write_to_delete_gnrc_fn_fls
 #' @export 
 #' @importFrom dplyr pull
 #' @importFrom purrr compact flatten flatten_chr reduce walk
-#' @keywords internal
 write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr) 
 {
     delete_chr <- x %>% dplyr::pull(slots_ls) %>% purrr::compact() %>% 
@@ -603,7 +590,6 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom ready4fun update_ns close_open_sinks
-#' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, parent_cls_nm_1L_chr, 
     print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class, 
     clss_to_inc_chr, prototype_lup, helper_1L_lgl = F, parent_ns_ls) 
