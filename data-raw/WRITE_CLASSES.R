@@ -6,13 +6,9 @@
 ## 2. Specify details about this package and the prefix we will use on all classes we create in this package.
 name_pfx_1L_chr <- "ready4_"
 #dev_pkg_ns_1L_chr <- ready4fun::get_dev_pkg_nm()
-## 3. Create a table with metadata about frequently used class prototypes
-prototype_lup <- tibble::tibble(type_chr = c("character", "list", "logical", "numeric", "POSIXt", "sf","tbl_df","integer"), ## CHANGED FROM POSIXt
-                                val_chr = c("NA_character_", "list(list())","NA","NA_real_",".POSIXct(NA_character_)", "st_sf(sf::st_sfc())","tibble::tibble()","NA_integer_"),
-                                pt_ns_chr = c("base", "base", "base", "base", "base", "sf", "tibble","base"),
-                                fn_to_call_chr = c("", "list", "", "", ".POSIXct", "st_sf", "tibble",""),
-                                default_val_chr = c("NA_character_", "list()", "NA", "NA_real_", "NA_character_", "sf::st_sfc()", "","NA_integer_"),
-                                old_class_lgl = FALSE)
+## 3. Import a table with metadata about frequently used class prototypes
+prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup")
+
 ## 4. Create a table with the metadata for the ready4_constructor_tbl class that we wish to create.
 classes_to_make_tb <- tibble::tribble(
   ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chkr_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ slots_ls, ~ meaningful_nms_ls, ~ inc_clss_ls, ~ asserts_ls,
