@@ -504,7 +504,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
     fn_to_validate_instance <- paste0(name_of_fn_to_validate_instance, 
         " <- function(x){\n", purrr::map2_chr(validator_stop_cond_ls, 
             validator_stop_msg_call_ls, ~paste0("if(", .x, "){\n", 
-                "stop(", .y, ",\ncall. = FALSE)\n}")) %>% stringr::str_c(sep = "", 
+                "stop(", .y, ",\ncall. = FALSE)\n}\n")) %>% stringr::str_c(sep = "", 
             collapse = "\n "), ifelse(!is.null(asserts_ls), purrr::map_chr(asserts_ls, 
             ~{
                 paste0("rlang::exec(", .x$assert_fn_1L_chr, ",x,", 

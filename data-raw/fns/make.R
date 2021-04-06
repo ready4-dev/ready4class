@@ -513,7 +513,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                                              "){\n",
                                                              "stop(",
                                                              .y,
-                                                             ",\ncall. = FALSE)\n}"
+                                                             ",\ncall. = FALSE)\n}\n"
                                                     )) %>%
                                       stringr::str_c(sep="",
                                                      collapse = "\n "),
