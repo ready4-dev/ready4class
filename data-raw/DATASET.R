@@ -115,8 +115,8 @@ prototype_lup %>%
 # Remember to review publish updated dataverse dataset
 ##
 
-# ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_developer_0.0.0.9189.pdf",
-#                           developer_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_user_0.0.0.9189.pdf")
+ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_developer_0.0.0.9189.pdf",
+                          developer_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_user_0.0.0.9189.pdf")
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 
