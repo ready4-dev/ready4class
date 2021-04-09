@@ -34,7 +34,7 @@ x
 #' @param pt_ns_ls Prototype namespace (a list), Default: list()
 #' @param vals_ls Values (a list), Default: list()
 #' @param allowed_vals_ls Allowed values (a list), Default: list()
-#' @param min_max_vals_ls Min max values (a list), Default: list()
+#' @param min_max_vals_ls Minimum maximum values (a list), Default: list()
 #' @param start_end_vals_ls Start end values (a list), Default: list()
 #' @param class_desc_chr Class description (a character vector), Default: character(0)
 #' @param parent_class_chr Parent class (a character vector), Default: character(0)

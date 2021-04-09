@@ -37,7 +37,7 @@ make_pt_ls_for_new_r3_cls(
 
 \item{prototype_lup}{Prototype (a lookup table)}
 
-\item{min_max_vals_dbl}{Min max values (a double vector)}
+\item{min_max_vals_dbl}{Minimum maximum values (a double vector)}
 
 \item{start_end_vals_dbl}{Start end values (a double vector)}
 

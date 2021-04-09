@@ -21,7 +21,7 @@ make_fn_pt_to_make_vld_r3_cls_inst(
 
 \item{s3_prototype_ls}{S3 prototype (a list)}
 
-\item{min_max_vals_dbl}{Min max values (a double vector)}
+\item{min_max_vals_dbl}{Minimum maximum values (a double vector)}
 
 \item{start_end_vals_dbl}{Start end values (a double vector)}
 

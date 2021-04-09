@@ -397,7 +397,7 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
 #' @param type_1L_chr Type (a character vector of length one)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param s3_prototype_ls S3 prototype (a list)
-#' @param min_max_vals_dbl Min max values (a double vector)
+#' @param min_max_vals_dbl Minimum maximum values (a double vector)
 #' @param start_end_vals_dbl Start end values (a double vector)
 #' @param vals_ls Values (a list)
 #' @param asserts_ls Asserts (a list), Default: NULL
@@ -825,7 +825,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
 #' @param ordered_1L_lgl Ordered (a logical vector of length one)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param prototype_lup Prototype (a lookup table)
-#' @param min_max_vals_dbl Min max values (a double vector)
+#' @param min_max_vals_dbl Minimum maximum values (a double vector)
 #' @param start_end_vals_dbl Start end values (a double vector)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)

@@ -37,7 +37,7 @@ make_pt_ready4_constructor_tbl(
 
 \item{allowed_vals_ls}{Allowed values (a list), Default: list()}
 
-\item{min_max_vals_ls}{Min max values (a list), Default: list()}
+\item{min_max_vals_ls}{Minimum maximum values (a list), Default: list()}
 
 \item{start_end_vals_ls}{Start end values (a list), Default: list()}
 

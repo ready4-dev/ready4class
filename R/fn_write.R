@@ -292,7 +292,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @param vals_ls Values (a list), Default: NULL
 #' @param ordered_1L_lgl Ordered (a logical vector of length one), Default: FALSE
 #' @param allowed_vals_ls Allowed values (a list), Default: NULL
-#' @param min_max_vals_dbl Min max values (a double vector), Default: NULL
+#' @param min_max_vals_dbl Minimum maximum values (a double vector), Default: NULL
 #' @param start_end_vals_dbl Start end values (a double vector), Default: NULL
 #' @param prototype_lup Prototype (a lookup table)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()

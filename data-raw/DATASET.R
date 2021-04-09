@@ -107,16 +107,17 @@ ready4fun::write_and_doc_fn_fls(fns_dmt_tb = fns_dmt_tb,
                                 path_to_dvpr_dmt_dir_1L_chr = "../../../../../Documentation/Code/Developer",
                                 path_to_user_dmt_dir_1L_chr = "../../../../../Documentation/Code/User",
                                 update_pkgdown_1L_lgl = T)
-library(ready4use) # Update
-prototype_lup %>%
-  write_paired_ds_fls_to_dv(fl_nm_1L_chr = "prototype_lup",
-                            desc_1L_chr = "Class prototypes lookup table")
+## PAUSE FOR INTERACTIVE
+## PART 4
+# prototype_lup %>%
+#   ready4use::write_paired_ds_fls_to_dv(fl_nm_1L_chr = "prototype_lup",
+#                             desc_1L_chr = "Class prototypes lookup table")
 ##
 # Remember to review publish updated dataverse dataset
 ##
-
-ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_developer_0.0.0.9189.pdf",
-                          developer_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_user_0.0.0.9189.pdf")
+ready4fun::write_links_for_website(user_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_user_0.0.0.9189.pdf",
+                          developer_manual_url_1L_chr = "https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_developer_0.0.0.9189.pdf",
+                          project_website_url_1L_chr = "https://www.ready4-dev.com/")
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 

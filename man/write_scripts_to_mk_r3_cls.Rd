@@ -49,7 +49,7 @@ write_scripts_to_mk_r3_cls(
 
 \item{allowed_vals_ls}{Allowed values (a list), Default: NULL}
 
-\item{min_max_vals_dbl}{Min max values (a double vector), Default: NULL}
+\item{min_max_vals_dbl}{Minimum maximum values (a double vector), Default: NULL}
 
 \item{start_end_vals_dbl}{Start end values (a double vector), Default: NULL}
 
