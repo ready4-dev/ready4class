@@ -47,12 +47,14 @@ ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For
 # 5. MANUAL STEP: WRITE FUNCTION & METHODS FILES
 #
 # 6. Create a lookup table of abbreviations used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
+object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
 pkg_dss_tb <- ready4fun::get_rds_from_dv("abbreviations_lup") %>%
-  ready4fun::write_abbr_lup()
+  ready4fun::write_abbr_lup(object_type_lup = object_type_lup)
 utils::data("abbreviations_lup")
 # 7. Create a lookup table of function types used in this package and save it as a package dataset (data gets saved in the data directory, documentation script is created in R directory).
 pkg_dss_tb <- ready4fun::get_rds_from_dv("fn_type_lup_tb") %>%
   ready4fun::write_dmtd_fn_type_lup(abbreviations_lup = abbreviations_lup,
+                                    object_type_lup = object_type_lup,
                                     pkg_dss_tb = pkg_dss_tb)
 utils::data("fn_type_lup_tb")
 # 8. Create a table of all functions to document
@@ -64,14 +66,16 @@ fns_dmt_tb <- ready4fun::make_dmt_for_all_fns(custom_dmt_ls = list(details_ls = 
                                                                                                        force_false_chr = NA_character_),
                                                                        args_ls_ls = NULL),
                                                   fn_type_lup_tb = fn_type_lup_tb,
-                                                  abbreviations_lup = abbreviations_lup)
+                                                  abbreviations_lup = abbreviations_lup,
+                                              object_type_lup = object_type_lup)
 ## 9. Write and document.
 pkg_dss_tb <- fns_dmt_tb %>%
   ready4fun::write_and_doc_ds(db_1L_chr = "fns_dmt_tb",
                               title_1L_chr = "ready4class function documentation table",
                               desc_1L_chr = "Meta-data on each ready4class function used to create package documentation",
                               url_1L_chr = "https://ready4-dev.github.io/ready4class/",
-                              abbreviations_lup = abbreviations_lup)
+                              abbreviations_lup = abbreviations_lup,
+                              object_type_lup = object_type_lup)
 
 ##
 ## 10. Run script to make package classes.
@@ -85,12 +89,15 @@ prototype_lup <- write_classes_and_make_lup(classes_to_make_tb,
                                  name_pfx_1L_chr = name_pfx_1L_chr,
                                  output_dir_1L_chr = "R",
                                  file_exists_cdn_1L_chr = "overwrite",
-                                 abbreviations_lup = abbreviations_lup)
+                                 abbreviations_lup = abbreviations_lup,
+                                 object_type_lup = object_type_lup)
 ## 12. Update the internal system data.
 ready4fun::write_and_doc_ds(prototype_lup,
                             db_1L_chr = "prototype_lup",
                             title_1L_chr = "Class prototype lookup table",
-                            desc_1L_chr = "Metadata on classes used in ready4 suite")
+                            desc_1L_chr = "Metadata on classes used in ready4 suite",
+                            abbreviations_lup = abbreviations_lup,
+                            object_type_lup = object_type_lup)
 #
 #usethis::use_data(prototype_lup,overwrite = T, internal = T)
 ##

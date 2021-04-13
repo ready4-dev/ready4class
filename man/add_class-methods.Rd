@@ -19,7 +19,8 @@ add_class.ready4_class_pt_lup(
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
-  abbreviations_lup = NULL
+  abbreviations_lup = NULL,
+  object_type_lup = NULL
 )
 
 \S4method{add_class}{ready4_class_pt_lup}(
@@ -33,7 +34,8 @@ add_class.ready4_class_pt_lup(
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
-  abbreviations_lup = NULL
+  abbreviations_lup = NULL,
+  object_type_lup = NULL
 )
 }
 \arguments{
@@ -60,6 +62,8 @@ add_class.ready4_class_pt_lup(
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
 
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
 \value{
 Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)

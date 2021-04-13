@@ -15,7 +15,8 @@ write_script_to_make_mthd(
   imports_chr,
   write_1L_lgl = T,
   append_1L_lgl = T,
-  doc_in_class_1L_lgl = F
+  doc_in_class_1L_lgl = F,
+  object_type_lup = NULL
 )
 }
 \arguments{
@@ -40,6 +41,8 @@ write_script_to_make_mthd(
 \item{append_1L_lgl}{Append (a logical vector of length one), Default: T}
 
 \item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
 \description{
 write_script_to_make_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make method. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

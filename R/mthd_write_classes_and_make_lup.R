@@ -11,10 +11,11 @@
 #' @param req_pkgs_chr Req packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
+#' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @return Instance (a ready4 S3 class CLASS PROTOTYPE LOOKUP TABLE)
 #' @rdname write_classes_and_make_lup-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm
+#' @importFrom ready4fun get_dev_pkg_nm get_rds_from_dv
 #' @importFrom utils data
 #' @importFrom purrr walk reduce
 write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
@@ -22,8 +23,11 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_
     output_dir_1L_chr = "R", delete_cdn_ptrn_chr = NA_character_, 
     file_exists_cdn_1L_chr = "overwrite", init_class_pt_lup = NULL, 
     nss_to_ignore_chr = NA_character_, req_pkgs_chr = NA_character_, 
-    class_in_cache_cdn_1L_chr = "stop", abbreviations_lup = NULL) 
+    class_in_cache_cdn_1L_chr = "stop", abbreviations_lup = NULL, 
+    object_type_lup = NULL) 
 {
+    if (is.null(object_type_lup)) 
+        object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
     if (is.null(abbreviations_lup)) 
         utils::data("abbreviations_lup", package = "ready4class", 
             envir = environment())
@@ -41,7 +45,7 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function (x, dev_pkg_ns_1L_
         name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
         file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr, 
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
-        abbreviations_lup = abbreviations_lup))
+        abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup))
     return(inst_ready4_class_pt_lup)
 }
 #' @rdname write_classes_and_make_lup-methods

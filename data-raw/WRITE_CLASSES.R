@@ -8,6 +8,7 @@ name_pfx_1L_chr <- "ready4_"
 #dev_pkg_ns_1L_chr <- ready4fun::get_dev_pkg_nm()
 ## 3. Import a table with metadata about frequently used class prototypes
 prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup")
+object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
 
 ## 4. Create a table with the metadata for the ready4_constructor_tbl class that we wish to create.
 classes_to_make_tb <- tibble::tribble(
@@ -44,7 +45,8 @@ write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
               prototype_lup = prototype_lup,
               file_exists_cdn_1L_chr = "overwrite",
               abbreviations_lup = abbreviations_lup,
-              asserts_ls = classes_to_make_tb$asserts_ls[[1]])
+              asserts_ls = classes_to_make_tb$asserts_ls[[1]],
+              object_type_lup = object_type_lup)
 ## 5. Convert the classes_to_make_tb tibble we created  into an instance of the ready4_constructor_tbl class also created in that step.
 classes_to_make_tb <- classes_to_make_tb %>%
   ready4_constructor_tbl()
@@ -66,6 +68,7 @@ write_classes(classes_to_make_tb %>% dplyr::filter(name_stub_chr == "class_pt_lu
              output_dir_1L_chr = "R",
              prototype_lup = prototype_lup,
              file_exists_cdn_1L_chr = "overwrite",
-             abbreviations_lup = abbreviations_lup)
+             abbreviations_lup = abbreviations_lup,
+             object_type_lup = object_type_lup)
 
 

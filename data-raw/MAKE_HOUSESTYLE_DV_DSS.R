@@ -18,7 +18,8 @@ abbreviations_lup %>%
 fn_type_lup_tb <- ready4fun::get_rds_from_dv("fn_type_lup_tb")
 # fn_type_lup_tb <- fn_type_lup_tb %>%
 #   ready4fun::add_rows_to_fn_type_lup(fn_type_nm_chr = ready4fun::get_new_fn_types(abbreviations_lup = abbreviations_lup,
-#                                                                                   fn_type_lup_tb = fn_type_lup_tb),
+#                                                                                   fn_type_lup_tb = fn_type_lup_tb,
+#                                                                                   object_type_lup = object_type_lup),
 #                                      fn_type_desc_chr = c("Adds information about a class.",
 #                                                           "Applies a Make method and then updates the output of that method.",
 #                                                           "Orders a tibble.",

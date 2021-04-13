@@ -7,10 +7,13 @@ write_classes.ready4_constructor_tbl <- function(x,
                                                  nss_to_ignore_chr,
                                                  req_pkgs_chr = NA_character_,
                                                  class_in_cache_cdn_1L_chr = "stop",
-                                                 abbreviations_lup = NULL){
+                                                 abbreviations_lup = NULL,
+                                                 object_type_lup = NULL){
   if(is.null(abbreviations_lup))
     utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
+  if(is.null(object_type_lup))
+    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T),
                ~ write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,
@@ -31,7 +34,8 @@ write_classes.ready4_constructor_tbl <- function(x,
                                             dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                             nss_to_ignore_chr = nss_to_ignore_chr,
                                             abbreviations_lup = abbreviations_lup,
-                                            asserts_ls = ..15))
+                                            asserts_ls = ..15,
+                                            object_type_lup = object_type_lup))
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,
@@ -56,7 +60,8 @@ write_classes.ready4_constructor_tbl <- function(x,
                                             nss_to_ignore_chr = nss_to_ignore_chr,
                                             req_pkgs_chr = req_pkgs_chr,
                                             class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-                                            asserts_ls = ..15[[1]]))
+                                            asserts_ls = ..15[[1]],
+                                            object_type_lup = object_type_lup))
 }
 
 

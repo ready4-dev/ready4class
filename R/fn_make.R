@@ -631,22 +631,26 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param class_desc_1L_chr Class description (a character vector of length one)
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
+#' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @return NULL
 #' @rdname make_lines_for_writing_dmtd_fn
 #' @export 
 #' @importFrom utils data
-#' @importFrom ready4fun make_lines_for_fn_dmt
+#' @importFrom ready4fun get_rds_from_dv make_lines_for_fn_dmt
 #' @keywords internal
 make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_type_1L_chr, class_nm_1L_chr, 
-    class_desc_1L_chr, abbreviations_lup = NULL) 
+    class_desc_1L_chr, abbreviations_lup = NULL, object_type_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
         utils::data("abbreviations_lup", package = "ready4class", 
             envir = environment())
+    if (is.null(object_type_lup)) 
+        object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
         fn_type_1L_chr = fn_type_1L_chr, fn_title_1L_chr = fn_name_1L_chr, 
         fn = eval(parse(text = fn_body_1L_chr)), class_name_1L_chr = class_nm_1L_chr, 
-        details_1L_chr = class_desc_1L_chr, abbreviations_lup = abbreviations_lup)
+        details_1L_chr = class_desc_1L_chr, abbreviations_lup = abbreviations_lup, 
+        object_type_lup = object_type_lup)
     writeLines(fn_body_1L_chr)
 }
 #' Make list of packages to import

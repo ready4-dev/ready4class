@@ -8,7 +8,10 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function(x,
                                                               nss_to_ignore_chr = NA_character_,
                                                               req_pkgs_chr = NA_character_,
                                                               class_in_cache_cdn_1L_chr = "stop",
-                                                              abbreviations_lup = NULL){
+                                                              abbreviations_lup = NULL,
+                                                              object_type_lup = NULL){
+  if(is.null(object_type_lup))
+    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   if(is.null(abbreviations_lup))
     utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
@@ -33,7 +36,8 @@ write_classes_and_make_lup.ready4_constructor_tbl <- function(x,
                                                            nss_to_ignore_chr = nss_to_ignore_chr,
                                                            req_pkgs_chr = req_pkgs_chr,
                                                            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-                                                           abbreviations_lup = abbreviations_lup))
+                                                           abbreviations_lup = abbreviations_lup,
+                                                           object_type_lup = object_type_lup))
   return(inst_ready4_class_pt_lup)
 }
 

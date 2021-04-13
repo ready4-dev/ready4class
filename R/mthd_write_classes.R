@@ -10,21 +10,24 @@
 #' @param req_pkgs_chr Req packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
+#' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @return NULL
 #' @rdname write_classes-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm
+#' @importFrom ready4fun get_dev_pkg_nm get_rds_from_dv
 #' @importFrom utils data
 #' @importFrom purrr pwalk flatten_chr
 #' @importFrom dplyr filter
 write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr, req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
-    abbreviations_lup = NULL) 
+    abbreviations_lup = NULL, object_type_lup = NULL) 
 {
     if (is.null(abbreviations_lup)) 
         utils::data("abbreviations_lup", package = "ready4class", 
             envir = environment())
+    if (is.null(object_type_lup)) 
+        object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
     purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T), ~write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2, 
         name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
         class_desc_1L_chr = ..10, parent_cls_nm_1L_chr = if (is.na(..11)) {
@@ -38,7 +41,7 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
         start_end_vals_dbl = ..9[[1]], file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
         prototype_lup = prototype_lup, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
         nss_to_ignore_chr = nss_to_ignore_chr, abbreviations_lup = abbreviations_lup, 
-        asserts_ls = ..15))
+        asserts_ls = ..15, object_type_lup = object_type_lup))
     purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T), ~write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2, 
         name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
         class_desc_1L_chr = ..10, parent_cls_nm_1L_chr = if (is.na(..11)) {
@@ -60,7 +63,7 @@ write_classes.ready4_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir
         clss_to_inc_chr = ..14[[1]], prototype_lup = prototype_lup, 
         nss_to_ignore_chr = nss_to_ignore_chr, req_pkgs_chr = req_pkgs_chr, 
         class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
-        asserts_ls = ..15[[1]]))
+        asserts_ls = ..15[[1]], object_type_lup = object_type_lup))
 }
 #' @rdname write_classes-methods
 #' @aliases write_classes,ready4_constructor_tbl-method

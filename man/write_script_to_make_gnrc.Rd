@@ -18,7 +18,8 @@ write_script_to_make_gnrc(
   overwrite_1L_lgl = F,
   s3_1L_lgl = F,
   write_1L_lgl = T,
-  doc_in_class_1L_lgl = F
+  doc_in_class_1L_lgl = F,
+  object_type_lup = NULL
 )
 }
 \arguments{
@@ -49,6 +50,8 @@ write_script_to_make_gnrc(
 \item{write_1L_lgl}{Write (a logical vector of length one), Default: T}
 
 \item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
 \description{
 write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

@@ -10,7 +10,8 @@ write_gtr_str_mthds_for_r4(
   pkgs_to_imp_ls,
   class_nm_1L_chr,
   print_gtrs_strs_1L_lgl,
-  output_dir_1L_chr
+  output_dir_1L_chr,
+  object_type_lup = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ write_gtr_str_mthds_for_r4(
 \item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one)}
 
 \item{output_dir_1L_chr}{Output directory (a character vector of length one)}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
 \description{
 write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for ready4 s4. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

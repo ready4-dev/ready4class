@@ -23,7 +23,8 @@ write_scripts_to_mk_r3_cls(
   nss_to_ignore_chr = NA_character_,
   file_exists_cdn_1L_chr = "skip",
   abbreviations_lup = NULL,
-  asserts_ls = NULL
+  asserts_ls = NULL,
+  object_type_lup = NULL
 )
 }
 \arguments{
@@ -64,6 +65,8 @@ write_scripts_to_mk_r3_cls(
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 
 \item{asserts_ls}{Asserts (a list), Default: NULL}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
 \description{
 write_scripts_to_mk_r3_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s3 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

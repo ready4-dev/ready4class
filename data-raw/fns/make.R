@@ -620,17 +620,21 @@ make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            fn_type_1L_chr,
                                            class_nm_1L_chr,
                                            class_desc_1L_chr,
-                                           abbreviations_lup = NULL){
-  if (is.null(abbreviations_lup))
+                                           abbreviations_lup = NULL,
+                                           object_type_lup = NULL){
+  if(is.null(abbreviations_lup))
     utils::data("abbreviations_lup", package = "ready4class",
          envir = environment())
+  if(is.null(object_type_lup))
+    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                           fn_type_1L_chr = fn_type_1L_chr,
                           fn_title_1L_chr = fn_name_1L_chr,
                           fn = eval(parse(text = fn_body_1L_chr)),
                           class_name_1L_chr = class_nm_1L_chr,
                           details_1L_chr = class_desc_1L_chr,
-                          abbreviations_lup = abbreviations_lup)
+                          abbreviations_lup = abbreviations_lup,
+                          object_type_lup = object_type_lup)
   writeLines(fn_body_1L_chr)
 }
 make_ls_of_pkgs_to_imp <- function(curr_gnrcs_ls,
