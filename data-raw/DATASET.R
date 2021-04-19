@@ -106,6 +106,7 @@ ready4fun::write_and_doc_ds(prototype_lup,
 #
 # 14. Update documentation
 usethis::use_build_ignore("initial_setup.R")
+usethis::use_package("rmarkdown", type = "Suggests")
 readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
   writeLines(".github/workflows/R-CMD-check.yaml")
 ready4fun::write_and_doc_fn_fls(fns_dmt_tb = fns_dmt_tb,
