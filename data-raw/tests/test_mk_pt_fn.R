@@ -1,4 +1,4 @@
-pt_1 <- make_pt_ready4_constructor_tbl(make_s3_lgl = TRUE,
+pt_1 <- make_pt_ready4class_constructor_tbl(make_s3_lgl = TRUE,
                                             name_stub_chr = "dv_import_lup",
                                             pt_ls = list(list("tibble")),
                                             pt_chkr_pfx_ls = list(list("is_")),
@@ -11,7 +11,7 @@ pt_1 <- make_pt_ready4_constructor_tbl(make_s3_lgl = TRUE,
                                                                 data_repo_file_ext_chr = "character(0)",
                                                                 data_repo_save_type_chr = "character(0)")),
                                             class_desc_chr = "ready4 S3 class for tibble object lookup table of files to be imported from a dataverse.")
-pt_2 <- make_pt_ready4_constructor_tbl(make_s3_lgl = TRUE,
+pt_2 <- make_pt_ready4class_constructor_tbl(make_s3_lgl = TRUE,
                                             name_stub_chr = "all_import_lup",
                                             pt_ls = list(list("tibble")),
                                             pt_chkr_pfx_ls = list(list("is_")),
@@ -23,7 +23,7 @@ pt_2 <- make_pt_ready4_constructor_tbl(make_s3_lgl = TRUE,
                                                                 inc_fls_to_rename_ls = "list()",
                                                                 new_nms_for_inc_fls_ls = "list()")),
                                             class_desc_chr = "ready4 S3 class for tibble object lookup table of sources of raw (un-processed) data to import.",
-                                            parent_class_chr = "ready4_dv_import_lup")
+                                            parent_class_chr = "ready4class_dv_import_lup")
 
 make_fn_pt_to_make_r3_cls_pt(type_1L_chr = pt_1$pt_ls[[1]][[1]],
                              pt_ns_1L_chr = pt_1$pt_ns_ls[[1]][[1]],

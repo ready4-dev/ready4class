@@ -316,7 +316,7 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                                   .x)) %>%
                             stringr::str_c(sep="",collapse=",\n"),
                           ") %>% ",
-                          ifelse(dev_pkg_ns_1L_chr=="ready4class","","ready4class::"),
+                          ifelse(dev_pkg_ns_1L_chr=="ready4fun","","ready4fun::"),
                           "update_pt_fn_args_ls()\n")
     main_body_1L_chr <- paste0("rlang::exec(",
                                ifelse(type_1L_chr=="tibble",
@@ -620,21 +620,16 @@ make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            fn_type_1L_chr,
                                            class_nm_1L_chr,
                                            class_desc_1L_chr,
-                                           abbreviations_lup = NULL,
-                                           object_type_lup = NULL){
-  if(is.null(abbreviations_lup))
-    utils::data("abbreviations_lup", package = "ready4class",
-         envir = environment())
-  if(is.null(object_type_lup))
-    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
+                                           abbreviations_lup,
+                                           object_type_lup){
   ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
-                          fn_type_1L_chr = fn_type_1L_chr,
-                          fn_title_1L_chr = fn_name_1L_chr,
-                          fn = eval(parse(text = fn_body_1L_chr)),
-                          class_name_1L_chr = class_nm_1L_chr,
-                          details_1L_chr = class_desc_1L_chr,
-                          abbreviations_lup = abbreviations_lup,
-                          object_type_lup = object_type_lup)
+                                   fn_type_1L_chr = fn_type_1L_chr,
+                                   fn_title_1L_chr = fn_name_1L_chr,
+                                   fn = eval(parse(text = fn_body_1L_chr)),
+                                   class_name_1L_chr = class_nm_1L_chr,
+                                   details_1L_chr = class_desc_1L_chr,
+                                   abbreviations_lup = abbreviations_lup,
+                                   object_type_lup = object_type_lup)
   writeLines(fn_body_1L_chr)
 }
 make_ls_of_pkgs_to_imp <- function(curr_gnrcs_ls,
@@ -675,7 +670,7 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function(req_pkgs_chr,
 make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_1L_lgl = T){
   one_row_class_pt_tb <- class_type_mk_ls  %>%
-    purrr::reduce(.init = ready4_constructor_tbl(),
+    purrr::reduce(.init = ready4class_constructor_tbl(),
                    ~ {
                      testit::assert(paste0("Allowable list element names are: ", names(.x) %>% paste0(collapse = ",")),names(.y) %in% names(.x))
                      rlang::exec(tibble::add_case,.x,!!!.y)

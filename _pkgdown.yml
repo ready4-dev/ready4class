@@ -12,7 +12,7 @@ reference:
 - title: "Datasets"
 - contents:
   - abbreviations_lup
-  - fn_type_lup_tb
+  - fn_types_lup
   - fns_dmt_tb
   - prototype_lup
 - title: "Classes"

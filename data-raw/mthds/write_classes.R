@@ -1,19 +1,14 @@
-write_classes.ready4_constructor_tbl <- function(x,
-                                                 name_pfx_1L_chr,
-                                                 output_dir_1L_chr,
-                                                 file_exists_cdn_1L_chr = NULL,
-                                                 prototype_lup = NULL,
-                                                 dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-                                                 nss_to_ignore_chr,
-                                                 req_pkgs_chr = NA_character_,
-                                                 class_in_cache_cdn_1L_chr = "stop",
-                                                 abbreviations_lup = NULL,
-                                                 object_type_lup = NULL){
-  if(is.null(abbreviations_lup))
-    utils::data("abbreviations_lup", package = "ready4class",
-         envir = environment())
-  if(is.null(object_type_lup))
-    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
+write_classes.ready4class_constructor_tbl <- function(x,
+                                                      name_pfx_1L_chr,
+                                                      output_dir_1L_chr,
+                                                      file_exists_cdn_1L_chr = NULL,
+                                                      prototype_lup = NULL,
+                                                      dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
+                                                      nss_to_ignore_chr,
+                                                      req_pkgs_chr = NA_character_,
+                                                      class_in_cache_cdn_1L_chr = "stop",
+                                                      abbreviations_lup,
+                                                      object_type_lup){
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T),
                ~ write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,

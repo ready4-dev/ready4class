@@ -95,30 +95,25 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                                 first_1L_lgl = ..9))
 }
 write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
-                                        name_pfx_1L_chr = "ready4_",
-                                        output_dir_1L_chr = "data-raw",
-                                        class_desc_1L_chr = "",
-                                        parent_cls_nm_1L_chr = NULL,
-                                        type_1L_chr,
-                                        pt_ns_1L_chr = "",
-                                        pt_chkr_pfx_1L_chr = "is.",
+                                       name_pfx_1L_chr,##
+                                       output_dir_1L_chr = "data-raw",
+                                       class_desc_1L_chr = "",
+                                       parent_cls_nm_1L_chr = NULL,
+                                       type_1L_chr,
+                                       pt_ns_1L_chr = "",
+                                       pt_chkr_pfx_1L_chr = "is.",
                                        vals_ls = NULL,
-                                        ordered_1L_lgl = FALSE,
-                                        allowed_vals_ls = NULL,
-                                        min_max_vals_dbl = NULL,
-                                        start_end_vals_dbl = NULL,
-                                        prototype_lup,
+                                       ordered_1L_lgl = FALSE,
+                                       allowed_vals_ls = NULL,
+                                       min_max_vals_dbl = NULL,
+                                       start_end_vals_dbl = NULL,
+                                       prototype_lup,
                                        dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-                                        nss_to_ignore_chr  = NA_character_,
-                                        file_exists_cdn_1L_chr = "skip",
-                                       abbreviations_lup = NULL,
+                                       nss_to_ignore_chr  = NA_character_,
+                                       file_exists_cdn_1L_chr = "skip",
+                                       abbreviations_lup,
                                        asserts_ls = NULL,
-                                       object_type_lup = NULL){
-  if(is.null(abbreviations_lup))
-    utils::data("abbreviations_lup", package = "ready4class",
-         envir = environment())
-  if(is.null(object_type_lup))
-    object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
+                                       object_type_lup){
   if(!dir.exists(output_dir_1L_chr))
     dir.create(output_dir_1L_chr)
   class_nm_1L_chr <- paste0(name_pfx_1L_chr,name_stub_1L_chr)
@@ -164,7 +159,7 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
   devtools::load_all()
 }
 write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
-                                        name_pfx_1L_chr = "ready4_",
+                                        name_pfx_1L_chr,##
                                         output_dir_1L_chr = "data-raw",
                                         outp_sub_dir_1L_chr = NULL,
                                         class_desc_1L_chr = "",

@@ -36,31 +36,9 @@ URL: https://ready4-dev.github.io/ready4class/,
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: 
-    devtools,
-    dplyr,
-    gtools,
     knitr,
     lifecycle,
-    magrittr,
-    methods,
-    purrr,
-    ready4fun (>= 0.0.0.9298),
-    rlang,
-    stats,
-    stringi,
-    stringr,
-    testit,
-    testthat,
-    tibble,
-    tidyr,
-    usethis,
-    utils
+    testthat
 VignetteBuilder: knitr
-Depends: 
-    R (>= 2.10)
-Suggests: 
-    rmarkdown
-Remotes: 
-    ready4-dev/ready4fun
