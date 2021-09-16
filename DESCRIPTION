@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Standardised Developer Tools for Creating and Extending Classes for
     Use as Part of the Ready4 Suite
-Version: 0.0.0.9199
+Version: 0.0.0.9200
 Authors@R: 
     c(person(given = "Matthew",
              family = "Hamilton",
@@ -38,7 +38,26 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
+    devtools,
+    dplyr,
+    gtools,
     knitr,
     lifecycle,
-    testthat
+    magrittr,
+    methods,
+    purrr,
+    ready4fun (>= 0.0.0.9340),
+    rlang,
+    stringi,
+    stringr,
+    testit,
+    testthat,
+    tibble,
+    tidyr,
+    usethis,
+    utils
 VignetteBuilder: knitr
+Suggests: 
+    rmarkdown
+Remotes: 
+    ready4-dev/ready4fun
