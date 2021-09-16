@@ -113,7 +113,8 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                        file_exists_cdn_1L_chr = "skip",
                                        abbreviations_lup,
                                        asserts_ls = NULL,
-                                       object_type_lup){
+                                       object_type_lup,
+                                       consent_1L_chr = NULL){
   if(!dir.exists(output_dir_1L_chr))
     dir.create(output_dir_1L_chr)
   class_nm_1L_chr <- paste0(name_pfx_1L_chr,name_stub_1L_chr)
@@ -138,25 +139,34 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                                   dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                                                   nss_to_ignore_chr = nss_to_ignore_chr,
                                                   asserts_ls = asserts_ls)
-    sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr =="append",TRUE,FALSE))
-    writeLines(s3_components_ls$include_tags_chr)
-    if(type_1L_chr =="tibble"){
-      writeLines(make_alg_to_set_old_clss(class_nm_1L_chr))
+    if(is.null(consent_1L_chr)){
+      consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                         class_file_chr,
+                                                        " ?"),
+                                    options_chr = c("Y", "N"),
+                                    force_from_opts_1L_chr = T)
     }
-    purrr::pwalk(list(s3_components_ls$fn_name_ls,
-                      s3_components_ls$fn_body_1L_chr_ls,
-                      c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype", "s3_validator", "s3_checker")),
-                 ~ make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1,
-                                                  fn_body_1L_chr = ..2,
-                                                  fn_type_1L_chr = ..3,
-                                                  class_nm_1L_chr = class_nm_1L_chr,
-                                                  class_desc_1L_chr = class_desc_1L_chr,
-                                                  abbreviations_lup = abbreviations_lup,
-                                                  object_type_lup = object_type_lup))
-    ready4fun::close_open_sinks()
-  }
-  devtools::document()
-  devtools::load_all()
+    if(consent_1L_chr == "Y"){
+      sink(class_file_chr, append = ifelse(file_exists_cdn_1L_chr =="append",TRUE,FALSE))
+      writeLines(s3_components_ls$include_tags_chr)
+      if(type_1L_chr =="tibble"){
+        writeLines(make_alg_to_set_old_clss(class_nm_1L_chr))
+      }
+      purrr::pwalk(list(s3_components_ls$fn_name_ls,
+                        s3_components_ls$fn_body_1L_chr_ls,
+                        c("s3_valid_instance", "s3_unvalidated_instance", "s3_prototype", "s3_validator", "s3_checker")),
+                   ~ make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1,
+                                                    fn_body_1L_chr = ..2,
+                                                    fn_type_1L_chr = ..3,
+                                                    class_nm_1L_chr = class_nm_1L_chr,
+                                                    class_desc_1L_chr = class_desc_1L_chr,
+                                                    abbreviations_lup = abbreviations_lup,
+                                                    object_type_lup = object_type_lup))
+      ready4fun::close_open_sinks()
+    }
+    devtools::document()
+    devtools::load_all()
+    }
 }
 write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         name_pfx_1L_chr,##
@@ -183,7 +193,8 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         print_meaningful_nms_ls_1L_lgl = TRUE,
                                         class_in_cache_cdn_1L_chr = "stop",
                                        asserts_ls = NULL,
-                                       object_type_lup = object_type_lup){
+                                       object_type_lup = object_type_lup,
+                                       consent_1L_chr = NULL){
   if(!is.null(outp_sub_dir_1L_chr)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
                             "/",
@@ -222,6 +233,14 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
   if(helper_1L_lgl){ #print_helper
+    if(is.null(consent_1L_chr)){
+      consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                         output_file_class_1L_chr,
+                                                         " ?"),
+                                    options_chr = c("Y", "N"),
+                                    force_from_opts_1L_chr = T)
+    }
+    if(consent_1L_chr == "Y"){
     sink(output_file_class_1L_chr, append = TRUE)
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
                  fn_type_1L_chr = "set_class",
@@ -230,6 +249,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                  object_type_lup = object_type_lup)
     writeLines(helper_function)
     ready4fun::close_open_sinks()
+    }
   }
   accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr,
                                                parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
@@ -246,6 +266,14 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                                   names_must_match_ls = names_must_match_ls,
                                                   asserts_ls = asserts_ls)
   if(print_validator_1L_lgl){
+    if(is.null(consent_1L_chr)){
+      consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                         output_file_class_1L_chr,
+                                                         " ?"),
+                                    options_chr = c("Y", "N"),
+                                    force_from_opts_1L_chr = T)
+    }
+    if(consent_1L_chr == "Y"){
     sink(output_file_class_1L_chr, append = TRUE)
     writeLines(paste0("\n",
                       valid_txt %>%
@@ -253,13 +281,22 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                                                 "globalenv\\(\\)"),"") %>%
                         stringr::str_replace(",\".GlobalEnv\"",""))) # BOTH LINES MAY NOT BE NEEDED
     ready4fun::close_open_sinks()
-  }
+    }
+    }
   eval(parse(text=valid_txt))
   if(!is.null(meaningful_nms_ls)){
     meaningful_txt <- make_show_mthd_fn(class_nm_1L_chr = class_nm_1L_chr,
                                         meaningful_nms_ls = meaningful_nms_ls)
     eval(parse(text = meaningful_txt))
     if(print_meaningful_nms_ls_1L_lgl){
+      if(is.null(consent_1L_chr)){
+        consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                           output_file_class_1L_chr,
+                                                           " ?"),
+                                      options_chr = c("Y", "N"),
+                                      force_from_opts_1L_chr = T)
+      }
+      if(consent_1L_chr == "Y"){
       sink(output_file_class_1L_chr, append = TRUE)
       writeLines(paste0("\n",
                         meaningful_txt %>%
@@ -268,7 +305,8 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                           stringr::str_replace_all("\\\\n\\\",","\\\\n\\\",\n") %>%
                           stringr::str_replace("\\nsep","sep")))
       ready4fun::close_open_sinks()
-    }
+      }
+      }
   }
   devtools::document()
   devtools::load_all()
@@ -313,13 +351,22 @@ write_script_to_make_gnrc <- function(write_file_ls,
                              s3_1L_lgl = F,
                              write_1L_lgl = T,
                              doc_in_class_1L_lgl = F,
-                             object_type_lup = NULL){
+                             object_type_lup = NULL,
+                             consent_1L_chr = NULL){
   if(is.null(object_type_lup))
     object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   else_lgl <- write_file_ls$new_file_lgl
   if(!gnrc_exists_1L_lgl){
     eval(parse(text = gen_mthd_pair_ls$generic_1L_chr))
     if(write_1L_lgl & (!file.exists(write_file_ls$gnr_file) | write_file_ls$new_file_lgl | overwrite_1L_lgl)){
+      if(is.null(consent_1L_chr)){
+        consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                           write_file_ls$gnr_file,
+                                                           " ?"),
+                                      options_chr = c("Y", "N"),
+                                      force_from_opts_1L_chr = T)
+      }
+      if(consent_1L_chr == "Y"){
       sink(write_file_ls$gnr_file,
            append = ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
                                               "gen_std_s4_mthd"),F,write_file_ls$new_file_lgl))
@@ -335,7 +382,7 @@ write_script_to_make_gnrc <- function(write_file_ls,
                                                                               "globalenv\\(\\)"),""))
       ready4fun::close_open_sinks()
       write_file_ls$new_file_lgl <- T
-    }
+    }}
     write_file_ls$meth_file <- write_file_ls$gnr_file
   }else{
     if(#else_lgl &
@@ -426,11 +473,20 @@ write_script_to_make_mthd <- function(write_file_ls,
                                       write_1L_lgl = T,
                                       append_1L_lgl = T,
                                       doc_in_class_1L_lgl = F,
-                                      object_type_lup = NULL){
+                                      object_type_lup = NULL,
+                                      consent_1L_chr = NULL){
   if(is.null(object_type_lup))
     object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   eval(parse(text = gen_mthd_pair_ls$method_chr))
   if(write_1L_lgl){
+    if(is.null(consent_1L_chr)){
+      consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                         write_file_ls$meth_file,
+                                                         " ?"),
+                                    options_chr = c("Y", "N"),
+                                    force_from_opts_1L_chr = T)
+    }
+    if(consent_1L_chr == "Y"){
     sink(write_file_ls$meth_file, append =  ifelse(identical(write_file_ls$gen_file,write_file_ls$meth_file),
                                                    T,
                                                    ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
@@ -453,7 +509,9 @@ write_script_to_make_mthd <- function(write_file_ls,
     #                                   class_nm_1L_chr = class_nm_1L_chr,
     #                                   fn_nm_1L_chr = paste0(name_1L_chr,".",class_nm_1L_chr)))
     ready4fun::close_open_sinks()
-  }
+
+    }
+    }
 }
 write_slot_gtr_str_mthds <- function(slot_nm_1L_chr,
                                      set_only_1L_lgl,
@@ -544,6 +602,42 @@ write_std_mthd <- function(fn,
                                                        write_1L_lgl = T)
   write_file_ls
 }
+write_self_srvc_clss <- function(pkg_setup_ls){
+  second_step_classes_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[-1,]
+  classes_to_make_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[1,]
+  write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
+                                                name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
+                                                output_dir_1L_chr = "R",
+                                                class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
+                                                type_1L_chr = classes_to_make_tb$pt_ls[[1]][[1]],
+                                                pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]][[1]],
+                                                pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]][[1]] %in% c("base"),
+                                                                      "",
+                                                                      classes_to_make_tb$pt_ns_ls[[1]][[1]]),
+                                                vals_ls = classes_to_make_tb$vals_ls[[1]],
+                                                allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
+                                                min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
+                                                start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
+                                                prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
+                                                file_exists_cdn_1L_chr = "overwrite",
+                                                abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
+                                                asserts_ls = classes_to_make_tb$asserts_ls[[1]],
+                                                object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+  pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>%
+    ready4class_constructor_tbl() %>%
+    dplyr::bind_rows(second_step_classes_tb)
+  write_classes.ready4class_constructor_tbl(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>%
+                                                                 dplyr::filter(name_stub_chr == "pt_lup"),
+                                                               name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
+                                                               output_dir_1L_chr = "R",
+                                                               prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
+                                                               file_exists_cdn_1L_chr = "overwrite",
+                                                               abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
+                                                               object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+  pkg_setup_ls$subsequent_ls$prototype_lup <- pkg_setup_ls$subsequent_ls$prototype_lup %>%
+    ready4class_pt_lup()
+  return(pkg_setup_ls)
+}
 write_to_delete_fls_with_ptrn <- function(dir_1L_chr,
                                           pattern_1L_chr){
   if(!is.na(pattern_1L_chr)){
@@ -578,7 +672,8 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                clss_to_inc_chr,
                                prototype_lup,
                                helper_1L_lgl = F,
-                               parent_ns_ls){
+                               parent_ns_ls,
+                               consent_1L_chr = NULL){
   slot_str <- purrr::map2_chr(slots_chr,
                               type_chr,
                               ~ paste0(.x,
@@ -648,6 +743,14 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                                      base_set_of_clss_to_inc_chr = clss_to_inc_chr)
   include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
   if(print_set_cls_1L_lgl){
+    if(is.null(consent_1L_chr)){
+      consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
+                                                         output_file_class_1L_chr,
+                                                         " ?"),
+                                    options_chr = c("Y", "N"),
+                                    force_from_opts_1L_chr = T)
+    }
+    if(consent_1L_chr == "Y"){
     sink(output_file_class_1L_chr)
     writeLines(paste0(paste0("#' ",class_nm_1L_chr,"\n"),
                       paste0("#' @name ",class_nm_1L_chr,"\n"),
@@ -678,6 +781,8 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                                                            ready4fun::update_ns())),
                       "\n"))
     ready4fun::close_open_sinks()
-  }
+
+    }
+    }
   eval(parse(text = st_class_fn))
 }

@@ -1,5 +1,5 @@
 update_lup_for_ns.ready4class_pt_lup <- function(x,
-                                                attached_nss_chr){
+                                                 attached_nss_chr){
   attached_nss_chr <- c("base",attached_nss_chr) %>% unique()
   inst_ready4class_pt_lup <- x %>%
     dplyr::mutate(val_chr = purrr::pmap_chr(dplyr::select(x,

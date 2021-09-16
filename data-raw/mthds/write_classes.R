@@ -8,7 +8,26 @@ write_classes.ready4class_constructor_tbl <- function(x,
                                                       req_pkgs_chr = NA_character_,
                                                       class_in_cache_cdn_1L_chr = "stop",
                                                       abbreviations_lup,
-                                                      object_type_lup){
+                                                      object_type_lup,
+                                                      consent_1L_chr = NULL){
+  new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl,
+                                         ~ifelse(.x,"C3_","C4_")),
+                          name_pfx_1L_chr,
+                          x$name_stub_chr,
+                          ".R")
+  if(is.null(consent_1L_chr)){
+    consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+                                                       ifelse(length(new_files_chr)>1,"s ",""),
+                                                       new_files_chr %>%
+                                                         paste0(collapse = ", ") %>%
+                                                         stringi::stri_replace_last(fixed = ",", " and"),
+                                                       " to the directory ",
+                                                       output_dir_1L_chr,
+                                                       " ?"),
+                                  options_chr = c("Y", "N"),
+                                  force_from_opts_1L_chr = T)
+  }
+  if(consent_1L_chr == "Y"){
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl == T),
                ~ write_scripts_to_mk_r3_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,
@@ -57,6 +76,8 @@ write_classes.ready4class_constructor_tbl <- function(x,
                                             class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                             asserts_ls = ..15[[1]],
                                             object_type_lup = object_type_lup))
-}
+
+  }
+  }
 
 

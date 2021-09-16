@@ -1,24 +1,13 @@
 home:
   links:
-  - text: User manual (PDF)
-    href: https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_user_0.0.0.9189.pdf
-  - text: Developer version of usual manual (PDF)
-    href: https://github.com/ready4-dev/ready4class/releases/download/v0.0.0.9189/ready4class_developer_0.0.0.9189.pdf
   - text: Project website
-    href: https://www.ready4-dev.com/
+    href:  https://www.ready4-dev.com/
 development:
   mode: auto
 reference:
 - title: "Datasets"
 - contents:
-  - abbreviations_lup
-  - fn_types_lup
-  - fns_dmt_tb
-  - prototype_lup
-- title: "Classes"
-- contents:
-  - ready4_constructor_tbl
-  - ready4_class_pt_lup
+  - 
 - title: "Generics"
 - contents:
   - add_class
@@ -30,10 +19,10 @@ reference:
   - write_classes_and_make_lup
 - title: "Methods"
 - contents:
-  - add_class.ready4_class_pt_lup
-  - make_lup.ready4_constructor_tbl
-  - order_tb.ready4_constructor_tbl
-  - remake_ls_cols.ready4_constructor_tbl
-  - update_lup_for_ns.ready4_class_pt_lup
-  - write_classes.ready4_constructor_tbl
-  - write_classes_and_make_lup.ready4_constructor_tbl
+  - add_class.ready4class_pt_lup
+  - make_lup.ready4class_constructor_tbl
+  - order_tb.ready4class_constructor_tbl
+  - remake_ls_cols.ready4class_constructor_tbl
+  - update_lup_for_ns.ready4class_pt_lup
+  - write_classes.ready4class_constructor_tbl
+  - write_classes_and_make_lup.ready4class_constructor_tbl
