@@ -92,31 +92,10 @@ write_package(pkg_setup_ls,
               self_serve_1L_lgl = T,
               self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                                  args_ls = NULL))
-# rlang::exec(write_pkg_setup_fls, !!!pkg_setup_ls$initial_ls)
-# dss_records_ls <- write_pkg_dss(pkg_setup_ls,
-#                                 pkg_url_1L_chr = pkg_setup_ls$initial_ls$pkg_desc_ls$URL %>%
-#                                   strsplit(",") %>%
-#                                   unlist() %>%
-#                                   purrr::pluck(1),
-#                                 dv_ds_nm_1L_chr = pkg_setup_ls$subsequent_ls$pkg_dmt_dv_dss_chr[2])
-# write_clss(dss_records_ls = dss_records_ls,
-#            pkg_setup_ls = pkg_setup_ls,
-#            self_serve_1L_lgl = T,
-#            self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
-#                                    args_ls = NULL)
-#            )
-# write_and_doc_fn_fls(fns_dmt_tb = dss_records_ls$fns_dmt_tb,
-#                      pkg_setup_ls = pkg_setup_ls,
-#                      update_pkgdown_1L_lgl = T)
-# write_manuals(pkg_setup_ls = pkg_setup_ls,
-#               dv_url_pfx_1L_chr = dv_url_pfx_1L_chr,
-#               key_1L_chr = key_1L_chr,
-#               server_1L_chr = server_1L_chr)
-
 # Prior to running this script, the gh-pages orphan branch should be set up using instructions at:
 # https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/
-readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
-  writeLines(".github/workflows/R-CMD-check.yaml")
+# readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
+#   writeLines(".github/workflows/R-CMD-check.yaml")
 
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
