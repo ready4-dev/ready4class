@@ -48,7 +48,8 @@ write_classes_and_make_lup.ready4class_constructor_tbl <- function (x, dev_pkg_n
             file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
             nss_to_ignore_chr = nss_to_ignore_chr, req_pkgs_chr = req_pkgs_chr, 
             class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
-            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup))
+            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup, 
+            consent_1L_chr = consent_1L_chr))
     }
     else {
         inst_ready4class_pt_lup <- NULL

@@ -39,7 +39,8 @@ add_class.ready4class_pt_lup <- function(x,
                 req_pkgs_chr = req_pkgs_chr,
                 class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                 abbreviations_lup = abbreviations_lup,
-                object_type_lup = object_type_lup)
+                object_type_lup = object_type_lup,
+                consent_1L_chr = consent_1L_chr)
   new_pt_lup <- make_lup(make_tb,
                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                          prefix = name_pfx_1L_chr)
