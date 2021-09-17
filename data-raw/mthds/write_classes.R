@@ -17,7 +17,7 @@ write_classes.ready4class_constructor_tbl <- function(x,
                           ".R")
   if(is.null(consent_1L_chr)){
     consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
-                                                       ifelse(length(new_files_chr)>1,"s ",""),
+                                                       ifelse(length(new_files_chr)>1,"s "," "),
                                                        new_files_chr %>%
                                                          paste0(collapse = ", ") %>%
                                                          stringi::stri_replace_last(fixed = ",", " and"),
@@ -49,7 +49,8 @@ write_classes.ready4class_constructor_tbl <- function(x,
                                             nss_to_ignore_chr = nss_to_ignore_chr,
                                             abbreviations_lup = abbreviations_lup,
                                             asserts_ls = ..15,
-                                            object_type_lup = object_type_lup))
+                                            object_type_lup = object_type_lup,
+                                            consent_1L_chr = consent_1L_chr))
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
                                             name_pfx_1L_chr = name_pfx_1L_chr,
@@ -75,7 +76,8 @@ write_classes.ready4class_constructor_tbl <- function(x,
                                             req_pkgs_chr = req_pkgs_chr,
                                             class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                             asserts_ls = ..15[[1]],
-                                            object_type_lup = object_type_lup))
+                                            object_type_lup = object_type_lup,
+                                            consent_1L_chr = consent_1L_chr))
 
   }
   }

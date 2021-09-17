@@ -9,8 +9,27 @@ add_class.ready4class_pt_lup <- function(x,
                                           req_pkgs_chr = NA_character_,
                                           class_in_cache_cdn_1L_chr = "stop",
                                           abbreviations_lup,
-                                          object_type_lup){
+                                          object_type_lup,
+                                         consent_1L_chr = NULL){
   make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
+  if(is.null(consent_1L_chr)){
+    new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl,
+                                           ~ifelse(.x,"C3_","C4_")),
+                            name_pfx_1L_chr,
+                            make_tb$name_stub_chr,
+                            ".R")
+    consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+                                                       ifelse(length(new_files_chr)>1,"s "," "),
+                                                       new_files_chr %>%
+                                                         paste0(collapse = ", ") %>%
+                                                         stringi::stri_replace_last(fixed = ",", " and"),
+                                                       " to the directory ",
+                                                       output_dir_1L_chr,
+                                                       " ?"),
+                                  options_chr = c("Y", "N"),
+                                  force_from_opts_1L_chr = T)
+  }
+  if(consent_1L_chr == "Y"){
   write_classes(make_tb,
                 name_pfx_1L_chr = name_pfx_1L_chr,
                 output_dir_1L_chr = output_dir_1L_chr,
@@ -28,5 +47,8 @@ add_class.ready4class_pt_lup <- function(x,
   inst_ready4class_pt_lup <- x %>%
     dplyr::filter(!type_chr %in% classes_to_add_chr)  %>%
     dplyr::bind_rows(new_pt_lup)
+  }else{
+    inst_ready4class_pt_lup <- NULL
+  }
   return(inst_ready4class_pt_lup)
 }

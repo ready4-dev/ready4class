@@ -20,7 +20,8 @@ add_class.ready4class_pt_lup(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
-  object_type_lup
+  object_type_lup,
+  consent_1L_chr = NULL
 )
 
 \S4method{add_class}{ready4class_pt_lup}(
@@ -35,7 +36,8 @@ add_class.ready4class_pt_lup(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
-  object_type_lup
+  object_type_lup,
+  consent_1L_chr = NULL
 )
 }
 \arguments{
@@ -64,6 +66,8 @@ add_class.ready4class_pt_lup(
 \item{abbreviations_lup}{Abbreviations (a lookup table)}
 
 \item{object_type_lup}{Object type (a lookup table)}
+
+\item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \value{
 Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
