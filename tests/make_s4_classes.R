@@ -31,7 +31,7 @@
 #                 output_folder = "data-raw",
 #                 class_desc = "Spacio-temporal environment",
 #                 parent = NULL,
-#                 class_slots = c("st_data","env_sf","par_vals"),
+#                 class_slots = c("st_data","env_sf","param_vals"),
 #                 type = c("list","sf","data.frame"),
 #                 meaningful_names = NULL,
 #                 values = NULL,

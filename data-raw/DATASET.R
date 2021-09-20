@@ -63,10 +63,10 @@ pkg_setup_ls <- pkg_desc_ls %>%
                                ready4_type_1L_chr = "authoring",
                                user_manual_fns_chr = NA_character_)
 #pkg_ds_ls_ls <- NULL
-write_package(pkg_setup_ls,
-              self_serve_1L_lgl = T,
-              self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss, # updated to ready4fun_fn_ls
-                                      args_ls = NULL))
+pkg_setup_ls <- write_package(pkg_setup_ls,
+                              self_serve_1L_lgl = T,
+                              self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+                                                      args_ls = NULL))
 # pkg_setup_ls$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
 # pkg_setup_ls <- ready4fun::validate_pkg_setup(pkg_setup_ls)
 # pkg_setup_ls <- update_msng_abbrs(pkg_setup_ls,
