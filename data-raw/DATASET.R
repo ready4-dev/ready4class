@@ -95,8 +95,8 @@ pkg_setup_ls <- write_package(pkg_setup_ls,
 #                      publish_dv_1L_lgl = T)
 # Prior to running this script, the gh-pages orphan branch should be set up using instructions at:
 # https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/
-# readLines(".github/workflows/R-CMD-check.yaml")[-28] %>%
-#   writeLines(".github/workflows/R-CMD-check.yaml")
+readLines(".github/workflows/R-CMD-check.yaml")[-23] %>%
+  writeLines(".github/workflows/R-CMD-check.yaml")
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 
