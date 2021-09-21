@@ -50,7 +50,7 @@ fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
 pkg_setup_ls <- pkg_desc_ls %>%
   ready4fun::make_pkg_setup_ls(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
                                build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
-                               check_type_1L_chr = "standard",
+                               check_type_1L_chr = "ready4",
                                cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
                                                                               fn =  fns_env_ls$fns_env$write_classes_and_make_lup.ready4class_constructor_tbl) %>%
                                  ready4fun::ready4fun_fn_ls(),
@@ -95,8 +95,6 @@ pkg_setup_ls <- write_package(pkg_setup_ls,
 #                      publish_dv_1L_lgl = T)
 # Prior to running this script, the gh-pages orphan branch should be set up using instructions at:
 # https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/
-readLines(".github/workflows/R-CMD-check.yaml")[-23] %>%
-  writeLines(".github/workflows/R-CMD-check.yaml")
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
 

@@ -1,17 +1,14 @@
 home:
   links:
   - text: Manual - User (PDF)
-    href: https://dataverse.harvard.edu/api/access/datafile/5192057
+    href: https://dataverse.harvard.edu/api/access/datafile/5192102
   - text: Manual - Developer (PDF)
-    href: https://dataverse.harvard.edu/api/access/datafile/5192056
+    href: https://dataverse.harvard.edu/api/access/datafile/5192101
   - text: Project website
     href:  https://www.ready4-dev.com/
 development:
   mode: auto
 reference:
-- title: "Datasets"
-- contents:
-  - 
 - title: "Classes"
 - contents:
   - ready4class_constructor_tbl
