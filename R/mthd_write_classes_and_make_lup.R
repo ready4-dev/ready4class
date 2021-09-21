@@ -15,7 +15,7 @@
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname write_classes_and_make_lup-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringi stri_replace_last
 write_classes_and_make_lup.ready4class_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
@@ -35,7 +35,7 @@ write_classes_and_make_lup.ready4class_constructor_tbl <- function (x, dev_pkg_n
     }
     new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
         "C3_", "C4_")), name_pfx_1L_chr, x$name_stub_chr, ".R")
-    consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+    consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
         ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
             paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
             " and"), " to the directory ", output_dir_1L_chr, 

@@ -24,7 +24,7 @@ write_classes_and_make_lup.ready4class_constructor_tbl <- function(x,
                           name_pfx_1L_chr,
                           x$name_stub_chr,
                           ".R")
-  consent_1L_chr <- make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+  consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
                                                      ifelse(length(new_files_chr)>1,"s "," "),
                                                      new_files_chr %>%
                                                        paste0(collapse = ", ") %>%

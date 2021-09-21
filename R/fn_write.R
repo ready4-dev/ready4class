@@ -116,7 +116,7 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
 #' @return NULL
 #' @rdname write_script_to_make_gnrc
 #' @export 
-#' @importFrom ready4fun get_rds_from_dv make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4fun get_rds_from_dv make_prompt make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_remove
 #' @keywords internal
 write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mthd_pair_ls, 
@@ -134,7 +134,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
         if (write_1L_lgl & (!file.exists(write_file_ls$gnr_file) | 
             write_file_ls$new_file_lgl | overwrite_1L_lgl)) {
             if (is.null(consent_1L_chr)) {
-                consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+                consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                   write_file_ls$gnr_file, " ?"), options_chr = c("Y", 
                   "N"), force_from_opts_1L_chr = T)
             }
@@ -189,7 +189,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @return NULL
 #' @rdname write_script_to_make_mthd
 #' @export 
-#' @importFrom ready4fun get_rds_from_dv make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4fun get_rds_from_dv make_prompt make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @keywords internal
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
@@ -202,7 +202,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
     eval(parse(text = gen_mthd_pair_ls$method_chr))
     if (write_1L_lgl) {
         if (is.null(consent_1L_chr)) {
-            consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+            consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                 write_file_ls$meth_file, " ?"), options_chr = c("Y", 
                 "N"), force_from_opts_1L_chr = T)
         }
@@ -342,7 +342,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @return NULL
 #' @rdname write_scripts_to_mk_r3_cls
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm close_open_sinks
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt close_open_sinks
 #' @importFrom purrr pwalk
 #' @importFrom devtools document load_all
 #' @keywords internal
@@ -372,7 +372,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
             start_end_vals_dbl = start_end_vals_dbl, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             nss_to_ignore_chr = nss_to_ignore_chr, asserts_ls = asserts_ls)
         if (is.null(consent_1L_chr)) {
-            consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+            consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                 class_file_chr, " ?"), options_chr = c("Y", "N"), 
                 force_from_opts_1L_chr = T)
         }
@@ -427,7 +427,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @return NULL
 #' @rdname write_scripts_to_mk_r4_cls
 #' @export 
-#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4fun make_prompt make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
 #' @keywords internal
@@ -466,7 +466,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
     eval(parse(text = helper_function))
     if (helper_1L_lgl) {
         if (is.null(consent_1L_chr)) {
-            consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+            consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                 output_file_class_1L_chr, " ?"), options_chr = c("Y", 
                 "N"), force_from_opts_1L_chr = T)
         }
@@ -490,7 +490,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
         asserts_ls = asserts_ls)
     if (print_validator_1L_lgl) {
         if (is.null(consent_1L_chr)) {
-            consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+            consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                 output_file_class_1L_chr, " ?"), options_chr = c("Y", 
                 "N"), force_from_opts_1L_chr = T)
         }
@@ -509,7 +509,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
         eval(parse(text = meaningful_txt))
         if (print_meaningful_nms_ls_1L_lgl) {
             if (is.null(consent_1L_chr)) {
-                consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+                consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                   output_file_class_1L_chr, " ?"), options_chr = c("Y", 
                   "N"), force_from_opts_1L_chr = T)
             }
@@ -706,7 +706,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
-#' @importFrom ready4fun update_ns close_open_sinks
+#' @importFrom ready4fun update_ns make_prompt close_open_sinks
 #' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, parent_cls_nm_1L_chr, 
     print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class_1L_chr, 
@@ -755,7 +755,7 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
     include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
     if (print_set_cls_1L_lgl) {
         if (is.null(consent_1L_chr)) {
-            consent_1L_chr <- make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
+            consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 
                 output_file_class_1L_chr, " ?"), options_chr = c("Y", 
                 "N"), force_from_opts_1L_chr = T)
         }
