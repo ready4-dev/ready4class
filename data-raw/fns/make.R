@@ -382,9 +382,15 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                        "()))")
     tb_or_ls_class_summary <- ifelse(type_1L_chr == "list",
                                      paste0("lapply(class) %>% ",
+<<<<<<< HEAD
                                             ifelse(dev_pkg_ns_1L_chr=="ready4class",
                                                    "",
                                                    "ready4class::"),
+=======
+                                            ifelse(dev_pkg_ns_1L_chr=="ready4fun",
+                                                   "",
+                                                   "ready4fun::"),
+>>>>>>> dev
                                             "transform_cls_type_ls() %>%",
                                             "tibble::as_tibble() "),
                                      "dplyr::summarise_all(class) ")
