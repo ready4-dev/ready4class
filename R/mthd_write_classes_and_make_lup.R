@@ -1,5 +1,5 @@
 #' Write classes and make lookup table method applied to ready4 S3 class Constructor Table of metadata required to make new classes..
-#' @description write_classes_and_make_lup.ready4class_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' @description write_classes_and_make_lup.ready4class_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")

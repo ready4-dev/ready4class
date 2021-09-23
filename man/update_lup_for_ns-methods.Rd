@@ -25,5 +25,5 @@ Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 \description{
 update_lup_for_ns() is an Update Lookup Table for Namespace generic that updates a lookup table with namespace data.
 
-update_lup_for_ns.ready4class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+update_lup_for_ns.ready4class_pt_lup() is an Update Lookup Table for Namespace method that updates a lookup table with namespace data. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

@@ -1,5 +1,5 @@
 #' Add class method applied to ready4 S3 class Prototype Lookup Table of class metadata..
-#' @description add_class.ready4class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' @description add_class.ready4class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)

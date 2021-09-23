@@ -75,5 +75,5 @@ Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 \description{
 add_class() is an Add Class generic that adds information about a class.
 
-add_class.ready4class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+add_class.ready4class_pt_lup() is an Add Class method that adds information about a class. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

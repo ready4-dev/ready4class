@@ -11,7 +11,8 @@ make_fn_pt_to_make_vld_r3_cls_inst(
   min_max_vals_dbl,
   start_end_vals_dbl,
   vals_ls,
-  asserts_ls = NULL
+  asserts_ls = NULL,
+  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm()
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ make_fn_pt_to_make_vld_r3_cls_inst(
 \item{vals_ls}{Values (a list)}
 
 \item{asserts_ls}{Asserts (a list), Default: NULL}
+
+\item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()}
 }
 \value{
 Function prototype to make valid ready4 S3 class (an instance)
