@@ -14,15 +14,15 @@ transform_class_ns <- function(class_ns_1L_chr,
          class_ns_1L_chr)
   return(tfd_class_ns_1L_chr)
 }
-transform_cls_type_ls <- function(cls_type_ls){
-  max_lngth_1L_int <- purrr::map_int(cls_type_ls,
-                                     ~ length(.x)) %>%
-    max()
-  tfmd_cls_type_ls <- cls_type_ls %>% purrr::map(~{
-    c(.x,rep(NA_character_,max_lngth_1L_int - length(.x)))
-  })
-  return(tfmd_cls_type_ls)
-}
+# transform_cls_type_ls <- function(cls_type_ls){
+#   max_lngth_1L_int <- purrr::map_int(cls_type_ls,
+#                                      ~ length(.x)) %>%
+#     max()
+#   tfmd_cls_type_ls <- cls_type_ls %>% purrr::map(~{
+#     c(.x,rep(NA_character_,max_lngth_1L_int - length(.x)))
+#   })
+#   return(tfmd_cls_type_ls)
+# }
 transform_fn_into_chr <- function(fn){
   fn_1L_chr <- deparse(fn) %>% paste0(collapse="\n")
   return(fn_1L_chr)
