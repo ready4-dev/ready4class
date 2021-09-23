@@ -91,7 +91,7 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @importFrom stringr str_detect str_c
 #' @importFrom dplyr summarise_all arrange filter pull
 #' @importFrom tidyr gather
-#' @importFrom purrr map2_chr
+#' @importFrom purrr map_chr map2_chr
 validate_ready4class_constructor_tbl <- function(x){
 if(sum(stringr::str_detect(names(x)[names(x) %in% names(make_pt_ready4class_constructor_tbl())],
 names(make_pt_ready4class_constructor_tbl())))!=length(names(make_pt_ready4class_constructor_tbl()))){
@@ -109,16 +109,19 @@ dplyr::summarise_all(class) %>%
  tidyr::gather(variable,class) %>% 
 dplyr::filter(variable %in% names(make_pt_ready4class_constructor_tbl())) %>% dplyr::arrange(variable))){
 stop(paste0("TIBBLE columns should be of the following classes: ",
-purrr::map2_chr(make_pt_ready4class_constructor_tbl() %>% 
+"",
+{
+class_lup <- make_pt_ready4class_constructor_tbl() %>% 
 dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class) %>% 
-dplyr::pull(1),
- make_pt_ready4class_constructor_tbl() %>% 
-dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class) %>% 
-dplyr::pull(2),
- ~ paste0(.x,": ",.y)) %>% 
-stringr::str_c(sep="", collapse = ", ")),
+ tidyr::gather(variable,class)
+  vars_chr <- class_lup %>% dplyr::pull(1) %>% unique()
+  classes_chr <- vars_chr %>%  purrr::map_chr(~dplyr::filter(class_lup, variable == .x) %>%  dplyr::pull(2) %>% paste0(collapse = ", "))
+purrr::map2_chr(vars_chr,
+classes_chr,
+~ paste0(.x,": ",.y)) %>% 
+stringr::str_c(sep="", collapse = ", 
+")
+}),
 call. = FALSE)
 }
 

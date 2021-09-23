@@ -422,7 +422,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             s3_prototype_ls$fn_name_1L_chr, "()))")
         tb_or_ls_class_summary <- ifelse(type_1L_chr == "list", 
             paste0("lapply(class) %>% ", ifelse(dev_pkg_ns_1L_chr == 
-                "ready4fun", "", "ready4fun::"), "transform_cls_type_ls() %>%", 
+                "ready4fun", "", "ready4fun::"), "transform_cls_type_ls() %>% ", 
                 "tibble::as_tibble() "), "dplyr::summarise_all(class) ")
         var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr, 
             "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class)")
@@ -438,9 +438,11 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             "names(", s3_prototype_ls$fn_name_1L_chr, "()) %>% stringr::str_c(sep=\"\", collapse = \", \"))")
         stop_msg_call_in_validator_2 <- paste0("paste0(\"", obj_components_chr[1], 
             " ", obj_components_chr[2], " should be of the following classes: \",\n", 
-            "purrr::map2_chr(", var_class_lup, " %>% \ndplyr::pull(1),\n ", 
-            var_class_lup, " %>% \ndplyr::pull(2),\n ", "~ paste0(.x,\": \",.y)) %>% \n", 
-            "stringr::str_c(sep=\"\", collapse = \", \"))")
+            "\"\",\n", "{\n", "class_lup <- ", var_class_lup, 
+            "\n  vars_chr <- class_lup %>% dplyr::pull(1) %>% unique()", 
+            "\n  classes_chr <- vars_chr %>%  purrr::map_chr(~dplyr::filter(class_lup, variable == .x) %>%  dplyr::pull(2) %>% paste0(collapse = \", \"))\n", 
+            "purrr::map2_chr(vars_chr,\n", "classes_chr,\n", 
+            "~ paste0(.x,\": \",.y)) %>% \n", "stringr::str_c(sep=\"\", collapse = \", \n\")\n})")
         validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1, 
             b = stop_cndn_in_validator_2)
         validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1, 
