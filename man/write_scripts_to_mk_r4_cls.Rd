@@ -29,7 +29,7 @@ write_scripts_to_mk_r4_cls(
   print_meaningful_nms_ls_1L_lgl = TRUE,
   class_in_cache_cdn_1L_chr = "stop",
   asserts_ls = NULL,
-  object_type_lup = object_type_lup,
+  object_type_lup,
   consent_1L_chr = NULL
 )
 }
@@ -82,7 +82,7 @@ write_scripts_to_mk_r4_cls(
 
 \item{asserts_ls}{Asserts (a list), Default: NULL}
 
-\item{object_type_lup}{Object type (a lookup table), Default: object_type_lup}
+\item{object_type_lup}{Object type (a lookup table)}
 
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }

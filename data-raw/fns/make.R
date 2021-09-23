@@ -218,6 +218,7 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                       nss_to_ignore_chr  %>% stringr::str_c(collapse="\",\""),
                       "\")",
                       ",req_pkgs_chr = \"",req_pkgs_chr,"\"",
+                      ",object_type_lup = object_type_lup",
                       ")")
   return(alg_to_write_gtr_str_mthds)
 }
@@ -366,7 +367,8 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                                min_max_vals_dbl,
                                                start_end_vals_dbl,
                                                vals_ls,
-                                               asserts_ls = NULL){
+                                               asserts_ls = NULL,
+                                               dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm()){
   name_of_fn_to_validate_instance <- paste0("validate_",class_nm_1L_chr)
   validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
   if(type_1L_chr %in% c("tibble","list")){
@@ -379,7 +381,12 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
                                        s3_prototype_ls$fn_name_1L_chr,
                                        "()))")
     tb_or_ls_class_summary <- ifelse(type_1L_chr == "list",
-                                     "lapply(class) %>% tibble::as_tibble() ",
+                                     paste0("lapply(class) %>% ",
+                                            ifelse(dev_pkg_ns_1L_chr=="ready4class",
+                                                   "",
+                                                   "ready4class::"),
+                                            "transform_cls_type_ls() %>%",
+                                            "tibble::as_tibble() "),
                                      "dplyr::summarise_all(class) ")
     var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr,
                             "() %>% \n",
@@ -782,7 +789,8 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                                           min_max_vals_dbl = min_max_vals_dbl,
                                           start_end_vals_dbl = start_end_vals_dbl,
                                           vals_ls = vals_ls,
-                                          asserts_ls = asserts_ls)
+                                          asserts_ls = asserts_ls,
+                                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr)
   s3_valid_instance <- make_fn_pt_to_make_vldd_r3_cls_inst(class_nm_1L_chr = class_name_1L_chr,
                                                     s3_prototype_ls = s3_prototype_ls,
                                                     s3_constructor_ls = s3_constructor_ls,

@@ -1,5 +1,5 @@
 #' Remake list columns method applied to ready4 S3 class Constructor Table of metadata required to make new classes..
-#' @description remake_ls_cols.ready4class_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function is called for its side effects and does not return a value.
+#' @description remake_ls_cols.ready4class_constructor_tbl() is a Remake List Columns method that remakes list columns. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @return Instance (ready4 S3 class Constructor Table of metadata required to make new classes.)
 #' @rdname remake_ls_cols-methods

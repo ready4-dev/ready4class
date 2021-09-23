@@ -72,5 +72,5 @@ Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 \description{
 write_classes_and_make_lup() is a Write Classes and Make Lookup Table generic that makes new classes and creates or updates a class prototype lookup table.
 
-write_classes_and_make_lup.ready4class_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+write_classes_and_make_lup.ready4class_constructor_tbl() is a Write Classes and Make Lookup Table method that makes new classes and creates or updates a class prototype lookup table. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

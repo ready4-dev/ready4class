@@ -1,7 +1,7 @@
 library(ready4fun)
 ready4fun::write_fn_type_dirs()
-pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Standardised Developer Tools For Creating And Extending Classes For Use As Part of The Ready4 Suite",
-                            pkg_desc_1L_chr = "ready4class provides classes and methods that are designed to standardise and streamline the process for extending the ready4 data synthesis and simulation framework with new classes.
+pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
+                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing mental health models.
   This development version of the ready4class package has been made available as part of the process of testing and documenting the package. The tools contained in this test release automate a number of tasks which MODIFY THE DIRECTORY STRUCTURE OF YOUR LOCAL MACHINE.
   Therefore, you should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
                             authors_prsn = c(utils::person(
@@ -52,6 +52,7 @@ pkg_setup_ls <- pkg_desc_ls %>%
                                badges_lup = ready4fun::badges_lup,
                                build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                                check_type_1L_chr = "ready4",
+                               classify_1L_lgl = F,
                                cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
                                                                               fn =  fns_env_ls$fns_env$write_classes_and_make_lup.ready4class_constructor_tbl) %>%
                                  ready4fun::ready4fun_fn_ls(),

@@ -1,5 +1,5 @@
 #' Make lookup table method applied to ready4 S3 class Constructor Table of metadata required to make new classes..
-#' @description make_lup.ready4class_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' @description make_lup.ready4class_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
 #' @param prefix_1L_chr Prefix (a character vector of length one)

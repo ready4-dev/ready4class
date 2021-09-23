@@ -53,6 +53,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
 #' @param req_pkgs_chr Require packages (a character vector)
+#' @param object_type_lup Object type (a lookup table)
 #' @return NULL
 #' @rdname write_gtr_str_mthds_for_slots
 #' @export 
@@ -61,7 +62,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @keywords internal
 write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
-    nss_to_ignore_chr, req_pkgs_chr) 
+    nss_to_ignore_chr, req_pkgs_chr, object_type_lup) 
 {
     req_pkgs_chr <- purrr::map_chr(req_pkgs_chr, ~stringr::str_replace(.x, 
         "NA", NA_character_))
@@ -71,7 +72,7 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
         set_only_1L_lgl = .x %in% set_only_chr, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         class_nm_1L_chr = class_nm_1L_chr, print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl, 
         output_dir_1L_chr = output_dir_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr, 
-        req_pkgs_chr = req_pkgs_chr))
+        req_pkgs_chr = req_pkgs_chr, object_type_lup = object_type_lup))
 }
 #' Write methods for ready4 S3 or ready4 S4 classes
 #' @description write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write methods for ready4 s3 or ready4 s4 classes. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
@@ -422,7 +423,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @param print_meaningful_nms_ls_1L_lgl Print meaningful names list (a logical vector of length one), Default: TRUE
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param asserts_ls Asserts (a list), Default: NULL
-#' @param object_type_lup Object type (a lookup table), Default: object_type_lup
+#' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
 #' @rdname write_scripts_to_mk_r4_cls
@@ -439,7 +440,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
     names_must_match_ls = NULL, slots_of_dif_lnts_chr = NULL, 
     helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
     print_validator_1L_lgl = TRUE, print_meaningful_nms_ls_1L_lgl = TRUE, 
-    class_in_cache_cdn_1L_chr = "stop", asserts_ls = NULL, object_type_lup = object_type_lup, 
+    class_in_cache_cdn_1L_chr = "stop", asserts_ls = NULL, object_type_lup, 
     consent_1L_chr = NULL) 
 {
     if (!is.null(outp_sub_dir_1L_chr)) {
@@ -573,6 +574,7 @@ write_self_srvc_clss <- function (pkg_setup_ls)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
 #' @param req_pkgs_chr Require packages (a character vector)
+#' @param object_type_lup Object type (a lookup table)
 #' @return NULL
 #' @rdname write_slot_gtr_str_mthds
 #' @export 
@@ -580,7 +582,7 @@ write_self_srvc_clss <- function (pkg_setup_ls)
 #' @keywords internal
 write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
-    nss_to_ignore_chr, req_pkgs_chr) 
+    nss_to_ignore_chr, req_pkgs_chr, object_type_lup) 
 {
     curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr, 
         generic_1L_chr = slot_nm_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr)

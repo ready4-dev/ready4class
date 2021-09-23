@@ -25,5 +25,5 @@ Instance (ready4 S3 class Constructor Table of metadata required to make new cla
 \description{
 order_tb() is an Order Tibble generic that orders a tibble.
 
-order_tb.ready4class_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function is called for its side effects and does not return a value.
+order_tb.ready4class_constructor_tbl() is an Order Tibble method that orders a tibble. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function is called for its side effects and does not return a value.
 }

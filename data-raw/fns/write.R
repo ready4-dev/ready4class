@@ -62,7 +62,8 @@ write_gtr_str_mthds_for_slots <- function(slot_names_chr,
                                           print_gtrs_strs_1L_lgl,
                                           output_dir_1L_chr,
                                           nss_to_ignore_chr,
-                                          req_pkgs_chr){
+                                          req_pkgs_chr,
+                                          object_type_lup){
   req_pkgs_chr <- purrr::map_chr(req_pkgs_chr, ~ stringr::str_replace(.x,"NA",NA_character_))
   nss_to_ignore_chr <- purrr::map_chr(nss_to_ignore_chr, ~ stringr::str_replace(.x,"NA",NA_character_))
   purrr::walk(slot_names_chr,
@@ -73,7 +74,8 @@ write_gtr_str_mthds_for_slots <- function(slot_names_chr,
                                          print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,
                                          output_dir_1L_chr = output_dir_1L_chr,
                                          nss_to_ignore_chr = nss_to_ignore_chr,
-                                         req_pkgs_chr = req_pkgs_chr))
+                                         req_pkgs_chr = req_pkgs_chr,
+                                         object_type_lup = object_type_lup))
 }
 write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                                           fn_ls,
@@ -193,7 +195,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                         print_meaningful_nms_ls_1L_lgl = TRUE,
                                         class_in_cache_cdn_1L_chr = "stop",
                                        asserts_ls = NULL,
-                                       object_type_lup = object_type_lup,
+                                       object_type_lup,
                                        consent_1L_chr = NULL){
   if(!is.null(outp_sub_dir_1L_chr)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
@@ -520,7 +522,8 @@ write_slot_gtr_str_mthds <- function(slot_nm_1L_chr,
                                      print_gtrs_strs_1L_lgl,
                                      output_dir_1L_chr,
                                      nss_to_ignore_chr,
-                                     req_pkgs_chr){
+                                     req_pkgs_chr,
+                                     object_type_lup){
   curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr,
                                                           generic_1L_chr = slot_nm_1L_chr,
                                                           nss_to_ignore_chr = nss_to_ignore_chr)
@@ -606,23 +609,23 @@ write_self_srvc_clss <- function(pkg_setup_ls){
   second_step_classes_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[-1,]
   classes_to_make_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[1,]
   write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
-                                                name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
-                                                output_dir_1L_chr = "R",
-                                                class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
-                                                type_1L_chr = classes_to_make_tb$pt_ls[[1]][[1]],
-                                                pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]][[1]],
-                                                pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]][[1]] %in% c("base"),
-                                                                      "",
-                                                                      classes_to_make_tb$pt_ns_ls[[1]][[1]]),
-                                                vals_ls = classes_to_make_tb$vals_ls[[1]],
-                                                allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
-                                                min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
-                                                start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
-                                                prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
-                                                file_exists_cdn_1L_chr = "overwrite",
-                                                abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
-                                                asserts_ls = classes_to_make_tb$asserts_ls[[1]],
-                                                object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+                             name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
+                             output_dir_1L_chr = "R",
+                             class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
+                             type_1L_chr = classes_to_make_tb$pt_ls[[1]][[1]],
+                             pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]][[1]],
+                             pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]][[1]] %in% c("base"),
+                                                   "",
+                                                   classes_to_make_tb$pt_ns_ls[[1]][[1]]),
+                             vals_ls = classes_to_make_tb$vals_ls[[1]],
+                             allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
+                             min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
+                             start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
+                             prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
+                             file_exists_cdn_1L_chr = "overwrite",
+                             abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
+                             asserts_ls = classes_to_make_tb$asserts_ls[[1]],
+                             object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
   pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>%
     ready4class_constructor_tbl() %>%
     dplyr::bind_rows(second_step_classes_tb)

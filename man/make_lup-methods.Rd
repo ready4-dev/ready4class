@@ -27,5 +27,5 @@ Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 \description{
 make_lup() is a Make Lookup Table generic that applies a Make method and then updates the output of that method.
 
-make_lup.ready4class_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes.. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+make_lup.ready4class_constructor_tbl() is a Make Lookup Table method that applies a Make method and then updates the output of that method. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 }
