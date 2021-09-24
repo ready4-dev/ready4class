@@ -110,7 +110,6 @@ author.ready4class_pt_lup <- function(x,
   }
   return(inst_ready4class_pt_lup)
 }
-
 author.ready4class_manifest <- function(x,
                                         dv_url_pfx_1L_chr = NULL,
                                         init_class_pt_lup = NULL,
@@ -121,7 +120,15 @@ author.ready4class_manifest <- function(x,
                                         self_serve_1L_lgl = F,
                                         self_serve_fn_ls = NULL,
                                         server_1L_chr = Sys.getenv("DATAVERSE_SERVER")){
-  x$pkg_setup_ls$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = x$constructor_tbl_r3,
+  if(is.null(init_class_pt_lup)){
+    if(is.null(x$pkg_setup_r3$subsequent_ls$prototype_lup)){
+      x$pkg_setup_r3 <- ready4fun::add_new_cls_pts(x$pkg_setup_r3)
+    }
+    init_class_pt_lup <- x$pkg_setup_r3$subsequent_ls$prototype_lup
+  }else{
+    x$pkg_setup_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
+  }
+  x$pkg_setup_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = x$constructor_tbl_r3,
                                                                                               dev_pkg_ns_1L_chr = x$initial_ls$pkg_desc_ls$Package,
                                                                                               name_pfx_1L_chr = paste0(x$initial_ls$pkg_desc_ls$Package,"_"),
                                                                                               output_dir_1L_chr = paste0(x$initial_ls$path_to_pkg_rt_1L_chr,"/R"),

@@ -637,6 +637,7 @@ write_self_srvc_clss <- function(pkg_setup_ls){
                                                                file_exists_cdn_1L_chr = "overwrite",
                                                                abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
                                                                object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+  if(!"ready4class_pt_lup" %in% class(pkg_setup_ls$subsequent_ls$prototype_lup))
   pkg_setup_ls$subsequent_ls$prototype_lup <- pkg_setup_ls$subsequent_ls$prototype_lup %>%
     ready4class_pt_lup()
   return(pkg_setup_ls)
