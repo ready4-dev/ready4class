@@ -428,7 +428,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class))")
         stop_cndn_in_validator_2 <- paste0("!identical(", var_class_lup, 
             " %>% \n", "dplyr::arrange(variable),\n", "x %>% \n", 
-            tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n", 
+            tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class)) %>% \n", 
             "dplyr::filter(variable %in% names(", s3_prototype_ls$fn_name_1L_chr, 
             "())) %>% ", "dplyr::arrange(variable)", ")")
         obj_components_chr <- c(toupper(type_1L_chr), ifelse(type_1L_chr == 
