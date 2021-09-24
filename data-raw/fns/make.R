@@ -391,7 +391,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function(type_1L_chr,
     var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr,
                             "() %>% \n",
                             tb_or_ls_class_summary ,
-                            "%>% \n tidyr::gather(variable,class)")
+                            "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class))")
     stop_cndn_in_validator_2 <- paste0("!identical(",
                                        var_class_lup,
                                        " %>% \n",

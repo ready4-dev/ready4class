@@ -425,7 +425,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
                 "ready4fun", "", "ready4fun::"), "transform_cls_type_ls() %>% ", 
                 "tibble::as_tibble() "), "dplyr::summarise_all(class) ")
         var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr, 
-            "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class)")
+            "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class))")
         stop_cndn_in_validator_2 <- paste0("!identical(", var_class_lup, 
             " %>% \n", "dplyr::arrange(variable),\n", "x %>% \n", 
             tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n", 

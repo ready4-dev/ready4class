@@ -89,7 +89,7 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @rdname validate_ready4class_constructor_tbl
 #' @export 
 #' @importFrom stringr str_detect str_c
-#' @importFrom dplyr summarise_all arrange filter pull
+#' @importFrom dplyr summarise_all filter arrange pull
 #' @importFrom tidyr gather
 #' @importFrom purrr map_chr map2_chr
 validate_ready4class_constructor_tbl <- function(x){
@@ -103,6 +103,7 @@ call. = FALSE)
  if(!identical(make_pt_ready4class_constructor_tbl() %>% 
 dplyr::summarise_all(class) %>% 
  tidyr::gather(variable,class) %>% 
+ dplyr::filter(!is.na(class)) %>% 
 dplyr::arrange(variable),
 x %>% 
 dplyr::summarise_all(class) %>% 
@@ -113,7 +114,8 @@ stop(paste0("TIBBLE columns should be of the following classes: ",
 {
 class_lup <- make_pt_ready4class_constructor_tbl() %>% 
 dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class)
+ tidyr::gather(variable,class) %>% 
+ dplyr::filter(!is.na(class))
   vars_chr <- class_lup %>% dplyr::pull(1) %>% unique()
   classes_chr <- vars_chr %>%  purrr::map_chr(~dplyr::filter(class_lup, variable == .x) %>%  dplyr::pull(2) %>% paste0(collapse = ", "))
 purrr::map2_chr(vars_chr,
