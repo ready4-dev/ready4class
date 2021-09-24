@@ -1,11 +1,3 @@
-add_class <- function(x,
-                      ...){
-  UseMethod("add_class",x)
-}
-make_lup <- function(x,
-                     ...){
-  UseMethod("make_lup",x)
-}
 order_tb <- function(x,
                      ...){
   UseMethod("order_tb",x)
@@ -23,8 +15,5 @@ write_classes <- function(x,
                           ...){
   UseMethod("write_classes",x)
 }
-write_classes_and_make_lup <- function(x,
-                                       ...){
-  UseMethod("write_classes_and_make_lup",x)
-}
+
 

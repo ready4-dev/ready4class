@@ -53,7 +53,7 @@ pkg_setup_ls <- pkg_desc_ls %>%
                                build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                                check_type_1L_chr = "ready4",
                                cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
-                                                                              fn =  fns_env_ls$fns_env$write_classes_and_make_lup.ready4class_constructor_tbl) %>%
+                                                                              fn =  fns_env_ls$fns_env$author.ready4class_constructor_tbl) %>%
                                  ready4fun::ready4fun_fn_ls(),
                                copyright_holders_chr = "Orygen",
                                dev_pkgs_chr = "ready4fun",

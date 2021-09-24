@@ -1,4 +1,4 @@
-make_lup.ready4class_constructor_tbl <- function(x,
+make.ready4class_constructor_tbl <- function(x,
                                                  dev_pkg_ns_1L_chr,
                                                  prefix_1L_chr){
   inst_ready4class_pt_lup <- x %>%
