@@ -1,9 +1,9 @@
 home:
   links:
   - text: Manual - User (PDF)
-    href: https://dataverse.harvard.edu/api/access/datafile/5195036
+    href: https://dataverse.harvard.edu/api/access/datafile/5195166
   - text: Manual - Developer (PDF)
-    href: https://dataverse.harvard.edu/api/access/datafile/5195035
+    href: https://dataverse.harvard.edu/api/access/datafile/5195165
   - text: Project website
     href:  https://www.ready4-dev.com/
 development:
@@ -13,9 +13,11 @@ reference:
 - contents:
   - ready4class_constructor_tbl
   - ready4class_pt_lup
+  - ready4class_manifest
 - title: "Methods"
 - contents:
   - add_class.ready4class_pt_lup
+  - author.ready4class_manifest
   - make_lup.ready4class_constructor_tbl
   - order_tb.ready4class_constructor_tbl
   - remake_ls_cols.ready4class_constructor_tbl

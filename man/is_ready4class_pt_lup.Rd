@@ -16,5 +16,5 @@ A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Looku
 Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \details{
-ready4 S3 class Prototype Lookup Table of class metadata.
+ready4 S3 class Prototype Lookup Table.
 }

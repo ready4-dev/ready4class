@@ -8,13 +8,13 @@
 <!-- badges: end -->
 
 ready4class provides tools to standardise and streamline the
-process for implementing object oriented approaches to developing
-mental health models.  This development version of the ready4class
-package has been made available as part of the process of testing and
-documenting the package.  You should only trial this software if you
-feel confident that you understand what it does and have created a
-sandpit area in which you can safely undertake testing. If you have
-any questions, please contact the authors
+process for implementing object oriented approaches to developing open
+and modular mental health models.  This development version of the
+ready4class package has been made available as part of the process of
+testing and documenting the package.  You should only trial this
+software if you feel confident that you understand what it does and
+have created a sandpit area in which you can safely undertake testing.
+If you have any questions, please contact the authors
 (matthew.hamilton@orygen.org.au).
 
 To install a development version of this software, run the following commands in your R console:

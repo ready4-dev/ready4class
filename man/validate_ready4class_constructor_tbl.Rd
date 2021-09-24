@@ -16,5 +16,5 @@ A prototpe for ready4 S3 class Constructor Table of metadata required to make ne
 Validate an instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 }
 \details{
-ready4 S3 class Constructor Table of metadata required to make new classes.
+ready4 S3 class Constructor Table.
 }

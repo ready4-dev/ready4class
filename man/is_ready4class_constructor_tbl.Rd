@@ -16,5 +16,5 @@ A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Tab
 Check whether an object is a valid instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 }
 \details{
-ready4 S3 class Constructor Table of metadata required to make new classes.
+ready4 S3 class Constructor Table.
 }

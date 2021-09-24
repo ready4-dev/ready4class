@@ -33,5 +33,5 @@ A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
 Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \details{
-ready4 S3 class Prototype Lookup Table of class metadata.
+ready4 S3 class Prototype Lookup Table.
 }

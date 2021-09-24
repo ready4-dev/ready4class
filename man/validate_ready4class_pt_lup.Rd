@@ -16,5 +16,5 @@ A prototpe for ready4 S3 class Prototype Lookup Table of class metadata.
 Validate an instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \details{
-ready4 S3 class Prototype Lookup Table of class metadata.
+ready4 S3 class Prototype Lookup Table.
 }

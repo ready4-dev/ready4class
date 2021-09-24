@@ -4,7 +4,7 @@ setOldClass(c("ready4class_constructor_tbl","tbl_df", "tbl", "data.frame"))
 #' @description Create a new valid instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param x A prototype for the ready4 S3 class Constructor Table of metadata required to make new classes., Default: make_pt_ready4class_constructor_tbl()
 #' @return A validated instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
-#' @details ready4 S3 class Constructor Table of metadata required to make new classes.
+#' @details ready4 S3 class Constructor Table.
 #' @rdname ready4class_constructor_tbl
 #' @export 
 
@@ -15,7 +15,7 @@ validate_ready4class_constructor_tbl(make_new_ready4class_constructor_tbl(x))
 #' @description Create a new unvalidated instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param x A prototype for the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @return An unvalidated instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
-#' @details ready4 S3 class Constructor Table of metadata required to make new classes.
+#' @details ready4 S3 class Constructor Table.
 #' @rdname make_new_ready4class_constructor_tbl
 #' @export 
 #' @importFrom tibble is_tibble
@@ -43,7 +43,7 @@ x
 #' @param inc_clss_ls Include classes (a list), Default: list()
 #' @param asserts_ls Asserts (a list), Default: list()
 #' @return A prototype for ready4 S3 class Constructor Table of metadata required to make new classes.
-#' @details ready4 S3 class Constructor Table of metadata required to make new classes.
+#' @details ready4 S3 class Constructor Table.
 #' @rdname make_pt_ready4class_constructor_tbl
 #' @export 
 #' @importFrom ready4fun update_pt_fn_args_ls
@@ -85,7 +85,7 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @description Validate an instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param x An unvalidated instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @return A prototpe for ready4 S3 class Constructor Table of metadata required to make new classes.
-#' @details ready4 S3 class Constructor Table of metadata required to make new classes.
+#' @details ready4 S3 class Constructor Table.
 #' @rdname validate_ready4class_constructor_tbl
 #' @export 
 #' @importFrom stringr str_detect str_c
@@ -133,7 +133,7 @@ x}
 #' @description Check whether an object is a valid instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table of metadata required to make new classes.
-#' @details ready4 S3 class Constructor Table of metadata required to make new classes.
+#' @details ready4 S3 class Constructor Table.
 #' @rdname is_ready4class_constructor_tbl
 #' @export 
 

@@ -1,7 +1,7 @@
 library(ready4fun)
 ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
-                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing mental health models.
+                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health models.
   This development version of the ready4class package has been made available as part of the process of testing and documenting the package.  You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
                             authors_prsn = c(utils::person(
                               given = "Matthew",family = "Hamilton", email =
@@ -37,13 +37,15 @@ classes_to_make_tb <- tibble::tribble(
                                                                              slots_ls = "list()",
                                                                              meaningful_nms_ls = "list()",
                                                                              inc_clss_ls = "list()",
-                                                                             asserts_ls = "list()"), NULL, NULL, NULL, "ready4 S3 class Constructor Table of metadata required to make new classes.", NA_character_, NULL, NULL, NULL, NULL,
+                                                                             asserts_ls = "list()"), NULL, NULL, NULL, "ready4 S3 class Constructor Table.", NA_character_, NULL, NULL, NULL, NULL,
   TRUE, "pt_lup", list("tibble"), list("is_"), list("tibble"), list(type_chr = "character(0)",
                                                                           val_chr = "character(0)",
                                                                           pt_ns_chr = "character(0)",
                                                                           fn_to_call_chr = "character(0)",
                                                                           default_val_chr = "character(0)",
-                                                                          old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table of class metadata.", NA_character_, NULL, NULL, NULL, NULL)
+                                                                          old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
+  TRUE, "manifest", list("list"), list("is."), list("base"), list(pkg_setup_r3 = "ready4fun::ready4fun_pkg_setup()",
+                                                                  constructor_tbl_r3 = "ready4class_constructor_tbl()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 pkg_setup_ls <- pkg_desc_ls %>%

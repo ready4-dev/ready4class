@@ -60,5 +60,5 @@ A prototype for ready4 S3 class Constructor Table of metadata required to make n
 Create a new prototype for the ready4 S3 class Constructor Table of metadata required to make new classes.
 }
 \details{
-ready4 S3 class Constructor Table of metadata required to make new classes.
+ready4 S3 class Constructor Table.
 }

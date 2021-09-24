@@ -4,7 +4,7 @@ setOldClass(c("ready4class_pt_lup","tbl_df", "tbl", "data.frame"))
 #' @description Create a new valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x A prototype for the ready4 S3 class Prototype Lookup Table of class metadata., Default: make_pt_ready4class_pt_lup()
 #' @return A validated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table of class metadata.
+#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname ready4class_pt_lup
 #' @export 
 
@@ -15,7 +15,7 @@ validate_ready4class_pt_lup(make_new_ready4class_pt_lup(x))
 #' @description Create a new unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x A prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @return An unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table of class metadata.
+#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname make_new_ready4class_pt_lup
 #' @export 
 #' @importFrom tibble is_tibble
@@ -34,7 +34,7 @@ x
 #' @param default_val_chr Default value (a character vector), Default: character(0)
 #' @param old_class_lgl Old class (a logical vector), Default: logical(0)
 #' @return A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table of class metadata.
+#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname make_pt_ready4class_pt_lup
 #' @export 
 #' @importFrom ready4fun update_pt_fn_args_ls
@@ -58,7 +58,7 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @description Validate an instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x An unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @return A prototpe for ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table of class metadata.
+#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname validate_ready4class_pt_lup
 #' @export 
 #' @importFrom stringr str_detect str_c
@@ -106,7 +106,7 @@ x}
 #' @description Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table of class metadata.
+#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname is_ready4class_pt_lup
 #' @export 
 
