@@ -48,10 +48,9 @@ fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 pkg_setup_ls <- pkg_desc_ls %>%
   ready4fun::make_pkg_setup_ls(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
-                               #badges_lup = ready4fun::badges_lup,
                                build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                                check_type_1L_chr = "ready4",
-                               classify_1L_lgl = F,
+                               #classify_1L_lgl = F,
                                cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
                                                                               fn =  fns_env_ls$fns_env$write_classes_and_make_lup.ready4class_constructor_tbl) %>%
                                  ready4fun::ready4fun_fn_ls(),
@@ -64,9 +63,9 @@ pkg_setup_ls <- pkg_desc_ls %>%
                                ready4_type_1L_chr = "authoring",
                                user_manual_fns_chr = NA_character_)
 #pkg_ds_ls_ls <- NULL
-pkg_setup_ls <- write_package(pkg_setup_ls,
-                              self_serve_1L_lgl = T,
-                              self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+pkg_setup_ls <- ready4fun::author(pkg_setup_ls,
+                                  self_serve_1L_lgl = T,
+                                  self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                                       args_ls = NULL))
 # pkg_setup_ls$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
 # pkg_setup_ls <- ready4fun::validate_pkg_setup(pkg_setup_ls)
