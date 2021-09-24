@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Write getter setter methods for slots — write_gtr_str_mthds_for_slots • ready4class</title>
+<title>Make prototype ready4class package manifest ready4 S3 class Manifest. — make_pt_ready4class_manifest • ready4class</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Write getter setter methods for slots — write_gtr_str_mthds_for_slots" />
-<meta property="og:description" content="write_gtr_str_mthds_for_slots() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for slots. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour" />
+<meta property="og:title" content="Make prototype ready4class package manifest ready4 S3 class Manifest. — make_pt_ready4class_manifest" />
+<meta property="og:description" content="Create a new prototype for the ready4 S3 class Manifest." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,68 +119,39 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Write getter setter methods for slots</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/fn_write.R'><code>R/fn_write.R</code></a></small>
-    <div class="hidden name"><code>write_gtr_str_mthds_for_slots.Rd</code></div>
+    <h1>Make prototype ready4class package manifest ready4 S3 class Manifest.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/C3_ready4class_manifest.R'><code>R/C3_ready4class_manifest.R</code></a></small>
+    <div class="hidden name"><code>make_pt_ready4class_manifest.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>write_gtr_str_mthds_for_slots() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for slots. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour</p>
+    <p>Create a new prototype for the ready4 S3 class Manifest.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_gtr_str_mthds_for_slots</span><span class='op'>(</span>
-  <span class='va'>slot_names_chr</span>,
-  <span class='va'>set_only_chr</span>,
-  <span class='va'>parent_cls_nm_1L_chr</span>,
-  <span class='va'>class_nm_1L_chr</span>,
-  <span class='va'>print_gtrs_strs_1L_lgl</span>,
-  <span class='va'>output_dir_1L_chr</span>,
-  <span class='va'>nss_to_ignore_chr</span>,
-  <span class='va'>req_pkgs_chr</span>,
-  <span class='va'>object_type_lup</span>
+    <pre class="usage"><span class='fu'>make_pt_ready4class_manifest</span><span class='op'>(</span>
+  pkg_setup_r3 <span class='op'>=</span> <span class='fu'>ready4fun</span><span class='fu'>::</span><span class='fu'><a href='https://ready4-dev.github.io/ready4fun/reference/ready4fun_pkg_setup.html'>ready4fun_pkg_setup</a></span><span class='op'>(</span><span class='op'>)</span>,
+  constructor_tbl_r3 <span class='op'>=</span> <span class='fu'><a href='ready4class_constructor_tbl.html'>ready4class_constructor_tbl</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>slot_names_chr</th>
-      <td><p>Slot names (a character vector)</p></td>
+      <th>pkg_setup_r3</th>
+      <td><p>Package setup (a ready4 S3), Default: ready4fun::ready4fun_pkg_setup()</p></td>
     </tr>
     <tr>
-      <th>set_only_chr</th>
-      <td><p>Set only (a character vector)</p></td>
-    </tr>
-    <tr>
-      <th>parent_cls_nm_1L_chr</th>
-      <td><p>Parent class name (a character vector of length one)</p></td>
-    </tr>
-    <tr>
-      <th>class_nm_1L_chr</th>
-      <td><p>Class name (a character vector of length one)</p></td>
-    </tr>
-    <tr>
-      <th>print_gtrs_strs_1L_lgl</th>
-      <td><p>Print getters setters (a logical vector of length one)</p></td>
-    </tr>
-    <tr>
-      <th>output_dir_1L_chr</th>
-      <td><p>Output directory (a character vector of length one)</p></td>
-    </tr>
-    <tr>
-      <th>nss_to_ignore_chr</th>
-      <td><p>Namespaces to ignore (a character vector)</p></td>
-    </tr>
-    <tr>
-      <th>req_pkgs_chr</th>
-      <td><p>Require packages (a character vector)</p></td>
-    </tr>
-    <tr>
-      <th>object_type_lup</th>
-      <td><p>Object type (a lookup table)</p></td>
+      <th>constructor_tbl_r3</th>
+      <td><p>Constructor table (a ready4 S3), Default: ready4class_constructor_tbl()</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A prototype for ready4 S3 class Manifest.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>ready4 S3 class Manifest.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
