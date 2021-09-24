@@ -52,7 +52,6 @@ pkg_setup_ls <- pkg_desc_ls %>%
   ready4fun::make_pkg_setup_ls(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
                                build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                                check_type_1L_chr = "ready4",
-                               #classify_1L_lgl = F,
                                cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
                                                                               fn =  fns_env_ls$fns_env$write_classes_and_make_lup.ready4class_constructor_tbl) %>%
                                  ready4fun::ready4fun_fn_ls(),
@@ -65,7 +64,7 @@ pkg_setup_ls <- pkg_desc_ls %>%
                                ready4_type_1L_chr = "authoring",
                                user_manual_fns_chr = NA_character_)
 #pkg_ds_ls_ls <- NULL
-pkg_setup_ls <- ready4fun::author(pkg_setup_ls,
+pkg_setup_r3 <- ready4fun::author(pkg_setup_ls,
                                   self_serve_1L_lgl = T,
                                   self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                                       args_ls = NULL))

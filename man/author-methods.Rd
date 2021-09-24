@@ -7,10 +7,12 @@
 \usage{
 author.ready4class_manifest(
   x,
-  constructor_r3,
   dv_url_pfx_1L_chr = NULL,
+  init_class_pt_lup = NULL,
   key_1L_chr = NULL,
   list_generics_1L_lgl = F,
+  nss_to_ignore_chr = NA_character_,
+  req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
   self_serve_fn_ls = NULL,
   server_1L_chr = Sys.getenv("DATAVERSE_SERVER")
@@ -18,10 +20,12 @@ author.ready4class_manifest(
 
 \S4method{author}{ready4class_manifest}(
   x,
-  constructor_r3,
   dv_url_pfx_1L_chr = NULL,
+  init_class_pt_lup = NULL,
   key_1L_chr = NULL,
   list_generics_1L_lgl = F,
+  nss_to_ignore_chr = NA_character_,
+  req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
   self_serve_fn_ls = NULL,
   server_1L_chr = Sys.getenv("DATAVERSE_SERVER")
@@ -30,13 +34,17 @@ author.ready4class_manifest(
 \arguments{
 \item{x}{An instance of ready4 S3 class Manifest.}
 
-\item{constructor_r3}{Constructor (a ready4 S3)}
-
 \item{dv_url_pfx_1L_chr}{Dataverse url prefix (a character vector of length one), Default: NULL}
+
+\item{init_class_pt_lup}{Initial class prototype (a lookup table), Default: NULL}
 
 \item{key_1L_chr}{Key (a character vector of length one), Default: NULL}
 
 \item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: F}
+
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
+
+\item{req_pkgs_chr}{Require packages (a character vector), Default: 'NA'}
 
 \item{self_serve_1L_lgl}{Self serve (a logical vector of length one), Default: F}
 
