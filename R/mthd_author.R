@@ -1,6 +1,6 @@
-#' Author method applied to ready4 S3 class Constructor Table of metadata required to make new classes..
-#' @description author.ready4class_constructor_tbl() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
-#' @param x An instance of ready4 S3 class Constructor Table of metadata required to make new classes.
+#' Author method applied to ready4 S3 class Constructor Table..
+#' @description author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' @param x An instance of ready4 S3 class Constructor Table.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
@@ -18,7 +18,7 @@
 #' @importFrom ready4fun get_dev_pkg_nm make_prompt
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringi stri_replace_last
-author.ready4class_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
+author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"), 
     output_dir_1L_chr = "R", delete_cdn_ptrn_chr = NA_character_, 
     file_exists_cdn_1L_chr = "overwrite", init_class_pt_lup = NULL, 
@@ -27,7 +27,7 @@ author.ready4class_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun
 {
     if (is.null(init_class_pt_lup)) 
         init_class_pt_lup <- prototype_lup
-    x <- order_tb(x, name_pfx_1L_chr)
+    x <- renew(x, name_pfx_1L_chr = name_pfx_1L_chr, type_1L_chr = "order")
     if (file_exists_cdn_1L_chr == "overwrite") {
         write_to_delete_gnrc_fn_fls(x, output_dir_1L_chr = output_dir_1L_chr)
         purrr::walk(delete_cdn_ptrn_chr, ~write_to_delete_fls_with_ptrn(dir_1L_chr = output_dir_1L_chr, 
@@ -42,8 +42,8 @@ author.ready4class_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun
         " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     if (consent_1L_chr == "Y") {
         inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x), .init = init_class_pt_lup %>% 
-            update_lup_for_ns(dev_pkg_ns_1L_chr), ~author(.x, 
-            row_idx_1L_int = .y, make_tb = x, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
+            renew(dev_pkg_ns_1L_chr), ~author(.x, row_idx_1L_int = .y, 
+            make_tb = x, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
             file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
             nss_to_ignore_chr = nss_to_ignore_chr, req_pkgs_chr = req_pkgs_chr, 
@@ -57,8 +57,8 @@ author.ready4class_constructor_tbl <- function (x, dev_pkg_ns_1L_chr = ready4fun
     return(inst_ready4class_pt_lup)
 }
 #' @rdname author-methods
-#' @aliases author,ready4class_constructor_tbl-method
-methods::setMethod("author", "ready4class_constructor_tbl", author.ready4class_constructor_tbl)
+#' @aliases author,ready4class_constructor-method
+methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
 #' Author method applied to ready4 S3 class Manifest..
 #' @description author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Manifest.
@@ -71,43 +71,43 @@ methods::setMethod("author", "ready4class_constructor_tbl", author.ready4class_c
 #' @param self_serve_1L_lgl Self serve (a logical vector of length one), Default: F
 #' @param self_serve_fn_ls Self serve (a list of functions), Default: NULL
 #' @param server_1L_chr Server (a character vector of length one), Default: Sys.getenv("DATAVERSE_SERVER")
-#' @return X (ready4 S4 class for package metadata required for package set-up.)
+#' @return X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_fn_ls ready4fun_fn_ls author
+#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor author
 author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class_pt_lup = NULL, 
     key_1L_chr = NULL, list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL, 
     server_1L_chr = Sys.getenv("DATAVERSE_SERVER")) 
 {
     if (is.null(init_class_pt_lup)) {
-        if (is.null(x$pkg_setup_r3$subsequent_ls$prototype_lup)) {
-            x$pkg_setup_r3 <- ready4fun::add_new_cls_pts(x$pkg_setup_r3)
+        if (is.null(x$manifest_r3$subsequent_ls$prototype_lup)) {
+            x$manifest_r3 <- ready4fun::add_new_cls_pts(x$manifest_r3)
         }
-        init_class_pt_lup <- x$pkg_setup_r3$subsequent_ls$prototype_lup
+        init_class_pt_lup <- x$manifest_r3$subsequent_ls$prototype_lup
     }
     else {
-        x$pkg_setup_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
+        x$manifest_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
     }
-    x$pkg_setup_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = x$constructor_tbl_r3, 
-        dev_pkg_ns_1L_chr = x$pkg_setup_r3$initial_ls$pkg_desc_ls$Package, 
-        name_pfx_1L_chr = paste0(x$pkg_setup_r3$initial_ls$pkg_desc_ls$Package, 
-            "_"), output_dir_1L_chr = paste0(x$pkg_setup_r3$initial_ls$path_to_pkg_rt_1L_chr, 
+    x$manifest_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3, 
+        dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
+        name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
+            "_"), output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr, 
             "/R"), delete_cdn_ptrn_chr = NA_character_, file_exists_cdn_1L_chr = "overwrite", 
         init_class_pt_lup = init_class_pt_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = "stop", 
-        abbreviations_lup = x$pkg_setup_r3$subsequent_ls$abbreviations_lup, 
-        object_type_lup = x$pkg_setup_r3$subsequent_ls$object_type_lup), 
-        fn = author.ready4class_constructor_tbl) %>% ready4fun::ready4fun_fn_ls()
-    x_ready4fun_pkg_setup <- ready4fun::author(x$pkg_setup_r3, 
+        abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup, 
+        object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup), 
+        fn = author.ready4class_constructor) %>% ready4fun::ready4fun_executor()
+    x_ready4fun_manifest <- ready4fun::author(x$manifest_r3, 
         dv_url_pfx_1L_chr = dv_url_pfx_1L_chr, key_1L_chr = key_1L_chr, 
         list_generics_1L_lgl = list_generics_1L_lgl, self_serve_1L_lgl = self_serve_1L_lgl, 
         self_serve_fn_ls = self_serve_fn_ls, server_1L_chr = server_1L_chr)
-    return(x_ready4fun_pkg_setup)
+    return(x_ready4fun_manifest)
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_manifest-method
-methods::setMethod("author", "ready4class_manifest", author.ready4class_manifest)
+methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
 #' Author method applied to ready4 S3 class Prototype Lookup Table of class metadata..
 #' @description author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
@@ -147,14 +147,14 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
             " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     }
     if (consent_1L_chr == "Y") {
-        write_classes(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
+        authorClasses(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
             output_dir_1L_chr = output_dir_1L_chr, file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
             prototype_lup = x, nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, 
                 nss_to_ignore_chr), req_pkgs_chr = req_pkgs_chr, 
             class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
             abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup, 
             consent_1L_chr = consent_1L_chr)
-        new_pt_lup <- make(make_tb, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
+        new_pt_lup <- manufacture(make_tb, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             prefix = name_pfx_1L_chr)
         classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
         inst_ready4class_pt_lup <- x %>% dplyr::filter(!type_chr %in% 
@@ -167,4 +167,4 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_pt_lup-method
-methods::setMethod("author", "ready4class_pt_lup", author.ready4class_pt_lup)
+methods::setMethod("author", methods::className("ready4class_pt_lup", package = "ready4class"), author.ready4class_pt_lup)

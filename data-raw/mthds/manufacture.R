@@ -1,4 +1,4 @@
-make.ready4class_constructor_tbl <- function(x,
+manufacture.ready4class_constructor <- function(x,
                                              dev_pkg_ns_1L_chr,
                                              prefix_1L_chr){
   inst_ready4class_pt_lup <- x %>%
@@ -10,7 +10,7 @@ make.ready4class_constructor_tbl <- function(x,
                   old_class_lgl = make_s3_lgl) %>%
     dplyr::select(type_chr,  val_chr, pt_ns_chr, fn_to_call_chr,default_val_chr,old_class_lgl) %>%
     ready4class_pt_lup() %>%
-    update_lup_for_ns(attached_nss_chr = dev_pkg_ns_1L_chr)
+    renew(attached_nss_chr = dev_pkg_ns_1L_chr)
   return(inst_ready4class_pt_lup)
 }
 

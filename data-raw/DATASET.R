@@ -1,5 +1,5 @@
 library(ready4fun)
-ready4fun::write_fn_type_dirs()
+#ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
                             pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health models.
   This development version of the ready4class package has been made available as part of the process of testing and documenting the package.  You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
@@ -23,7 +23,7 @@ pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend An
                                          "https://www.ready4-dev.com/"))
 classes_to_make_tb <- tibble::tribble(
   ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chkr_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ slots_ls, ~ meaningful_nms_ls, ~ inc_clss_ls, ~ asserts_ls,
-  TRUE, "constructor_tbl", list("tibble"), list("is_"), list("tibble"), list(make_s3_lgl = "logical(0)",
+  TRUE, "constructor", list("tibble"), list("is_"), list("tibble"), list(make_s3_lgl = "logical(0)",
                                                                              name_stub_chr = "character(0)",
                                                                              pt_ls = "list()",
                                                                              pt_chkr_pfx_ls = "list()",
@@ -44,35 +44,36 @@ classes_to_make_tb <- tibble::tribble(
                                                                           fn_to_call_chr = "character(0)",
                                                                           default_val_chr = "character(0)",
                                                                           old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
-  TRUE, "manifest", list("list"), list("is."), list("base"), list(pkg_setup_r3 = "ready4fun::ready4fun_pkg_setup()",
-                                                                  constructor_tbl_r3 = "ready4class_constructor_tbl()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
+  TRUE, "manifest", list("list"), list("is."), list("base"), list(manifest_r3 = "ready4fun::ready4fun_manifest()",
+                                                                  constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
-pkg_setup_ls <- pkg_desc_ls %>%
-  ready4fun::make_pkg_setup_ls(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
-                               build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
-                               check_type_1L_chr = "ready4",
-                               cls_fn_ls = ready4fun::make_pt_ready4fun_fn_ls(args_ls = list(x = classes_to_make_tb),
-                                                                              fn =  fns_env_ls$fns_env$author.ready4class_constructor_tbl) %>%
-                                 ready4fun::ready4fun_fn_ls(),
-                               copyright_holders_chr = "Orygen",
-                               dev_pkgs_chr = "ready4fun",
-                               lifecycle_stage_1L_chr = "experimental",
-                               path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
-                               pkg_dmt_dv_dss_chr = c("https://doi.org/10.7910/DVN/HLLXZN",
-                                                      "https://doi.org/10.7910/DVN/2Y9VF9"),
-                               ready4_type_1L_chr = "authoring",
-                               user_manual_fns_chr = NA_character_)
+manifest_r3 <- pkg_desc_ls %>%
+  ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
+                           build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
+                           check_type_1L_chr = "ready4",
+                           cls_fn_ls = list(args_ls = list(x = classes_to_make_tb),#ready4fun::make_pt_ready4fun_executor
+                                            fn =  fns_env_ls$fns_env$author.ready4class_constructor) #%>% ready4fun::ready4fun_executor()
+                           ,
+                           classify_1L_lgl = F, #######
+                           custom_dmt_ls = ready4fun::make_custom_dmt_ls(),#####
+                           copyright_holders_chr = "Orygen",
+                           dev_pkgs_chr = "ready4fun",
+                           lifecycle_stage_1L_chr = "experimental",
+                           path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
+                           pkg_dmt_dv_dss_chr = c("https://doi.org/10.7910/DVN/HLLXZN",
+                                                  "https://doi.org/10.7910/DVN/2Y9VF9"),
+                           ready4_type_1L_chr = "authoring")
 #pkg_ds_ls_ls <- NULL
-pkg_setup_r3 <- ready4fun::author(pkg_setup_ls,
-                                  self_serve_1L_lgl = T,
-                                  self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
-                                                      args_ls = NULL))
-# pkg_setup_ls$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
-# pkg_setup_ls <- ready4fun::validate_pkg_setup(pkg_setup_ls)
-# pkg_setup_ls <- update_msng_abbrs(pkg_setup_ls,
+manifest_r3 <- write_package(manifest_r3,#ready4fun::author
+                             self_serve_1L_lgl = T,
+                             self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+                                                     args_ls = NULL))
+# manifest_r3$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
+# manifest_r3 <- ready4fun::validate_pkg_setup(manifest_r3)
+# manifest_r3 <- update_msng_abbrs(manifest_r3,
 #                                   are_words_chr = c("constructor", "validator"))
-# pkg_setup_ls <- write_new_abbrs(pkg_setup_ls,
+# manifest_r3 <- write_new_abbrs(manifest_r3,
 #                                 long_name_chr = c("initial","ready4class R package","require","unvalidated"),
 #                                                    custom_plural_ls = NULL,
 #                                                    no_plural_chr = c("ready4class package","unvalidated"))

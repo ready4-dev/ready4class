@@ -476,7 +476,8 @@ write_script_to_make_mthd <- function(write_file_ls,
                                       append_1L_lgl = T,
                                       doc_in_class_1L_lgl = F,
                                       object_type_lup = NULL,
-                                      consent_1L_chr = NULL){
+                                      consent_1L_chr = NULL,
+                                      import_from_chr = NULL){
   if(is.null(object_type_lup))
     object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
   eval(parse(text = gen_mthd_pair_ls$method_chr))
@@ -499,7 +500,9 @@ write_script_to_make_mthd <- function(write_file_ls,
                                      fn_desc_1L_chr = fn_desc_1L_chr,
                                      fn_out_type_1L_chr = fn_outp_type_1L_chr,
                                      class_name_1L_chr = class_nm_1L_chr,
-                                     import_chr = imports_chr,
+                                     import_chr = imports_chr,  # UPDATE THIS,
+                                     import_from_chr = import_from_chr, # UPDATE THIS,
+                                     #import_mthds_from_chr = NA_character_,  # UPDATE THIS,
                                      doc_in_class_1L_lgl = doc_in_class_1L_lgl,
                                      object_type_lup = object_type_lup)
     writeLines(gen_mthd_pair_ls$method_chr %>%
@@ -627,9 +630,9 @@ write_self_srvc_clss <- function(pkg_setup_ls){
                              asserts_ls = classes_to_make_tb$asserts_ls[[1]],
                              object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
   pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>%
-    ready4class_constructor_tbl() %>%
+    ready4class_constructor() %>%
     dplyr::bind_rows(second_step_classes_tb)
-  write_classes.ready4class_constructor_tbl(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>%
+  authorClasses.ready4class_constructor(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>%
                                                                  dplyr::filter(name_stub_chr == "pt_lup"),
                                                                name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
                                                                output_dir_1L_chr = "R",

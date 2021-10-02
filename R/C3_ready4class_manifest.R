@@ -26,18 +26,18 @@ x
 }
 #' Make prototype ready4class package manifest ready4 S3 class Manifest.
 #' @description Create a new prototype for the ready4 S3 class Manifest.
-#' @param pkg_setup_r3 Package setup (a ready4 S3), Default: ready4fun::ready4fun_pkg_setup()
-#' @param constructor_tbl_r3 Constructor table (a ready4 S3), Default: ready4class_constructor_tbl()
+#' @param manifest_r3 Manifest (a ready4 S3), Default: ready4fun::ready4fun_manifest()
+#' @param constructor_r3 Constructor (a ready4 S3), Default: ready4class_constructor()
 #' @return A prototype for ready4 S3 class Manifest.
 #' @details ready4 S3 class Manifest.
 #' @rdname make_pt_ready4class_manifest
 #' @export 
-#' @importFrom ready4fun ready4fun_pkg_setup update_pt_fn_args_ls
+#' @importFrom ready4fun ready4fun_manifest update_pt_fn_args_ls
 #' @importFrom rlang exec
-make_pt_ready4class_manifest <- function(pkg_setup_r3 = ready4fun::ready4fun_pkg_setup(),
-constructor_tbl_r3 = ready4class_constructor_tbl()){ 
-args_ls <- list(pkg_setup_r3 = pkg_setup_r3,
-constructor_tbl_r3 = constructor_tbl_r3) %>% ready4fun::update_pt_fn_args_ls()
+make_pt_ready4class_manifest <- function(manifest_r3 = ready4fun::ready4fun_manifest(),
+constructor_r3 = ready4class_constructor()){ 
+args_ls <- list(manifest_r3 = manifest_r3,
+constructor_r3 = constructor_r3) %>% ready4fun::update_pt_fn_args_ls()
 rlang::exec(list,!!!args_ls)
 }
 #' Validate ready4class package manifest ready4 S3 class Manifest.

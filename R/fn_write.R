@@ -187,6 +187,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @param doc_in_class_1L_lgl Document in class (a logical vector of length one), Default: F
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
+#' @param import_from_chr Import from (a character vector), Default: NULL
 #' @return NULL
 #' @rdname write_script_to_make_mthd
 #' @export 
@@ -196,7 +197,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F, 
-    object_type_lup = NULL, consent_1L_chr = NULL) 
+    object_type_lup = NULL, consent_1L_chr = NULL, import_from_chr = NULL) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4fun::get_rds_from_dv("object_type_lup")
@@ -215,7 +216,8 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
                 fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = gen_mthd_pair_ls$meth_fn_chr)), 
                 fn_desc_1L_chr = fn_desc_1L_chr, fn_out_type_1L_chr = fn_outp_type_1L_chr, 
                 class_name_1L_chr = class_nm_1L_chr, import_chr = imports_chr, 
-                doc_in_class_1L_lgl = doc_in_class_1L_lgl, object_type_lup = object_type_lup)
+                import_from_chr = import_from_chr, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
+                object_type_lup = object_type_lup)
             writeLines(gen_mthd_pair_ls$method_chr %>% stringr::str_replace(paste0(",\nwhere =  ", 
                 "globalenv\\(\\)"), "") %>% stringr::str_replace_all(",..GlobalEnv\"", 
                 ""))
@@ -554,8 +556,8 @@ write_self_srvc_clss <- function (pkg_setup_ls)
         file_exists_cdn_1L_chr = "overwrite", abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup, 
         asserts_ls = classes_to_make_tb$asserts_ls[[1]], object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
     pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>% 
-        ready4class_constructor_tbl() %>% dplyr::bind_rows(second_step_classes_tb)
-    write_classes.ready4class_constructor_tbl(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>% 
+        ready4class_constructor() %>% dplyr::bind_rows(second_step_classes_tb)
+    authorClasses.ready4class_constructor(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>% 
         dplyr::filter(name_stub_chr == "pt_lup"), name_pfx_1L_chr = paste0(pkg_desc_ls$Package, 
         "_"), output_dir_1L_chr = "R", prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup, 
         file_exists_cdn_1L_chr = "overwrite", abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup, 

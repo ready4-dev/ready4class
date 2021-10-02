@@ -37,3 +37,6 @@
 ^data-raw/dataverse/fn_type_lup_tb/fn_type_lup_tb\.RDS$
 ^data-raw/mthds/author\.R$
 ^data-raw/mthds/make\.R$
+^data-raw/mthds/authorClasses\.R$
+^data-raw/mthds/renew\.R$
+^data-raw/mthds/manufacture\.R$

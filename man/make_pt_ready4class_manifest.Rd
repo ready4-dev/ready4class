@@ -5,14 +5,14 @@
 \title{Make prototype ready4class package manifest ready4 S3 class Manifest.}
 \usage{
 make_pt_ready4class_manifest(
-  pkg_setup_r3 = ready4fun::ready4fun_pkg_setup(),
-  constructor_tbl_r3 = ready4class_constructor_tbl()
+  manifest_r3 = ready4fun::ready4fun_manifest(),
+  constructor_r3 = ready4class_constructor()
 )
 }
 \arguments{
-\item{pkg_setup_r3}{Package setup (a ready4 S3), Default: ready4fun::ready4fun_pkg_setup()}
+\item{manifest_r3}{Manifest (a ready4 S3), Default: ready4fun::ready4fun_manifest()}
 
-\item{constructor_tbl_r3}{Constructor table (a ready4 S3), Default: ready4class_constructor_tbl()}
+\item{constructor_r3}{Constructor (a ready4 S3), Default: ready4class_constructor()}
 }
 \value{
 A prototype for ready4 S3 class Manifest.

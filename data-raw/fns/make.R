@@ -680,14 +680,14 @@ make_ls_of_tfd_nms_of_curr_gnrcs <- function(req_pkgs_chr,
 make_one_row_class_pt_tb <- function(class_type_mk_ls,
                                   make_s3_1L_lgl = T){
   one_row_class_pt_tb <- class_type_mk_ls  %>%
-    purrr::reduce(.init = ready4class_constructor_tbl(),
+    purrr::reduce(.init = ready4class_constructor(),
                    ~ {
                      testit::assert(paste0("Allowable list element names are: ", names(.x) %>% paste0(collapse = ",")),names(.y) %in% names(.x))
                      rlang::exec(tibble::add_case,.x,!!!.y)
                    }
     ) %>%
     dplyr::mutate(make_s3_lgl = make_s3_1L_lgl)  %>%
-    remake_ls_cols()
+    renew()
   if(make_s3_1L_lgl){
     one_row_class_pt_tb <- one_row_class_pt_tb %>%
       dplyr::mutate_at(c("slots_ls","inc_clss_ls"),

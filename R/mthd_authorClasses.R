@@ -1,6 +1,6 @@
-#' Write classes method applied to ready4 S3 class Constructor Table of metadata required to make new classes..
-#' @description write_classes.ready4class_constructor_tbl() is a Write Classes method that writes new classes. This method is implemented for the ready4 S3 class Constructor Table of metadata required to make new classes. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
-#' @param x An instance of ready4 S3 class Constructor Table of metadata required to make new classes.
+#' AuthorClasses method applied to ready4 S3 class Constructor Table..
+#' @description authorClasses.ready4class_constructor() is an AuthorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+#' @param x An instance of ready4 S3 class Constructor Table.
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: NULL
@@ -13,13 +13,13 @@
 #' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
-#' @rdname write_classes-methods
+#' @rdname authorClasses-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm make_prompt
 #' @importFrom purrr map_chr pwalk flatten_chr
 #' @importFrom stringi stri_replace_last
 #' @importFrom dplyr filter
-write_classes.ready4class_constructor_tbl <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
+authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr, req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
     abbreviations_lup, object_type_lup, consent_1L_chr = NULL) 
@@ -75,6 +75,6 @@ write_classes.ready4class_constructor_tbl <- function (x, name_pfx_1L_chr, outpu
             consent_1L_chr = consent_1L_chr))
     }
 }
-#' @rdname write_classes-methods
-#' @aliases write_classes,ready4class_constructor_tbl-method
-methods::setMethod("write_classes", "ready4class_constructor_tbl", write_classes.ready4class_constructor_tbl)
+#' @rdname authorClasses-methods
+#' @aliases authorClasses,ready4class_constructor-method
+methods::setMethod("authorClasses", methods::className("ready4class_constructor", package = "ready4class"), authorClasses.ready4class_constructor)
