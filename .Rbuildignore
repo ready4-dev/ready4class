@@ -40,3 +40,7 @@
 ^data-raw/mthds/authorClasses\.R$
 ^data-raw/mthds/renew\.R$
 ^data-raw/mthds/manufacture\.R$
+^data-raw/mthds-TEMP/author\.R$
+^data-raw/mthds-TEMP/authorClasses\.R$
+^data-raw/mthds-TEMP/manufacture\.R$
+^data-raw/mthds-TEMP/renew\.R$

@@ -44,7 +44,7 @@ classes_to_make_tb <- tibble::tribble(
                                                                           fn_to_call_chr = "character(0)",
                                                                           default_val_chr = "character(0)",
                                                                           old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
-  TRUE, "manifest", list("list"), list("is."), list("base"), list(manifest_r3 = "ready4fun::ready4fun_manifest()",
+  TRUE, "manifest", list("list"), list("is."), list("base"), list(manifest_r3 = "list()",#"ready4fun::ready4fun_manifest()",
                                                                   constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))

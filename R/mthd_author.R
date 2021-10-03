@@ -74,7 +74,7 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @return X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor author
+#' @importFrom ready4fun add_new_cls_pts author
 author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class_pt_lup = NULL, 
     key_1L_chr = NULL, list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL, 
@@ -89,7 +89,7 @@ author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class
     else {
         x$manifest_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
     }
-    x$manifest_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3, 
+    x$manifest_r3$subsequent_ls$cls_fn_ls <- list(args_ls = list(x = x$constructor_r3, 
         dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
         name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
             "_"), output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr, 
@@ -98,7 +98,7 @@ author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = "stop", 
         abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup, 
         object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup), 
-        fn = author.ready4class_constructor) %>% ready4fun::ready4fun_executor()
+        fn = author.ready4class_constructor)
     x_ready4fun_manifest <- ready4fun::author(x$manifest_r3, 
         dv_url_pfx_1L_chr = dv_url_pfx_1L_chr, key_1L_chr = key_1L_chr, 
         list_generics_1L_lgl = list_generics_1L_lgl, self_serve_1L_lgl = self_serve_1L_lgl, 
