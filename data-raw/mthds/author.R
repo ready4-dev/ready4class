@@ -128,7 +128,7 @@ author.ready4class_manifest <- function(x,
   }else{
     x$manifest_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
   }
-  x$manifest_r3$subsequent_ls$cls_fn_ls <- list(args_ls = list(x = x$constructor_r3,
+  x$manifest_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3,
                                                                                               dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package,
                                                                                               name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package,"_"),
                                                                                               output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr,"/R"),
@@ -140,7 +140,8 @@ author.ready4class_manifest <- function(x,
                                                                                               class_in_cache_cdn_1L_chr = "stop",
                                                                                               abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup,
                                                                                               object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup),
-                                                                               fn =  author.ready4class_constructor) #ready4fun::make_pt_ready4fun_executor %>%  ready4fun::ready4fun_executor()
+                                                                               fn =  author.ready4class_constructor) %>%
+    ready4fun::ready4fun_executor()
   x_ready4fun_manifest <- ready4fun::author(x$manifest_r3,
                                              dv_url_pfx_1L_chr = dv_url_pfx_1L_chr,
                                              key_1L_chr = key_1L_chr,
