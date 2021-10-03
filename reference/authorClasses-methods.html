@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make class prototypes tibble — make_class_pts_tb • ready4class</title>
+<title>AuthorClasses method applied to ready4 S3 class Constructor Table.. — authorClasses.ready4class_constructor • ready4class</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Make class prototypes tibble — make_class_pts_tb" />
-<meta property="og:description" content="make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototypes tibble. The function returns Class prototypes (a tibble)." />
+<meta property="og:title" content="AuthorClasses method applied to ready4 S3 class Constructor Table.. — authorClasses.ready4class_constructor" />
+<meta property="og:description" content="authorClasses.ready4class_constructor() is an AuthorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,29 +119,99 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make class prototypes tibble</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/fn_make.R'><code>R/fn_make.R</code></a></small>
-    <div class="hidden name"><code>make_class_pts_tb.Rd</code></div>
+    <h1>AuthorClasses method applied to ready4 S3 class Constructor Table..</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/mthd_authorClasses.R'><code>R/mthd_authorClasses.R</code></a></small>
+    <div class="hidden name"><code>authorClasses-methods.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>make_class_pts_tb() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototypes tibble. The function returns Class prototypes (a tibble).</p>
+    <p>authorClasses.ready4class_constructor() is an AuthorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_class_pts_tb</span><span class='op'>(</span><span class='va'>class_mk_ls</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>authorClasses.ready4class_constructor</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>name_pfx_1L_chr</span>,
+  <span class='va'>output_dir_1L_chr</span>,
+  file_exists_cdn_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
+  prototype_lup <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dev_pkg_ns_1L_chr <span class='op'>=</span> <span class='fu'>ready4fun</span><span class='fu'>::</span><span class='fu'><a href='https://ready4-dev.github.io/ready4fun/reference/get_dev_pkg_nm.html'>get_dev_pkg_nm</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>nss_to_ignore_chr</span>,
+  req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
+  class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
+  <span class='va'>abbreviations_lup</span>,
+  <span class='va'>object_type_lup</span>,
+  consent_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
+
+<span class='co'># S4 method for ready4class_constructor</span>
+<span class='fu'>authorClasses</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>name_pfx_1L_chr</span>,
+  <span class='va'>output_dir_1L_chr</span>,
+  file_exists_cdn_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>,
+  prototype_lup <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dev_pkg_ns_1L_chr <span class='op'>=</span> <span class='fu'>ready4fun</span><span class='fu'>::</span><span class='fu'><a href='https://ready4-dev.github.io/ready4fun/reference/get_dev_pkg_nm.html'>get_dev_pkg_nm</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>nss_to_ignore_chr</span>,
+  req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
+  class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
+  <span class='va'>abbreviations_lup</span>,
+  <span class='va'>object_type_lup</span>,
+  consent_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>class_mk_ls</th>
-      <td><p>Class make (a list)</p></td>
+      <th>x</th>
+      <td><p>An instance of ready4 S3 class Constructor Table.</p></td>
+    </tr>
+    <tr>
+      <th>name_pfx_1L_chr</th>
+      <td><p>Name prefix (a character vector of length one)</p></td>
+    </tr>
+    <tr>
+      <th>output_dir_1L_chr</th>
+      <td><p>Output directory (a character vector of length one)</p></td>
+    </tr>
+    <tr>
+      <th>file_exists_cdn_1L_chr</th>
+      <td><p>File exists condition (a character vector of length one), Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>prototype_lup</th>
+      <td><p>Prototype (a lookup table), Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>dev_pkg_ns_1L_chr</th>
+      <td><p>Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()</p></td>
+    </tr>
+    <tr>
+      <th>nss_to_ignore_chr</th>
+      <td><p>Namespaces to ignore (a character vector)</p></td>
+    </tr>
+    <tr>
+      <th>req_pkgs_chr</th>
+      <td><p>Require packages (a character vector), Default: 'NA'</p></td>
+    </tr>
+    <tr>
+      <th>class_in_cache_cdn_1L_chr</th>
+      <td><p>Class in cache condition (a character vector of length one), Default: 'stop'</p></td>
+    </tr>
+    <tr>
+      <th>abbreviations_lup</th>
+      <td><p>Abbreviations (a lookup table)</p></td>
+    </tr>
+    <tr>
+      <th>object_type_lup</th>
+      <td><p>Object type (a lookup table)</p></td>
+    </tr>
+    <tr>
+      <th>consent_1L_chr</th>
+      <td><p>Consent (a character vector of length one), Default: NULL</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Class prototypes (a tibble)</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
