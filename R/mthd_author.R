@@ -14,41 +14,42 @@
 #' @param object_type_lup Object type (a lookup table)
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname author-methods
-#' @export
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt author
+#' @export 
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringi stri_replace_last
-author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-    name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"),
-    output_dir_1L_chr = "R", delete_cdn_ptrn_chr = NA_character_,
-    file_exists_cdn_1L_chr = "overwrite", init_class_pt_lup = NULL,
-    nss_to_ignore_chr = NA_character_, req_pkgs_chr = NA_character_,
-    class_in_cache_cdn_1L_chr = "stop", abbreviations_lup, object_type_lup)
+#' @importFrom ready4fun author
+author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
+    name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"), 
+    output_dir_1L_chr = "R", delete_cdn_ptrn_chr = NA_character_, 
+    file_exists_cdn_1L_chr = "overwrite", init_class_pt_lup = NULL, 
+    nss_to_ignore_chr = NA_character_, req_pkgs_chr = NA_character_, 
+    class_in_cache_cdn_1L_chr = "stop", abbreviations_lup, object_type_lup) 
 {
-    if (is.null(init_class_pt_lup))
+    if (is.null(init_class_pt_lup)) 
         init_class_pt_lup <- prototype_lup
     x <- renew(x, name_pfx_1L_chr = name_pfx_1L_chr, type_1L_chr = "order")
     if (file_exists_cdn_1L_chr == "overwrite") {
         write_to_delete_gnrc_fn_fls(x, output_dir_1L_chr = output_dir_1L_chr)
-        purrr::walk(delete_cdn_ptrn_chr, ~write_to_delete_fls_with_ptrn(dir_1L_chr = output_dir_1L_chr,
+        purrr::walk(delete_cdn_ptrn_chr, ~write_to_delete_fls_with_ptrn(dir_1L_chr = output_dir_1L_chr, 
             pattern_1L_chr = .x))
     }
-    new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl, ~ifelse(.x,
+    new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
         "C3_", "C4_")), name_pfx_1L_chr, x$name_stub_chr, ".R")
-    consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file",
-        ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>%
-            paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",",
-            " and"), " to the directory ", output_dir_1L_chr,
+    consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+        ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
+            paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
+            " and"), " to the directory ", output_dir_1L_chr, 
         " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     if (consent_1L_chr == "Y") {
-        inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x), .init = init_class_pt_lup %>%
-            renew(dev_pkg_ns_1L_chr), ~author(.x, row_idx_1L_int = .y,
-            make_tb = x, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
-            name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr,
-            file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
-            nss_to_ignore_chr = nss_to_ignore_chr, req_pkgs_chr = req_pkgs_chr,
-            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup,
+        inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x), .init = init_class_pt_lup %>% 
+            renew(dev_pkg_ns_1L_chr), ~author(.x, row_idx_1L_int = .y, 
+            make_tb = x, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
+            name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
+            file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
+            nss_to_ignore_chr = nss_to_ignore_chr, req_pkgs_chr = req_pkgs_chr, 
+            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
+            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup, 
             consent_1L_chr = consent_1L_chr))
     }
     else {
@@ -57,29 +58,27 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
     return(inst_ready4class_pt_lup)
 }
 #' @rdname author-methods
-#' @importMethodsFrom ready4fun author
 #' @aliases author,ready4class_constructor-method
+#' @importMethodsFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
 #' Author method applied to ready4 S3 class Manifest..
 #' @description author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Manifest.
-#' @param dv_url_pfx_1L_chr Dataverse url prefix (a character vector of length one), Default: NULL
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
-#' @param key_1L_chr Key (a character vector of length one), Default: NULL
+#' @param key_1L_chr Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")
 #' @param list_generics_1L_lgl List generics (a logical vector of length one), Default: F
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
 #' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param self_serve_1L_lgl Self serve (a logical vector of length one), Default: F
 #' @param self_serve_fn_ls Self serve (a list of functions), Default: NULL
-#' @param server_1L_chr Server (a character vector of length one), Default: Sys.getenv("DATAVERSE_SERVER")
 #' @return X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 #' @rdname author-methods
-#' @export
-#' @importFrom ready4fun add_new_cls_pts author
-author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class_pt_lup = NULL,
-    key_1L_chr = NULL, list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_,
-    req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL,
-    server_1L_chr = Sys.getenv("DATAVERSE_SERVER"))
+#' @export 
+#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor author
+#' @importFrom ready4fun author
+author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr = Sys.getenv("DATAVERSE_KEY"), 
+    list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
+    req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL) 
 {
     if (is.null(init_class_pt_lup)) {
         if (is.null(x$manifest_r3$subsequent_ls$prototype_lup)) {
@@ -90,24 +89,24 @@ author.ready4class_manifest <- function (x, dv_url_pfx_1L_chr = NULL, init_class
     else {
         x$manifest_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
     }
-    x$manifest_r3$subsequent_ls$cls_fn_ls <- list(args_ls = list(x = x$constructor_r3,
-        dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package,
-        name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package,
-            "_"), output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr,
-            "/R"), delete_cdn_ptrn_chr = NA_character_, file_exists_cdn_1L_chr = "overwrite",
-        init_class_pt_lup = init_class_pt_lup, nss_to_ignore_chr = nss_to_ignore_chr,
-        req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = "stop",
-        abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup,
-        object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup),
-        fn = author.ready4class_constructor)
-    x_ready4fun_manifest <- ready4fun::author(x$manifest_r3,
-        dv_url_pfx_1L_chr = dv_url_pfx_1L_chr, key_1L_chr = key_1L_chr,
-        list_generics_1L_lgl = list_generics_1L_lgl, self_serve_1L_lgl = self_serve_1L_lgl,
-        self_serve_fn_ls = self_serve_fn_ls, server_1L_chr = server_1L_chr)
+    x$manifest_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3, 
+        dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
+        name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
+            "_"), output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr, 
+            "/R"), delete_cdn_ptrn_chr = NA_character_, file_exists_cdn_1L_chr = "overwrite", 
+        init_class_pt_lup = init_class_pt_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
+        req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = "stop", 
+        abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup, 
+        object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup), 
+        fn = author.ready4class_constructor) %>% ready4fun::ready4fun_executor()
+    x_ready4fun_manifest <- ready4fun::author(x$manifest_r3, 
+        key_1L_chr = key_1L_chr, list_generics_1L_lgl = list_generics_1L_lgl, 
+        self_serve_1L_lgl = self_serve_1L_lgl, self_serve_fn_ls = self_serve_fn_ls)
     return(x_ready4fun_manifest)
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_manifest-method
+#' @importMethodsFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
 #' Author method applied to ready4 S3 class Prototype Lookup Table of class metadata..
 #' @description author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
@@ -126,39 +125,40 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname author-methods
-#' @export
+#' @export 
 #' @importFrom dplyr slice pull filter bind_rows
 #' @importFrom purrr map_chr
 #' @importFrom ready4fun make_prompt
 #' @importFrom stringi stri_replace_last
-author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr,
-    output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_,
-    req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop",
-    abbreviations_lup, object_type_lup, consent_1L_chr = NULL)
+#' @importFrom ready4fun author
+author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
+    output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
+    req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
+    abbreviations_lup, object_type_lup, consent_1L_chr = NULL) 
 {
     make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
     if (is.null(consent_1L_chr)) {
-        new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl,
-            ~ifelse(.x, "C3_", "C4_")), name_pfx_1L_chr, make_tb$name_stub_chr,
+        new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl, 
+            ~ifelse(.x, "C3_", "C4_")), name_pfx_1L_chr, make_tb$name_stub_chr, 
             ".R")
-        consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file",
-            ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>%
-                paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",",
-                " and"), " to the directory ", output_dir_1L_chr,
+        consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+            ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
+                paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
+                " and"), " to the directory ", output_dir_1L_chr, 
             " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     }
     if (consent_1L_chr == "Y") {
-        authorClasses(make_tb, name_pfx_1L_chr = name_pfx_1L_chr,
-            output_dir_1L_chr = output_dir_1L_chr, file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
-            prototype_lup = x, nss_to_ignore_chr = c(dev_pkg_ns_1L_chr,
-                nss_to_ignore_chr), req_pkgs_chr = req_pkgs_chr,
-            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup,
+        authorClasses(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
+            output_dir_1L_chr = output_dir_1L_chr, file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
+            prototype_lup = x, nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, 
+                nss_to_ignore_chr), req_pkgs_chr = req_pkgs_chr, 
+            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
+            abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup, 
             consent_1L_chr = consent_1L_chr)
-        new_pt_lup <- manufacture(make_tb, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+        new_pt_lup <- manufacture(make_tb, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             prefix = name_pfx_1L_chr)
         classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
-        inst_ready4class_pt_lup <- x %>% dplyr::filter(!type_chr %in%
+        inst_ready4class_pt_lup <- x %>% dplyr::filter(!type_chr %in% 
             classes_to_add_chr) %>% dplyr::bind_rows(new_pt_lup)
     }
     else {
@@ -168,4 +168,5 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_pt_lup-method
+#' @importMethodsFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_pt_lup", package = "ready4class"), author.ready4class_pt_lup)

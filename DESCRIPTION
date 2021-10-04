@@ -33,20 +33,8 @@ Imports:
     gtools,
     knitr,
     lifecycle,
-    magrittr,
-    methods,
-    purrr,
-    ready4fun (>= 0.0.0.9426),
-    rlang,
-    stats,
-    stringi,
-    stringr,
-    testit,
-    testthat,
-    tibble,
-    tidyr,
-    usethis,
-    utils
+    ready4fun (>= 0.0.0.9434),
+    testthat
 VignetteBuilder: knitr
 Suggests: 
     rmarkdown

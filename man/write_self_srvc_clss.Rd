@@ -15,4 +15,3 @@ Package setup (a list)
 \description{
 write_self_srvc_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write self service classes. The function returns Package setup (a list).
 }
-\keyword{internal}

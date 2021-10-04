@@ -111,15 +111,14 @@ author.ready4class_pt_lup <- function(x,
   return(inst_ready4class_pt_lup)
 }
 author.ready4class_manifest <- function(x,
-                                        dv_url_pfx_1L_chr = NULL,
+                                        #dv_url_pfx_1L_chr = character(0),
                                         init_class_pt_lup = NULL,
-                                        key_1L_chr = NULL,
+                                        key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
                                         list_generics_1L_lgl = F,
                                         nss_to_ignore_chr = NA_character_,
                                         req_pkgs_chr = NA_character_,
                                         self_serve_1L_lgl = F,
-                                        self_serve_fn_ls = NULL,
-                                        server_1L_chr = Sys.getenv("DATAVERSE_SERVER")){
+                                        self_serve_fn_ls = NULL){
   if(is.null(init_class_pt_lup)){
     if(is.null(x$manifest_r3$subsequent_ls$prototype_lup)){
       x$manifest_r3 <- ready4fun::add_new_cls_pts(x$manifest_r3)
@@ -143,12 +142,11 @@ author.ready4class_manifest <- function(x,
                                                                                fn =  author.ready4class_constructor) %>%
     ready4fun::ready4fun_executor()
   x_ready4fun_manifest <- ready4fun::author(x$manifest_r3,
-                                             dv_url_pfx_1L_chr = dv_url_pfx_1L_chr,
+                                             #dv_url_pfx_1L_chr = dv_url_pfx_1L_chr,
                                              key_1L_chr = key_1L_chr,
                                              list_generics_1L_lgl = list_generics_1L_lgl,
                                              self_serve_1L_lgl = self_serve_1L_lgl,
-                                             self_serve_fn_ls = self_serve_fn_ls,
-                                             server_1L_chr = server_1L_chr)
+                                             self_serve_fn_ls = self_serve_fn_ls)
   return(x_ready4fun_manifest)
   }
 

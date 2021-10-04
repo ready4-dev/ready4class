@@ -41,28 +41,24 @@ author.ready4class_constructor(
 
 author.ready4class_manifest(
   x,
-  dv_url_pfx_1L_chr = NULL,
   init_class_pt_lup = NULL,
-  key_1L_chr = NULL,
+  key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
   list_generics_1L_lgl = F,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
-  self_serve_fn_ls = NULL,
-  server_1L_chr = Sys.getenv("DATAVERSE_SERVER")
+  self_serve_fn_ls = NULL
 )
 
 \S4method{author}{ready4class_manifest}(
   x,
-  dv_url_pfx_1L_chr = NULL,
   init_class_pt_lup = NULL,
-  key_1L_chr = NULL,
+  key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
   list_generics_1L_lgl = F,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
-  self_serve_fn_ls = NULL,
-  server_1L_chr = Sys.getenv("DATAVERSE_SERVER")
+  self_serve_fn_ls = NULL
 )
 
 author.ready4class_pt_lup(
@@ -122,17 +118,13 @@ author.ready4class_pt_lup(
 
 \item{object_type_lup}{Object type (a lookup table)}
 
-\item{dv_url_pfx_1L_chr}{Dataverse url prefix (a character vector of length one), Default: NULL}
-
-\item{key_1L_chr}{Key (a character vector of length one), Default: NULL}
+\item{key_1L_chr}{Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")}
 
 \item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: F}
 
 \item{self_serve_1L_lgl}{Self serve (a logical vector of length one), Default: F}
 
 \item{self_serve_fn_ls}{Self serve (a list of functions), Default: NULL}
-
-\item{server_1L_chr}{Server (a character vector of length one), Default: Sys.getenv("DATAVERSE_SERVER")}
 
 \item{row_idx_1L_int}{Row index (an integer vector of length one)}
 

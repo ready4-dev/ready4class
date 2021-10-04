@@ -5,20 +5,20 @@
 #' @param prefix_1L_chr Prefix (a character vector of length one)
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname manufacture-methods
-#' @export
-#' @importFrom ready4fun manufacture
+#' @export 
 #' @importFrom dplyr mutate select
-manufacture.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr)
+#' @importFrom ready4fun manufacture
+manufacture.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
 {
-    inst_ready4class_pt_lup <- x %>% dplyr::mutate(type_chr = paste0(prefix_1L_chr,
-        name_stub_chr), pt_ns_chr = dev_pkg_ns_1L_chr, val_chr = "",
-        fn_to_call_chr = type_chr, default_val_chr = "", old_class_lgl = make_s3_lgl) %>%
-        dplyr::select(type_chr, val_chr, pt_ns_chr, fn_to_call_chr,
-            default_val_chr, old_class_lgl) %>% ready4class_pt_lup() %>%
+    inst_ready4class_pt_lup <- x %>% dplyr::mutate(type_chr = paste0(prefix_1L_chr, 
+        name_stub_chr), pt_ns_chr = dev_pkg_ns_1L_chr, val_chr = "", 
+        fn_to_call_chr = type_chr, default_val_chr = "", old_class_lgl = make_s3_lgl) %>% 
+        dplyr::select(type_chr, val_chr, pt_ns_chr, fn_to_call_chr, 
+            default_val_chr, old_class_lgl) %>% ready4class_pt_lup() %>% 
         renew(attached_nss_chr = dev_pkg_ns_1L_chr)
     return(inst_ready4class_pt_lup)
 }
 #' @rdname manufacture-methods
-#' @importMethodsFrom ready4fun manufacture
 #' @aliases manufacture,ready4class_constructor-method
+#' @importMethodsFrom ready4fun manufacture
 methods::setMethod("manufacture", methods::className("ready4class_constructor", package = "ready4class"), manufacture.ready4class_constructor)
