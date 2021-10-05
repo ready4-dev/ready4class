@@ -31,9 +31,10 @@ Imports:
     devtools,
     dplyr,
     gtools,
+    Hmisc,
     knitr,
     lifecycle,
-    ready4fun (>= 0.0.0.9434),
+    ready4fun (>= 0.0.0.9435),
     testthat
 VignetteBuilder: knitr
 Suggests: 

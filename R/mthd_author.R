@@ -128,6 +128,8 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @export 
 #' @importFrom dplyr slice pull filter bind_rows
 #' @importFrom purrr map_chr
+#' @importFrom stringr str_sub
+#' @importFrom Hmisc capitalize
 #' @importFrom ready4fun make_prompt
 #' @importFrom stringi stri_replace_last
 #' @importFrom ready4fun author
@@ -139,7 +141,9 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
     make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
     if (is.null(consent_1L_chr)) {
         new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl, 
-            ~ifelse(.x, "C3_", "C4_")), name_pfx_1L_chr, make_tb$name_stub_chr, 
+            ~ifelse(.x, "C3_", "C4_")), purrr::map_chr(make_tb$make_s3_lgl, 
+            ~ifelse(.x, name_pfx_1L_chr, stringr::str_sub(name_pfx_1L_chr, 
+                end = -2) %>% Hmisc::capitalize())), make_tb$name_stub_chr, 
             ".R")
         consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
             ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 

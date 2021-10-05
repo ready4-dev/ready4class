@@ -72,7 +72,12 @@ author.ready4class_pt_lup <- function(x,
   if(is.null(consent_1L_chr)){
     new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl,
                                            ~ifelse(.x,"C3_","C4_")),
-                            name_pfx_1L_chr,
+                            purrr::map_chr(make_tb$make_s3_lgl,
+                                           ~ifelse(.x,
+                                                   name_pfx_1L_chr,
+                                                   stringr::str_sub(name_pfx_1L_chr,
+                                                                    end = -2) %>%
+                                                     Hmisc::capitalize())),
                             make_tb$name_stub_chr,
                             ".R")
     consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",

@@ -12,7 +12,12 @@ authorClasses.ready4class_constructor <- function(x,
                                                       consent_1L_chr = NULL){
   new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl,
                                          ~ifelse(.x,"C3_","C4_")),
-                          name_pfx_1L_chr,
+                          purrr::map_chr(x$make_s3_lgl,
+                                         ~ifelse(.x,
+                                                 name_pfx_1L_chr,
+                                                 stringr::str_sub(name_pfx_1L_chr,
+                                                                  end = -2) %>%
+                                                   Hmisc::capitalize())),
                           x$name_stub_chr,
                           ".R")
   if(is.null(consent_1L_chr)){
@@ -53,7 +58,9 @@ authorClasses.ready4class_constructor <- function(x,
                                             consent_1L_chr = consent_1L_chr))
   purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
-                                            name_pfx_1L_chr = name_pfx_1L_chr,
+                                            name_pfx_1L_chr = stringr::str_sub(name_pfx_1L_chr,
+                                                                               end = -2) %>%
+                                              Hmisc::capitalize(),
                                             output_dir_1L_chr = output_dir_1L_chr,
                                             class_desc_1L_chr = ..10,
                                             parent_cls_nm_1L_chr = if(is.na(..11)){
