@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Create, Extend and Document Classes and Methods for Open and
     Modular Mental Health Simulations
-Version: 0.0.0.9227
+Version: 0.0.0.9228
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -34,8 +34,20 @@ Imports:
     Hmisc,
     knitr,
     lifecycle,
-    ready4fun (>= 0.0.0.9435),
-    testthat
+    magrittr,
+    methods,
+    purrr,
+    ready4fun (>= 0.0.0.9439),
+    rlang,
+    stats,
+    stringi,
+    stringr,
+    testit,
+    testthat,
+    tibble,
+    tidyr,
+    usethis,
+    utils
 VignetteBuilder: knitr
 Suggests: 
     rmarkdown
