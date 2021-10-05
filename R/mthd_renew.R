@@ -37,7 +37,7 @@ renew.ready4class_constructor <- function (x, type_1L_chr = "listify", name_pfx_
 }
 #' @rdname renew-methods
 #' @aliases renew,ready4class_constructor-method
-#' @importMethodsFrom ready4fun renew
+#' @importFrom ready4fun renew
 methods::setMethod("renew", methods::className("ready4class_constructor", package = "ready4class"), renew.ready4class_constructor)
 #' Renew method applied to ready4 S3 class Prototype Lookup Table of class metadata..
 #' @description renew.ready4class_pt_lup() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
@@ -63,5 +63,5 @@ renew.ready4class_pt_lup <- function (x, attached_nss_chr, type_1L_chr = "namesp
 }
 #' @rdname renew-methods
 #' @aliases renew,ready4class_pt_lup-method
-#' @importMethodsFrom ready4fun renew
+#' @importFrom ready4fun renew
 methods::setMethod("renew", methods::className("ready4class_pt_lup", package = "ready4class"), renew.ready4class_pt_lup)

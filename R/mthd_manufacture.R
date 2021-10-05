@@ -20,5 +20,5 @@ manufacture.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr, prefix_1L
 }
 #' @rdname manufacture-methods
 #' @aliases manufacture,ready4class_constructor-method
-#' @importMethodsFrom ready4fun manufacture
+#' @importFrom ready4fun manufacture
 methods::setMethod("manufacture", methods::className("ready4class_constructor", package = "ready4class"), manufacture.ready4class_constructor)

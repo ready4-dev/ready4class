@@ -6,7 +6,6 @@
 #' @details ready4 S3 class Manifest.
 #' @rdname ready4class_manifest
 #' @export 
-
 ready4class_manifest <- function(x = make_pt_ready4class_manifest()){ 
 validate_ready4class_manifest(make_new_ready4class_manifest(x))
 }
@@ -17,7 +16,6 @@ validate_ready4class_manifest(make_new_ready4class_manifest(x))
 #' @details ready4 S3 class Manifest.
 #' @rdname make_new_ready4class_manifest
 #' @export 
-
 make_new_ready4class_manifest <- function(x){ 
 stopifnot(is.list(x))
 class(x) <- append(c("ready4class_manifest",setdiff(make_pt_ready4class_manifest() %>% class(),class(x))),
@@ -97,5 +95,4 @@ x}
 #' @details ready4 S3 class Manifest.
 #' @rdname is_ready4class_manifest
 #' @export 
-
 is_ready4class_manifest <- function(x) inherits(validate_ready4class_manifest(x), "ready4class_manifest")

@@ -7,7 +7,6 @@ setOldClass(c("ready4class_pt_lup","tbl_df", "tbl", "data.frame"))
 #' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname ready4class_pt_lup
 #' @export 
-
 ready4class_pt_lup <- function(x = make_pt_ready4class_pt_lup()){ 
 validate_ready4class_pt_lup(make_new_ready4class_pt_lup(x))
 }
@@ -109,5 +108,4 @@ x}
 #' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname is_ready4class_pt_lup
 #' @export 
-
 is_ready4class_pt_lup <- function(x) inherits(validate_ready4class_pt_lup(x), "ready4class_pt_lup")

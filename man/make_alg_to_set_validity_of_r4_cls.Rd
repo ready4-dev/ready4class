@@ -35,3 +35,4 @@ Algorithm to set validity of ready4 S4 class (a character vector of length one)
 \description{
 make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of ready4 s4 class. The function returns Algorithm to set validity of ready4 S4 class (a character vector of length one).
 }
+\keyword{internal}

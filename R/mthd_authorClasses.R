@@ -15,13 +15,12 @@
 #' @return NULL
 #' @rdname authorClasses-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt authorClasses
 #' @importFrom purrr map_chr pwalk flatten_chr
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
 #' @importFrom stringi stri_replace_last
 #' @importFrom dplyr filter
-#' @importFrom ready4fun authorClasses
 authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr, req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
@@ -83,5 +82,5 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
 }
 #' @rdname authorClasses-methods
 #' @aliases authorClasses,ready4class_constructor-method
-#' @importMethodsFrom ready4fun authorClasses
+#' @importFrom ready4fun authorClasses
 methods::setMethod("authorClasses", methods::className("ready4class_constructor", package = "ready4class"), authorClasses.ready4class_constructor)

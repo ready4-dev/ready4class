@@ -15,10 +15,9 @@
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt author
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringi stri_replace_last
-#' @importFrom ready4fun author
 author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"), 
     output_dir_1L_chr = "R", delete_cdn_ptrn_chr = NA_character_, 
@@ -59,7 +58,7 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_constructor-method
-#' @importMethodsFrom ready4fun author
+#' @importFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
 #' Author method applied to ready4 S3 class Manifest..
 #' @description author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
@@ -75,7 +74,6 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @rdname author-methods
 #' @export 
 #' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor author
-#' @importFrom ready4fun author
 author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr = Sys.getenv("DATAVERSE_KEY"), 
     list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL) 
@@ -106,7 +104,7 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_manifest-method
-#' @importMethodsFrom ready4fun author
+#' @importFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
 #' Author method applied to ready4 S3 class Prototype Lookup Table of class metadata..
 #' @description author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
@@ -130,9 +128,8 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
-#' @importFrom ready4fun make_prompt
+#' @importFrom ready4fun make_prompt author
 #' @importFrom stringi stri_replace_last
-#' @importFrom ready4fun author
 author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
@@ -172,5 +169,5 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
 }
 #' @rdname author-methods
 #' @aliases author,ready4class_pt_lup-method
-#' @importMethodsFrom ready4fun author
+#' @importFrom ready4fun author
 methods::setMethod("author", methods::className("ready4class_pt_lup", package = "ready4class"), author.ready4class_pt_lup)

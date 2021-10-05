@@ -7,7 +7,6 @@ setOldClass(c("ready4class_constructor","tbl_df", "tbl", "data.frame"))
 #' @details ready4 S3 class Constructor Table.
 #' @rdname ready4class_constructor
 #' @export 
-
 ready4class_constructor <- function(x = make_pt_ready4class_constructor()){ 
 validate_ready4class_constructor(make_new_ready4class_constructor(x))
 }
@@ -136,5 +135,4 @@ x}
 #' @details ready4 S3 class Constructor Table.
 #' @rdname is_ready4class_constructor
 #' @export 
-
 is_ready4class_constructor <- function(x) inherits(validate_ready4class_constructor(x), "ready4class_constructor")
