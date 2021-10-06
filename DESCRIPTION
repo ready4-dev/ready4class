@@ -37,7 +37,11 @@ Imports:
     magrittr,
     methods,
     purrr,
+<<<<<<< HEAD
     ready4fun (>= 0.0.0.9440),
+=======
+    ready4fun (>= 0.0.0.9441),
+>>>>>>> dev
     rlang,
     stats,
     stringi,
