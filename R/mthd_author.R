@@ -17,6 +17,8 @@
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm make_prompt author
 #' @importFrom purrr walk map_chr reduce
+#' @importFrom stringr str_sub
+#' @importFrom Hmisc capitalize
 #' @importFrom stringi stri_replace_last
 author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     name_pfx_1L_chr = paste0(ready4fun::get_dev_pkg_nm(), "_"), 
@@ -34,7 +36,9 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
             pattern_1L_chr = .x))
     }
     new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
-        "C3_", "C4_")), name_pfx_1L_chr, x$name_stub_chr, ".R")
+        "C3_", "C4_")), purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
+        name_pfx_1L_chr, stringr::str_sub(name_pfx_1L_chr, end = -2) %>% 
+            Hmisc::capitalize())), x$name_stub_chr, ".R")
     consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
         ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
             paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
