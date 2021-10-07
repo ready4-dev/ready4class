@@ -462,7 +462,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
         print_set_cls_1L_lgl = print_set_cls_1L_lgl, class_desc_1L_chr = class_desc_1L_chr, 
         output_file_class_1L_chr = output_file_class_1L_chr, 
         clss_to_inc_chr = clss_to_inc_chr, prototype_lup = prototype_lup, 
-        helper_1L_lgl = F, parent_ns_ls = parent_ns_ls)
+        helper_1L_lgl = F, parent_ns_ls = parent_ns_ls, consent_1L_chr = consent_1L_chr)
     helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_chr = slots_chr, 
         pt_ls = pt_ls, prototype_lup = prototype_lup, parent_ns_ls = parent_ns_ls)
