@@ -171,47 +171,47 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
     }
 }
 write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
-                                        name_pfx_1L_chr,##
-                                        output_dir_1L_chr = "data-raw",
-                                        outp_sub_dir_1L_chr = NULL,
-                                        class_desc_1L_chr = "",
-                                        parent_cls_nm_1L_chr = NULL,
-                                        slots_chr,
-                                        type_chr,
-                                        meaningful_nms_ls = NULL,
+                                       name_pfx_1L_chr,##
+                                       output_dir_1L_chr = "data-raw",
+                                       outp_sub_dir_1L_chr = NULL,
+                                       class_desc_1L_chr = "",
+                                       parent_cls_nm_1L_chr = NULL,
+                                       slots_chr,
+                                       type_chr,
+                                       meaningful_nms_ls = NULL,
                                        vals_ls = NULL,
-                                        allowed_vals_ls = NULL,
-                                        clss_to_inc_chr = NULL,
-                                        prototype_lup,
-                                        nss_to_ignore_chr = NA_character_,
-                                        req_pkgs_chr = NA_character_,
-                                        names_must_match_ls = NULL,
-                                        slots_of_dif_lnts_chr = NULL,
+                                       allowed_vals_ls = NULL,
+                                       clss_to_inc_chr = NULL,
+                                       prototype_lup,
+                                       nss_to_ignore_chr = NA_character_,
+                                       req_pkgs_chr = NA_character_,
+                                       names_must_match_ls = NULL,
+                                       slots_of_dif_lnts_chr = NULL,
                                        helper_1L_lgl = F,
-                                        print_set_cls_1L_lgl = TRUE,
-                                        #print_helper = TRUE,
-                                        print_gtrs_strs_1L_lgl = TRUE,
-                                        print_validator_1L_lgl = TRUE,
-                                        print_meaningful_nms_ls_1L_lgl = TRUE,
-                                        class_in_cache_cdn_1L_chr = "stop",
+                                       print_set_cls_1L_lgl = TRUE,
+                                       #print_helper = TRUE,
+                                       print_gtrs_strs_1L_lgl = TRUE,
+                                       print_validator_1L_lgl = TRUE,
+                                       print_meaningful_nms_ls_1L_lgl = TRUE,
+                                       class_in_cache_cdn_1L_chr = "stop",
                                        asserts_ls = NULL,
                                        object_type_lup,
                                        consent_1L_chr = NULL){
   if(!is.null(outp_sub_dir_1L_chr)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
-                            "/",
-                            outp_sub_dir_1L_chr)
+                                "/",
+                                outp_sub_dir_1L_chr)
     if(!dir.exists(output_dir_1L_chr))
       dir.create(output_dir_1L_chr)
   }
   pt_ls <- make_pt_ls(slots_chr = slots_chr,
-                         type_chr = type_chr,
-                         vals_ls = vals_ls,
-                         prototype_lup = prototype_lup)
+                      type_chr = type_chr,
+                      vals_ls = vals_ls,
+                      prototype_lup = prototype_lup)
   class_nm_1L_chr <- paste0(name_pfx_1L_chr,name_stub_1L_chr)
   output_file_class_1L_chr <- get_class_fl_nms(class_names_chr = class_nm_1L_chr,
-                                        s3_1L_lgl = F,
-                                        output_dir_1L_chr = output_dir_1L_chr)
+                                               s3_1L_lgl = F,
+                                               output_dir_1L_chr = output_dir_1L_chr)
   parent_ns_ls <- get_parent_cls_ns(prototype_lup = prototype_lup,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     dev_pkg_ns_1L_chr = nss_to_ignore_chr[1])
@@ -226,7 +226,8 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                      clss_to_inc_chr = clss_to_inc_chr,
                      prototype_lup = prototype_lup,
                      helper_1L_lgl = F,#print_helper,
-                     parent_ns_ls = parent_ns_ls)
+                     parent_ns_ls = parent_ns_ls,
+                     consent_1L_chr = consent_1L_chr)
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     slots_chr = slots_chr,
@@ -237,20 +238,20 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   if(helper_1L_lgl){ #print_helper
     if(is.null(consent_1L_chr)){
       consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
-                                                         output_file_class_1L_chr,
-                                                         " ?"),
-                                    options_chr = c("Y", "N"),
-                                    force_from_opts_1L_chr = T)
+                                                                    output_file_class_1L_chr,
+                                                                    " ?"),
+                                               options_chr = c("Y", "N"),
+                                               force_from_opts_1L_chr = T)
     }
     if(consent_1L_chr == "Y"){
-    sink(output_file_class_1L_chr, append = TRUE)
-    ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
-                 fn_type_1L_chr = "set_class",
-                 fn = eval(parse(text = class_nm_1L_chr)),
-                 class_name_1L_chr = class_nm_1L_chr,
-                 object_type_lup = object_type_lup)
-    writeLines(helper_function)
-    ready4fun::close_open_sinks()
+      sink(output_file_class_1L_chr, append = TRUE)
+      ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr,
+                                       fn_type_1L_chr = "set_class",
+                                       fn = eval(parse(text = class_nm_1L_chr)),
+                                       class_name_1L_chr = class_nm_1L_chr,
+                                       object_type_lup = object_type_lup)
+      writeLines(helper_function)
+      ready4fun::close_open_sinks()
     }
   }
   accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr,
@@ -270,21 +271,21 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   if(print_validator_1L_lgl){
     if(is.null(consent_1L_chr)){
       consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
-                                                         output_file_class_1L_chr,
-                                                         " ?"),
-                                    options_chr = c("Y", "N"),
-                                    force_from_opts_1L_chr = T)
+                                                                    output_file_class_1L_chr,
+                                                                    " ?"),
+                                               options_chr = c("Y", "N"),
+                                               force_from_opts_1L_chr = T)
     }
     if(consent_1L_chr == "Y"){
-    sink(output_file_class_1L_chr, append = TRUE)
-    writeLines(paste0("\n",
-                      valid_txt %>%
-                        stringr::str_replace(paste0(",\nwhere =  ",
-                                                                "globalenv\\(\\)"),"") %>%
-                        stringr::str_replace(",\".GlobalEnv\"",""))) # BOTH LINES MAY NOT BE NEEDED
-    ready4fun::close_open_sinks()
+      sink(output_file_class_1L_chr, append = TRUE)
+      writeLines(paste0("\n",
+                        valid_txt %>%
+                          stringr::str_replace(paste0(",\nwhere =  ",
+                                                      "globalenv\\(\\)"),"") %>%
+                          stringr::str_replace(",\".GlobalEnv\"",""))) # BOTH LINES MAY NOT BE NEEDED
+      ready4fun::close_open_sinks()
     }
-    }
+  }
   eval(parse(text=valid_txt))
   if(!is.null(meaningful_nms_ls)){
     meaningful_txt <- make_show_mthd_fn(class_nm_1L_chr = class_nm_1L_chr,
@@ -293,22 +294,22 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
     if(print_meaningful_nms_ls_1L_lgl){
       if(is.null(consent_1L_chr)){
         consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
-                                                           output_file_class_1L_chr,
-                                                           " ?"),
-                                      options_chr = c("Y", "N"),
-                                      force_from_opts_1L_chr = T)
+                                                                      output_file_class_1L_chr,
+                                                                      " ?"),
+                                                 options_chr = c("Y", "N"),
+                                                 force_from_opts_1L_chr = T)
       }
       if(consent_1L_chr == "Y"){
-      sink(output_file_class_1L_chr, append = TRUE)
-      writeLines(paste0("\n",
-                        meaningful_txt %>%
-                          stringr::str_replace(paste0(",\nwhere =  ",
-                                                      "globalenv\\(\\)"),"") %>%
-                          stringr::str_replace_all("\\\\n\\\",","\\\\n\\\",\n") %>%
-                          stringr::str_replace("\\nsep","sep")))
-      ready4fun::close_open_sinks()
+        sink(output_file_class_1L_chr, append = TRUE)
+        writeLines(paste0("\n",
+                          meaningful_txt %>%
+                            stringr::str_replace(paste0(",\nwhere =  ",
+                                                        "globalenv\\(\\)"),"") %>%
+                            stringr::str_replace_all("\\\\n\\\",","\\\\n\\\",\n") %>%
+                            stringr::str_replace("\\nsep","sep")))
+        ready4fun::close_open_sinks()
       }
-      }
+    }
   }
   devtools::document()
   devtools::load_all()
