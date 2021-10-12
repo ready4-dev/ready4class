@@ -49,25 +49,22 @@ classes_to_make_tb <- tibble::tribble(
                                                                   constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
-x_ready4fun_manifest <- pkg_desc_ls %>%
+x <- pkg_desc_ls %>%
   ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
                            build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                            check_type_1L_chr = "ready4",
                            cls_fn_ls = ready4fun::make_pt_ready4fun_executor(args_ls = list(x = classes_to_make_tb),#
-                                            fn =  fns_env_ls$fns_env$author.ready4class_constructor) %>%
+                                                                             fn =  fns_env_ls$fns_env$author.ready4class_constructor) %>%
                              ready4fun::ready4fun_executor(),
-                           classify_1L_lgl = T, #######
-                           custom_dmt_ls = ready4fun::make_custom_dmt_ls(),#####
+                           custom_dmt_ls = ready4fun::make_custom_dmt_ls(),
                            copyright_holders_chr = "Orygen",
                            dev_pkgs_chr = c("ready4","ready4fun"),
-                           #import_from_chr = c("author" = "ready4fun","authorClasses" = "ready4fun","manufacture" = "ready4fun", "renew" = "ready4fun"),
                            lifecycle_stage_1L_chr = "experimental",
                            path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
                            pkg_dmt_dv_dss_chr = c("https://doi.org/10.7910/DVN/HLLXZN",
                                                   "https://doi.org/10.7910/DVN/2Y9VF9"),
                            ready4_type_1L_chr = "authoring")
-#pkg_ds_ls_ls <- NULL
-x_ready4fun_manifest <- ready4::author(x_ready4fun_manifest,#
-                                       self_serve_1L_lgl = T,
-                                       self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
-                                                               args_ls = NULL))
+x <- ready4::author(x,
+                    self_serve_1L_lgl = T,
+                    self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+                                            args_ls = NULL))
