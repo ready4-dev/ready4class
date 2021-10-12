@@ -151,7 +151,7 @@ author.ready4class_manifest <- function(x,
                                                                                                 object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup),
                                                                                  fn =  author.ready4class_constructor) %>%
     ready4fun::ready4fun_executor()
-  x_ready4fun_manifest <- ready4fun::author(x$manifest_r3,
+  x_ready4fun_manifest <- ready4::author(x$manifest_r3,
                                             key_1L_chr = key_1L_chr,
                                             list_generics_1L_lgl = list_generics_1L_lgl,
                                             self_serve_1L_lgl = self_serve_1L_lgl,

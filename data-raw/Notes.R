@@ -1,7 +1,8 @@
 # manifest_r3$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
 # manifest_r3 <- ready4fun::validate_pkg_setup(manifest_r3)
-# manifest_r3 <- update_msng_abbrs(manifest_r3,
-#                                   are_words_chr = c("constructor", "validator"))
+# manifest_r3 <- renew(manifest_r3,
+#                                         type_1L_chr = "words",
+#                                         are_words_chr = c("accessors"))
 # manifest_r3 <- write_new_abbrs(manifest_r3,
 #                                 long_name_chr = c("initial","ready4class R package","require","unvalidated"),
 #                                                    custom_plural_ls = NULL,

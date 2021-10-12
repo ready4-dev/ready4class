@@ -172,31 +172,32 @@ write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
 }
 write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                                        name_pfx_1L_chr,##
-                                       output_dir_1L_chr = "data-raw",
-                                       outp_sub_dir_1L_chr = NULL,
-                                       class_desc_1L_chr = "",
-                                       parent_cls_nm_1L_chr = NULL,
                                        slots_chr,
                                        type_chr,
-                                       meaningful_nms_ls = NULL,
-                                       vals_ls = NULL,
-                                       allowed_vals_ls = NULL,
-                                       clss_to_inc_chr = NULL,
                                        prototype_lup,
-                                       nss_to_ignore_chr = NA_character_,
-                                       req_pkgs_chr = NA_character_,
+                                       accessors_1L_lgl = F,
+                                       allowed_vals_ls = NULL,
+                                       asserts_ls = NULL,
+                                       class_desc_1L_chr = "",
+                                       class_in_cache_cdn_1L_chr = "stop",
+                                       clss_to_inc_chr = NULL,
+                                       consent_1L_chr = NULL,
+                                       meaningful_nms_ls = NULL,
+                                       object_type_lup,
+                                       output_dir_1L_chr = "data-raw",
+                                       outp_sub_dir_1L_chr = NULL,
                                        names_must_match_ls = NULL,
+                                       nss_to_ignore_chr = NA_character_,
+                                       parent_cls_nm_1L_chr = NULL,
+                                       req_pkgs_chr = NA_character_,
                                        slots_of_dif_lnts_chr = NULL,
+                                       vals_ls = NULL,
                                        helper_1L_lgl = F,
                                        print_set_cls_1L_lgl = TRUE,
-                                       #print_helper = TRUE,
                                        print_gtrs_strs_1L_lgl = TRUE,
                                        print_validator_1L_lgl = TRUE,
-                                       print_meaningful_nms_ls_1L_lgl = TRUE,
-                                       class_in_cache_cdn_1L_chr = "stop",
-                                       asserts_ls = NULL,
-                                       object_type_lup,
-                                       consent_1L_chr = NULL){
+                                       print_meaningful_nms_ls_1L_lgl = TRUE
+                                       ){
   if(!is.null(outp_sub_dir_1L_chr)){
     output_dir_1L_chr <- paste0(output_dir_1L_chr,
                                 "/",
@@ -254,14 +255,16 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
       ready4fun::close_open_sinks()
     }
   }
-  accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr,
-                                               parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                               print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,
-                                               output_dir_1L_chr = output_dir_1L_chr,
-                                               nss_to_ignore_chr = nss_to_ignore_chr,
-                                               req_pkgs_chr = req_pkgs_chr,
-                                               parent_ns_ls = parent_ns_ls)
-  eval(parse(text=accessors %>% replace_NA_in_fn()))
+  if(accessors_1L_lgl){
+    accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr,
+                                                 parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                                 print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl,
+                                                 output_dir_1L_chr = output_dir_1L_chr,
+                                                 nss_to_ignore_chr = nss_to_ignore_chr,
+                                                 req_pkgs_chr = req_pkgs_chr,
+                                                 parent_ns_ls = parent_ns_ls)
+    eval(parse(text=accessors %>% replace_NA_in_fn()))
+  }
   valid_txt <- make_alg_to_set_validity_of_r4_cls(class_nm_1L_chr = class_nm_1L_chr,
                                                   parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                   slots_of_dif_lnts_chr = slots_of_dif_lnts_chr,
@@ -491,10 +494,13 @@ write_script_to_make_mthd <- function(write_file_ls,
                                     force_from_opts_1L_chr = T)
     }
     if(consent_1L_chr == "Y"){
-    sink(write_file_ls$meth_file, append =  ifelse(identical(write_file_ls$gen_file,write_file_ls$meth_file),
+    sink(write_file_ls$meth_file,
+         append =  ifelse(identical(write_file_ls$gen_file,write_file_ls$meth_file),
                                                    T,
                                                    ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
-                                                                                "gen_std_s4_mthd"),T,write_file_ls$new_file_lgl)))
+                                                                                "gen_std_s4_mthd"),
+                                                          T,
+                                                          write_file_ls$new_file_lgl)))
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                                      fn_type_1L_chr = fn_type_1L_chr,
                                      fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
@@ -554,7 +560,7 @@ write_std_mthd <- function(fn,
                            append_1L_lgl = T,
                            first_1L_lgl = T){
   s3_1L_lgl = !isS4(eval(parse(text=paste0(class_nm_1L_chr,"()"))))
-  testit::assert("x" %in% formalArgs(fn))
+  testit::assert("x" %in% formalArgs(fn)) ## NB
   fn_type_chr <- paste0(c("gen_","meth_"),
                             "std_",
                             ifelse(s3_1L_lgl,"s3","s4"),
@@ -568,12 +574,12 @@ write_std_mthd <- function(fn,
                                            "/meth_",
                                            fn_name_1L_chr,
                                            ".R"))
+  ## START: IF GNRCS SUPPLIED MAKE CONDITIONAL
   curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
                                                           generic_1L_chr = fn_name_1L_chr,
                                                           nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
                                                                                  pkg_nm_1L_chr,
                                                                                  NA_character_))
-  ## NB: Ensure latest ready4 bundle (ready4dev and ready4mod) is installed.
   pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
                                                fn_name_1L_chr = fn_name_1L_chr,
                                                nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
@@ -581,13 +587,14 @@ write_std_mthd <- function(fn,
                                                                       NA_character_))
   gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
   imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr!=pkg_nm_1L_chr]
+  ## END
   if(identical(imports_chr,character(0)))
     imports_chr <- NA_character_
   write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = fn_name_1L_chr,
                                                        args_chr = c("x",
-                                                                        ifelse(length(formalArgs(fn))>1,
-                                                                               "...",
-                                                                               NA_character_)) %>%
+                                                                    ifelse(length(formalArgs(fn))>1,
+                                                                           "...",
+                                                                           NA_character_)) %>%
                                                          purrr::discard(is.na),
                                                        signature_1L_chr = signature_1L_chr,
                                                        pkg_nm_1L_chr = NA_character_,

@@ -9,7 +9,7 @@
 #' @importFrom dplyr mutate_at vars select mutate pull
 #' @importFrom purrr map map2 reduce
 #' @importFrom stringr str_remove
-#' @importFrom ready4fun renew
+#' @importFrom ready4 renew
 renew.ready4class_constructor <- function (x, type_1L_chr = "listify", name_pfx_1L_chr = NULL) 
 {
     if (type_1L_chr == "listify") {
@@ -37,7 +37,7 @@ renew.ready4class_constructor <- function (x, type_1L_chr = "listify", name_pfx_
 }
 #' @rdname renew-methods
 #' @aliases renew,ready4class_constructor-method
-#' @importFrom ready4fun renew
+#' @importFrom ready4 renew
 methods::setMethod("renew", methods::className("ready4class_constructor", package = "ready4class"), renew.ready4class_constructor)
 #' Renew method applied to ready4 S3 class Prototype Lookup Table of class metadata..
 #' @description renew.ready4class_pt_lup() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
@@ -49,7 +49,7 @@ methods::setMethod("renew", methods::className("ready4class_constructor", packag
 #' @export 
 #' @importFrom dplyr mutate select
 #' @importFrom purrr pmap_chr
-#' @importFrom ready4fun renew
+#' @importFrom ready4 renew
 renew.ready4class_pt_lup <- function (x, attached_nss_chr, type_1L_chr = "namespace") 
 {
     if (type_1L_chr == "namespace") {
@@ -63,5 +63,5 @@ renew.ready4class_pt_lup <- function (x, attached_nss_chr, type_1L_chr = "namesp
 }
 #' @rdname renew-methods
 #' @aliases renew,ready4class_pt_lup-method
-#' @importFrom ready4fun renew
+#' @importFrom ready4 renew
 methods::setMethod("renew", methods::className("ready4class_pt_lup", package = "ready4class"), renew.ready4class_pt_lup)

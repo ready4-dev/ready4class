@@ -1,3 +1,4 @@
+library(ready4)
 library(ready4fun)
 #ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
@@ -58,15 +59,15 @@ manifest_r3 <- pkg_desc_ls %>%
                            classify_1L_lgl = T, #######
                            custom_dmt_ls = ready4fun::make_custom_dmt_ls(),#####
                            copyright_holders_chr = "Orygen",
-                           dev_pkgs_chr = "ready4fun",
-                           import_from_chr = c("author" = "ready4fun","authorClasses" = "ready4fun","manufacture" = "ready4fun", "renew" = "ready4fun"),
+                           dev_pkgs_chr = c("ready4","ready4fun"),
+                           #import_from_chr = c("author" = "ready4fun","authorClasses" = "ready4fun","manufacture" = "ready4fun", "renew" = "ready4fun"),
                            lifecycle_stage_1L_chr = "experimental",
                            path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
                            pkg_dmt_dv_dss_chr = c("https://doi.org/10.7910/DVN/HLLXZN",
                                                   "https://doi.org/10.7910/DVN/2Y9VF9"),
                            ready4_type_1L_chr = "authoring")
 #pkg_ds_ls_ls <- NULL
-manifest_r3 <- ready4fun::author(manifest_r3,#
-                                 self_serve_1L_lgl = T,
-                                 self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
-                                                     args_ls = NULL))
+manifest_r3 <- ready4::author(manifest_r3,#
+                              self_serve_1L_lgl = T,
+                              self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+                                                      args_ls = NULL))

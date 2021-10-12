@@ -7,30 +7,31 @@
 write_scripts_to_mk_r4_cls(
   name_stub_1L_chr,
   name_pfx_1L_chr,
-  output_dir_1L_chr = "data-raw",
-  outp_sub_dir_1L_chr = NULL,
-  class_desc_1L_chr = "",
-  parent_cls_nm_1L_chr = NULL,
   slots_chr,
   type_chr,
-  meaningful_nms_ls = NULL,
-  vals_ls = NULL,
-  allowed_vals_ls = NULL,
-  clss_to_inc_chr = NULL,
   prototype_lup,
-  nss_to_ignore_chr = NA_character_,
-  req_pkgs_chr = NA_character_,
+  accessors_1L_lgl = F,
+  allowed_vals_ls = NULL,
+  asserts_ls = NULL,
+  class_desc_1L_chr = "",
+  class_in_cache_cdn_1L_chr = "stop",
+  clss_to_inc_chr = NULL,
+  consent_1L_chr = NULL,
+  meaningful_nms_ls = NULL,
+  object_type_lup,
+  output_dir_1L_chr = "data-raw",
+  outp_sub_dir_1L_chr = NULL,
   names_must_match_ls = NULL,
+  nss_to_ignore_chr = NA_character_,
+  parent_cls_nm_1L_chr = NULL,
+  req_pkgs_chr = NA_character_,
   slots_of_dif_lnts_chr = NULL,
+  vals_ls = NULL,
   helper_1L_lgl = F,
   print_set_cls_1L_lgl = TRUE,
   print_gtrs_strs_1L_lgl = TRUE,
   print_validator_1L_lgl = TRUE,
-  print_meaningful_nms_ls_1L_lgl = TRUE,
-  class_in_cache_cdn_1L_chr = "stop",
-  asserts_ls = NULL,
-  object_type_lup,
-  consent_1L_chr = NULL
+  print_meaningful_nms_ls_1L_lgl = TRUE
 )
 }
 \arguments{
@@ -38,35 +39,45 @@ write_scripts_to_mk_r4_cls(
 
 \item{name_pfx_1L_chr}{Name prefix (a character vector of length one)}
 
-\item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: 'data-raw'}
-
-\item{outp_sub_dir_1L_chr}{Output sub directory (a character vector of length one), Default: NULL}
-
-\item{class_desc_1L_chr}{Class description (a character vector of length one), Default: ''}
-
-\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one), Default: NULL}
-
 \item{slots_chr}{Slots (a character vector)}
 
 \item{type_chr}{Type (a character vector)}
 
-\item{meaningful_nms_ls}{Meaningful names (a list), Default: NULL}
+\item{prototype_lup}{Prototype (a lookup table)}
 
-\item{vals_ls}{Values (a list), Default: NULL}
+\item{accessors_1L_lgl}{Accessors (a logical vector of length one), Default: F}
 
 \item{allowed_vals_ls}{Allowed values (a list), Default: NULL}
 
+\item{asserts_ls}{Asserts (a list), Default: NULL}
+
+\item{class_desc_1L_chr}{Class description (a character vector of length one), Default: ''}
+
+\item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
+
 \item{clss_to_inc_chr}{Classes to include (a character vector), Default: NULL}
 
-\item{prototype_lup}{Prototype (a lookup table)}
+\item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 
-\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
+\item{meaningful_nms_ls}{Meaningful names (a list), Default: NULL}
 
-\item{req_pkgs_chr}{Require packages (a character vector), Default: 'NA'}
+\item{object_type_lup}{Object type (a lookup table)}
+
+\item{output_dir_1L_chr}{Output directory (a character vector of length one), Default: 'data-raw'}
+
+\item{outp_sub_dir_1L_chr}{Output sub directory (a character vector of length one), Default: NULL}
 
 \item{names_must_match_ls}{Names must match (a list), Default: NULL}
 
+\item{nss_to_ignore_chr}{Namespaces to ignore (a character vector), Default: 'NA'}
+
+\item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one), Default: NULL}
+
+\item{req_pkgs_chr}{Require packages (a character vector), Default: 'NA'}
+
 \item{slots_of_dif_lnts_chr}{Slots of different lengths (a character vector), Default: NULL}
+
+\item{vals_ls}{Values (a list), Default: NULL}
 
 \item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
 
@@ -77,14 +88,6 @@ write_scripts_to_mk_r4_cls(
 \item{print_validator_1L_lgl}{Print validator (a logical vector of length one), Default: TRUE}
 
 \item{print_meaningful_nms_ls_1L_lgl}{Print meaningful names list (a logical vector of length one), Default: TRUE}
-
-\item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
-
-\item{asserts_ls}{Asserts (a list), Default: NULL}
-
-\item{object_type_lup}{Object type (a lookup table)}
-
-\item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \description{
 write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

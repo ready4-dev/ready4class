@@ -403,30 +403,31 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @description write_scripts_to_mk_r4_cls() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make ready4 s4 class. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param name_stub_1L_chr Name stub (a character vector of length one)
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
-#' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'data-raw'
-#' @param outp_sub_dir_1L_chr Output sub directory (a character vector of length one), Default: NULL
-#' @param class_desc_1L_chr Class description (a character vector of length one), Default: ''
-#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one), Default: NULL
 #' @param slots_chr Slots (a character vector)
 #' @param type_chr Type (a character vector)
-#' @param meaningful_nms_ls Meaningful names (a list), Default: NULL
-#' @param vals_ls Values (a list), Default: NULL
-#' @param allowed_vals_ls Allowed values (a list), Default: NULL
-#' @param clss_to_inc_chr Classes to include (a character vector), Default: NULL
 #' @param prototype_lup Prototype (a lookup table)
-#' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
-#' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
+#' @param accessors_1L_lgl Accessors (a logical vector of length one), Default: F
+#' @param allowed_vals_ls Allowed values (a list), Default: NULL
+#' @param asserts_ls Asserts (a list), Default: NULL
+#' @param class_desc_1L_chr Class description (a character vector of length one), Default: ''
+#' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
+#' @param clss_to_inc_chr Classes to include (a character vector), Default: NULL
+#' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
+#' @param meaningful_nms_ls Meaningful names (a list), Default: NULL
+#' @param object_type_lup Object type (a lookup table)
+#' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'data-raw'
+#' @param outp_sub_dir_1L_chr Output sub directory (a character vector of length one), Default: NULL
 #' @param names_must_match_ls Names must match (a list), Default: NULL
+#' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
+#' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one), Default: NULL
+#' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param slots_of_dif_lnts_chr Slots of different lengths (a character vector), Default: NULL
+#' @param vals_ls Values (a list), Default: NULL
 #' @param helper_1L_lgl Helper (a logical vector of length one), Default: F
 #' @param print_set_cls_1L_lgl Print set class (a logical vector of length one), Default: TRUE
 #' @param print_gtrs_strs_1L_lgl Print getters setters (a logical vector of length one), Default: TRUE
 #' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: TRUE
 #' @param print_meaningful_nms_ls_1L_lgl Print meaningful names list (a logical vector of length one), Default: TRUE
-#' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
-#' @param asserts_ls Asserts (a list), Default: NULL
-#' @param object_type_lup Object type (a lookup table)
-#' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
 #' @rdname write_scripts_to_mk_r4_cls
 #' @export 
@@ -434,16 +435,16 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @importFrom stringr str_replace str_replace_all
 #' @importFrom devtools document load_all
 #' @keywords internal
-write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, output_dir_1L_chr = "data-raw", 
-    outp_sub_dir_1L_chr = NULL, class_desc_1L_chr = "", parent_cls_nm_1L_chr = NULL, 
-    slots_chr, type_chr, meaningful_nms_ls = NULL, vals_ls = NULL, 
-    allowed_vals_ls = NULL, clss_to_inc_chr = NULL, prototype_lup, 
-    nss_to_ignore_chr = NA_character_, req_pkgs_chr = NA_character_, 
-    names_must_match_ls = NULL, slots_of_dif_lnts_chr = NULL, 
-    helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
-    print_validator_1L_lgl = TRUE, print_meaningful_nms_ls_1L_lgl = TRUE, 
-    class_in_cache_cdn_1L_chr = "stop", asserts_ls = NULL, object_type_lup, 
-    consent_1L_chr = NULL) 
+write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots_chr, type_chr, 
+    prototype_lup, accessors_1L_lgl = F, allowed_vals_ls = NULL, 
+    asserts_ls = NULL, class_desc_1L_chr = "", class_in_cache_cdn_1L_chr = "stop", 
+    clss_to_inc_chr = NULL, consent_1L_chr = NULL, meaningful_nms_ls = NULL, 
+    object_type_lup, output_dir_1L_chr = "data-raw", outp_sub_dir_1L_chr = NULL, 
+    names_must_match_ls = NULL, nss_to_ignore_chr = NA_character_, 
+    parent_cls_nm_1L_chr = NULL, req_pkgs_chr = NA_character_, 
+    slots_of_dif_lnts_chr = NULL, vals_ls = NULL, helper_1L_lgl = F, 
+    print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
+    print_validator_1L_lgl = TRUE, print_meaningful_nms_ls_1L_lgl = TRUE) 
 {
     if (!is.null(outp_sub_dir_1L_chr)) {
         output_dir_1L_chr <- paste0(output_dir_1L_chr, "/", outp_sub_dir_1L_chr)
@@ -482,11 +483,13 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
             ready4fun::close_open_sinks()
         }
     }
-    accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr, 
-        parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl, 
-        output_dir_1L_chr = output_dir_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr, 
-        req_pkgs_chr = req_pkgs_chr, parent_ns_ls = parent_ns_ls)
-    eval(parse(text = accessors %>% replace_NA_in_fn()))
+    if (accessors_1L_lgl) {
+        accessors <- make_alg_to_write_gtr_str_mthds(class_nm_1L_chr = class_nm_1L_chr, 
+            parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl, 
+            output_dir_1L_chr = output_dir_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr, 
+            req_pkgs_chr = req_pkgs_chr, parent_ns_ls = parent_ns_ls)
+        eval(parse(text = accessors %>% replace_NA_in_fn()))
+    }
     valid_txt <- make_alg_to_set_validity_of_r4_cls(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_of_dif_lnts_chr = slots_of_dif_lnts_chr, 
         allowed_vals_ls = allowed_vals_ls, names_must_match_ls = names_must_match_ls, 

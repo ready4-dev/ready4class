@@ -44,11 +44,22 @@ make_alg_to_set_mthd <- function(name_1L_chr,
                                  fn_nm_1L_chr =  NA_character_,
                                  pkg_nm_1L_chr = NA_character_,
                                  where_1L_chr = NA_character_){
-  alg_to_set_mthd_1L_chr <- paste0('methods::setMethod(\"', name_1L_chr, '\"',
-         ', ',ifelse(is.na(pkg_nm_1L_chr[1]),paste0('\"',class_nm_1L_chr,'\"'),paste0(make_alg_to_gen_ref_to_cls(class_nm_1L_chr,pkg_nm_1L_chr=pkg_nm_1L_chr))),
-         ', ', ifelse(!is.na(fn_nm_1L_chr),fn_nm_1L_chr,transform_fn_into_chr(fn)),
-         ifelse(is.na(where_1L_chr[1]),'',paste0(',\nwhere =  ', where_1L_chr)),
-         ')')
+  alg_to_set_mthd_1L_chr <- paste0('methods::setMethod(\"',
+                                   name_1L_chr,
+                                   '\"',
+                                   ', ',
+                                   ifelse(is.na(pkg_nm_1L_chr[1]),
+                                          paste0('\"',class_nm_1L_chr,'\"'),
+                                          paste0(make_alg_to_gen_ref_to_cls(class_nm_1L_chr,
+                                                                            pkg_nm_1L_chr=pkg_nm_1L_chr))),
+                                   ', ',
+                                   ifelse(!is.na(fn_nm_1L_chr),
+                                          fn_nm_1L_chr,
+                                          transform_fn_into_chr(fn)),
+                                   ifelse(is.na(where_1L_chr[1]),
+                                          '',
+                                          paste0(',\nwhere =  ', where_1L_chr)),
+                                   ')')
   return(alg_to_set_mthd_1L_chr)
 }
 make_alg_to_set_old_clss <- function(type_chr,

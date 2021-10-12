@@ -9,7 +9,7 @@
 #' @importFrom dplyr mutate select
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
-#' @importFrom ready4fun manufacture
+#' @importFrom ready4 manufacture
 manufacture.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr, prefix_1L_chr) 
 {
     inst_ready4class_pt_lup <- x %>% dplyr::mutate(pfx_chr = ifelse(make_s3_lgl, 
@@ -24,5 +24,5 @@ manufacture.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr, prefix_1L
 }
 #' @rdname manufacture-methods
 #' @aliases manufacture,ready4class_constructor-method
-#' @importFrom ready4fun manufacture
+#' @importFrom ready4 manufacture
 methods::setMethod("manufacture", methods::className("ready4class_constructor", package = "ready4class"), manufacture.ready4class_constructor)

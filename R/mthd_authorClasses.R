@@ -82,5 +82,5 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
 }
 #' @rdname authorClasses-methods
 #' @aliases authorClasses,ready4class_constructor-method
-#' @importFrom ready4fun authorClasses
+#' @importFrom ready4 authorClasses
 methods::setMethod("authorClasses", methods::className("ready4class_constructor", package = "ready4class"), authorClasses.ready4class_constructor)
