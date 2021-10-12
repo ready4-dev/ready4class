@@ -41,7 +41,7 @@ author.ready4class_constructor <- function(x,
                                            force_from_opts_1L_chr = T)
   if(consent_1L_chr == "Y"){
     inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x),
-                                             .init = init_class_pt_lup %>% renew(dev_pkg_ns_1L_chr),
+                                             .init = init_class_pt_lup %>% ready4::renew(dev_pkg_ns_1L_chr),
                                              ~ ready4::author(.x,
                                                               row_idx_1L_int = .y,
                                                               make_tb = x,
