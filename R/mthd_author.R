@@ -16,6 +16,7 @@
 #' @rdname author-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm make_prompt author
+#' @importFrom ready4 renew author author
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
@@ -29,7 +30,8 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 {
     if (is.null(init_class_pt_lup)) 
         init_class_pt_lup <- prototype_lup
-    x <- renew(x, name_pfx_1L_chr = name_pfx_1L_chr, type_1L_chr = "order")
+    x <- ready4::renew(x, name_pfx_1L_chr = name_pfx_1L_chr, 
+        type_1L_chr = "order")
     if (file_exists_cdn_1L_chr == "overwrite") {
         write_to_delete_gnrc_fn_fls(x, output_dir_1L_chr = output_dir_1L_chr)
         purrr::walk(delete_cdn_ptrn_chr, ~write_to_delete_fls_with_ptrn(dir_1L_chr = output_dir_1L_chr, 
@@ -46,7 +48,7 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
         " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     if (consent_1L_chr == "Y") {
         inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x), .init = init_class_pt_lup %>% 
-            renew(dev_pkg_ns_1L_chr), ~author(.x, row_idx_1L_int = .y, 
+            renew(dev_pkg_ns_1L_chr), ~ready4::author(.x, row_idx_1L_int = .y, 
             make_tb = x, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             name_pfx_1L_chr = name_pfx_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
             file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
@@ -135,6 +137,7 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @importFrom Hmisc capitalize
 #' @importFrom ready4fun make_prompt author
 #' @importFrom stringi stri_replace_last
+#' @importFrom ready4 authorClasses author
 author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
@@ -154,7 +157,7 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
             " ?"), options_chr = c("Y", "N"), force_from_opts_1L_chr = T)
     }
     if (consent_1L_chr == "Y") {
-        authorClasses(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
+        ready4::authorClasses(make_tb, name_pfx_1L_chr = name_pfx_1L_chr, 
             output_dir_1L_chr = output_dir_1L_chr, file_exists_cdn_1L_chr = file_exists_cdn_1L_chr, 
             prototype_lup = x, nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, 
                 nss_to_ignore_chr), req_pkgs_chr = req_pkgs_chr, 

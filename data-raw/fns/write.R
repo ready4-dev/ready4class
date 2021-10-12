@@ -328,15 +328,15 @@ write_scripts_to_mk_clss <- function(pts_for_new_clss_ls,
   reset_pkg_files_R(pkg_nm_1L_chr,
                     description_ls = description_ls)
   pt_lup <- make_class_pts_tb(pts_for_new_clss_ls) %>%
-    author(dev_pkg_ns_1L_chr = pkg_nm_1L_chr,
-                    name_pfx_1L_chr = class_pfx_1L_chr,
-                    output_dir_1L_chr = R_dir_1L_chr,
-                    file_exists_cdn_1L_chr = "overwrite",
-                    init_class_pt_lup =  pt_lup,
-                    nss_to_ignore_chr = nss_to_ignore_chr,
-                    req_pkgs_chr = req_pkgs_chr, ## Need to implement new delete package logic now documenting and loading package with each new class.
-                    class_in_cache_cdn_1L_chr = "overwrite",
-                    object_type_lup = object_type_lup)
+    author.ready4class_pt_lup(dev_pkg_ns_1L_chr = pkg_nm_1L_chr,
+                              name_pfx_1L_chr = class_pfx_1L_chr,
+                              output_dir_1L_chr = R_dir_1L_chr,
+                              file_exists_cdn_1L_chr = "overwrite",
+                              init_class_pt_lup =  pt_lup,
+                              nss_to_ignore_chr = nss_to_ignore_chr,
+                              req_pkgs_chr = req_pkgs_chr, ## Need to implement new delete package logic now documenting and loading package with each new class.
+                              class_in_cache_cdn_1L_chr = "overwrite",
+                              object_type_lup = object_type_lup)
   usethis::use_data(pt_lup,overwrite = T)
   ready4fun::write_pt_lup_db()
   devtools::document()

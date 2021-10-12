@@ -1,6 +1,5 @@
-library(ready4)
 library(magrittr)
-#library(ready4fun)
+library(ready4)
 #ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
                             pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health models.
@@ -46,11 +45,11 @@ classes_to_make_tb <- tibble::tribble(
                                                                           fn_to_call_chr = "character(0)",
                                                                           default_val_chr = "character(0)",
                                                                           old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
-  TRUE, "manifest", list("list"), list("is."), list("base"), list(manifest_r3 = "ready4fun::ready4fun_manifest()",
+  TRUE, "manifest", list("list"), list("is."), list("base"), list(x_ready4fun_manifest = "ready4fun::ready4fun_manifest()",
                                                                   constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
-manifest_r3 <- pkg_desc_ls %>%
+x_ready4fun_manifest <- pkg_desc_ls %>%
   ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
                            build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                            check_type_1L_chr = "ready4",
@@ -68,7 +67,7 @@ manifest_r3 <- pkg_desc_ls %>%
                                                   "https://doi.org/10.7910/DVN/2Y9VF9"),
                            ready4_type_1L_chr = "authoring")
 #pkg_ds_ls_ls <- NULL
-manifest_r3 <- ready4::author(manifest_r3,#
-                              self_serve_1L_lgl = T,
-                              self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
-                                                      args_ls = NULL))
+x_ready4fun_manifest <- ready4::author(x_ready4fun_manifest,#
+                                       self_serve_1L_lgl = T,
+                                       self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
+                                                               args_ls = NULL))

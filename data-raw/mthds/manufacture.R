@@ -15,7 +15,7 @@ manufacture.ready4class_constructor <- function(x,
                   old_class_lgl = make_s3_lgl) %>%
     dplyr::select(type_chr,  val_chr, pt_ns_chr, fn_to_call_chr,default_val_chr,old_class_lgl) %>%
     ready4class_pt_lup() %>%
-    renew(attached_nss_chr = dev_pkg_ns_1L_chr)
+    ready4::renew(attached_nss_chr = dev_pkg_ns_1L_chr)
   return(inst_ready4class_pt_lup)
 }
 

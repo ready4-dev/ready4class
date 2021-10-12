@@ -5,12 +5,12 @@
 \title{Make prototype ready4class package manifest ready4 S3 class Manifest.}
 \usage{
 make_pt_ready4class_manifest(
-  manifest_r3 = ready4fun::ready4fun_manifest(),
+  x_ready4fun_manifest = ready4fun::ready4fun_manifest(),
   constructor_r3 = ready4class_constructor()
 )
 }
 \arguments{
-\item{manifest_r3}{Manifest (a ready4 S3), Default: ready4fun::ready4fun_manifest()}
+\item{x_ready4fun_manifest}{PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()}
 
 \item{constructor_r3}{Constructor (a ready4 S3), Default: ready4class_constructor()}
 }

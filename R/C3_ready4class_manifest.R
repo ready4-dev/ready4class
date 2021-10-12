@@ -24,7 +24,7 @@ x
 }
 #' Make prototype ready4class package manifest ready4 S3 class Manifest.
 #' @description Create a new prototype for the ready4 S3 class Manifest.
-#' @param manifest_r3 Manifest (a ready4 S3), Default: ready4fun::ready4fun_manifest()
+#' @param x_ready4fun_manifest PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()
 #' @param constructor_r3 Constructor (a ready4 S3), Default: ready4class_constructor()
 #' @return A prototype for ready4 S3 class Manifest.
 #' @details ready4 S3 class Manifest.
@@ -32,9 +32,9 @@ x
 #' @export 
 #' @importFrom ready4fun ready4fun_manifest update_pt_fn_args_ls
 #' @importFrom rlang exec
-make_pt_ready4class_manifest <- function(manifest_r3 = ready4fun::ready4fun_manifest(),
+make_pt_ready4class_manifest <- function(x_ready4fun_manifest = ready4fun::ready4fun_manifest(),
 constructor_r3 = ready4class_constructor()){ 
-args_ls <- list(manifest_r3 = manifest_r3,
+args_ls <- list(x_ready4fun_manifest = x_ready4fun_manifest,
 constructor_r3 = constructor_r3) %>% ready4fun::update_pt_fn_args_ls()
 rlang::exec(list,!!!args_ls)
 }
