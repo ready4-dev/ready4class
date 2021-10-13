@@ -86,27 +86,27 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL) 
 {
     if (is.null(init_class_pt_lup)) {
-        if (is.null(x$manifest_r3$subsequent_ls$prototype_lup)) {
-            x$manifest_r3 <- ready4fun::add_new_cls_pts(x$manifest_r3)
+        if (is.null(x$x_ready4fun_manifest$subsequent_ls$prototype_lup)) {
+            x$x_ready4fun_manifest <- ready4fun::add_new_cls_pts(x$x_ready4fun_manifest)
         }
-        init_class_pt_lup <- x$manifest_r3$subsequent_ls$prototype_lup
+        init_class_pt_lup <- x$x_ready4fun_manifest$subsequent_ls$prototype_lup
     }
     else {
-        x$manifest_r3$subsequent_ls$prototype_lup <- init_class_pt_lup
+        x$x_ready4fun_manifest$subsequent_ls$prototype_lup <- init_class_pt_lup
     }
-    x$manifest_r3$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3, 
-        dev_pkg_ns_1L_chr = x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
-        name_pfx_1L_chr = paste0(x$manifest_r3$initial_ls$pkg_desc_ls$Package, 
-            "_"), output_dir_1L_chr = paste0(x$manifest_r3$initial_ls$path_to_pkg_rt_1L_chr, 
+    x$x_ready4fun_manifest$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3, 
+        dev_pkg_ns_1L_chr = x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package, 
+        name_pfx_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package, 
+            "_"), output_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr, 
             "/R"), delete_cdn_ptrn_chr = NA_character_, file_exists_cdn_1L_chr = "overwrite", 
         init_class_pt_lup = init_class_pt_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
         req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = "stop", 
-        abbreviations_lup = x$manifest_r3$subsequent_ls$abbreviations_lup, 
-        object_type_lup = x$manifest_r3$subsequent_ls$object_type_lup), 
+        abbreviations_lup = x$x_ready4fun_manifest$subsequent_ls$abbreviations_lup, 
+        object_type_lup = x$x_ready4fun_manifest$subsequent_ls$object_type_lup), 
         fn = author.ready4class_constructor) %>% ready4fun::ready4fun_executor()
-    x_ready4fun_manifest <- ready4::author(x$manifest_r3, key_1L_chr = key_1L_chr, 
-        list_generics_1L_lgl = list_generics_1L_lgl, self_serve_1L_lgl = self_serve_1L_lgl, 
-        self_serve_fn_ls = self_serve_fn_ls)
+    x_ready4fun_manifest <- ready4::author(x$x_ready4fun_manifest, 
+        key_1L_chr = key_1L_chr, list_generics_1L_lgl = list_generics_1L_lgl, 
+        self_serve_1L_lgl = self_serve_1L_lgl, self_serve_fn_ls = self_serve_fn_ls)
     return(x_ready4fun_manifest)
 }
 #' @rdname author-methods

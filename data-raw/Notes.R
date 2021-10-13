@@ -1,9 +1,9 @@
-# manifest_r3$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
-# manifest_r3 <- ready4fun::validate_pkg_setup(manifest_r3)
-# manifest_r3 <- renew(manifest_r3,
+# x_ready4fun_manifest$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
+# x_ready4fun_manifest <- ready4fun::validate_pkg_setup(x_ready4fun_manifest)
+# x_ready4fun_manifest <- renew(x_ready4fun_manifest,
 #                                         type_1L_chr = "words",
 #                                         are_words_chr = c("accessors"))
-# manifest_r3 <- write_new_abbrs(manifest_r3,
+# x_ready4fun_manifest <- write_new_abbrs(x_ready4fun_manifest,
 #                                 long_name_chr = c("initial","ready4class R package","require","unvalidated"),
 #                                                    custom_plural_ls = NULL,
 #                                                    no_plural_chr = c("ready4class package","unvalidated"))
@@ -29,3 +29,10 @@
 # https://sahirbhatnagar.com/blog/2020/03/03/creating-a-website-for-your-r-package/
 # 15. Manual step: Push changes
 ## NOTE TO SELF: Need to implement variant of local git step outlined here: https://pkgdown.r-lib.org/reference/deploy_site_github.html
+# pkg_clss_chr <- x_ready4fun_manifest$subsequent_ls$prototype_lup %>% dplyr::filter(pt_ns_chr == "ready4use") %>% dplyr::pull(type_chr)
+# prototype_lup <- x_ready4fun_manifest$subsequent_ls$prototype_lup %>%
+#   dplyr::filter(!type_chr %in% pkg_clss_chr[1:8])
+# write_env_objs_to_dv(list(prototype_lup = prototype_lup),
+#                      descriptions_chr = "Class prototype lookup table",
+#                      ds_url_1L_chr = "https://doi.org/10.7910/DVN/2Y9VF9",
+#                      publish_dv_1L_lgl = T)
