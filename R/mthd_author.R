@@ -15,8 +15,8 @@
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt author
-#' @importFrom ready4 renew author author
+#' @importFrom ready4fun get_dev_pkg_nm make_prompt
+#' @importFrom ready4 renew author
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
@@ -79,8 +79,8 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @return X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor author
-#' @importFrom ready4 author author
+#' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor
+#' @importFrom ready4 author
 author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr = Sys.getenv("DATAVERSE_KEY"), 
     list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL) 
@@ -135,7 +135,7 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
-#' @importFrom ready4fun make_prompt author
+#' @importFrom ready4fun make_prompt
 #' @importFrom stringi stri_replace_last
 #' @importFrom ready4 authorClasses author
 author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
