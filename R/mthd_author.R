@@ -15,8 +15,8 @@
 #' @return Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 #' @rdname author-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt
-#' @importFrom ready4 renew author
+#' @importFrom ready4fun get_dev_pkg_nm
+#' @importFrom ready4 renew make_prompt author
 #' @importFrom purrr walk map_chr reduce
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
@@ -41,7 +41,7 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
         "C3_", "C4_")), purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
         name_pfx_1L_chr, stringr::str_sub(name_pfx_1L_chr, end = -2) %>% 
             Hmisc::capitalize())), x$name_stub_chr, ".R")
-    consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+    consent_1L_chr <- ready4::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
         ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
             paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
             " and"), " to the directory ", output_dir_1L_chr, 
@@ -135,9 +135,8 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
-#' @importFrom ready4fun make_prompt
+#' @importFrom ready4 make_prompt authorClasses author
 #' @importFrom stringi stri_replace_last
-#' @importFrom ready4 authorClasses author
 author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L_chr, name_pfx_1L_chr, 
     output_dir_1L_chr, file_exists_cdn_1L_chr, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
@@ -150,7 +149,7 @@ author.ready4class_pt_lup <- function (x, row_idx_1L_int, make_tb, dev_pkg_ns_1L
             ~ifelse(.x, name_pfx_1L_chr, stringr::str_sub(name_pfx_1L_chr, 
                 end = -2) %>% Hmisc::capitalize())), make_tb$name_stub_chr, 
             ".R")
-        consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+        consent_1L_chr <- ready4::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
             ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
                 paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
                 " and"), " to the directory ", output_dir_1L_chr, 

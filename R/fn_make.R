@@ -84,7 +84,7 @@ make_alg_to_set_mthd <- function (name_1L_chr, class_nm_1L_chr, fn = NULL, fn_nm
 #' @rdname make_alg_to_set_old_clss
 #' @export 
 #' @importFrom purrr map_lgl map_chr
-#' @importFrom ready4fun get_from_lup_obj
+#' @importFrom ready4 get_from_lup_obj
 #' @importFrom stringr str_c
 #' @keywords internal
 make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL) 
@@ -93,9 +93,9 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
         index_of_s3_lgl <- T
     }
     else {
-        index_of_s3_lgl <- purrr::map_lgl(type_chr, ~ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
+        index_of_s3_lgl <- purrr::map_lgl(type_chr, ~ready4::get_from_lup_obj(data_lookup_tb = prototype_lup, 
             match_var_nm_1L_chr = "type_chr", match_value_xx = .x, 
-            target_var_nm_1L_chr = "old_class_lgl", evaluate_lgl = FALSE))
+            target_var_nm_1L_chr = "old_class_lgl", evaluate_1L_lgl = FALSE))
     }
     if (!identical(type_chr[index_of_s3_lgl], character(0))) {
         alg_to_set_old_clss_1L_chr <- purrr::map_chr(type_chr[index_of_s3_lgl], 
@@ -121,7 +121,7 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
 #' @return Algorithm to set validity of ready4 S4 class (a character vector of length one)
 #' @rdname make_alg_to_set_validity_of_r4_cls
 #' @export 
-#' @importFrom ready4fun get_r4_obj_slots
+#' @importFrom ready4 get_r4_obj_slots
 #' @importFrom purrr map_chr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom stringi stri_replace_last
@@ -131,10 +131,10 @@ make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1
     asserts_ls = NULL) 
 {
     same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
-    all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% 
+    all_slots <- ready4::get_r4_obj_slots(class_nm_1L_chr) %>% 
         names()
     if (!is.null(parent_cls_nm_1L_chr)) {
-        parental_slots <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% 
+        parental_slots <- ready4::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% 
             names()
         all_slots <- all_slots[!all_slots %in% parental_slots]
     }
@@ -199,19 +199,19 @@ make_alg_to_set_validity_of_r4_cls <- function (class_nm_1L_chr, parent_cls_nm_1
 #' @return Algorithm to write getter setter (methods)
 #' @rdname make_alg_to_write_gtr_str_mthds
 #' @export 
-#' @importFrom ready4fun get_r4_obj_slots
+#' @importFrom ready4 get_r4_obj_slots
 #' @importFrom stringr str_c
 #' @keywords internal
 make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, print_gtrs_strs_1L_lgl, 
     output_dir_1L_chr, nss_to_ignore_chr, req_pkgs_chr, parent_ns_ls) 
 {
-    slot_names_chr <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% 
+    slot_names_chr <- ready4::get_r4_obj_slots(class_nm_1L_chr) %>% 
         names()
     if (is.null(parent_cls_nm_1L_chr)) {
         set_only_chr <- ""
     }
     else {
-        set_only_chr <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr, 
+        set_only_chr <- ready4::get_r4_obj_slots(parent_cls_nm_1L_chr, 
             package_1L_chr = transform_parent_ns_ls(parent_ns_ls)) %>% 
             names()
     }
@@ -782,16 +782,16 @@ make_one_row_pt_tb_for_new_r4_cls <- function (x)
 #' @rdname make_pt_ls
 #' @export 
 #' @importFrom purrr map2_chr pmap_chr
-#' @importFrom ready4fun get_from_lup_obj
+#' @importFrom ready4 get_from_lup_obj
 #' @importFrom stringr str_c
 #' @keywords internal
 make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_lgl = TRUE, 
     prototype_lup) 
 {
     pt_ls <- purrr::map2_chr(slots_chr, type_chr, ~paste0(.x, 
-        " = ", ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup, 
+        " = ", ready4::get_from_lup_obj(data_lookup_tb = prototype_lup, 
             match_var_nm_1L_chr = "type_chr", match_value_xx = .y, 
-            target_var_nm_1L_chr = "val_chr", evaluate_lgl = FALSE)))
+            target_var_nm_1L_chr = "val_chr", evaluate_1L_lgl = FALSE)))
     if (!is.null(vals_ls)) {
         pt_ls <- purrr::pmap_chr(list(slots_chr, pt_ls, 1:length(pt_ls)), 
             ~{

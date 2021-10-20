@@ -29,7 +29,7 @@ author.ready4class_constructor <- function(x,
                                                    Hmisc::capitalize())),
                           x$name_stub_chr,
                           ".R")
-  consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+  consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
                                                                 ifelse(length(new_files_chr)>1,"s "," "),
                                                                 new_files_chr %>%
                                                                   paste0(collapse = ", ") %>%
@@ -85,7 +85,7 @@ author.ready4class_pt_lup <- function(x,
                                                      Hmisc::capitalize())),
                             make_tb$name_stub_chr,
                             ".R")
-    consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+    consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
                                                                   ifelse(length(new_files_chr)>1,"s "," "),
                                                                   new_files_chr %>%
                                                                     paste0(collapse = ", ") %>%

@@ -1,4 +1,4 @@
-# x_ready4fun_manifest$subsequent_ls$prototype_lup <- ready4fun::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
+# x_ready4fun_manifest$subsequent_ls$prototype_lup <- ready4::get_rds_from_dv("prototype_lup") # Add to pkg_set_up logic (inc validation)
 # x_ready4fun_manifest <- ready4fun::validate_pkg_setup(x_ready4fun_manifest)
 # x_ready4fun_manifest <- renew(x_ready4fun_manifest,
 #                                         type_1L_chr = "words",

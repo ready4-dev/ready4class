@@ -1,4 +1,3 @@
-library(magrittr)
 library(ready4)
 #ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Simulations",
@@ -50,7 +49,7 @@ classes_to_make_tb <- tibble::tribble(
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 x <- pkg_desc_ls %>%
-  ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(suggests_chr = "rmarkdown"),
+  ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(depends_chr = "ready4",suggests_chr = "rmarkdown"),
                            build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                            check_type_1L_chr = "ready4",
                            cls_fn_ls = ready4fun::make_pt_ready4fun_executor(args_ls = list(x = classes_to_make_tb),#

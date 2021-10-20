@@ -15,13 +15,13 @@
 #' @return NULL
 #' @rdname authorClasses-methods
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_prompt
+#' @importFrom ready4fun get_dev_pkg_nm
 #' @importFrom purrr map_chr pwalk flatten_chr
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
+#' @importFrom ready4 make_prompt authorClasses
 #' @importFrom stringi stri_replace_last
 #' @importFrom dplyr filter
-#' @importFrom ready4 authorClasses
 authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr, req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
@@ -32,7 +32,7 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
         name_pfx_1L_chr, stringr::str_sub(name_pfx_1L_chr, end = -2) %>% 
             Hmisc::capitalize())), x$name_stub_chr, ".R")
     if (is.null(consent_1L_chr)) {
-        consent_1L_chr <- ready4fun::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
+        consent_1L_chr <- ready4::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file", 
             ifelse(length(new_files_chr) > 1, "s ", " "), new_files_chr %>% 
                 paste0(collapse = ", ") %>% stringi::stri_replace_last(fixed = ",", 
                 " and"), " to the directory ", output_dir_1L_chr, 

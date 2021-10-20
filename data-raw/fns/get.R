@@ -11,11 +11,11 @@ get_class_fl_nms <- function(class_names_chr,
 }
 get_class_ns <- function(prototype_lup,
                          class_nm_1L_chr){
-  class_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+  class_ns_1L_chr <- ready4::get_from_lup_obj(data_lookup_tb = prototype_lup,
                               match_var_nm_1L_chr = "type_chr",
                               match_value_xx = class_nm_1L_chr,
                               target_var_nm_1L_chr = "pt_ns_chr",
-                              evaluate_lgl = F)
+                              evaluate_1L_lgl = F)
   return(class_ns_1L_chr)
 }
 get_nms_of_clss_to_inc <- function(parent_cls_nm_1L_chr,
@@ -66,16 +66,16 @@ get_parent_cls_ns <- function(prototype_lup,
 get_parent_cls_pt_fn <- function(parent_cls_nm_1L_chr,
                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
                                  prototype_lup){
-  parent_cls_pt_fn_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+  parent_cls_pt_fn_1L_chr <- ready4::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                      match_var_nm_1L_chr = "type_chr",
                                                      match_value_xx = parent_cls_nm_1L_chr,
                                                      target_var_nm_1L_chr = "val_chr",
-                                                     evaluate_lgl = F)
-  parent_ns_1L_chr <- ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                                     evaluate_1L_lgl = F)
+  parent_ns_1L_chr <- ready4::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                   match_var_nm_1L_chr = "type_chr",
                                                   match_value_xx = parent_cls_nm_1L_chr,
                                                   target_var_nm_1L_chr = "pt_ns_chr",
-                                                  evaluate_lgl = F)
+                                                  evaluate_1L_lgl = F)
   if(!parent_ns_1L_chr %in% c("base",dev_pkg_ns_1L_chr) & !startsWith(parent_cls_pt_fn_1L_chr,paste0(parent_ns_1L_chr,"::")))
     parent_cls_pt_fn_1L_chr <- paste0(parent_ns_1L_chr,"::",parent_cls_pt_fn_1L_chr)
   return(parent_cls_pt_fn_1L_chr)
@@ -90,7 +90,7 @@ get_parent_cls_pts <- function(parent_cls_nm_1L_chr,
                    parent_ns_ls$transformed_1L_chr!="")))
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_1L_chr)
   parent_cls_pts_chr <- purrr::map_chr(slot_names_chr,
-                                       ~ ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
+                                       ~ ready4::get_r4_obj_slots(parent_cls_nm_1L_chr,
                                                                      package_1L_chr = transform_parent_ns_ls(parent_ns_ls))[[.x]])
   return(parent_cls_pts_chr)
 }
@@ -102,7 +102,7 @@ get_parent_cls_slot_nms <- function(parent_cls_nm_1L_chr,
                    F,
                    parent_ns_ls$transformed_1L_chr!="")))
     ready4fun::force_instl_of_reqd_pkg(parent_ns_ls$transformed_1L_chr)
-  parent_cls_slot_nms_chr <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
+  parent_cls_slot_nms_chr <- ready4::get_r4_obj_slots(parent_cls_nm_1L_chr,
                                   package = transform_parent_ns_ls(parent_ns_ls)) %>% names()
   return(parent_cls_slot_nms_chr)
 }

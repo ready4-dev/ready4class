@@ -68,11 +68,11 @@ make_alg_to_set_old_clss <- function(type_chr,
     index_of_s3_lgl <- T
   }else{
     index_of_s3_lgl <- purrr::map_lgl(type_chr,
-                                      ~ ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                      ~ ready4::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                                     match_var_nm_1L_chr = "type_chr",
                                                                     match_value_xx = .x,
                                                                     target_var_nm_1L_chr = "old_class_lgl",
-                                                                    evaluate_lgl = FALSE)
+                                                                    evaluate_1L_lgl = FALSE)
     )
   }
   if(!identical(type_chr[index_of_s3_lgl],character(0))){
@@ -96,9 +96,9 @@ make_alg_to_set_validity_of_r4_cls <- function(class_nm_1L_chr,
                                                print_validator_1L_lgl = FALSE,
                                                asserts_ls = NULL){
   same_lnt_cdn_1L_chr <- allowed_cdn_chr <- names_inc_chr <- NA_character_
-  all_slots <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% names()
+  all_slots <- ready4::get_r4_obj_slots(class_nm_1L_chr) %>% names()
   if(!is.null(parent_cls_nm_1L_chr)){
-    parental_slots <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% names()
+    parental_slots <- ready4::get_r4_obj_slots(parent_cls_nm_1L_chr) %>% names()
     all_slots <- all_slots[! all_slots %in% parental_slots]
   }
   if(!is.null(slots_of_dif_lnts_chr)){
@@ -204,11 +204,11 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                                             nss_to_ignore_chr,
                                             req_pkgs_chr,
                                             parent_ns_ls){
-  slot_names_chr <- ready4fun::get_r4_obj_slots(class_nm_1L_chr) %>% names()
+  slot_names_chr <- ready4::get_r4_obj_slots(class_nm_1L_chr) %>% names()
   if(is.null(parent_cls_nm_1L_chr)){
     set_only_chr <- ""
   }else{
-    set_only_chr  <- ready4fun::get_r4_obj_slots(parent_cls_nm_1L_chr,
+    set_only_chr  <- ready4::get_r4_obj_slots(parent_cls_nm_1L_chr,
                                           package_1L_chr = transform_parent_ns_ls(parent_ns_ls)) %>% names()
   }
   alg_to_write_gtr_str_mthds <- paste0("write_gtr_str_mthds_for_slots(",
@@ -743,11 +743,11 @@ make_pt_ls <- function(slots_chr,
                               type_chr,
                               ~ paste0(.x,
                                        ' = ',
-                                       ready4fun::get_from_lup_obj(data_lookup_tb = prototype_lup,
+                                       ready4::get_from_lup_obj(data_lookup_tb = prototype_lup,
                                                                    match_var_nm_1L_chr = "type_chr",
                                                                    match_value_xx = .y,
                                                                    target_var_nm_1L_chr = "val_chr",
-                                                                   evaluate_lgl = FALSE)
+                                                                   evaluate_1L_lgl = FALSE)
                               ))
   if(!is.null(vals_ls)){
     pt_ls <- purrr::pmap_chr(list(slots_chr,

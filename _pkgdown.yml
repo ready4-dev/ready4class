@@ -9,7 +9,7 @@ home:
 development:
   mode: auto
 reference:
-- title: "Classes"
+- title: "S3 Classes"
 - contents:
   - ready4class_constructor
   - ready4class_pt_lup
