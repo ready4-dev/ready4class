@@ -3,7 +3,7 @@
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param type_1L_chr Type (a character vector of length one), Default: 'listify'
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: NULL
-#' @return NA ()
+#' @return x (An object)
 #' @rdname renew-methods
 #' @export 
 #' @importFrom dplyr mutate_at vars select mutate pull
@@ -44,7 +44,7 @@ methods::setMethod("renew", methods::className("ready4class_constructor", packag
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param attached_nss_chr Attached namespaces (a character vector)
 #' @param type_1L_chr Type (a character vector of length one), Default: 'namespace'
-#' @return NA ()
+#' @return x (An object)
 #' @rdname renew-methods
 #' @export 
 #' @importFrom dplyr mutate select

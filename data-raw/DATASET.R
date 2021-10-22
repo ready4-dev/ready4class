@@ -21,7 +21,7 @@ pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend An
                             urls_chr = c("https://ready4-dev.github.io/ready4class/",
                                          "https://github.com/ready4-dev/ready4class",
                                          "https://www.ready4-dev.com/"))
-classes_to_make_tb <- tibble::tribble(
+constructor_tb <- tibble::tribble(
   ~ make_s3_lgl, ~ name_stub_chr, ~ pt_ls, ~ pt_chkr_pfx_ls, ~ pt_ns_ls, ~ vals_ls, ~ allowed_vals_ls, ~ min_max_vals_ls, ~ start_end_vals_ls, ~ class_desc_chr, ~ parent_class_chr, ~ slots_ls, ~ meaningful_nms_ls, ~ inc_clss_ls, ~ asserts_ls,
   TRUE, "constructor", list("tibble"), list("is_"), list("tibble"), list(make_s3_lgl = "logical(0)",
                                                                              name_stub_chr = "character(0)",
@@ -45,14 +45,26 @@ classes_to_make_tb <- tibble::tribble(
                                                                           default_val_chr = "character(0)",
                                                                           old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
   TRUE, "manifest", list("list"), list("is."), list("base"), list(x_ready4fun_manifest = "ready4fun::ready4fun_manifest()",
-                                                                  constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL )
+                                                                  constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL)
+# ready4class::make_pt_ready4class_constructor(make_s3_lgl = FALSE,
+#                                              name_stub_chr = "TestClass",
+#                                              slots_ls = c("name","age") %>% list(),
+#                                              pt_ls = c("character","numeric") %>% list(),
+#                                              #vals_ls = list(write_type_1L_chr ="raw"),
+#                                              #allowed_vals_ls = list(write_type_1L_chr = "raw"),
+#                                              class_desc_chr= "ready4 S4 class defining data for a test.",
+#                                              #parent_class_chr = "Ready4useFiles",
+#                                              #inc_clss_ls = list("Ready4useFiles")
+#                                              ) -> test_tb
+# constructor_tb <- dplyr::bind_rows(constructor_tb,
+#                                    test_tb)
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 x <- pkg_desc_ls %>%
   ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(depends_chr = "ready4",suggests_chr = "rmarkdown"),
                            build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                            check_type_1L_chr = "ready4",
-                           cls_fn_ls = ready4fun::make_pt_ready4fun_executor(args_ls = list(x = classes_to_make_tb),#
+                           cls_fn_ls = ready4fun::make_pt_ready4fun_executor(args_ls = list(x = constructor_tb),#
                                                                              fn =  fns_env_ls$fns_env$author.ready4class_constructor) %>%
                              ready4fun::ready4fun_executor(),
                            custom_dmt_ls = ready4fun::make_custom_dmt_ls(),

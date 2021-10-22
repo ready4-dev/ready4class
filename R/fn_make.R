@@ -578,9 +578,11 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
     gnrc_mthd_pair_ls <- list(generic_1L_chr = make_alg_to_set_gnrc(name_1L_chr, 
         args_chr = args_chr, signature_1L_chr = signature_1L_chr, 
         where_1L_chr = where_1L_chr), method_chr = make_alg_to_set_mthd(name_1L_chr, 
-        class_nm_1L_chr = class_nm_1L_chr, fn = fn, pkg_nm_1L_chr = pkg_nm_1L_chr, 
+        class_nm_1L_chr = class_nm_1L_chr, fn = fn, fn_nm_1L_chr = ifelse(is.character(fn), 
+            fn, NA_character_), pkg_nm_1L_chr = pkg_nm_1L_chr, 
         where_1L_chr = where_1L_chr), gen_fn_chr = make_gnrc_fn(name_1L_chr, 
-        args_chr = args_chr), meth_fn_chr = transform_fn_into_chr(fn))
+        args_chr = args_chr), meth_fn_chr = ifelse(is.character(fn), 
+        fn, transform_fn_into_chr(fn)))
     return(gnrc_mthd_pair_ls)
 }
 #' Make helper function

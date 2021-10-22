@@ -25,7 +25,8 @@ write_scripts_to_make_gnrc_and_mthd(
   overwrite_1L_lgl = F,
   s3_1L_lgl,
   write_1L_lgl,
-  object_type_lup = NULL
+  object_type_lup = NULL,
+  import_from_chr = NA_character_
 )
 }
 \arguments{
@@ -70,6 +71,8 @@ write_scripts_to_make_gnrc_and_mthd(
 \item{write_1L_lgl}{Write (a logical vector of length one)}
 
 \item{object_type_lup}{Object type (a lookup table), Default: NULL}
+
+\item{import_from_chr}{Import from (a character vector), Default: 'NA'}
 }
 \description{
 write_scripts_to_make_gnrc_and_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write scripts to make generic and method. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

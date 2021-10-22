@@ -96,6 +96,45 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
         pkg_nm_1L_chr = pkg_nm_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
         signature_1L_chr = ..8, append_1L_lgl = ..10, first_1L_lgl = ..9))
 }
+#' Write ready4 S4 methods
+#' @description write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns Writen files (a list of lists).
+#' @param s4_mthds_ls S4 methods (a list)
+#' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: character(0)
+#' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
+#' @param import_from_chr Import from (a character vector), Default: character(0)
+#' @return Writen files (a list of lists)
+#' @rdname write_r4_mthds
+#' @export 
+#' @importFrom ready4fun get_dev_pkg_nm make_gnrc_imports
+#' @importFrom purrr map2
+#' @keywords internal
+write_r4_mthds <- function (s4_mthds_ls, pkg_nm_1L_chr = character(0), output_dir_1L_chr = "R", 
+    import_from_chr = character(0)) 
+{
+    if (identical(pkg_nm_1L_chr, character(0))) 
+        pkg_nm_1L_chr <- ready4fun::get_dev_pkg_nm()
+    if (identical(import_from_chr, character(0))) 
+        import_from_chr <- ready4fun::make_gnrc_imports()
+    writen_files_ls_ls <- purrr::map2(s4_mthds_ls, names(s4_mthds_ls), 
+        ~{
+            fn_name_1L_chr <- .y
+            classes_chr <- names(.x)
+            fns_chr <- unname(.x)
+            purrr::map2(classes_chr, fns_chr, ~{
+                class_nm_1L_chr <- .x
+                fn <- eval(parse(text = .y))
+                fn_desc_chr <- rep(paste0(fn_name_1L_chr, " method applied to ", 
+                  class_nm_1L_chr), 2)
+                fn_outp_type_1L_chr <- ""
+                write_std_mthd(fn, fn_name_1L_chr = fn_name_1L_chr, 
+                  class_nm_1L_chr = class_nm_1L_chr, fn_desc_chr = fn_desc_chr, 
+                  fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
+                  pkg_nm_1L_chr = pkg_nm_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
+                  import_from_chr = import_from_chr)
+            })
+        })
+    return(writen_files_ls_ls)
+}
 #' Write script to make generic
 #' @description write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param write_file_ls Write file (a list)
@@ -188,7 +227,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @param doc_in_class_1L_lgl Document in class (a logical vector of length one), Default: F
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
-#' @param import_from_chr Import from (a character vector), Default: NULL
+#' @param import_from_chr Import from (a character vector), Default: 'NA'
 #' @return NULL
 #' @rdname write_script_to_make_mthd
 #' @export 
@@ -199,7 +238,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F, 
-    object_type_lup = NULL, consent_1L_chr = NULL, import_from_chr = NULL) 
+    object_type_lup = NULL, consent_1L_chr = NULL, import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -250,6 +289,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
 #' @param s3_1L_lgl S3 (a logical vector of length one)
 #' @param write_1L_lgl Write (a logical vector of length one)
 #' @param object_type_lup Object type (a lookup table), Default: NULL
+#' @param import_from_chr Import from (a character vector), Default: 'NA'
 #' @return NULL
 #' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export 
@@ -261,7 +301,7 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
         2), fn_title_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_file_ls, output_dir_1L_chr, append_1L_lgl = T, 
     doc_in_class_1L_lgl = F, gnrc_exists_1L_lgl, overwrite_1L_lgl = F, 
-    s3_1L_lgl, write_1L_lgl, object_type_lup = NULL) 
+    s3_1L_lgl, write_1L_lgl, object_type_lup = NULL, import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -285,7 +325,7 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
         fn_desc_1L_chr = fn_desc_chr[2], fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
         imports_chr = imports_chr, write_1L_lgl = write_1L_lgl, 
         append_1L_lgl = append_1L_lgl, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
-        object_type_lup = object_type_lup)
+        object_type_lup = object_type_lup, import_from_chr = import_from_chr)
     write_file_ls
 }
 #' Write scripts to make classes
@@ -615,6 +655,7 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @param signature_1L_chr Signature (a character vector of length one), Default: 'NA'
 #' @param append_1L_lgl Append (a logical vector of length one), Default: T
 #' @param first_1L_lgl First (a logical vector of length one), Default: T
+#' @param import_from_chr Import from (a character vector), Default: 'NA'
 #' @return NULL
 #' @rdname write_std_mthd
 #' @export 
@@ -624,7 +665,7 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @keywords internal
 write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn_title_1L_chr, 
     fn_outp_type_1L_chr, pkg_nm_1L_chr, output_dir_1L_chr, signature_1L_chr = NA_character_, 
-    append_1L_lgl = T, first_1L_lgl = T) 
+    append_1L_lgl = T, first_1L_lgl = T, import_from_chr = NA_character_) 
 {
     s3_1L_lgl = !isS4(eval(parse(text = paste0(class_nm_1L_chr, 
         "()"))))
@@ -634,19 +675,26 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
     write_file_ls <- list(new_file_lgl = F, gnr_file = paste0(output_dir_1L_chr, 
         "/gnrc_", fn_name_1L_chr, ".R"), meth_file = paste0(output_dir_1L_chr, 
         "/meth_", fn_name_1L_chr, ".R"))
-    curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, 
-        generic_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
-            rownames(utils::installed.packages()), pkg_nm_1L_chr, 
-            NA_character_))
-    pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls, 
-        fn_name_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
-            rownames(utils::installed.packages()), pkg_nm_1L_chr, 
-            NA_character_))
-    gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
-    imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr != 
-        pkg_nm_1L_chr]
-    if (identical(imports_chr, character(0))) 
+    gnrc_exists_1L_lgl <- ifelse(!all(is.na(import_from_chr)), 
+        fn_name_1L_chr %in% names(import_from_chr), F)
+    if (!gnrc_exists_1L_lgl) {
+        curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, 
+            generic_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
+                rownames(utils::installed.packages()), pkg_nm_1L_chr, 
+                NA_character_))
+        pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls, 
+            fn_name_1L_chr = fn_name_1L_chr, nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% 
+                rownames(utils::installed.packages()), pkg_nm_1L_chr, 
+                NA_character_))
+        gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
+        imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr != 
+            pkg_nm_1L_chr]
+        if (identical(imports_chr, character(0))) 
+            imports_chr <- NA_character_
+    }
+    else {
         imports_chr <- NA_character_
+    }
     write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = fn_name_1L_chr, 
         args_chr = c("x", ifelse(length(formalArgs(fn)) > 1, 
             "...", NA_character_)) %>% purrr::discard(is.na), 
@@ -658,7 +706,7 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
         output_dir_1L_chr = output_dir_1L_chr, append_1L_lgl = append_1L_lgl, 
         doc_in_class_1L_lgl = F, gnrc_exists_1L_lgl = gnrc_exists_1L_lgl, 
         overwrite_1L_lgl = !append_1L_lgl, s3_1L_lgl = s3_1L_lgl, 
-        write_1L_lgl = T)
+        write_1L_lgl = T, import_from_chr = import_from_chr)
     write_file_ls
 }
 #' Write to delete files with pattern

@@ -96,6 +96,39 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                                 append_1L_lgl = ..10,
                                 first_1L_lgl = ..9))
 }
+write_r4_mthds <- function(s4_mthds_ls,
+                           pkg_nm_1L_chr = character(0),
+                           output_dir_1L_chr = "R",
+                           import_from_chr = character(0)){
+  if(identical(pkg_nm_1L_chr, character(0)))
+    pkg_nm_1L_chr <- ready4fun::get_dev_pkg_nm()
+  if(identical(import_from_chr, character(0)))
+    import_from_chr <- ready4fun::make_gnrc_imports()
+  writen_files_ls_ls <- purrr::map2(s4_mthds_ls,
+                                    names(s4_mthds_ls),
+                                    ~{
+                                      fn_name_1L_chr <- .y
+                                      classes_chr <- names(.x)
+                                      fns_chr <- unname(.x)
+                                      purrr::map2(classes_chr,
+                                                  fns_chr,
+                                                  ~ {
+                                                    class_nm_1L_chr <- .x
+                                                    fn <- eval(parse(text=.y))
+                                                    fn_desc_chr <- rep(paste0(fn_name_1L_chr," method applied to ",class_nm_1L_chr),2)
+                                                    fn_outp_type_1L_chr <- ""
+                                                    write_std_mthd(fn,
+                                                                   fn_name_1L_chr = fn_name_1L_chr,
+                                                                   class_nm_1L_chr = class_nm_1L_chr,
+                                                                   fn_desc_chr = fn_desc_chr,
+                                                                   fn_outp_type_1L_chr = fn_outp_type_1L_chr,
+                                                                   pkg_nm_1L_chr = pkg_nm_1L_chr,
+                                                                   output_dir_1L_chr = output_dir_1L_chr,
+                                                                   import_from_chr = import_from_chr)
+                                                  })
+                                    })
+  return(writen_files_ls_ls)
+}
 write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                        name_pfx_1L_chr,##
                                        output_dir_1L_chr = "data-raw",
@@ -428,7 +461,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                                                 overwrite_1L_lgl = F,
                                                 s3_1L_lgl,
                                                 write_1L_lgl,
-                                                object_type_lup = NULL){
+                                                object_type_lup = NULL,
+                                                import_from_chr = NA_character_){
   if(is.null(object_type_lup))
     object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
   gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_1L_chr = fn_name_1L_chr,
@@ -464,8 +498,9 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                             imports_chr = imports_chr,
                             write_1L_lgl = write_1L_lgl,
                             append_1L_lgl = append_1L_lgl,
-                            doc_in_class_1L_lgl = doc_in_class_1L_lgl,
-                            object_type_lup = object_type_lup)
+                            doc_in_class_1L_lgl = doc_in_class_1L_lgl,#import_from_chr
+                            object_type_lup = object_type_lup,
+                            import_from_chr = import_from_chr)
   write_file_ls
 }
 write_script_to_make_mthd <- function(write_file_ls,
@@ -481,7 +516,7 @@ write_script_to_make_mthd <- function(write_file_ls,
                                       doc_in_class_1L_lgl = F,
                                       object_type_lup = NULL,
                                       consent_1L_chr = NULL,
-                                      import_from_chr = NULL){
+                                      import_from_chr = NA_character_){ # Modified from NULL
   if(is.null(object_type_lup))
     object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
   eval(parse(text = gen_mthd_pair_ls$method_chr))
@@ -496,11 +531,11 @@ write_script_to_make_mthd <- function(write_file_ls,
     if(consent_1L_chr == "Y"){
     sink(write_file_ls$meth_file,
          append =  ifelse(identical(write_file_ls$gen_file,write_file_ls$meth_file),
-                                                   T,
-                                                   ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
-                                                                                "gen_std_s4_mthd"),
-                                                          T,
-                                                          write_file_ls$new_file_lgl)))
+                          T,
+                          ifelse(fn_type_1L_chr %in% c("gen_std_s3_mthd",
+                                                       "gen_std_s4_mthd"),
+                                 T,
+                                 write_file_ls$new_file_lgl)))
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                                      fn_type_1L_chr = fn_type_1L_chr,
                                      fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
@@ -558,7 +593,8 @@ write_std_mthd <- function(fn,
                            output_dir_1L_chr,
                            signature_1L_chr = NA_character_, ## Add required package here.
                            append_1L_lgl = T,
-                           first_1L_lgl = T){
+                           first_1L_lgl = T,
+                           import_from_chr = NA_character_){
   s3_1L_lgl = !isS4(eval(parse(text=paste0(class_nm_1L_chr,"()"))))
   testit::assert("x" %in% formalArgs(fn)) ## NB
   fn_type_chr <- paste0(c("gen_","meth_"),
@@ -574,22 +610,27 @@ write_std_mthd <- function(fn,
                                            "/meth_",
                                            fn_name_1L_chr,
                                            ".R"))
-  ## START: IF GNRCS SUPPLIED MAKE CONDITIONAL
-  curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
-                                                          generic_1L_chr = fn_name_1L_chr,
-                                                          nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
+  gnrc_exists_1L_lgl <- ifelse(!all(is.na(import_from_chr)),
+                               fn_name_1L_chr %in% names(import_from_chr),
+                               F)
+  if(!gnrc_exists_1L_lgl){
+    curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = NA_character_, # Add ready4 here
+                                                      generic_1L_chr = fn_name_1L_chr,
+                                                      nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
                                                                                  pkg_nm_1L_chr,
                                                                                  NA_character_))
-  pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
-                                               fn_name_1L_chr = fn_name_1L_chr,
-                                               nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
-                                                                      pkg_nm_1L_chr,
-                                                                      NA_character_))
-  gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
-  imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr!=pkg_nm_1L_chr]
-  ## END
-  if(identical(imports_chr,character(0)))
+    pkgs_to_imp_ls <- make_ls_of_pkgs_to_imp(curr_gnrcs_ls = curr_gnrcs_ls,
+                                             fn_name_1L_chr = fn_name_1L_chr,
+                                             nss_to_ignore_chr = ifelse(pkg_nm_1L_chr %in% rownames(utils::installed.packages()),
+                                                                        pkg_nm_1L_chr,
+                                                                        NA_character_))
+    gnrc_exists_1L_lgl <- pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl
+    imports_chr <- pkgs_to_imp_ls$gtr_imps_chr[pkgs_to_imp_ls$gtr_imps_chr!=pkg_nm_1L_chr]
+    if(identical(imports_chr,character(0)))
+      imports_chr <- NA_character_
+  }else{
     imports_chr <- NA_character_
+  }
   write_file_ls <- write_scripts_to_make_gnrc_and_mthd(fn_name_1L_chr = fn_name_1L_chr,
                                                        args_chr = c("x",
                                                                     ifelse(length(formalArgs(fn))>1,
@@ -613,7 +654,8 @@ write_std_mthd <- function(fn,
                                                        gnrc_exists_1L_lgl = gnrc_exists_1L_lgl,
                                                        overwrite_1L_lgl = !append_1L_lgl,
                                                        s3_1L_lgl = s3_1L_lgl,
-                                                       write_1L_lgl = T)
+                                                       write_1L_lgl = T,
+                                                       import_from_chr = import_from_chr) # import_from_chr ?
   write_file_ls
 }
 write_self_srvc_clss <- function(pkg_setup_ls){

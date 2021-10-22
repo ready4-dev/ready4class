@@ -29,9 +29,9 @@ renew.ready4class_pt_lup(x, attached_nss_chr, type_1L_chr = "namespace")
 \item{attached_nss_chr}{Attached namespaces (a character vector)}
 }
 \value{
-NA ()
+x (An object)
 
-NA ()
+x (An object)
 }
 \description{
 renew.ready4class_constructor() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.

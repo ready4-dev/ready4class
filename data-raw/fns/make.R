@@ -1,3 +1,11 @@
+# make_test <- function(x){
+#   x <- paste0("My name is ",
+#                         x@name,
+#                         " and I am ",
+#                         x@age,
+#                         " years old")
+#   return(x)
+# }
 make_alg_to_gen_ref_to_cls <- function(class_nm_1L_chr,
                                        pkg_nm_1L_chr = ".GlobalEnv"){
   alg_to_gen_ref_to_cls_1L_chr <- paste0("methods::className(\"",
@@ -597,11 +605,16 @@ make_gnrc_mthd_pair_ls <- function(name_1L_chr,
                             method_chr = make_alg_to_set_mthd(name_1L_chr,
                                                               class_nm_1L_chr = class_nm_1L_chr,
                                                               fn = fn,
+                                                              fn_nm_1L_chr = ifelse(is.character(fn),
+                                                                                    fn,
+                                                                                    NA_character_),
                                                               pkg_nm_1L_chr = pkg_nm_1L_chr,
                                                               where_1L_chr = where_1L_chr),
                             gen_fn_chr = make_gnrc_fn(name_1L_chr,
                                                       args_chr = args_chr),
-                            meth_fn_chr = transform_fn_into_chr(fn))
+                            meth_fn_chr = ifelse(is.character(fn),
+                                                 fn,
+                                                 transform_fn_into_chr(fn)))
   return(gnrc_mthd_pair_ls)
 }
 make_helper_fn <- function(class_nm_1L_chr,
