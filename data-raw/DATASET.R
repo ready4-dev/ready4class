@@ -46,18 +46,6 @@ constructor_tb <- tibble::tribble(
                                                                           old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
   TRUE, "manifest", list("list"), list("is."), list("base"), list(x_ready4fun_manifest = "ready4fun::ready4fun_manifest()",
                                                                   constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL)
-# ready4class::make_pt_ready4class_constructor(make_s3_lgl = FALSE,
-#                                              name_stub_chr = "TestClass",
-#                                              slots_ls = c("name","age") %>% list(),
-#                                              pt_ls = c("character","numeric") %>% list(),
-#                                              #vals_ls = list(write_type_1L_chr ="raw"),
-#                                              #allowed_vals_ls = list(write_type_1L_chr = "raw"),
-#                                              class_desc_chr= "ready4 S4 class defining data for a test.",
-#                                              #parent_class_chr = "Ready4useFiles",
-#                                              #inc_clss_ls = list("Ready4useFiles")
-#                                              ) -> test_tb
-# constructor_tb <- dplyr::bind_rows(constructor_tb,
-#                                    test_tb)
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 x <- pkg_desc_ls %>%

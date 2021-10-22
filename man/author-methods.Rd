@@ -133,16 +133,16 @@ author.ready4class_pt_lup(
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \value{
-Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (ready4 S3 class Prototype Lookup Table of class metadata.)
 
 X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 
-Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (ready4 S3 class Prototype Lookup Table of class metadata.)
 }
 \description{
-author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 
 author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 
-author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

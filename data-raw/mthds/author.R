@@ -40,7 +40,7 @@ author.ready4class_constructor <- function(x,
                                            options_chr = c("Y", "N"),
                                            force_from_opts_1L_chr = T)
   if(consent_1L_chr == "Y"){
-    inst_ready4class_pt_lup <- purrr::reduce(1:nrow(x),
+    x_ready4class_pt_lup <- purrr::reduce(1:nrow(x),
                                              .init = init_class_pt_lup %>% ready4::renew(dev_pkg_ns_1L_chr),
                                              ~ ready4::author(.x,
                                                               row_idx_1L_int = .y,
@@ -56,69 +56,9 @@ author.ready4class_constructor <- function(x,
                                                               object_type_lup = object_type_lup,
                                                               consent_1L_chr = consent_1L_chr))
   }else{
-    inst_ready4class_pt_lup <- NULL
+    x_ready4class_pt_lup <- NULL
   }
-  return(inst_ready4class_pt_lup)
-}
-author.ready4class_pt_lup <- function(x,
-                                      row_idx_1L_int,
-                                      make_tb,
-                                      dev_pkg_ns_1L_chr,
-                                      name_pfx_1L_chr,
-                                      output_dir_1L_chr,
-                                      file_exists_cdn_1L_chr,
-                                      nss_to_ignore_chr = NA_character_,
-                                      req_pkgs_chr = NA_character_,
-                                      class_in_cache_cdn_1L_chr = "stop",
-                                      abbreviations_lup,
-                                      object_type_lup,
-                                      consent_1L_chr = NULL){
-  make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
-  if(is.null(consent_1L_chr)){
-    new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl,
-                                           ~ifelse(.x,"C3_","C4_")),
-                            purrr::map_chr(make_tb$make_s3_lgl,
-                                           ~ifelse(.x,
-                                                   name_pfx_1L_chr,
-                                                   stringr::str_sub(name_pfx_1L_chr,
-                                                                    end = -2) %>%
-                                                     Hmisc::capitalize())),
-                            make_tb$name_stub_chr,
-                            ".R")
-    consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
-                                                                  ifelse(length(new_files_chr)>1,"s "," "),
-                                                                  new_files_chr %>%
-                                                                    paste0(collapse = ", ") %>%
-                                                                    stringi::stri_replace_last(fixed = ",", " and"),
-                                                                  " to the directory ",
-                                                                  output_dir_1L_chr,
-                                                                  " ?"),
-                                             options_chr = c("Y", "N"),
-                                             force_from_opts_1L_chr = T)
-  }
-  if(consent_1L_chr == "Y"){
-    ready4::authorClasses(make_tb,
-                          name_pfx_1L_chr = name_pfx_1L_chr,
-                          output_dir_1L_chr = output_dir_1L_chr,
-                          file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
-                          prototype_lup = x,
-                          nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, nss_to_ignore_chr),
-                          req_pkgs_chr = req_pkgs_chr,
-                          class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-                          abbreviations_lup = abbreviations_lup,
-                          object_type_lup = object_type_lup,
-                          consent_1L_chr = consent_1L_chr)
-    new_pt_lup <- manufacture(make_tb,
-                              dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
-                              prefix = name_pfx_1L_chr)
-    classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
-    inst_ready4class_pt_lup <- x %>%
-      dplyr::filter(!type_chr %in% classes_to_add_chr)  %>%
-      dplyr::bind_rows(new_pt_lup)
-  }else{
-    inst_ready4class_pt_lup <- NULL
-  }
-  return(inst_ready4class_pt_lup)
+  return(x_ready4class_pt_lup)
 }
 author.ready4class_manifest <- function(x,
                                         #dv_url_pfx_1L_chr = character(0),
@@ -151,6 +91,11 @@ author.ready4class_manifest <- function(x,
                                                                                                 object_type_lup = x$x_ready4fun_manifest$subsequent_ls$object_type_lup),
                                                                                  fn =  author.ready4class_constructor) %>%
     ready4fun::ready4fun_executor()
+  x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$fn <- write_r4_mthds
+  x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$args_ls <- list(fns_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/data-raw/s4_fns"),
+                                                                 import_from_chr = x$x_ready4fun_manifest$subsequent_ls$import_from_chr,
+                                                                 output_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/R"),
+                                                                 pkg_nm_1L_chr = x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package)
   x_ready4fun_manifest <- ready4::author(x$x_ready4fun_manifest,
                                          key_1L_chr = key_1L_chr,
                                          list_generics_1L_lgl = list_generics_1L_lgl,
@@ -158,5 +103,64 @@ author.ready4class_manifest <- function(x,
                                          self_serve_fn_ls = self_serve_fn_ls)
   return(x_ready4fun_manifest)
 }
-
+author.ready4class_pt_lup <- function(x,
+                                      row_idx_1L_int,
+                                      make_tb,
+                                      dev_pkg_ns_1L_chr,
+                                      name_pfx_1L_chr,
+                                      output_dir_1L_chr,
+                                      file_exists_cdn_1L_chr,
+                                      nss_to_ignore_chr = NA_character_,
+                                      req_pkgs_chr = NA_character_,
+                                      class_in_cache_cdn_1L_chr = "stop",
+                                      abbreviations_lup,
+                                      object_type_lup,
+                                      consent_1L_chr = NULL){
+  make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
+  if(is.null(consent_1L_chr)){
+    new_files_chr <- paste0(purrr::map_chr(make_tb$make_s3_lgl,
+                                           ~ifelse(.x,"C3_","C4_")),
+                            purrr::map_chr(make_tb$make_s3_lgl,
+                                           ~ifelse(.x,
+                                                   name_pfx_1L_chr,
+                                                   stringr::str_sub(name_pfx_1L_chr,
+                                                                    end = -2) %>%
+                                                     Hmisc::capitalize())),
+                            make_tb$name_stub_chr,
+                            ".R")
+    consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
+                                                               ifelse(length(new_files_chr)>1,"s "," "),
+                                                               new_files_chr %>%
+                                                                 paste0(collapse = ", ") %>%
+                                                                 stringi::stri_replace_last(fixed = ",", " and"),
+                                                               " to the directory ",
+                                                               output_dir_1L_chr,
+                                                               " ?"),
+                                          options_chr = c("Y", "N"),
+                                          force_from_opts_1L_chr = T)
+  }
+  if(consent_1L_chr == "Y"){
+    ready4::authorClasses(make_tb,
+                          name_pfx_1L_chr = name_pfx_1L_chr,
+                          output_dir_1L_chr = output_dir_1L_chr,
+                          file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
+                          prototype_lup = x,
+                          nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, nss_to_ignore_chr),
+                          req_pkgs_chr = req_pkgs_chr,
+                          class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
+                          abbreviations_lup = abbreviations_lup,
+                          object_type_lup = object_type_lup,
+                          consent_1L_chr = consent_1L_chr)
+    new_pt_lup <- manufacture(make_tb,
+                              dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+                              prefix = name_pfx_1L_chr)
+    classes_to_add_chr <- new_pt_lup %>% dplyr::pull(type_chr)
+    x_ready4class_pt_lup <- x %>%
+      dplyr::filter(!type_chr %in% classes_to_add_chr)  %>%
+      dplyr::bind_rows(new_pt_lup)
+  }else{
+    x_ready4class_pt_lup <- NULL
+  }
+  return(x_ready4class_pt_lup)
+}
 
