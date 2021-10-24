@@ -43,7 +43,7 @@ author.ready4class_manifest(
   x,
   init_class_pt_lup = NULL,
   key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
-  list_generics_1L_lgl = F,
+  list_generics_1L_lgl = T,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
@@ -54,7 +54,7 @@ author.ready4class_manifest(
   x,
   init_class_pt_lup = NULL,
   key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
-  list_generics_1L_lgl = F,
+  list_generics_1L_lgl = T,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
@@ -120,7 +120,7 @@ author.ready4class_pt_lup(
 
 \item{key_1L_chr}{Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")}
 
-\item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: F}
+\item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: T}
 
 \item{self_serve_1L_lgl}{Self serve (a logical vector of length one), Default: F}
 

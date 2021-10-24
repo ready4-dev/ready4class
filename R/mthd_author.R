@@ -71,7 +71,7 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @param x An instance of ready4 S3 class Manifest.
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
 #' @param key_1L_chr Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")
-#' @param list_generics_1L_lgl List generics (a logical vector of length one), Default: F
+#' @param list_generics_1L_lgl List generics (a logical vector of length one), Default: T
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector), Default: 'NA'
 #' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param self_serve_1L_lgl Self serve (a logical vector of length one), Default: F
@@ -82,7 +82,7 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor
 #' @importFrom ready4 author
 author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr = Sys.getenv("DATAVERSE_KEY"), 
-    list_generics_1L_lgl = F, nss_to_ignore_chr = NA_character_, 
+    list_generics_1L_lgl = T, nss_to_ignore_chr = NA_character_, 
     req_pkgs_chr = NA_character_, self_serve_1L_lgl = F, self_serve_fn_ls = NULL) 
 {
     if (is.null(init_class_pt_lup)) {
