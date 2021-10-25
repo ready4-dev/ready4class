@@ -654,7 +654,7 @@ write_std_mthd <- function(fn,
                                                          purrr::discard(is.na),
                                                        signature_1L_chr = signature_1L_chr,
                                                        pkg_nm_1L_chr = NA_character_,
-                                                       where_chr = NA_character_,
+                                                       where_chr = 'globalenv()',#NA
                                                        class_nm_1L_chr = class_nm_1L_chr,
                                                        fn = fn,
                                                        fn_type_chr = fn_type_chr,

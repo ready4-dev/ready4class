@@ -719,7 +719,7 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
         args_chr = c("x", ifelse(length(formalArgs(fn)) > 1, 
             "...", NA_character_)) %>% purrr::discard(is.na), 
         signature_1L_chr = signature_1L_chr, pkg_nm_1L_chr = NA_character_, 
-        where_chr = NA_character_, class_nm_1L_chr = class_nm_1L_chr, 
+        where_chr = "globalenv()", class_nm_1L_chr = class_nm_1L_chr, 
         fn = fn, fn_type_chr = fn_type_chr, fn_desc_chr = fn_desc_chr, 
         fn_title_1L_chr = fn_title_1L_chr, fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
         imports_chr = imports_chr, write_file_ls = write_file_ls, 
