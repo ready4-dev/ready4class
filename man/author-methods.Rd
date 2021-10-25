@@ -43,7 +43,7 @@ author.ready4class_manifest(
   x,
   init_class_pt_lup = NULL,
   key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
-  list_generics_1L_lgl = F,
+  list_generics_1L_lgl = T,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
@@ -54,7 +54,7 @@ author.ready4class_manifest(
   x,
   init_class_pt_lup = NULL,
   key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
-  list_generics_1L_lgl = F,
+  list_generics_1L_lgl = T,
   nss_to_ignore_chr = NA_character_,
   req_pkgs_chr = NA_character_,
   self_serve_1L_lgl = F,
@@ -120,7 +120,7 @@ author.ready4class_pt_lup(
 
 \item{key_1L_chr}{Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")}
 
-\item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: F}
+\item{list_generics_1L_lgl}{List generics (a logical vector of length one), Default: T}
 
 \item{self_serve_1L_lgl}{Self serve (a logical vector of length one), Default: F}
 
@@ -133,16 +133,16 @@ author.ready4class_pt_lup(
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \value{
-Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (ready4 S3 class Prototype Lookup Table of class metadata.)
 
 X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 
-Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (ready4 S3 class Prototype Lookup Table of class metadata.)
 }
 \description{
-author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 
 author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 
-author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

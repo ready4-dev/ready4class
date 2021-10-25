@@ -96,38 +96,53 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                                 append_1L_lgl = ..10,
                                 first_1L_lgl = ..9))
 }
-write_r4_mthds <- function(s4_mthds_ls,
-                           pkg_nm_1L_chr = character(0),
+write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
+                           import_from_chr = character(0),
                            output_dir_1L_chr = "R",
-                           import_from_chr = character(0)){
+                           pkg_nm_1L_chr = character(0)){
   if(identical(pkg_nm_1L_chr, character(0)))
     pkg_nm_1L_chr <- ready4fun::get_dev_pkg_nm()
   if(identical(import_from_chr, character(0)))
     import_from_chr <- ready4fun::make_gnrc_imports()
-  writen_files_ls_ls <- purrr::map2(s4_mthds_ls,
-                                    names(s4_mthds_ls),
-                                    ~{
-                                      fn_name_1L_chr <- .y
-                                      classes_chr <- names(.x)
-                                      fns_chr <- unname(.x)
-                                      purrr::map2(classes_chr,
-                                                  fns_chr,
-                                                  ~ {
-                                                    class_nm_1L_chr <- .x
-                                                    fn <- eval(parse(text=.y))
-                                                    fn_desc_chr <- rep(paste0(fn_name_1L_chr," method applied to ",class_nm_1L_chr),2)
-                                                    fn_outp_type_1L_chr <- ""
-                                                    write_std_mthd(fn,
-                                                                   fn_name_1L_chr = fn_name_1L_chr,
-                                                                   class_nm_1L_chr = class_nm_1L_chr,
-                                                                   fn_desc_chr = fn_desc_chr,
-                                                                   fn_outp_type_1L_chr = fn_outp_type_1L_chr,
-                                                                   pkg_nm_1L_chr = pkg_nm_1L_chr,
-                                                                   output_dir_1L_chr = output_dir_1L_chr,
-                                                                   import_from_chr = import_from_chr)
-                                                  })
-                                    })
-  return(writen_files_ls_ls)
+  env_ls <- ready4fun::read_fns(fns_dir_1L_chr)
+  fn_nms_chr <- env_ls$fns_env %>% names()
+  if(length(fn_nms_chr)>0){
+    mthd_nms_chr <- env_ls$fns_path_chr %>% fs::path_file() %>% stringr::str_sub(end=-3)
+    s4_mthds_ls <- mthd_nms_chr %>%
+      purrr::map(~{
+        mthd_nm_1L_chr <- .x
+        mthd_fns_chr <- fn_nms_chr[fn_nms_chr %>% startsWith(paste0(mthd_nm_1L_chr,"_"))]
+        cls_nms_chr <-  mthd_fns_chr %>% stringr::str_remove(paste0(mthd_nm_1L_chr,"_"))
+        mthd_fns_chr <- mthd_fns_chr %>% stats::setNames(cls_nms_chr)
+      }) %>%
+      stats::setNames(mthd_nms_chr)
+    written_files_ls_ls <- purrr::map2(s4_mthds_ls,
+                                       names(s4_mthds_ls),
+                                       ~{
+                                         fn_name_1L_chr <- .y
+                                         classes_chr <- names(.x)
+                                         fns_chr <- unname(.x)
+                                         purrr::map2(classes_chr,
+                                                     fns_chr,
+                                                     ~ {
+                                                       class_nm_1L_chr <- .x
+                                                       fn <- env_ls$fns_env %>% purrr::pluck(.y)
+                                                       fn_desc_chr <- rep(paste0(fn_name_1L_chr," method applied to ",class_nm_1L_chr),2)
+                                                       fn_outp_type_1L_chr <- ""
+                                                       write_std_mthd(fn,
+                                                                      fn_name_1L_chr = fn_name_1L_chr,
+                                                                      class_nm_1L_chr = class_nm_1L_chr,
+                                                                      fn_desc_chr = fn_desc_chr,
+                                                                      fn_outp_type_1L_chr = fn_outp_type_1L_chr,
+                                                                      pkg_nm_1L_chr = pkg_nm_1L_chr,
+                                                                      output_dir_1L_chr = output_dir_1L_chr,
+                                                                      import_from_chr = import_from_chr)
+                                                     })
+                                       })
+  }else{
+    written_files_ls_ls <- NULL
+  }
+  return(written_files_ls_ls)
 }
 write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                        name_pfx_1L_chr,##
