@@ -97,9 +97,9 @@ write_mthds_for_r3_or_r4_clss <- function(methods_tb,
                                 first_1L_lgl = ..9))
 }
 write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
-  import_from_chr = character(0),
-  output_dir_1L_chr = "R",
-  pkg_nm_1L_chr = character(0)){
+                           import_from_chr = character(0),
+                           output_dir_1L_chr = "R",
+                           pkg_nm_1L_chr = character(0)){
   if(identical(pkg_nm_1L_chr, character(0)))
     pkg_nm_1L_chr <- ready4fun::get_dev_pkg_nm()
   if(identical(import_from_chr, character(0)))

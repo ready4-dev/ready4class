@@ -30,31 +30,31 @@ author.ready4class_constructor <- function(x,
                           x$name_stub_chr,
                           ".R")
   consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file",
-                                                                ifelse(length(new_files_chr)>1,"s "," "),
-                                                                new_files_chr %>%
-                                                                  paste0(collapse = ", ") %>%
-                                                                  stringi::stri_replace_last(fixed = ",", " and"),
-                                                                " to the directory ",
-                                                                output_dir_1L_chr,
-                                                                " ?"),
-                                           options_chr = c("Y", "N"),
-                                           force_from_opts_1L_chr = T)
+                                                             ifelse(length(new_files_chr)>1,"s "," "),
+                                                             new_files_chr %>%
+                                                               paste0(collapse = ", ") %>%
+                                                               stringi::stri_replace_last(fixed = ",", " and"),
+                                                             " to the directory ",
+                                                             output_dir_1L_chr,
+                                                             " ?"),
+                                        options_chr = c("Y", "N"),
+                                        force_from_opts_1L_chr = T)
   if(consent_1L_chr == "Y"){
     x_ready4class_pt_lup <- purrr::reduce(1:nrow(x),
-                                             .init = init_class_pt_lup %>% ready4::renew(dev_pkg_ns_1L_chr),
-                                             ~ ready4::author(.x,
-                                                              row_idx_1L_int = .y,
-                                                              make_tb = x,
-                                                              dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
-                                                              name_pfx_1L_chr = name_pfx_1L_chr,
-                                                              output_dir_1L_chr = output_dir_1L_chr,
-                                                              file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
-                                                              nss_to_ignore_chr = nss_to_ignore_chr,
-                                                              req_pkgs_chr = req_pkgs_chr,
-                                                              class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-                                                              abbreviations_lup = abbreviations_lup,
-                                                              object_type_lup = object_type_lup,
-                                                              consent_1L_chr = consent_1L_chr))
+                                          .init = init_class_pt_lup %>% ready4::renew(dev_pkg_ns_1L_chr),
+                                          ~ ready4::author(.x,
+                                                           row_idx_1L_int = .y,
+                                                           make_tb = x,
+                                                           dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+                                                           name_pfx_1L_chr = name_pfx_1L_chr,
+                                                           output_dir_1L_chr = output_dir_1L_chr,
+                                                           file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
+                                                           nss_to_ignore_chr = nss_to_ignore_chr,
+                                                           req_pkgs_chr = req_pkgs_chr,
+                                                           class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
+                                                           abbreviations_lup = abbreviations_lup,
+                                                           object_type_lup = object_type_lup,
+                                                           consent_1L_chr = consent_1L_chr))
   }else{
     x_ready4class_pt_lup <- NULL
   }
@@ -78,18 +78,18 @@ author.ready4class_manifest <- function(x,
     x$x_ready4fun_manifest$subsequent_ls$prototype_lup <- init_class_pt_lup
   }
   x$x_ready4fun_manifest$subsequent_ls$cls_fn_ls <- ready4fun::make_pt_ready4fun_executor(args_ls = list(x = x$constructor_r3,
-                                                                                                dev_pkg_ns_1L_chr = x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package,
-                                                                                                name_pfx_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package,"_"),
-                                                                                                output_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/R"),
-                                                                                                delete_cdn_ptrn_chr = NA_character_,
-                                                                                                file_exists_cdn_1L_chr = "overwrite",
-                                                                                                init_class_pt_lup = init_class_pt_lup,
-                                                                                                nss_to_ignore_chr = nss_to_ignore_chr,
-                                                                                                req_pkgs_chr = req_pkgs_chr,
-                                                                                                class_in_cache_cdn_1L_chr = "stop",
-                                                                                                abbreviations_lup = x$x_ready4fun_manifest$subsequent_ls$abbreviations_lup,
-                                                                                                object_type_lup = x$x_ready4fun_manifest$subsequent_ls$object_type_lup),
-                                                                                 fn =  author.ready4class_constructor) %>%
+                                                                                                         dev_pkg_ns_1L_chr = x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package,
+                                                                                                         name_pfx_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package,"_"),
+                                                                                                         output_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/R"),
+                                                                                                         delete_cdn_ptrn_chr = NA_character_,
+                                                                                                         file_exists_cdn_1L_chr = "overwrite",
+                                                                                                         init_class_pt_lup = init_class_pt_lup,
+                                                                                                         nss_to_ignore_chr = nss_to_ignore_chr,
+                                                                                                         req_pkgs_chr = req_pkgs_chr,
+                                                                                                         class_in_cache_cdn_1L_chr = "stop",
+                                                                                                         abbreviations_lup = x$x_ready4fun_manifest$subsequent_ls$abbreviations_lup,
+                                                                                                         object_type_lup = x$x_ready4fun_manifest$subsequent_ls$object_type_lup),
+                                                                                          fn =  author.ready4class_constructor) %>%
     ready4fun::ready4fun_executor()
   x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$fn <- write_r4_mthds
   x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$args_ls <- list(fns_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/data-raw/s4_fns"),
@@ -163,4 +163,3 @@ author.ready4class_pt_lup <- function(x,
   }
   return(x_ready4class_pt_lup)
 }
-
