@@ -9,6 +9,7 @@ author.ready4class_constructor <- function(x,
                                            req_pkgs_chr = NA_character_,
                                            class_in_cache_cdn_1L_chr = "stop",
                                            abbreviations_lup,
+                                           fn_types_lup,
                                            object_type_lup){
   if(is.null(init_class_pt_lup))
     init_class_pt_lup <- prototype_lup
@@ -53,6 +54,7 @@ author.ready4class_constructor <- function(x,
                                                            req_pkgs_chr = req_pkgs_chr,
                                                            class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                                            abbreviations_lup = abbreviations_lup,
+                                                           fn_types_lup = fn_types_lup,
                                                            object_type_lup = object_type_lup,
                                                            consent_1L_chr = consent_1L_chr))
   }else{
@@ -88,11 +90,13 @@ author.ready4class_manifest <- function(x,
                                                                                                          req_pkgs_chr = req_pkgs_chr,
                                                                                                          class_in_cache_cdn_1L_chr = "stop",
                                                                                                          abbreviations_lup = x$x_ready4fun_manifest$subsequent_ls$abbreviations_lup,
+                                                                                                         fn_types_lup = x$x_ready4fun_manifest$subsequent_ls$fn_types_lup,
                                                                                                          object_type_lup = x$x_ready4fun_manifest$subsequent_ls$object_type_lup),
                                                                                           fn =  author.ready4class_constructor) %>%
     ready4fun::ready4fun_executor()
   x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$fn <- write_r4_mthds
   x$x_ready4fun_manifest$subsequent_ls$s4_fns_ls$args_ls <- list(fns_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/data-raw/s4_fns"),
+                                                                 fn_types_lup = x$x_ready4fun_manifest$subsequent_ls$fn_types_lup,
                                                                  import_from_chr = x$x_ready4fun_manifest$subsequent_ls$import_from_chr,
                                                                  output_dir_1L_chr = paste0(x$x_ready4fun_manifest$initial_ls$path_to_pkg_rt_1L_chr,"/R"),
                                                                  pkg_nm_1L_chr = x$x_ready4fun_manifest$initial_ls$pkg_desc_ls$Package)
@@ -114,6 +118,7 @@ author.ready4class_pt_lup <- function(x,
                                       req_pkgs_chr = NA_character_,
                                       class_in_cache_cdn_1L_chr = "stop",
                                       abbreviations_lup,
+                                      fn_types_lup,
                                       object_type_lup,
                                       consent_1L_chr = NULL){
   make_tb <- make_tb %>% dplyr::slice(row_idx_1L_int)
@@ -149,6 +154,7 @@ author.ready4class_pt_lup <- function(x,
                           req_pkgs_chr = req_pkgs_chr,
                           class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                           abbreviations_lup = abbreviations_lup,
+                          fn_types_lup = fn_types_lup,
                           object_type_lup = object_type_lup,
                           consent_1L_chr = consent_1L_chr)
     new_pt_lup <- manufacture(make_tb,

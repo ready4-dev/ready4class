@@ -8,6 +8,7 @@ authorClasses.ready4class_constructor <- function(x,
                                                   req_pkgs_chr = NA_character_,
                                                   class_in_cache_cdn_1L_chr = "stop",
                                                   abbreviations_lup,
+                                                  fn_types_lup,
                                                   object_type_lup,
                                                   consent_1L_chr = NULL){
   new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl,
@@ -55,6 +56,7 @@ authorClasses.ready4class_constructor <- function(x,
                                               abbreviations_lup = abbreviations_lup,
                                               asserts_ls = ..15,
                                               object_type_lup = object_type_lup,
+                                              fn_types_lup = fn_types_lup,
                                               consent_1L_chr = consent_1L_chr))
     purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T),
                  ~ write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2,
@@ -83,6 +85,7 @@ authorClasses.ready4class_constructor <- function(x,
                                               req_pkgs_chr = req_pkgs_chr,
                                               class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                               asserts_ls = ..15[[1]],
+                                              fn_types_lup = fn_types_lup,
                                               object_type_lup = object_type_lup,
                                               consent_1L_chr = consent_1L_chr))
 

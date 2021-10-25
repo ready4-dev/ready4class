@@ -1,11 +1,3 @@
-# make_test <- function(x){
-#   x <- paste0("My name is ",
-#                         x@name,
-#                         " and I am ",
-#                         x@age,
-#                         " years old")
-#   return(x)
-# }
 make_alg_to_gen_ref_to_cls <- function(class_nm_1L_chr,
                                        pkg_nm_1L_chr = ".GlobalEnv"){
   alg_to_gen_ref_to_cls_1L_chr <- paste0("methods::className(\"",
@@ -237,6 +229,7 @@ make_alg_to_write_gtr_str_mthds <- function(class_nm_1L_chr,
                       nss_to_ignore_chr  %>% stringr::str_c(collapse="\",\""),
                       "\")",
                       ",req_pkgs_chr = \"",req_pkgs_chr,"\"",
+                      ",fn_types_lup = fn_types_lup",
                       ",object_type_lup = object_type_lup",
                       ")")
   return(alg_to_write_gtr_str_mthds)
@@ -655,11 +648,13 @@ make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            class_nm_1L_chr,
                                            class_desc_1L_chr,
                                            abbreviations_lup,
+                                           fn_types_lup,
                                            object_type_lup){
   ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                                    fn_type_1L_chr = fn_type_1L_chr,
                                    fn_title_1L_chr = fn_name_1L_chr,
                                    fn = eval(parse(text = fn_body_1L_chr)),
+                                   fn_types_lup = fn_types_lup,
                                    class_name_1L_chr = class_nm_1L_chr,
                                    details_1L_chr = class_desc_1L_chr,
                                    abbreviations_lup = abbreviations_lup,
@@ -855,6 +850,24 @@ make_pt_tb_for_new_r4_cls <- function(x){
   pt_tb_for_new_r3_cls_tb <-purrr::map_dfr(x,
                  ~make_one_row_pt_tb_for_new_r4_cls(.x))
   return(pt_tb_for_new_r3_cls_tb)
+}
+make_s4_mthds_ls <- function(fns_dir_1L_chr = "data-raw/s4_fns"){
+  env_ls <- ready4fun::read_fns(fns_dir_1L_chr)
+  fn_nms_chr <- env_ls$fns_env %>% names()
+  if(length(fn_nms_chr)>0){
+    mthd_nms_chr <- env_ls$fns_path_chr %>% fs::path_file() %>% stringr::str_sub(end=-3)
+    s4_mthds_ls <- mthd_nms_chr %>%
+      purrr::map(~{
+        mthd_nm_1L_chr <- .x
+        mthd_fns_chr <- fn_nms_chr[fn_nms_chr %>% startsWith(paste0(mthd_nm_1L_chr,"_"))]
+        cls_nms_chr <-  mthd_fns_chr %>% stringr::str_remove(paste0(mthd_nm_1L_chr,"_"))
+        mthd_fns_chr <- mthd_fns_chr %>% stats::setNames(cls_nms_chr)
+      }) %>%
+      stats::setNames(mthd_nms_chr)
+  }else{
+    s4_mthds_ls <- NULL
+  }
+  return(s4_mthds_ls)
 }
 make_show_mthd_fn <- function(class_nm_1L_chr,
                               meaningful_nms_ls){
