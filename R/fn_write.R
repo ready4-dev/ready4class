@@ -103,13 +103,13 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, fn_types_lup, pkg_
         fn_types_lup = fn_types_lup))
 }
 #' Write ready4 S4 methods
-#' @description write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns Written files (a list of lists).
+#' @description write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns a S4 methods (a list).
 #' @param fns_dir_1L_chr Functions directory (a character vector of length one), Default: 'data-raw/s4_fns'
 #' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param import_from_chr Import from (a character vector), Default: character(0)
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
 #' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: character(0)
-#' @return Written files (a list of lists)
+#' @return a S4 methods (a list)
 #' @rdname write_r4_mthds
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm make_gnrc_imports
@@ -125,14 +125,14 @@ write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", fn_types_lup = N
         import_from_chr <- ready4fun::make_gnrc_imports()
     s4_mthds_ls <- make_s4_mthds_ls(fns_dir_1L_chr)
     if (!is.null(s4_mthds_ls)) {
-        written_files_ls_ls <- purrr::map2(s4_mthds_ls, names(s4_mthds_ls), 
-            ~{
+        written_files_ls_ls <- purrr::map2(s4_mthds_ls$mthds_ls, 
+            names(s4_mthds_ls$mthds_ls), ~{
                 fn_name_1L_chr <- .y
                 classes_chr <- names(.x)
                 fns_chr <- unname(.x)
                 purrr::map2(classes_chr, fns_chr, ~{
                   class_nm_1L_chr <- .x
-                  fn <- env_ls$fns_env %>% purrr::pluck(.y)
+                  fn <- s4_mthds_ls$env_ls$fns_env %>% purrr::pluck(.y)
                   fn_desc_chr <- rep(paste0(fn_name_1L_chr, " method applied to ", 
                     class_nm_1L_chr), 2)
                   fn_outp_type_1L_chr <- ""
@@ -147,7 +147,7 @@ write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", fn_types_lup = N
     else {
         written_files_ls_ls <- NULL
     }
-    return(written_files_ls_ls)
+    return(s4_mthds_ls)
 }
 #' Write script to make generic
 #' @description write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour

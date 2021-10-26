@@ -113,8 +113,8 @@ write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
     import_from_chr <- ready4fun::make_gnrc_imports()
   s4_mthds_ls <- make_s4_mthds_ls(fns_dir_1L_chr)
   if(!is.null(s4_mthds_ls)){
-    written_files_ls_ls <- purrr::map2(s4_mthds_ls,
-                                      names(s4_mthds_ls),
+    written_files_ls_ls <- purrr::map2(s4_mthds_ls$mthds_ls,
+                                      names(s4_mthds_ls$mthds_ls),
                                       ~{
                                         fn_name_1L_chr <- .y
                                         classes_chr <- names(.x)
@@ -123,7 +123,7 @@ write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
                                                     fns_chr,
                                                     ~ {
                                                       class_nm_1L_chr <- .x
-                                                      fn <- env_ls$fns_env %>% purrr::pluck(.y)
+                                                      fn <- s4_mthds_ls$env_ls$fns_env %>% purrr::pluck(.y)
                                                       fn_desc_chr <- rep(paste0(fn_name_1L_chr," method applied to ",class_nm_1L_chr),2)
                                                       fn_outp_type_1L_chr <- ""
                                                       write_std_mthd(fn,
@@ -140,7 +140,7 @@ write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
   }else{
     written_files_ls_ls <- NULL
   }
-  return(written_files_ls_ls)
+  return(s4_mthds_ls)
 }
 write_scripts_to_mk_r3_cls <- function(name_stub_1L_chr,
                                        name_pfx_1L_chr,##

@@ -914,7 +914,7 @@ make_s4_mthds_ls <- function (fns_dir_1L_chr = "data-raw/s4_fns")
     if (length(fn_nms_chr) > 0) {
         mthd_nms_chr <- env_ls$fns_path_chr %>% fs::path_file() %>% 
             stringr::str_sub(end = -3)
-        s4_mthds_ls <- mthd_nms_chr %>% purrr::map(~{
+        mthds_ls <- mthd_nms_chr %>% purrr::map(~{
             mthd_nm_1L_chr <- .x
             mthd_fns_chr <- fn_nms_chr[fn_nms_chr %>% startsWith(paste0(mthd_nm_1L_chr, 
                 "_"))]
@@ -922,6 +922,7 @@ make_s4_mthds_ls <- function (fns_dir_1L_chr = "data-raw/s4_fns")
                 "_"))
             mthd_fns_chr <- mthd_fns_chr %>% stats::setNames(cls_nms_chr)
         }) %>% stats::setNames(mthd_nms_chr)
+        s4_mthds_ls <- list(mthds_ls = mthds_ls, env_ls = env_ls)
     }
     else {
         s4_mthds_ls <- NULL

@@ -24,9 +24,9 @@ write_r4_mthds(
 \item{pkg_nm_1L_chr}{Package name (a character vector of length one), Default: character(0)}
 }
 \value{
-Written files (a list of lists)
+a S4 methods (a list)
 }
 \description{
-write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns Written files (a list of lists).
+write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns a S4 methods (a list).
 }
 \keyword{internal}
