@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Author method applied to ready4 S3 class Constructor Table.. — author.ready4class_constructor • ready4class</title>
+<title>Author - a method that writes files to local or remote locations. — author.ready4class_constructor • ready4class</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Author method applied to ready4 S3 class Constructor Table.. — author.ready4class_constructor" />
+<meta property="og:title" content="Author - a method that writes files to local or remote locations. — author.ready4class_constructor" />
 <meta property="og:description" content="author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.)." />
@@ -82,7 +82,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ready4class</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9248</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9249</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Author method applied to ready4 S3 class Constructor Table..</h1>
+    <h1>Author - a method that writes files to local or remote locations.</h1>
     <small class="dont-index">Source: <a href='https://github.com/ready4-dev/ready4class/blob/master/R/mthd_author.R'><code>R/mthd_author.R</code></a></small>
     <div class="hidden name"><code>author-methods.Rd</code></div>
     </div>
@@ -144,6 +144,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
   req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
   class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
   <span class='va'>abbreviations_lup</span>,
+  <span class='va'>fn_types_lup</span>,
   <span class='va'>object_type_lup</span>
 <span class='op'>)</span>
 
@@ -160,6 +161,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
   req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
   class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
   <span class='va'>abbreviations_lup</span>,
+  <span class='va'>fn_types_lup</span>,
   <span class='va'>object_type_lup</span>
 <span class='op'>)</span>
 
@@ -198,6 +200,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
   req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
   class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
   <span class='va'>abbreviations_lup</span>,
+  <span class='va'>fn_types_lup</span>,
   <span class='va'>object_type_lup</span>,
   consent_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span>
@@ -215,6 +218,7 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
   req_pkgs_chr <span class='op'>=</span> <span class='cn'>NA_character_</span>,
   class_in_cache_cdn_1L_chr <span class='op'>=</span> <span class='st'>"stop"</span>,
   <span class='va'>abbreviations_lup</span>,
+  <span class='va'>fn_types_lup</span>,
   <span class='va'>object_type_lup</span>,
   consent_1L_chr <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
@@ -265,6 +269,10 @@ author.ready4class_pt_lup() is an Author method that writes files to local or re
     <tr>
       <th>abbreviations_lup</th>
       <td><p>Abbreviations (a lookup table)</p></td>
+    </tr>
+    <tr>
+      <th>fn_types_lup</th>
+      <td><p>Function types (a lookup table)</p></td>
     </tr>
     <tr>
       <th>object_type_lup</th>
