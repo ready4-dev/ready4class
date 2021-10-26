@@ -13,6 +13,7 @@ write_gtr_str_mthds_for_slots(
   output_dir_1L_chr,
   nss_to_ignore_chr,
   req_pkgs_chr,
+  fn_types_lup,
   object_type_lup
 )
 }
@@ -32,6 +33,8 @@ write_gtr_str_mthds_for_slots(
 \item{nss_to_ignore_chr}{Namespaces to ignore (a character vector)}
 
 \item{req_pkgs_chr}{Require packages (a character vector)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{object_type_lup}{Object type (a lookup table)}
 }

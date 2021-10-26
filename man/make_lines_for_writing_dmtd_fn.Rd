@@ -11,6 +11,7 @@ make_lines_for_writing_dmtd_fn(
   class_nm_1L_chr,
   class_desc_1L_chr,
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup
 )
 }
@@ -26,6 +27,8 @@ make_lines_for_writing_dmtd_fn(
 \item{class_desc_1L_chr}{Class description (a character vector of length one)}
 
 \item{abbreviations_lup}{Abbreviations (a lookup table)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{object_type_lup}{Object type (a lookup table)}
 }

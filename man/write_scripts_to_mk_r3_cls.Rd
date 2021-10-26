@@ -24,6 +24,7 @@ write_scripts_to_mk_r3_cls(
   file_exists_cdn_1L_chr = "skip",
   abbreviations_lup,
   asserts_ls = NULL,
+  fn_types_lup = NULL,
   object_type_lup,
   consent_1L_chr = NULL
 )
@@ -66,6 +67,8 @@ write_scripts_to_mk_r3_cls(
 \item{abbreviations_lup}{Abbreviations (a lookup table)}
 
 \item{asserts_ls}{Asserts (a list), Default: NULL}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{object_type_lup}{Object type (a lookup table)}
 

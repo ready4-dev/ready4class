@@ -6,6 +6,7 @@
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param print_gtrs_strs_1L_lgl Print getters setters (a logical vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @return NULL
 #' @rdname write_gtr_str_mthds_for_r4
@@ -14,7 +15,8 @@
 #' @importFrom purrr reduce
 #' @keywords internal
 write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to_imp_ls, class_nm_1L_chr, 
-    print_gtrs_strs_1L_lgl, output_dir_1L_chr, object_type_lup = NULL) 
+    print_gtrs_strs_1L_lgl, output_dir_1L_chr, fn_types_lup = NULL, 
+    object_type_lup = NULL) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -40,7 +42,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
                 write_file_ls = .x, output_dir_1L_chr = output_dir_1L_chr, 
                 append_1L_lgl = T, doc_in_class_1L_lgl = F, gnrc_exists_1L_lgl = pkgs_to_imp_ls$gnrc_gtr_exists_1L_lgl, 
                 s3_1L_lgl = F, write_1L_lgl = print_gtrs_strs_1L_lgl, 
-                object_type_lup = object_type_lup))
+                fn_types_lup = fn_types_lup, object_type_lup = object_type_lup))
     }
 }
 #' Write getter setter methods for slots
@@ -53,6 +55,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
 #' @param req_pkgs_chr Require packages (a character vector)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @return NULL
 #' @rdname write_gtr_str_mthds_for_slots
@@ -62,7 +65,7 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
 #' @keywords internal
 write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
-    nss_to_ignore_chr, req_pkgs_chr, object_type_lup) 
+    nss_to_ignore_chr, req_pkgs_chr, fn_types_lup, object_type_lup) 
 {
     req_pkgs_chr <- purrr::map_chr(req_pkgs_chr, ~stringr::str_replace(.x, 
         "NA", NA_character_))
@@ -72,12 +75,14 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
         set_only_1L_lgl = .x %in% set_only_chr, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         class_nm_1L_chr = class_nm_1L_chr, print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl, 
         output_dir_1L_chr = output_dir_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr, 
-        req_pkgs_chr = req_pkgs_chr, object_type_lup = object_type_lup))
+        req_pkgs_chr = req_pkgs_chr, fn_types_lup = fn_types_lup, 
+        object_type_lup = object_type_lup))
 }
 #' Write methods for ready4 S3 or ready4 S4 classes
 #' @description write_mthds_for_r3_or_r4_clss() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write methods for ready4 s3 or ready4 s4 classes. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
 #' @param methods_tb Methods (a tibble)
 #' @param fn_ls Function list (a list of functions)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param pkg_nm_1L_chr Package name (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @return NULL
@@ -86,7 +91,7 @@ write_gtr_str_mthds_for_slots <- function (slot_names_chr, set_only_chr, parent_
 #' @importFrom purrr pwalk
 #' @importFrom dplyr mutate
 #' @keywords internal
-write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, output_dir_1L_chr) 
+write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, fn_types_lup, pkg_nm_1L_chr, output_dir_1L_chr) 
 {
     purrr::pwalk(methods_tb %>% dplyr::mutate(first_lgl = c(T, 
         rep(F, length(fn_ls) - 1))) %>% dplyr::mutate(append_lgl = c(F, 
@@ -94,43 +99,32 @@ write_mthds_for_r3_or_r4_clss <- function (methods_tb, fn_ls, pkg_nm_1L_chr, out
         fn_name_1L_chr = ..2, class_nm_1L_chr = ..3, fn_desc_chr = c(..4, 
             ..5), fn_title_1L_chr = ..6, fn_outp_type_1L_chr = ..7, 
         pkg_nm_1L_chr = pkg_nm_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
-        signature_1L_chr = ..8, append_1L_lgl = ..10, first_1L_lgl = ..9))
+        signature_1L_chr = ..8, append_1L_lgl = ..10, first_1L_lgl = ..9, 
+        fn_types_lup = fn_types_lup))
 }
 #' Write ready4 S4 methods
 #' @description write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns Written files (a list of lists).
 #' @param fns_dir_1L_chr Functions directory (a character vector of length one), Default: 'data-raw/s4_fns'
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param import_from_chr Import from (a character vector), Default: character(0)
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
 #' @param pkg_nm_1L_chr Package name (a character vector of length one), Default: character(0)
 #' @return Written files (a list of lists)
 #' @rdname write_r4_mthds
 #' @export 
-#' @importFrom ready4fun get_dev_pkg_nm make_gnrc_imports read_fns
-#' @importFrom fs path_file
-#' @importFrom stringr str_sub str_remove
-#' @importFrom purrr map map2 pluck
-#' @importFrom stats setNames
+#' @importFrom ready4fun get_dev_pkg_nm make_gnrc_imports
+#' @importFrom purrr map2 pluck
 #' @keywords internal
-write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", import_from_chr = character(0), 
-    output_dir_1L_chr = "R", pkg_nm_1L_chr = character(0)) 
+write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", fn_types_lup = NULL, 
+    import_from_chr = character(0), output_dir_1L_chr = "R", 
+    pkg_nm_1L_chr = character(0)) 
 {
     if (identical(pkg_nm_1L_chr, character(0))) 
         pkg_nm_1L_chr <- ready4fun::get_dev_pkg_nm()
     if (identical(import_from_chr, character(0))) 
         import_from_chr <- ready4fun::make_gnrc_imports()
-    env_ls <- ready4fun::read_fns(fns_dir_1L_chr)
-    fn_nms_chr <- env_ls$fns_env %>% names()
-    if (length(fn_nms_chr) > 0) {
-        mthd_nms_chr <- env_ls$fns_path_chr %>% fs::path_file() %>% 
-            stringr::str_sub(end = -3)
-        s4_mthds_ls <- mthd_nms_chr %>% purrr::map(~{
-            mthd_nm_1L_chr <- .x
-            mthd_fns_chr <- fn_nms_chr[fn_nms_chr %>% startsWith(paste0(mthd_nm_1L_chr, 
-                "_"))]
-            cls_nms_chr <- mthd_fns_chr %>% stringr::str_remove(paste0(mthd_nm_1L_chr, 
-                "_"))
-            mthd_fns_chr <- mthd_fns_chr %>% stats::setNames(cls_nms_chr)
-        }) %>% stats::setNames(mthd_nms_chr)
+    s4_mthds_ls <- make_s4_mthds_ls(fns_dir_1L_chr)
+    if (!is.null(s4_mthds_ls)) {
         written_files_ls_ls <- purrr::map2(s4_mthds_ls, names(s4_mthds_ls), 
             ~{
                 fn_name_1L_chr <- .y
@@ -145,8 +139,8 @@ write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", import_from_chr 
                   write_std_mthd(fn, fn_name_1L_chr = fn_name_1L_chr, 
                     class_nm_1L_chr = class_nm_1L_chr, fn_desc_chr = fn_desc_chr, 
                     fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
-                    pkg_nm_1L_chr = pkg_nm_1L_chr, output_dir_1L_chr = output_dir_1L_chr, 
-                    import_from_chr = import_from_chr)
+                    fn_types_lup = fn_types_lup, pkg_nm_1L_chr = pkg_nm_1L_chr, 
+                    output_dir_1L_chr = output_dir_1L_chr, import_from_chr = import_from_chr)
                 })
             })
     }
@@ -171,6 +165,7 @@ write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", import_from_chr 
 #' @param s3_1L_lgl S3 (a logical vector of length one), Default: F
 #' @param write_1L_lgl Write (a logical vector of length one), Default: T
 #' @param doc_in_class_1L_lgl Document in class (a logical vector of length one), Default: F
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
@@ -185,7 +180,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
     fn_outp_type_1L_chr = NA_character_, fn_title_1L_chr = NA_character_, 
     class_nm_1L_chr = NA_character_, output_dir_1L_chr = NA_character_, 
     overwrite_1L_lgl = F, s3_1L_lgl = F, write_1L_lgl = T, doc_in_class_1L_lgl = F, 
-    object_type_lup = NULL, consent_1L_chr = NULL) 
+    fn_types_lup = NULL, object_type_lup = NULL, consent_1L_chr = NULL) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -206,7 +201,8 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
                 ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
                   fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = gen_mthd_pair_ls$gen_fn_chr)), 
                   fn_desc_1L_chr = fn_desc_1L_chr, fn_out_type_1L_chr = fn_outp_type_1L_chr, 
-                  fn_title_1L_chr = fn_title_1L_chr, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
+                  fn_title_1L_chr = fn_title_1L_chr, fn_types_lup = fn_types_lup, 
+                  doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
                   object_type_lup = object_type_lup)
                 writeLines(gen_mthd_pair_ls$generic_1L_chr %>% 
                   stringr::str_replace(paste0(",\nwhere =  ", 
@@ -245,6 +241,7 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @param write_1L_lgl Write (a logical vector of length one), Default: T
 #' @param append_1L_lgl Append (a logical vector of length one), Default: T
 #' @param doc_in_class_1L_lgl Document in class (a logical vector of length one), Default: F
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @param import_from_chr Import from (a character vector), Default: 'NA'
@@ -258,7 +255,8 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
     fn_type_1L_chr, fn_desc_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_1L_lgl = T, append_1L_lgl = T, doc_in_class_1L_lgl = F, 
-    object_type_lup = NULL, consent_1L_chr = NULL, import_from_chr = NA_character_) 
+    fn_types_lup = NULL, object_type_lup = NULL, consent_1L_chr = NULL, 
+    import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -276,9 +274,9 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
             ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
                 fn_type_1L_chr = fn_type_1L_chr, fn = eval(parse(text = gen_mthd_pair_ls$meth_fn_chr)), 
                 fn_desc_1L_chr = fn_desc_1L_chr, fn_out_type_1L_chr = fn_outp_type_1L_chr, 
-                class_name_1L_chr = class_nm_1L_chr, import_chr = imports_chr, 
-                import_from_chr = import_from_chr, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
-                object_type_lup = object_type_lup)
+                fn_types_lup = fn_types_lup, class_name_1L_chr = class_nm_1L_chr, 
+                import_chr = imports_chr, import_from_chr = import_from_chr, 
+                doc_in_class_1L_lgl = doc_in_class_1L_lgl, object_type_lup = object_type_lup)
             writeLines(gen_mthd_pair_ls$method_chr %>% stringr::str_replace(paste0(",\nwhere =  ", 
                 "globalenv\\(\\)"), "") %>% stringr::str_replace_all(",..GlobalEnv\"", 
                 ""))
@@ -308,6 +306,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
 #' @param overwrite_1L_lgl Overwrite (a logical vector of length one), Default: F
 #' @param s3_1L_lgl S3 (a logical vector of length one)
 #' @param write_1L_lgl Write (a logical vector of length one)
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param import_from_chr Import from (a character vector), Default: 'NA'
 #' @return NULL
@@ -321,7 +320,8 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
         2), fn_title_1L_chr = NA_character_, fn_outp_type_1L_chr = NA_character_, 
     imports_chr, write_file_ls, output_dir_1L_chr, append_1L_lgl = T, 
     doc_in_class_1L_lgl = F, gnrc_exists_1L_lgl, overwrite_1L_lgl = F, 
-    s3_1L_lgl, write_1L_lgl, object_type_lup = NULL, import_from_chr = NA_character_) 
+    s3_1L_lgl, write_1L_lgl, fn_types_lup = NULL, object_type_lup = NULL, 
+    import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
@@ -336,7 +336,7 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
         fn_title_1L_chr = fn_title_1L_chr, class_nm_1L_chr = class_nm_1L_chr, 
         output_dir_1L_chr = output_dir_1L_chr, overwrite_1L_lgl = overwrite_1L_lgl, 
         s3_1L_lgl = s3_1L_lgl, write_1L_lgl = write_1L_lgl, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
-        object_type_lup = object_type_lup)
+        fn_types_lup = fn_types_lup, object_type_lup = object_type_lup)
     write_file_ls$new_file_lgl <- ifelse(!overwrite_1L_lgl, T, 
         write_file_ls$new_file_lgl)
     write_script_to_make_mthd(write_file_ls = write_file_ls, 
@@ -345,7 +345,8 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
         fn_desc_1L_chr = fn_desc_chr[2], fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
         imports_chr = imports_chr, write_1L_lgl = write_1L_lgl, 
         append_1L_lgl = append_1L_lgl, doc_in_class_1L_lgl = doc_in_class_1L_lgl, 
-        object_type_lup = object_type_lup, import_from_chr = import_from_chr)
+        fn_types_lup = fn_types_lup, object_type_lup = object_type_lup, 
+        import_from_chr = import_from_chr)
     write_file_ls
 }
 #' Write scripts to make classes
@@ -402,6 +403,7 @@ write_scripts_to_mk_clss <- function (pts_for_new_clss_ls, pkg_nm_1L_chr, class_
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: 'skip'
 #' @param abbreviations_lup Abbreviations (a lookup table)
 #' @param asserts_ls Asserts (a list), Default: NULL
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
@@ -418,7 +420,8 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
     ordered_1L_lgl = FALSE, allowed_vals_ls = NULL, min_max_vals_dbl = NULL, 
     start_end_vals_dbl = NULL, prototype_lup, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr = NA_character_, file_exists_cdn_1L_chr = "skip", 
-    abbreviations_lup, asserts_ls = NULL, object_type_lup, consent_1L_chr = NULL) 
+    abbreviations_lup, asserts_ls = NULL, fn_types_lup = NULL, 
+    object_type_lup, consent_1L_chr = NULL) 
 {
     if (!dir.exists(output_dir_1L_chr)) 
         dir.create(output_dir_1L_chr)
@@ -455,7 +458,8 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
                 ~make_lines_for_writing_dmtd_fn(fn_name_1L_chr = ..1, 
                   fn_body_1L_chr = ..2, fn_type_1L_chr = ..3, 
                   class_nm_1L_chr = class_nm_1L_chr, class_desc_1L_chr = class_desc_1L_chr, 
-                  abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup))
+                  abbreviations_lup = abbreviations_lup, fn_types_lup = fn_types_lup, 
+                  object_type_lup = object_type_lup))
             ready4fun::close_open_sinks()
         }
         devtools::document()
@@ -486,6 +490,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param slots_of_dif_lnts_chr Slots of different lengths (a character vector), Default: NULL
 #' @param vals_ls Values (a list), Default: NULL
+#' @param fn_types_lup Function types (a lookup table), Default: NULL
 #' @param helper_1L_lgl Helper (a logical vector of length one), Default: F
 #' @param print_set_cls_1L_lgl Print set class (a logical vector of length one), Default: TRUE
 #' @param print_gtrs_strs_1L_lgl Print getters setters (a logical vector of length one), Default: TRUE
@@ -506,8 +511,8 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
     object_type_lup, output_dir_1L_chr = "data-raw", outp_sub_dir_1L_chr = NULL, 
     names_must_match_ls = NULL, nss_to_ignore_chr = NA_character_, 
     parent_cls_nm_1L_chr = NULL, req_pkgs_chr = NA_character_, 
-    slots_of_dif_lnts_chr = NULL, vals_ls = NULL, helper_1L_lgl = F, 
-    print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
+    slots_of_dif_lnts_chr = NULL, vals_ls = NULL, fn_types_lup = NULL, 
+    helper_1L_lgl = F, print_set_cls_1L_lgl = TRUE, print_gtrs_strs_1L_lgl = TRUE, 
     print_validator_1L_lgl = TRUE, print_meaningful_nms_ls_1L_lgl = TRUE) 
 {
     if (!is.null(outp_sub_dir_1L_chr)) {
@@ -541,8 +546,9 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
         if (consent_1L_chr == "Y") {
             sink(output_file_class_1L_chr, append = TRUE)
             ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = class_nm_1L_chr, 
-                fn_type_1L_chr = "set_class", fn = eval(parse(text = class_nm_1L_chr)), 
-                class_name_1L_chr = class_nm_1L_chr, object_type_lup = object_type_lup)
+                fn_type_1L_chr = "set_class", fn_types_lup = fn_types_lup, 
+                fn = eval(parse(text = class_nm_1L_chr)), class_name_1L_chr = class_nm_1L_chr, 
+                object_type_lup = object_type_lup)
             writeLines(helper_function)
             ready4fun::close_open_sinks()
         }
@@ -621,13 +627,15 @@ write_self_srvc_clss <- function (pkg_setup_ls)
         start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]], 
         prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup, 
         file_exists_cdn_1L_chr = "overwrite", abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup, 
-        asserts_ls = classes_to_make_tb$asserts_ls[[1]], object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+        asserts_ls = classes_to_make_tb$asserts_ls[[1]], fn_types_lup = pkg_setup_ls$subsequent_ls$fn_types_lup, 
+        object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
     pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>% 
         ready4class_constructor() %>% dplyr::bind_rows(second_step_classes_tb)
     authorClasses.ready4class_constructor(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>% 
         dplyr::filter(name_stub_chr == "pt_lup"), name_pfx_1L_chr = paste0(pkg_desc_ls$Package, 
         "_"), output_dir_1L_chr = "R", prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup, 
         file_exists_cdn_1L_chr = "overwrite", abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup, 
+        fn_types_lup = pkg_setup_ls$subsequent_ls$fn_types_lup, 
         object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
     if (!"ready4class_pt_lup" %in% class(pkg_setup_ls$subsequent_ls$prototype_lup)) 
         pkg_setup_ls$subsequent_ls$prototype_lup <- pkg_setup_ls$subsequent_ls$prototype_lup %>% 
@@ -644,6 +652,7 @@ write_self_srvc_clss <- function (pkg_setup_ls)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
 #' @param req_pkgs_chr Require packages (a character vector)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @return NULL
 #' @rdname write_slot_gtr_str_mthds
@@ -651,7 +660,7 @@ write_self_srvc_clss <- function (pkg_setup_ls)
 #' @keywords internal
 write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cls_nm_1L_chr, 
     class_nm_1L_chr, print_gtrs_strs_1L_lgl, output_dir_1L_chr, 
-    nss_to_ignore_chr, req_pkgs_chr, object_type_lup) 
+    nss_to_ignore_chr, req_pkgs_chr, fn_types_lup, object_type_lup) 
 {
     curr_gnrcs_ls <- make_ls_of_tfd_nms_of_curr_gnrcs(req_pkgs_chr = req_pkgs_chr, 
         generic_1L_chr = slot_nm_1L_chr, nss_to_ignore_chr = nss_to_ignore_chr)
@@ -660,7 +669,8 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
     write_gtr_str_mthds_for_r4(slot_nm_1L_chr = slot_nm_1L_chr, 
         set_only_1L_lgl = set_only_1L_lgl, pkgs_to_imp_ls = pkgs_to_imp_ls, 
         class_nm_1L_chr = class_nm_1L_chr, print_gtrs_strs_1L_lgl = print_gtrs_strs_1L_lgl, 
-        output_dir_1L_chr = output_dir_1L_chr, object_type_lup = object_type_lup)
+        output_dir_1L_chr = output_dir_1L_chr, fn_types_lup = fn_types_lup, 
+        object_type_lup = object_type_lup)
 }
 #' Write standard method
 #' @description write_std_mthd() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write standard method. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
@@ -670,6 +680,7 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @param fn_desc_chr Function description (a character vector)
 #' @param fn_title_1L_chr Function title (a character vector of length one)
 #' @param fn_outp_type_1L_chr Function output type (a character vector of length one)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param pkg_nm_1L_chr Package name (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param signature_1L_chr Signature (a character vector of length one), Default: 'NA'
@@ -684,8 +695,9 @@ write_slot_gtr_str_mthds <- function (slot_nm_1L_chr, set_only_1L_lgl, parent_cl
 #' @importFrom purrr discard
 #' @keywords internal
 write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn_title_1L_chr, 
-    fn_outp_type_1L_chr, pkg_nm_1L_chr, output_dir_1L_chr, signature_1L_chr = NA_character_, 
-    append_1L_lgl = T, first_1L_lgl = T, import_from_chr = NA_character_) 
+    fn_outp_type_1L_chr, fn_types_lup, pkg_nm_1L_chr, output_dir_1L_chr, 
+    signature_1L_chr = NA_character_, append_1L_lgl = T, first_1L_lgl = T, 
+    import_from_chr = NA_character_) 
 {
     s3_1L_lgl = !isS4(eval(parse(text = paste0(class_nm_1L_chr, 
         "()"))))
@@ -721,12 +733,12 @@ write_std_mthd <- function (fn, fn_name_1L_chr, class_nm_1L_chr, fn_desc_chr, fn
         signature_1L_chr = signature_1L_chr, pkg_nm_1L_chr = NA_character_, 
         where_chr = "globalenv()", class_nm_1L_chr = class_nm_1L_chr, 
         fn = fn, fn_type_chr = fn_type_chr, fn_desc_chr = fn_desc_chr, 
-        fn_title_1L_chr = fn_title_1L_chr, fn_outp_type_1L_chr = fn_outp_type_1L_chr, 
-        imports_chr = imports_chr, write_file_ls = write_file_ls, 
-        output_dir_1L_chr = output_dir_1L_chr, append_1L_lgl = append_1L_lgl, 
-        doc_in_class_1L_lgl = F, gnrc_exists_1L_lgl = gnrc_exists_1L_lgl, 
-        overwrite_1L_lgl = !append_1L_lgl, s3_1L_lgl = s3_1L_lgl, 
-        write_1L_lgl = T, import_from_chr = import_from_chr)
+        fn_title_1L_chr = fn_title_1L_chr, fn_types_lup = fn_types_lup, 
+        fn_outp_type_1L_chr = fn_outp_type_1L_chr, imports_chr = imports_chr, 
+        write_file_ls = write_file_ls, output_dir_1L_chr = output_dir_1L_chr, 
+        append_1L_lgl = append_1L_lgl, doc_in_class_1L_lgl = F, 
+        gnrc_exists_1L_lgl = gnrc_exists_1L_lgl, overwrite_1L_lgl = !append_1L_lgl, 
+        s3_1L_lgl = s3_1L_lgl, write_1L_lgl = T, import_from_chr = import_from_chr)
     write_file_ls
 }
 #' Write to delete files with pattern

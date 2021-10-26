@@ -3,7 +3,7 @@
 \name{manufacture.ready4class_constructor}
 \alias{manufacture.ready4class_constructor}
 \alias{manufacture,ready4class_constructor-method}
-\title{Manufacture method applied to ready4 S3 class Constructor Table..}
+\title{Manufacture - a method that creates a novel r object.}
 \usage{
 manufacture.ready4class_constructor(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 

@@ -223,7 +223,7 @@ make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_c
         print_gtrs_strs_1L_lgl, ",output_dir_1L_chr = \"", output_dir_1L_chr, 
         "\"", ",nss_to_ignore_chr = c(\"", nss_to_ignore_chr %>% 
             stringr::str_c(collapse = "\",\""), "\")", ",req_pkgs_chr = \"", 
-        req_pkgs_chr, "\"", ",object_type_lup = object_type_lup", 
+        req_pkgs_chr, "\"", ",fn_types_lup = fn_types_lup", ",object_type_lup = object_type_lup", 
         ")")
     return(alg_to_write_gtr_str_mthds)
 }
@@ -631,6 +631,7 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param class_desc_1L_chr Class description (a character vector of length one)
 #' @param abbreviations_lup Abbreviations (a lookup table)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @return NULL
 #' @rdname make_lines_for_writing_dmtd_fn
@@ -638,13 +639,13 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
 #' @importFrom ready4fun make_lines_for_fn_dmt
 #' @keywords internal
 make_lines_for_writing_dmtd_fn <- function (fn_name_1L_chr, fn_body_1L_chr, fn_type_1L_chr, class_nm_1L_chr, 
-    class_desc_1L_chr, abbreviations_lup, object_type_lup) 
+    class_desc_1L_chr, abbreviations_lup, fn_types_lup, object_type_lup) 
 {
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr, 
         fn_type_1L_chr = fn_type_1L_chr, fn_title_1L_chr = fn_name_1L_chr, 
-        fn = eval(parse(text = fn_body_1L_chr)), class_name_1L_chr = class_nm_1L_chr, 
-        details_1L_chr = class_desc_1L_chr, abbreviations_lup = abbreviations_lup, 
-        object_type_lup = object_type_lup)
+        fn = eval(parse(text = fn_body_1L_chr)), fn_types_lup = fn_types_lup, 
+        class_name_1L_chr = class_nm_1L_chr, details_1L_chr = class_desc_1L_chr, 
+        abbreviations_lup = abbreviations_lup, object_type_lup = object_type_lup)
     writeLines(fn_body_1L_chr)
 }
 #' Make list of packages to import
@@ -893,6 +894,39 @@ make_pt_tb_for_new_r4_cls <- function (x)
 {
     pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r4_cls(.x))
     return(pt_tb_for_new_r3_cls_tb)
+}
+#' Make S4 methods list
+#' @description make_s4_mthds_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make s4 methods list. The function returns a S4 methods (a list).
+#' @param fns_dir_1L_chr Functions directory (a character vector of length one), Default: 'data-raw/s4_fns'
+#' @return a S4 methods (a list)
+#' @rdname make_s4_mthds_ls
+#' @export 
+#' @importFrom ready4fun read_fns
+#' @importFrom fs path_file
+#' @importFrom stringr str_sub str_remove
+#' @importFrom purrr map
+#' @importFrom stats setNames
+#' @keywords internal
+make_s4_mthds_ls <- function (fns_dir_1L_chr = "data-raw/s4_fns") 
+{
+    env_ls <- ready4fun::read_fns(fns_dir_1L_chr)
+    fn_nms_chr <- env_ls$fns_env %>% names()
+    if (length(fn_nms_chr) > 0) {
+        mthd_nms_chr <- env_ls$fns_path_chr %>% fs::path_file() %>% 
+            stringr::str_sub(end = -3)
+        s4_mthds_ls <- mthd_nms_chr %>% purrr::map(~{
+            mthd_nm_1L_chr <- .x
+            mthd_fns_chr <- fn_nms_chr[fn_nms_chr %>% startsWith(paste0(mthd_nm_1L_chr, 
+                "_"))]
+            cls_nms_chr <- mthd_fns_chr %>% stringr::str_remove(paste0(mthd_nm_1L_chr, 
+                "_"))
+            mthd_fns_chr <- mthd_fns_chr %>% stats::setNames(cls_nms_chr)
+        }) %>% stats::setNames(mthd_nms_chr)
+    }
+    else {
+        s4_mthds_ls <- NULL
+    }
+    return(s4_mthds_ls)
 }
 #' Make show method function
 #' @description make_show_mthd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make show method function. The function returns Show method function (a character vector of length one).

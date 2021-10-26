@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{Renew method applied to ready4 S3 class Constructor Table..}
+\title{Renew - a method that updates an instance of a class with new values.}
 \usage{
 renew.ready4class_constructor(
   x,

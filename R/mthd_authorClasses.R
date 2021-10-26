@@ -1,4 +1,4 @@
-#' AuthorClasses method applied to ready4 S3 class Constructor Table..
+#' AuthorClasses - a method that authors and saves files necessary for creating and documenting classes.
 #' @description authorClasses.ready4class_constructor() is an AuthorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
@@ -10,6 +10,7 @@
 #' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param class_in_cache_cdn_1L_chr Class in cache condition (a character vector of length one), Default: 'stop'
 #' @param abbreviations_lup Abbreviations (a lookup table)
+#' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
@@ -25,7 +26,7 @@
 authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_dir_1L_chr, file_exists_cdn_1L_chr = NULL, 
     prototype_lup = NULL, dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(), 
     nss_to_ignore_chr, req_pkgs_chr = NA_character_, class_in_cache_cdn_1L_chr = "stop", 
-    abbreviations_lup, object_type_lup, consent_1L_chr = NULL) 
+    abbreviations_lup, fn_types_lup, object_type_lup, consent_1L_chr = NULL) 
 {
     new_files_chr <- paste0(purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
         "C3_", "C4_")), purrr::map_chr(x$make_s3_lgl, ~ifelse(.x, 
@@ -54,7 +55,7 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
             prototype_lup = prototype_lup, dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr, 
             nss_to_ignore_chr = nss_to_ignore_chr, abbreviations_lup = abbreviations_lup, 
             asserts_ls = ..15, object_type_lup = object_type_lup, 
-            consent_1L_chr = consent_1L_chr))
+            fn_types_lup = fn_types_lup, consent_1L_chr = consent_1L_chr))
         purrr::pwalk(x %>% dplyr::filter(make_s3_lgl != T), ~write_scripts_to_mk_r4_cls(name_stub_1L_chr = ..2, 
             name_pfx_1L_chr = stringr::str_sub(name_pfx_1L_chr, 
                 end = -2) %>% Hmisc::capitalize(), output_dir_1L_chr = output_dir_1L_chr, 
@@ -77,8 +78,8 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
             allowed_vals_ls = ..7[[1]], clss_to_inc_chr = ..14[[1]], 
             prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
             req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
-            asserts_ls = ..15[[1]], object_type_lup = object_type_lup, 
-            consent_1L_chr = consent_1L_chr))
+            asserts_ls = ..15[[1]], fn_types_lup = fn_types_lup, 
+            object_type_lup = object_type_lup, consent_1L_chr = consent_1L_chr))
     }
 }
 #' @rdname authorClasses-methods

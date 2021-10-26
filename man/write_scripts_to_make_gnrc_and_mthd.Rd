@@ -25,6 +25,7 @@ write_scripts_to_make_gnrc_and_mthd(
   overwrite_1L_lgl = F,
   s3_1L_lgl,
   write_1L_lgl,
+  fn_types_lup = NULL,
   object_type_lup = NULL,
   import_from_chr = NA_character_
 )
@@ -69,6 +70,8 @@ write_scripts_to_make_gnrc_and_mthd(
 \item{s3_1L_lgl}{S3 (a logical vector of length one)}
 
 \item{write_1L_lgl}{Write (a logical vector of length one)}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{object_type_lup}{Object type (a lookup table), Default: NULL}
 

@@ -27,6 +27,7 @@ write_scripts_to_mk_r4_cls(
   req_pkgs_chr = NA_character_,
   slots_of_dif_lnts_chr = NULL,
   vals_ls = NULL,
+  fn_types_lup = NULL,
   helper_1L_lgl = F,
   print_set_cls_1L_lgl = TRUE,
   print_gtrs_strs_1L_lgl = TRUE,
@@ -78,6 +79,8 @@ write_scripts_to_mk_r4_cls(
 \item{slots_of_dif_lnts_chr}{Slots of different lengths (a character vector), Default: NULL}
 
 \item{vals_ls}{Values (a list), Default: NULL}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
 

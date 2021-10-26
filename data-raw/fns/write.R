@@ -584,6 +584,45 @@ write_script_to_make_mthd <- function(write_file_ls,
     }
     }
 }
+write_self_srvc_clss <- function(pkg_setup_ls){
+  second_step_classes_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[-1,]
+  classes_to_make_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[1,]
+  write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
+                             name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
+                             output_dir_1L_chr = "R",
+                             class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
+                             type_1L_chr = classes_to_make_tb$pt_ls[[1]][[1]],
+                             pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]][[1]],
+                             pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]][[1]] %in% c("base"),
+                                                   "",
+                                                   classes_to_make_tb$pt_ns_ls[[1]][[1]]),
+                             vals_ls = classes_to_make_tb$vals_ls[[1]],
+                             allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
+                             min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
+                             start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
+                             prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
+                             file_exists_cdn_1L_chr = "overwrite",
+                             abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
+                             asserts_ls = classes_to_make_tb$asserts_ls[[1]],
+                             fn_types_lup = pkg_setup_ls$subsequent_ls$fn_types_lup,
+                             object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+  pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>%
+    ready4class_constructor() %>%
+    dplyr::bind_rows(second_step_classes_tb)
+  authorClasses.ready4class_constructor(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>%
+                                          dplyr::filter(name_stub_chr == "pt_lup"),
+                                        name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
+                                        output_dir_1L_chr = "R",
+                                        prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
+                                        file_exists_cdn_1L_chr = "overwrite",
+                                        abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
+                                        fn_types_lup = pkg_setup_ls$subsequent_ls$fn_types_lup,
+                                        object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
+  if(!"ready4class_pt_lup" %in% class(pkg_setup_ls$subsequent_ls$prototype_lup))
+    pkg_setup_ls$subsequent_ls$prototype_lup <- pkg_setup_ls$subsequent_ls$prototype_lup %>%
+    ready4class_pt_lup()
+  return(pkg_setup_ls)
+}
 write_slot_gtr_str_mthds <- function(slot_nm_1L_chr,
                                      set_only_1L_lgl,
                                      parent_cls_nm_1L_chr,
@@ -685,44 +724,6 @@ write_std_mthd <- function(fn,
                                                        write_1L_lgl = T,
                                                        import_from_chr = import_from_chr) # import_from_chr ?
   write_file_ls
-}
-write_self_srvc_clss <- function(pkg_setup_ls){
-  second_step_classes_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[-1,]
-  classes_to_make_tb <- pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x[1,]
-  write_scripts_to_mk_r3_cls(name_stub_1L_chr = classes_to_make_tb$name_stub_chr,
-                             name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
-                             output_dir_1L_chr = "R",
-                             class_desc_1L_chr = classes_to_make_tb$class_desc_chr,
-                             type_1L_chr = classes_to_make_tb$pt_ls[[1]][[1]],
-                             pt_chkr_pfx_1L_chr = classes_to_make_tb$pt_chkr_pfx_ls[[1]][[1]],
-                             pt_ns_1L_chr = ifelse(classes_to_make_tb$pt_ns_ls[[1]][[1]] %in% c("base"),
-                                                   "",
-                                                   classes_to_make_tb$pt_ns_ls[[1]][[1]]),
-                             vals_ls = classes_to_make_tb$vals_ls[[1]],
-                             allowed_vals_ls = classes_to_make_tb$allowed_vals_ls[[1]],
-                             min_max_vals_dbl = classes_to_make_tb$min_max_vals_ls[[1]][[1]],
-                             start_end_vals_dbl = classes_to_make_tb$start_end_vals_ls[[1]][[1]],
-                             prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
-                             file_exists_cdn_1L_chr = "overwrite",
-                             abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
-                             asserts_ls = classes_to_make_tb$asserts_ls[[1]],
-                             fn_types_lup = pkg_setup_ls$subsequent_ls$fn_types_lup,
-                             object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
-  pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x <- classes_to_make_tb %>%
-    ready4class_constructor() %>%
-    dplyr::bind_rows(second_step_classes_tb)
-  authorClasses.ready4class_constructor(pkg_setup_ls$subsequent_ls$cls_fn_ls$args_ls$x %>%
-                                                                 dplyr::filter(name_stub_chr == "pt_lup"),
-                                                               name_pfx_1L_chr = paste0(pkg_desc_ls$Package,"_"),
-                                                               output_dir_1L_chr = "R",
-                                                               prototype_lup = pkg_setup_ls$subsequent_ls$prototype_lup,
-                                                               file_exists_cdn_1L_chr = "overwrite",
-                                                               abbreviations_lup = pkg_setup_ls$subsequent_ls$abbreviations_lup,
-                                                               object_type_lup = pkg_setup_ls$subsequent_ls$object_type_lup)
-  if(!"ready4class_pt_lup" %in% class(pkg_setup_ls$subsequent_ls$prototype_lup))
-  pkg_setup_ls$subsequent_ls$prototype_lup <- pkg_setup_ls$subsequent_ls$prototype_lup %>%
-    ready4class_pt_lup()
-  return(pkg_setup_ls)
 }
 write_to_delete_fls_with_ptrn <- function(dir_1L_chr,
                                           pattern_1L_chr){

@@ -3,7 +3,7 @@
 \name{authorClasses.ready4class_constructor}
 \alias{authorClasses.ready4class_constructor}
 \alias{authorClasses,ready4class_constructor-method}
-\title{AuthorClasses method applied to ready4 S3 class Constructor Table..}
+\title{AuthorClasses - a method that authors and saves files necessary for creating and documenting classes.}
 \usage{
 authorClasses.ready4class_constructor(
   x,
@@ -16,6 +16,7 @@ authorClasses.ready4class_constructor(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup,
   consent_1L_chr = NULL
 )
@@ -31,6 +32,7 @@ authorClasses.ready4class_constructor(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup,
   consent_1L_chr = NULL
 )
@@ -55,6 +57,8 @@ authorClasses.ready4class_constructor(
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
 
 \item{abbreviations_lup}{Abbreviations (a lookup table)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{object_type_lup}{Object type (a lookup table)}
 

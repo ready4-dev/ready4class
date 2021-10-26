@@ -11,6 +11,7 @@ write_gtr_str_mthds_for_r4(
   class_nm_1L_chr,
   print_gtrs_strs_1L_lgl,
   output_dir_1L_chr,
+  fn_types_lup = NULL,
   object_type_lup = NULL
 )
 }
@@ -26,6 +27,8 @@ write_gtr_str_mthds_for_r4(
 \item{print_gtrs_strs_1L_lgl}{Print getters setters (a logical vector of length one)}
 
 \item{output_dir_1L_chr}{Output directory (a character vector of length one)}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }

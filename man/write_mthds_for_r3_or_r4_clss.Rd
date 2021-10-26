@@ -7,6 +7,7 @@
 write_mthds_for_r3_or_r4_clss(
   methods_tb,
   fn_ls,
+  fn_types_lup,
   pkg_nm_1L_chr,
   output_dir_1L_chr
 )
@@ -15,6 +16,8 @@ write_mthds_for_r3_or_r4_clss(
 \item{methods_tb}{Methods (a tibble)}
 
 \item{fn_ls}{Function list (a list of functions)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 

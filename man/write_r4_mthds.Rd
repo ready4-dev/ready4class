@@ -6,6 +6,7 @@
 \usage{
 write_r4_mthds(
   fns_dir_1L_chr = "data-raw/s4_fns",
+  fn_types_lup = NULL,
   import_from_chr = character(0),
   output_dir_1L_chr = "R",
   pkg_nm_1L_chr = character(0)
@@ -13,6 +14,8 @@ write_r4_mthds(
 }
 \arguments{
 \item{fns_dir_1L_chr}{Functions directory (a character vector of length one), Default: 'data-raw/s4_fns'}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{import_from_chr}{Import from (a character vector), Default: character(0)}
 

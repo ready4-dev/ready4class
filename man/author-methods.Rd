@@ -7,7 +7,7 @@
 \alias{author,ready4class_manifest-method}
 \alias{author.ready4class_pt_lup}
 \alias{author,ready4class_pt_lup-method}
-\title{Author method applied to ready4 S3 class Constructor Table..}
+\title{Author - a method that writes files to local or remote locations.}
 \usage{
 author.ready4class_constructor(
   x,
@@ -21,6 +21,7 @@ author.ready4class_constructor(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup
 )
 
@@ -36,6 +37,7 @@ author.ready4class_constructor(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup
 )
 
@@ -73,6 +75,7 @@ author.ready4class_pt_lup(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup,
   consent_1L_chr = NULL
 )
@@ -89,6 +92,7 @@ author.ready4class_pt_lup(
   req_pkgs_chr = NA_character_,
   class_in_cache_cdn_1L_chr = "stop",
   abbreviations_lup,
+  fn_types_lup,
   object_type_lup,
   consent_1L_chr = NULL
 )
@@ -115,6 +119,8 @@ author.ready4class_pt_lup(
 \item{class_in_cache_cdn_1L_chr}{Class in cache condition (a character vector of length one), Default: 'stop'}
 
 \item{abbreviations_lup}{Abbreviations (a lookup table)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{object_type_lup}{Object type (a lookup table)}
 

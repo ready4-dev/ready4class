@@ -16,6 +16,7 @@ write_script_to_make_mthd(
   write_1L_lgl = T,
   append_1L_lgl = T,
   doc_in_class_1L_lgl = F,
+  fn_types_lup = NULL,
   object_type_lup = NULL,
   consent_1L_chr = NULL,
   import_from_chr = NA_character_
@@ -43,6 +44,8 @@ write_script_to_make_mthd(
 \item{append_1L_lgl}{Append (a logical vector of length one), Default: T}
 
 \item{doc_in_class_1L_lgl}{Document in class (a logical vector of length one), Default: F}
+
+\item{fn_types_lup}{Function types (a lookup table), Default: NULL}
 
 \item{object_type_lup}{Object type (a lookup table), Default: NULL}
 

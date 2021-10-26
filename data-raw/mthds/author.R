@@ -43,7 +43,7 @@ author.ready4class_constructor <- function(x,
   if(consent_1L_chr == "Y"){
     x_ready4class_pt_lup <- purrr::reduce(1:nrow(x),
                                           .init = init_class_pt_lup %>% ready4::renew(dev_pkg_ns_1L_chr),
-                                          ~ ready4::author(.x,
+                                          ~ author.ready4class_pt_lup(.x,#ready4::author
                                                            row_idx_1L_int = .y,
                                                            make_tb = x,
                                                            dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
@@ -145,18 +145,18 @@ author.ready4class_pt_lup <- function(x,
                                           force_from_opts_1L_chr = T)
   }
   if(consent_1L_chr == "Y"){
-    ready4::authorClasses(make_tb,
-                          name_pfx_1L_chr = name_pfx_1L_chr,
-                          output_dir_1L_chr = output_dir_1L_chr,
-                          file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
-                          prototype_lup = x,
-                          nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, nss_to_ignore_chr),
-                          req_pkgs_chr = req_pkgs_chr,
-                          class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
-                          abbreviations_lup = abbreviations_lup,
-                          fn_types_lup = fn_types_lup,
-                          object_type_lup = object_type_lup,
-                          consent_1L_chr = consent_1L_chr)
+    authorClasses.ready4class_constructor(make_tb, #ready4::authorClasses
+                                          name_pfx_1L_chr = name_pfx_1L_chr,
+                                          output_dir_1L_chr = output_dir_1L_chr,
+                                          file_exists_cdn_1L_chr = file_exists_cdn_1L_chr,
+                                          prototype_lup = x,
+                                          nss_to_ignore_chr = c(dev_pkg_ns_1L_chr, nss_to_ignore_chr),
+                                          req_pkgs_chr = req_pkgs_chr,
+                                          class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
+                                          abbreviations_lup = abbreviations_lup,
+                                          fn_types_lup = fn_types_lup,
+                                          object_type_lup = object_type_lup,
+                                          consent_1L_chr = consent_1L_chr)
     new_pt_lup <- manufacture(make_tb,
                               dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
                               prefix = name_pfx_1L_chr)

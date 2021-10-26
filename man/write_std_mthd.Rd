@@ -11,6 +11,7 @@ write_std_mthd(
   fn_desc_chr,
   fn_title_1L_chr,
   fn_outp_type_1L_chr,
+  fn_types_lup,
   pkg_nm_1L_chr,
   output_dir_1L_chr,
   signature_1L_chr = NA_character_,
@@ -31,6 +32,8 @@ write_std_mthd(
 \item{fn_title_1L_chr}{Function title (a character vector of length one)}
 
 \item{fn_outp_type_1L_chr}{Function output type (a character vector of length one)}
+
+\item{fn_types_lup}{Function types (a lookup table)}
 
 \item{pkg_nm_1L_chr}{Package name (a character vector of length one)}
 
