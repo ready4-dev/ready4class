@@ -7,7 +7,8 @@ write_gtr_str_mthds_for_r4 <- function(slot_nm_1L_chr,
                                        fn_types_lup = NULL,
                                        object_type_lup = NULL){
   if(is.null(object_type_lup))
-    object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+    object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
+                                                    piggyback_to_1L_chr = "ready4-dev/ready4")
   assign_to_slot_chr <- paste0(slot_nm_1L_chr,"<-")
   if(!set_only_1L_lgl){
     purrr::reduce(list(getter_ls = list(fn_name_1L_chr = slot_nm_1L_chr,
@@ -411,7 +412,8 @@ write_script_to_make_gnrc <- function(write_file_ls,
                              object_type_lup = NULL,
                              consent_1L_chr = NULL){
   if(is.null(object_type_lup))
-    object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+    object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
+                                                    piggyback_to_1L_chr = "ready4-dev/ready4")
   else_lgl <- write_file_ls$new_file_lgl
   if(!gnrc_exists_1L_lgl){
     eval(parse(text = gen_mthd_pair_ls$generic_1L_chr))
@@ -484,7 +486,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                                                 object_type_lup = NULL,
                                                 import_from_chr = NA_character_){
   if(is.null(object_type_lup))
-    object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+    object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
+                                                    piggyback_to_1L_chr = "ready4-dev/ready4")
   gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_1L_chr = fn_name_1L_chr,
                                              args_chr = args_chr,
                                              signature_1L_chr = signature_1L_chr,
@@ -541,7 +544,8 @@ write_script_to_make_mthd <- function(write_file_ls,
                                       consent_1L_chr = NULL,
                                       import_from_chr = NA_character_){ # Modified from NULL
   if(is.null(object_type_lup))
-    object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+    object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
+                                                    piggyback_to_1L_chr = "ready4-dev/ready4")
   eval(parse(text = gen_mthd_pair_ls$method_chr))
   if(write_1L_lgl){
     if(is.null(consent_1L_chr)){

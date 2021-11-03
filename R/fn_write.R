@@ -11,7 +11,7 @@
 #' @return NULL
 #' @rdname write_gtr_str_mthds_for_r4
 #' @export 
-#' @importFrom ready4 get_rds_from_dv
+#' @importFrom ready4fun get_rds_from_pkg_dmt
 #' @importFrom purrr reduce
 #' @keywords internal
 write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to_imp_ls, class_nm_1L_chr, 
@@ -19,7 +19,8 @@ write_gtr_str_mthds_for_r4 <- function (slot_nm_1L_chr, set_only_1L_lgl, pkgs_to
     object_type_lup = NULL) 
 {
     if (is.null(object_type_lup)) 
-        object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+        object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup", 
+            piggyback_to_1L_chr = "ready4-dev/ready4")
     assign_to_slot_chr <- paste0(slot_nm_1L_chr, "<-")
     if (!set_only_1L_lgl) {
         purrr::reduce(list(getter_ls = list(fn_name_1L_chr = slot_nm_1L_chr, 
@@ -171,8 +172,8 @@ write_r4_mthds <- function (fns_dir_1L_chr = "data-raw/s4_fns", fn_types_lup = N
 #' @return NULL
 #' @rdname write_script_to_make_gnrc
 #' @export 
-#' @importFrom ready4 get_rds_from_dv make_prompt
-#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4fun get_rds_from_pkg_dmt make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4 make_prompt
 #' @importFrom stringr str_replace str_remove
 #' @keywords internal
 write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mthd_pair_ls, 
@@ -183,7 +184,8 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
     fn_types_lup = NULL, object_type_lup = NULL, consent_1L_chr = NULL) 
 {
     if (is.null(object_type_lup)) 
-        object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+        object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup", 
+            piggyback_to_1L_chr = "ready4-dev/ready4")
     else_lgl <- write_file_ls$new_file_lgl
     if (!gnrc_exists_1L_lgl) {
         eval(parse(text = gen_mthd_pair_ls$generic_1L_chr))
@@ -248,8 +250,8 @@ write_script_to_make_gnrc <- function (write_file_ls, gnrc_exists_1L_lgl, gen_mt
 #' @return NULL
 #' @rdname write_script_to_make_mthd
 #' @export 
-#' @importFrom ready4 get_rds_from_dv make_prompt
-#' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4fun get_rds_from_pkg_dmt make_lines_for_fn_dmt close_open_sinks
+#' @importFrom ready4 make_prompt
 #' @importFrom stringr str_replace str_replace_all
 #' @keywords internal
 write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm_1L_chr, fn_name_1L_chr, 
@@ -259,7 +261,8 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
     import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
-        object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+        object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup", 
+            piggyback_to_1L_chr = "ready4-dev/ready4")
     eval(parse(text = gen_mthd_pair_ls$method_chr))
     if (write_1L_lgl) {
         if (is.null(consent_1L_chr)) {
@@ -312,7 +315,7 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
 #' @return NULL
 #' @rdname write_scripts_to_make_gnrc_and_mthd
 #' @export 
-#' @importFrom ready4 get_rds_from_dv
+#' @importFrom ready4fun get_rds_from_pkg_dmt
 #' @keywords internal
 write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x"), signature_1L_chr = NA_character_, 
     pkg_nm_1L_chr = NA_character_, where_chr = NA_character_, 
@@ -324,7 +327,8 @@ write_scripts_to_make_gnrc_and_mthd <- function (fn_name_1L_chr, args_chr = c("x
     import_from_chr = NA_character_) 
 {
     if (is.null(object_type_lup)) 
-        object_type_lup <- ready4::get_rds_from_dv("object_type_lup")
+        object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup", 
+            piggyback_to_1L_chr = "ready4-dev/ready4")
     gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_1L_chr = fn_name_1L_chr, 
         args_chr = args_chr, signature_1L_chr = signature_1L_chr, 
         pkg_nm_1L_chr = pkg_nm_1L_chr, where_1L_chr = where_chr, 
