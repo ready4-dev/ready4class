@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Create, Extend and Document Classes and Methods for Open and
-    Modular Mental Health Simulations
-Version: 0.0.0.9253
+    Modular Mental Health Systems Models
+Version: 0.0.0.9254
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -13,9 +13,9 @@ Authors@R: c(
   )
 Description: ready4class provides tools to standardise and streamline the
     process for implementing object oriented approaches to developing open
-    and modular mental health models.  This development version of the
-    ready4class package has been made available as part of the process of
-    testing and documenting the package.  You should only trial this
+    and modular mental health systems models.  This development version of
+    the ready4class package has been made available as part of the process
+    of testing and documenting the package.  You should only trial this
     software if you feel confident that you understand what it does and
     have created a sandpit area in which you can safely undertake testing.
     If you have any questions, please contact the authors
@@ -37,7 +37,7 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9467),
+    ready4fun (>= 0.0.0.9468),
     rlang,
     stats,
     stringi,
