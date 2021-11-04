@@ -416,7 +416,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             s3_prototype_ls$fn_name_1L_chr, "()))")
         tb_or_ls_class_summary <- ifelse(type_1L_chr == "list", 
             paste0("lapply(class) %>% ", ifelse(dev_pkg_ns_1L_chr == 
-                "ready4fun", "", "ready4fun::"), "transform_cls_type_ls() %>% ", 
+                "ready4", "", "ready4::"), "transform_cls_type_ls() %>% ", 
                 "tibble::as_tibble() "), "dplyr::summarise_all(class) ")
         var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr, 
             "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class))")
