@@ -45,7 +45,7 @@ x
 #' @details ready4 S3 class Constructor Table.
 #' @rdname make_pt_ready4class_constructor
 #' @export 
-#' @importFrom ready4fun update_pt_fn_args_ls
+#' @importFrom ready4 update_pt_fn_args_ls
 #' @importFrom rlang exec
 #' @importFrom tibble tibble
 make_pt_ready4class_constructor <- function(make_s3_lgl = logical(0),
@@ -77,7 +77,7 @@ parent_class_chr = parent_class_chr,
 slots_ls = slots_ls,
 meaningful_nms_ls = meaningful_nms_ls,
 inc_clss_ls = inc_clss_ls,
-asserts_ls = asserts_ls) %>% ready4fun::update_pt_fn_args_ls()
+asserts_ls = asserts_ls) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' Validate ready4class package constructor ready4 S3 class Constructor Table.

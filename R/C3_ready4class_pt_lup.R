@@ -36,7 +36,7 @@ x
 #' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname make_pt_ready4class_pt_lup
 #' @export 
-#' @importFrom ready4fun update_pt_fn_args_ls
+#' @importFrom ready4 update_pt_fn_args_ls
 #' @importFrom rlang exec
 #' @importFrom tibble tibble
 make_pt_ready4class_pt_lup <- function(type_chr = character(0),
@@ -50,7 +50,7 @@ val_chr = val_chr,
 pt_ns_chr = pt_ns_chr,
 fn_to_call_chr = fn_to_call_chr,
 default_val_chr = default_val_chr,
-old_class_lgl = old_class_lgl) %>% ready4fun::update_pt_fn_args_ls()
+old_class_lgl = old_class_lgl) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' Validate ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.

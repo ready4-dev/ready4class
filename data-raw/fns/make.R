@@ -329,7 +329,7 @@ make_fn_pt_to_make_r3_cls_pt <- function(type_1L_chr,
                                                   .x)) %>%
                             stringr::str_c(sep="",collapse=",\n"),
                           ") %>% ",
-                          ifelse(dev_pkg_ns_1L_chr=="ready4fun","","ready4fun::"),
+                          ifelse(dev_pkg_ns_1L_chr=="ready4","","ready4::"),
                           "update_pt_fn_args_ls()\n")
     main_body_1L_chr <- paste0("rlang::exec(",
                                ifelse(type_1L_chr=="tibble",

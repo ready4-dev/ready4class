@@ -61,7 +61,8 @@ x <- pkg_desc_ls %>%
                            lifecycle_stage_1L_chr = "experimental",
                            path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
                            piggyback_to_1L_chr = "ready4-dev/ready4",
-                           ready4_type_1L_chr = "authoring") #  zenodo_badge_1L_chr =
+                           ready4_type_1L_chr = "authoring",
+                           zenodo_badge_1L_chr = "[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5640313.svg)](https://doi.org/10.5281/zenodo.5640313)") #  zenodo_badge_1L_chr =
 x <- ready4::author(x,
                     self_serve_1L_lgl = T,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,

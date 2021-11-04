@@ -332,7 +332,7 @@ make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, or
         args_1L_chr <- paste0("args_ls <- list(", purrr::map_chr(names(vals_ls), 
             ~paste0(.x, " = ", .x)) %>% stringr::str_c(sep = "", 
             collapse = ",\n"), ") %>% ", ifelse(dev_pkg_ns_1L_chr == 
-            "ready4fun", "", "ready4fun::"), "update_pt_fn_args_ls()\n")
+            "ready4", "", "ready4::"), "update_pt_fn_args_ls()\n")
         main_body_1L_chr <- paste0("rlang::exec(", ifelse(type_1L_chr == 
             "tibble", "tibble::tibble", "list"), ",!!!args_ls", 
             ")")

@@ -30,12 +30,13 @@ x
 #' @details ready4 S3 class Manifest.
 #' @rdname make_pt_ready4class_manifest
 #' @export 
-#' @importFrom ready4fun ready4fun_manifest update_pt_fn_args_ls
+#' @importFrom ready4fun ready4fun_manifest
+#' @importFrom ready4 update_pt_fn_args_ls
 #' @importFrom rlang exec
 make_pt_ready4class_manifest <- function(x_ready4fun_manifest = ready4fun::ready4fun_manifest(),
 constructor_r3 = ready4class_constructor()){ 
 args_ls <- list(x_ready4fun_manifest = x_ready4fun_manifest,
-constructor_r3 = constructor_r3) %>% ready4fun::update_pt_fn_args_ls()
+constructor_r3 = constructor_r3) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(list,!!!args_ls)
 }
 #' Validate ready4class package manifest ready4 S3 class Manifest.
