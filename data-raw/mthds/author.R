@@ -63,7 +63,6 @@ author.ready4class_constructor <- function(x,
   return(x_ready4class_pt_lup)
 }
 author.ready4class_manifest <- function(x,
-                                        #dv_url_pfx_1L_chr = character(0),
                                         init_class_pt_lup = NULL,
                                         key_1L_chr = Sys.getenv("DATAVERSE_KEY"),
                                         list_generics_1L_lgl = T,

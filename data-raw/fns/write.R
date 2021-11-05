@@ -861,7 +861,10 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                             parent_ns_ls$transformed_1L_chr!="")),
                              "",
                              paste0("#' @import ",parent_ns_ls$transformed_1L_chr,"\n")),
-                      ifelse(helper_1L_lgl,paste0("#' @exportClass ",class_nm_1L_chr,"\n"),""),
+                      paste0("#' @export ",class_nm_1L_chr,"\n"),
+                      ifelse(T,#helper_1L_lgl
+                             paste0("#' @exportClass ",class_nm_1L_chr,"\n"),
+                             ""),
                       ifelse(helper_1L_lgl,"",paste0(class_nm_1L_chr," <- ")),
                       st_class_fn %>%
                         stringr::str_replace(paste0(",\nwhere =  ",

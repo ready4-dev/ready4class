@@ -70,11 +70,11 @@ authorClasses.ready4class_constructor <- function(x,
                                                   ..11},
                                               slots_chr = if(is.list(..12[[1]])){
                                                 ..12[[1]] %>% purrr::flatten_chr()}else{
-                                                  ..12[[1]]
+                                                  ..12 %>% purrr::flatten() %>% purrr::flatten_chr()
                                                 },
                                               type_chr = if(is.list(..3[[1]])){
                                                 ..3[[1]] %>% purrr::flatten_chr()}else{
-                                                  ..3[[1]]
+                                                  ..3 %>% purrr::flatten() %>% purrr::flatten_chr()
                                                 },
                                               meaningful_nms_ls = ..13,
                                               vals_ls = ..6[[1]],

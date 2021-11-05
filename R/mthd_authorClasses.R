@@ -17,7 +17,7 @@
 #' @rdname authorClasses-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
-#' @importFrom purrr map_chr pwalk flatten_chr
+#' @importFrom purrr map_chr pwalk flatten_chr flatten
 #' @importFrom stringr str_sub
 #' @importFrom Hmisc capitalize
 #' @importFrom ready4 make_prompt authorClasses
@@ -68,12 +68,12 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
                 ..12[[1]] %>% purrr::flatten_chr()
             }
             else {
-                ..12[[1]]
+                ..12 %>% purrr::flatten() %>% purrr::flatten_chr()
             }, type_chr = if (is.list(..3[[1]])) {
                 ..3[[1]] %>% purrr::flatten_chr()
             }
             else {
-                ..3[[1]]
+                ..3 %>% purrr::flatten() %>% purrr::flatten_chr()
             }, meaningful_nms_ls = ..13, vals_ls = ..6[[1]], 
             allowed_vals_ls = ..7[[1]], clss_to_inc_chr = ..14[[1]], 
             prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
