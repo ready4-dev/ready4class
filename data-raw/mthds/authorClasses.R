@@ -85,6 +85,7 @@ authorClasses.ready4class_constructor <- function(x,
                                               req_pkgs_chr = req_pkgs_chr,
                                               class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr,
                                               asserts_ls = ..15[[1]],
+                                              abbreviations_lup = abbreviations_lup,
                                               fn_types_lup = fn_types_lup,
                                               object_type_lup = object_type_lup,
                                               consent_1L_chr = consent_1L_chr))

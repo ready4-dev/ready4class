@@ -477,6 +477,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @param slots_chr Slots (a character vector)
 #' @param type_chr Type (a character vector)
 #' @param prototype_lup Prototype (a lookup table)
+#' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
 #' @param accessors_1L_lgl Accessors (a logical vector of length one), Default: F
 #' @param allowed_vals_ls Allowed values (a list), Default: NULL
 #' @param asserts_ls Asserts (a list), Default: NULL
@@ -509,10 +510,11 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @importFrom devtools document load_all
 #' @keywords internal
 write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots_chr, type_chr, 
-    prototype_lup, accessors_1L_lgl = F, allowed_vals_ls = NULL, 
-    asserts_ls = NULL, class_desc_1L_chr = "", class_in_cache_cdn_1L_chr = "stop", 
-    clss_to_inc_chr = NULL, consent_1L_chr = NULL, meaningful_nms_ls = NULL, 
-    object_type_lup, output_dir_1L_chr = "data-raw", outp_sub_dir_1L_chr = NULL, 
+    prototype_lup, abbreviations_lup = NULL, accessors_1L_lgl = F, 
+    allowed_vals_ls = NULL, asserts_ls = NULL, class_desc_1L_chr = "", 
+    class_in_cache_cdn_1L_chr = "stop", clss_to_inc_chr = NULL, 
+    consent_1L_chr = NULL, meaningful_nms_ls = NULL, object_type_lup, 
+    output_dir_1L_chr = "data-raw", outp_sub_dir_1L_chr = NULL, 
     names_must_match_ls = NULL, nss_to_ignore_chr = NA_character_, 
     parent_cls_nm_1L_chr = NULL, req_pkgs_chr = NA_character_, 
     slots_of_dif_lnts_chr = NULL, vals_ls = NULL, fn_types_lup = NULL, 
@@ -536,7 +538,8 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
         print_set_cls_1L_lgl = print_set_cls_1L_lgl, class_desc_1L_chr = class_desc_1L_chr, 
         output_file_class_1L_chr = output_file_class_1L_chr, 
         clss_to_inc_chr = clss_to_inc_chr, prototype_lup = prototype_lup, 
-        helper_1L_lgl = F, parent_ns_ls = parent_ns_ls, consent_1L_chr = consent_1L_chr)
+        helper_1L_lgl = F, parent_ns_ls = parent_ns_ls, abbreviations_lup = abbreviations_lup, 
+        consent_1L_chr = consent_1L_chr, object_type_lup = object_type_lup)
     helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_chr = slots_chr, 
         pt_ls = pt_ls, prototype_lup = prototype_lup, parent_ns_ls = parent_ns_ls)
@@ -794,19 +797,21 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @param prototype_lup Prototype (a lookup table)
 #' @param helper_1L_lgl Helper (a logical vector of length one), Default: F
 #' @param parent_ns_ls Parent namespace (a list)
+#' @param abbreviations_lup Abbreviations (a lookup table), Default: NULL
+#' @param object_type_lup Object type (a lookup table), Default: NULL
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
 #' @return NULL
 #' @rdname write_to_mk_r4_cls
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
-#' @importFrom ready4fun update_ns close_open_sinks
+#' @importFrom ready4fun update_ns make_arg_desc close_open_sinks
 #' @importFrom ready4 make_prompt
 #' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, parent_cls_nm_1L_chr, 
     print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class_1L_chr, 
     clss_to_inc_chr, prototype_lup, helper_1L_lgl = F, parent_ns_ls, 
-    consent_1L_chr = NULL) 
+    abbreviations_lup = NULL, object_type_lup = NULL, consent_1L_chr = NULL) 
 {
     slot_str <- purrr::map2_chr(slots_chr, type_chr, ~paste0(.x, 
         " = \"", .y, "\"")) %>% stringr::str_c(sep = "", collapse = ",") %>% 
@@ -844,7 +849,8 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
             ",\nwhere =  ", "globalenv()", ")")
     }
     slots_tags <- paste0("#' @slot ", names(named_slots_chr), 
-        " ", named_slots_chr, "\n", collapse = "")
+        " ", names(named_slots_chr) %>% ready4fun::make_arg_desc(abbreviations_lup = abbreviations_lup, 
+            object_type_lup = object_type_lup), "\n", collapse = "")
     clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         parent_ns_ls = parent_ns_ls, base_set_of_clss_to_inc_chr = clss_to_inc_chr)
     include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
@@ -857,16 +863,17 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
         if (consent_1L_chr == "Y") {
             sink(output_file_class_1L_chr)
             writeLines(paste0(paste0("#' ", class_nm_1L_chr, 
-                "\n"), paste0("#' @name ", class_nm_1L_chr, "\n"), 
-                "#' @description An S4 class to represent ", 
-                class_desc_1L_chr, "\n", include_tags_chr, old_class_tb_extension %>% 
-                  stringr::str_replace_all(paste0(",where =  ", 
-                    "globalenv\\(\\)"), ""), ifelse(old_class_tb_extension == 
+                "\n"), paste0("#' ", "\n"), paste0("#' ", class_desc_1L_chr, 
+                "\n"), paste0("#' ", "\n"), include_tags_chr, 
+                old_class_tb_extension %>% stringr::str_replace_all(paste0(",where =  ", 
+                  "globalenv\\(\\)"), ""), ifelse(old_class_tb_extension == 
                   "", "", "\n"), slots_tags, ifelse(!ifelse(is.null(parent_ns_ls$transformed_1L_chr), 
                   F, ifelse(is.na(parent_ns_ls$transformed_1L_chr), 
                     F, parent_ns_ls$transformed_1L_chr != "")), 
                   "", paste0("#' @import ", parent_ns_ls$transformed_1L_chr, 
-                    "\n")), paste0("#' @export ", class_nm_1L_chr, 
+                    "\n")), paste0("#' @name ", class_nm_1L_chr, 
+                  "-class\n"), paste0("#' @rdname ", class_nm_1L_chr, 
+                  "-class\n"), paste0("#' @export ", class_nm_1L_chr, 
                   "\n"), ifelse(T, paste0("#' @exportClass ", 
                   class_nm_1L_chr, "\n"), ""), ifelse(helper_1L_lgl, 
                   "", paste0(class_nm_1L_chr, " <- ")), st_class_fn %>% 

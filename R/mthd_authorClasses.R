@@ -78,8 +78,9 @@ authorClasses.ready4class_constructor <- function (x, name_pfx_1L_chr, output_di
             allowed_vals_ls = ..7[[1]], clss_to_inc_chr = ..14[[1]], 
             prototype_lup = prototype_lup, nss_to_ignore_chr = nss_to_ignore_chr, 
             req_pkgs_chr = req_pkgs_chr, class_in_cache_cdn_1L_chr = class_in_cache_cdn_1L_chr, 
-            asserts_ls = ..15[[1]], fn_types_lup = fn_types_lup, 
-            object_type_lup = object_type_lup, consent_1L_chr = consent_1L_chr))
+            asserts_ls = ..15[[1]], abbreviations_lup = abbreviations_lup, 
+            fn_types_lup = fn_types_lup, object_type_lup = object_type_lup, 
+            consent_1L_chr = consent_1L_chr))
     }
 }
 #' @rdname authorClasses-methods

@@ -17,6 +17,8 @@ write_to_mk_r4_cls(
   prototype_lup,
   helper_1L_lgl = F,
   parent_ns_ls,
+  abbreviations_lup = NULL,
+  object_type_lup = NULL,
   consent_1L_chr = NULL
 )
 }
@@ -44,6 +46,10 @@ write_to_mk_r4_cls(
 \item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
+
+\item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
+
+\item{object_type_lup}{Object type (a lookup table), Default: NULL}
 
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }

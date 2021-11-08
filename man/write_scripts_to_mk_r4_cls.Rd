@@ -10,6 +10,7 @@ write_scripts_to_mk_r4_cls(
   slots_chr,
   type_chr,
   prototype_lup,
+  abbreviations_lup = NULL,
   accessors_1L_lgl = F,
   allowed_vals_ls = NULL,
   asserts_ls = NULL,
@@ -45,6 +46,8 @@ write_scripts_to_mk_r4_cls(
 \item{type_chr}{Type (a character vector)}
 
 \item{prototype_lup}{Prototype (a lookup table)}
+
+\item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 
 \item{accessors_1L_lgl}{Accessors (a logical vector of length one), Default: F}
 
