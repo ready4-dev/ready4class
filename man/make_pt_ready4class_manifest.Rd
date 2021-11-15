@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_manifest.R
 \name{make_pt_ready4class_manifest}
 \alias{make_pt_ready4class_manifest}
-\title{Make prototype ready4class package manifest ready4 S3 class Manifest.}
+\title{make prototype ready4class package manifest ready4 S3 class Manifest.}
 \usage{
 make_pt_ready4class_manifest(
   x_ready4fun_manifest = ready4fun::ready4fun_manifest(),

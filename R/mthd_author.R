@@ -1,5 +1,5 @@
-#' Author - a method that writes files to local or remote locations.
-#' @description author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' author - a method that authors and saves files to local or remote locations
+#' @description author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
@@ -68,8 +68,8 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 #' @aliases author,ready4class_constructor-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
-#' Author - a method that writes files to local or remote locations.
-#' @description author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
+#' author - a method that authors and saves files to local or remote locations
+#' @description author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Manifest.
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
 #' @param key_1L_chr Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")
@@ -122,8 +122,8 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
 #' @aliases author,ready4class_manifest-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
-#' Author - a method that writes files to local or remote locations.
-#' @description author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+#' author - a method that authors and saves files to local or remote locations
+#' @description author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)

@@ -1,5 +1,5 @@
-#' Renew - a method that updates an instance of a class with new values.
-#' @description renew.ready4class_constructor() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+#' renew - a method that renews an instance of a class by updating it with new data
+#' @description renew.ready4class_constructor() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param type_1L_chr Type (a character vector of length one), Default: 'listify'
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: NULL
@@ -39,8 +39,8 @@ renew.ready4class_constructor <- function (x, type_1L_chr = "listify", name_pfx_
 #' @aliases renew,ready4class_constructor-method
 #' @importFrom ready4 renew
 methods::setMethod("renew", methods::className("ready4class_constructor", package = "ready4class"), renew.ready4class_constructor)
-#' Renew - a method that updates an instance of a class with new values.
-#' @description renew.ready4class_pt_lup() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
+#' renew - a method that renews an instance of a class by updating it with new data
+#' @description renew.ready4class_pt_lup() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param attached_nss_chr Attached namespaces (a character vector)
 #' @param type_1L_chr Type (a character vector of length one), Default: 'namespace'

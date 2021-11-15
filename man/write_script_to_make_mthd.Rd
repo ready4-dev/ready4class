@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_script_to_make_mthd}
 \alias{write_script_to_make_mthd}
-\title{Write script to make method}
+\title{write script to make method}
 \usage{
 write_script_to_make_mthd(
   write_file_ls,

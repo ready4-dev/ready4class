@@ -3,7 +3,7 @@
 \name{manufacture.ready4class_constructor}
 \alias{manufacture.ready4class_constructor}
 \alias{manufacture,ready4class_constructor-method}
-\title{Manufacture - a method that creates a novel r object.}
+\title{manufacture - a method that manufactures a novel r object using data contained in an instance of a class}
 \usage{
 manufacture.ready4class_constructor(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 
@@ -20,5 +20,5 @@ manufacture.ready4class_constructor(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 Instance (ready4 S3 class Prototype Lookup Table of class metadata.)
 }
 \description{
-manufacture.ready4class_constructor() is a Manufacture method that creates a novel R object. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
+manufacture.ready4class_constructor() is a manufacture method that manufactures a novel R object using data contained in an instance of a class. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

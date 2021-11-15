@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{validate_ready4class_constructor}
 \alias{validate_ready4class_constructor}
-\title{Validate ready4class package constructor ready4 S3 class Constructor Table.}
+\title{validate ready4class package constructor ready4 S3 class Constructor Table.}
 \usage{
 validate_ready4class_constructor(x)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_gnrc_fn}
 \alias{make_gnrc_fn}
-\title{Make generic function}
+\title{make generic function}
 \usage{
 make_gnrc_fn(name_1L_chr, args_chr)
 }

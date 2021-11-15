@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_manifest.R
 \name{is_ready4class_manifest}
 \alias{is_ready4class_manifest}
-\title{Is ready4class package manifest ready4 S3 class Manifest.}
+\title{is ready4class package manifest ready4 S3 class Manifest.}
 \usage{
 is_ready4class_manifest(x)
 }

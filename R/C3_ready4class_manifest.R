@@ -9,7 +9,7 @@
 ready4class_manifest <- function(x = make_pt_ready4class_manifest()){ 
 validate_ready4class_manifest(make_new_ready4class_manifest(x))
 }
-#' Make new ready4class package manifest ready4 S3 class Manifest.
+#' make new ready4class package manifest ready4 S3 class Manifest.
 #' @description Create a new unvalidated instance of the ready4 S3 class Manifest.
 #' @param x A prototype for the ready4 S3 class Manifest.
 #' @return An unvalidated instance of the ready4 S3 class Manifest.
@@ -22,7 +22,7 @@ class(x) <- append(c("ready4class_manifest",setdiff(make_pt_ready4class_manifest
 class(x))
 x
 }
-#' Make prototype ready4class package manifest ready4 S3 class Manifest.
+#' make prototype ready4class package manifest ready4 S3 class Manifest.
 #' @description Create a new prototype for the ready4 S3 class Manifest.
 #' @param x_ready4fun_manifest PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()
 #' @param constructor_r3 Constructor (a ready4 S3), Default: ready4class_constructor()
@@ -39,7 +39,7 @@ args_ls <- list(x_ready4fun_manifest = x_ready4fun_manifest,
 constructor_r3 = constructor_r3) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(list,!!!args_ls)
 }
-#' Validate ready4class package manifest ready4 S3 class Manifest.
+#' validate ready4class package manifest ready4 S3 class Manifest.
 #' @description Validate an instance of the ready4 S3 class Manifest.
 #' @param x An unvalidated instance of the ready4 S3 class Manifest.
 #' @return A prototpe for ready4 S3 class Manifest.
@@ -89,7 +89,7 @@ call. = FALSE)
 }
 
 x}
-#' Is ready4class package manifest ready4 S3 class Manifest.
+#' is ready4class package manifest ready4 S3 class Manifest.
 #' @description Check whether an object is a valid instance of the ready4 S3 class Manifest.
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Manifest.

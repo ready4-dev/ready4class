@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_parent_cls_slot_nms}
 \alias{get_parent_cls_slot_nms}
-\title{Get parent class slot names}
+\title{get parent class slot names}
 \usage{
 get_parent_cls_slot_nms(parent_cls_nm_1L_chr, parent_ns_ls)
 }

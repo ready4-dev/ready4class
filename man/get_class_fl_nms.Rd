@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_class_fl_nms}
 \alias{get_class_fl_nms}
-\title{Get class file names}
+\title{get class file names}
 \usage{
 get_class_fl_nms(class_names_chr, s3_1L_lgl = T, output_dir_1L_chr = NA)
 }

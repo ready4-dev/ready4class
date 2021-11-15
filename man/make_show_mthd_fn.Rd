@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_show_mthd_fn}
 \alias{make_show_mthd_fn}
-\title{Make show method function}
+\title{make show method function}
 \usage{
 make_show_mthd_fn(class_nm_1L_chr, meaningful_nms_ls)
 }

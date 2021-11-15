@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{is_ready4class_constructor}
 \alias{is_ready4class_constructor}
-\title{Is ready4class package constructor ready4 S3 class Constructor Table.}
+\title{is ready4class package constructor ready4 S3 class Constructor Table.}
 \usage{
 is_ready4class_constructor(x)
 }

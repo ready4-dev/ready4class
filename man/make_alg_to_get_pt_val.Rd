@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_get_pt_val}
 \alias{make_alg_to_get_pt_val}
-\title{Make algorithm to get prototype value}
+\title{make algorithm to get prototype value}
 \usage{
 make_alg_to_get_pt_val(
   pt_ns_1L_chr = "",

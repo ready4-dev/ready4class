@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_std_mthd}
 \alias{write_std_mthd}
-\title{Write standard method}
+\title{write standard method}
 \usage{
 write_std_mthd(
   fn,

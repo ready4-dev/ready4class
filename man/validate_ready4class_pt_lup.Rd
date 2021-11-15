@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_pt_lup.R
 \name{validate_ready4class_pt_lup}
 \alias{validate_ready4class_pt_lup}
-\title{Validate ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
+\title{validate ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
 \usage{
 validate_ready4class_pt_lup(x)
 }

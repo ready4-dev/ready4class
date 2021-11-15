@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_nms_of_curr_gnrcs}
 \alias{get_nms_of_curr_gnrcs}
-\title{Get names of current generics}
+\title{get names of current generics}
 \usage{
 get_nms_of_curr_gnrcs(req_pkgs_chr, generic_1L_chr)
 }

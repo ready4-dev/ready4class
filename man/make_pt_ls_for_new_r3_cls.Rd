@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_pt_ls_for_new_r3_cls}
 \alias{make_pt_ls_for_new_r3_cls}
-\title{Make prototype list for new ready4 S3 class}
+\title{make prototype list for new ready4 S3 class}
 \usage{
 make_pt_ls_for_new_r3_cls(
   class_name_1L_chr,

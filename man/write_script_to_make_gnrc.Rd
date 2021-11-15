@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_script_to_make_gnrc}
 \alias{write_script_to_make_gnrc}
-\title{Write script to make generic}
+\title{write script to make generic}
 \usage{
 write_script_to_make_gnrc(
   write_file_ls,

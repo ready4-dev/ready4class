@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_s4_mthds_ls}
 \alias{make_s4_mthds_ls}
-\title{Make S4 methods list}
+\title{make S4 methods list}
 \usage{
 make_s4_mthds_ls(fns_dir_1L_chr = "data-raw/s4_fns")
 }

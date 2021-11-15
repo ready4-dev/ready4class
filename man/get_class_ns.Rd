@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_class_ns}
 \alias{get_class_ns}
-\title{Get class namespace}
+\title{get class namespace}
 \usage{
 get_class_ns(prototype_lup, class_nm_1L_chr)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_transform.R
 \name{transform_parent_ns_ls}
 \alias{transform_parent_ns_ls}
-\title{Transform parent namespace list}
+\title{transform parent namespace list}
 \usage{
 transform_parent_ns_ls(parent_ns_ls)
 }

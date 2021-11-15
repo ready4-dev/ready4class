@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_class_pts_tb}
 \alias{make_class_pts_tb}
-\title{Make class prototypes tibble}
+\title{make class prototypes tibble}
 \usage{
 make_class_pts_tb(class_mk_ls)
 }

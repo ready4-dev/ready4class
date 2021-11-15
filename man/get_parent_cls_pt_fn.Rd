@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_parent_cls_pt_fn}
 \alias{get_parent_cls_pt_fn}
-\title{Get parent class prototype function}
+\title{get parent class prototype function}
 \usage{
 get_parent_cls_pt_fn(
   parent_cls_nm_1L_chr,

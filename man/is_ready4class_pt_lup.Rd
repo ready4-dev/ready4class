@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_pt_lup.R
 \name{is_ready4class_pt_lup}
 \alias{is_ready4class_pt_lup}
-\title{Is ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
+\title{is ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
 \usage{
 is_ready4class_pt_lup(x)
 }

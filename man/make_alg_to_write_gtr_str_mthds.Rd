@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_write_gtr_str_mthds}
 \alias{make_alg_to_write_gtr_str_mthds}
-\title{Make algorithm to write getter setter methods}
+\title{make algorithm to write getter setter methods}
 \usage{
 make_alg_to_write_gtr_str_mthds(
   class_nm_1L_chr,

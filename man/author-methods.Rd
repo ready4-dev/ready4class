@@ -7,7 +7,7 @@
 \alias{author,ready4class_manifest-method}
 \alias{author.ready4class_pt_lup}
 \alias{author,ready4class_pt_lup-method}
-\title{Author - a method that writes files to local or remote locations.}
+\title{author - a method that authors and saves files to local or remote locations}
 \usage{
 author.ready4class_constructor(
   x,
@@ -146,9 +146,9 @@ X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 X (ready4 S3 class Prototype Lookup Table of class metadata.)
 }
 \description{
-author.ready4class_constructor() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 
-author.ready4class_manifest() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
+author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 
-author.ready4class_pt_lup() is an Author method that writes files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 }

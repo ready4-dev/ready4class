@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_dmt_inc_tag}
 \alias{make_dmt_inc_tag}
-\title{Make documentation include tag}
+\title{make documentation include tag}
 \usage{
 make_dmt_inc_tag(class_names_chr, s3_1L_lgl = T)
 }

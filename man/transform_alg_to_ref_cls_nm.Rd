@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_transform.R
 \name{transform_alg_to_ref_cls_nm}
 \alias{transform_alg_to_ref_cls_nm}
-\title{Transform algorithm to reference class name}
+\title{transform algorithm to reference class name}
 \usage{
 transform_alg_to_ref_cls_nm(alg_to_ref_cls_nm_1L_chr, pkg_nm_1L_chr)
 }

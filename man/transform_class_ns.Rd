@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_transform.R
 \name{transform_class_ns}
 \alias{transform_class_ns}
-\title{Transform class namespace}
+\title{transform class namespace}
 \usage{
 transform_class_ns(class_ns_1L_chr, dev_pkg_ns_1L_chr)
 }

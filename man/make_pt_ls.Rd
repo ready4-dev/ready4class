@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_pt_ls}
 \alias{make_pt_ls}
-\title{Make prototype list}
+\title{make prototype list}
 \usage{
 make_pt_ls(
   slots_chr,

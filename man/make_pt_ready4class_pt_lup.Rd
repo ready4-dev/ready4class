@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_pt_lup.R
 \name{make_pt_ready4class_pt_lup}
 \alias{make_pt_ready4class_pt_lup}
-\title{Make prototype ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
+\title{make prototype ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.}
 \usage{
 make_pt_ready4class_pt_lup(
   type_chr = character(0),

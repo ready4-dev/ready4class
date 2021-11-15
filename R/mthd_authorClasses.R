@@ -1,5 +1,5 @@
-#' AuthorClasses - a method that authors and saves files necessary for creating and documenting classes.
-#' @description authorClasses.ready4class_constructor() is an AuthorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+#' authorClasses - a method that authors and saves files necessary for creating and documenting classes
+#' @description authorClasses.ready4class_constructor() is an authorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)

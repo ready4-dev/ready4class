@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_scripts_to_mk_r3_cls}
 \alias{write_scripts_to_mk_r3_cls}
-\title{Write scripts to make ready4 S3 class}
+\title{write scripts to make ready4 S3 class}
 \usage{
 write_scripts_to_mk_r3_cls(
   name_stub_1L_chr,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{make_new_ready4class_constructor}
 \alias{make_new_ready4class_constructor}
-\title{Make new ready4class package constructor ready4 S3 class Constructor Table.}
+\title{make new ready4class package constructor ready4 S3 class Constructor Table.}
 \usage{
 make_new_ready4class_constructor(x)
 }

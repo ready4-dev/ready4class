@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_lines_for_writing_dmtd_fn}
 \alias{make_lines_for_writing_dmtd_fn}
-\title{Make lines for writing documented function}
+\title{make lines for writing documented function}
 \usage{
 make_lines_for_writing_dmtd_fn(
   fn_name_1L_chr,

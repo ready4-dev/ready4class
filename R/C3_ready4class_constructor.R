@@ -10,7 +10,7 @@ setOldClass(c("ready4class_constructor","tbl_df", "tbl", "data.frame"))
 ready4class_constructor <- function(x = make_pt_ready4class_constructor()){ 
 validate_ready4class_constructor(make_new_ready4class_constructor(x))
 }
-#' Make new ready4class package constructor ready4 S3 class Constructor Table.
+#' make new ready4class package constructor ready4 S3 class Constructor Table.
 #' @description Create a new unvalidated instance of the ready4 S3 class Constructor Table.
 #' @param x A prototype for the ready4 S3 class Constructor Table.
 #' @return An unvalidated instance of the ready4 S3 class Constructor Table.
@@ -24,7 +24,7 @@ class(x) <- append(c("ready4class_constructor",setdiff(make_pt_ready4class_const
 class(x))
 x
 }
-#' Make prototype ready4class package constructor ready4 S3 class Constructor Table.
+#' make prototype ready4class package constructor ready4 S3 class Constructor Table.
 #' @description Create a new prototype for the ready4 S3 class Constructor Table.
 #' @param make_s3_lgl Make S3 (a logical vector), Default: logical(0)
 #' @param name_stub_chr Name stub (a character vector), Default: character(0)
@@ -80,7 +80,7 @@ inc_clss_ls = inc_clss_ls,
 asserts_ls = asserts_ls) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
-#' Validate ready4class package constructor ready4 S3 class Constructor Table.
+#' validate ready4class package constructor ready4 S3 class Constructor Table.
 #' @description Validate an instance of the ready4 S3 class Constructor Table.
 #' @param x An unvalidated instance of the ready4 S3 class Constructor Table.
 #' @return A prototpe for ready4 S3 class Constructor Table.
@@ -128,7 +128,7 @@ call. = FALSE)
 }
 
 x}
-#' Is ready4class package constructor ready4 S3 class Constructor Table.
+#' is ready4class package constructor ready4 S3 class Constructor Table.
 #' @description Check whether an object is a valid instance of the ready4 S3 class Constructor Table.
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table.

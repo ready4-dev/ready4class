@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_parent_cls_pts}
 \alias{get_parent_cls_pts}
-\title{Get parent class prototypes}
+\title{get parent class prototypes}
 \usage{
 get_parent_cls_pts(parent_cls_nm_1L_chr, parent_ns_ls, slot_names_chr)
 }

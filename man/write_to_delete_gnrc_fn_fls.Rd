@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_to_delete_gnrc_fn_fls}
 \alias{write_to_delete_gnrc_fn_fls}
-\title{Write to delete generic function files}
+\title{write to delete generic function files}
 \usage{
 write_to_delete_gnrc_fn_fls(x, output_dir_1L_chr)
 }

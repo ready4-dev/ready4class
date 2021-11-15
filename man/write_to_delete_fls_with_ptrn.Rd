@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_to_delete_fls_with_ptrn}
 \alias{write_to_delete_fls_with_ptrn}
-\title{Write to delete files with pattern}
+\title{write to delete files with pattern}
 \usage{
 write_to_delete_fls_with_ptrn(dir_1L_chr, pattern_1L_chr)
 }

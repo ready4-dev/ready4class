@@ -2,7 +2,7 @@
 % Please edit documentation in R/C3_ready4class_manifest.R
 \name{make_new_ready4class_manifest}
 \alias{make_new_ready4class_manifest}
-\title{Make new ready4class package manifest ready4 S3 class Manifest.}
+\title{make new ready4class package manifest ready4 S3 class Manifest.}
 \usage{
 make_new_ready4class_manifest(x)
 }

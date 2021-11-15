@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{Renew - a method that updates an instance of a class with new values.}
+\title{renew - a method that renews an instance of a class by updating it with new data}
 \usage{
 renew.ready4class_constructor(
   x,
@@ -34,7 +34,7 @@ x (An object)
 x (An object)
 }
 \description{
-renew.ready4class_constructor() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+renew.ready4class_constructor() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
 
-renew.ready4class_pt_lup() is a Renew method that updates an instance of a class with new values. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
+renew.ready4class_pt_lup() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
 }
