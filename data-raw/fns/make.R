@@ -617,7 +617,7 @@ make_helper_fn <- function(class_nm_1L_chr,
                            prototype_lup,
                            parent_ns_ls){
   if(!is.null(parent_cls_nm_1L_chr)){
-    if(methods::isVirtualClass(parent_cls_nm_1L_chr)){
+    if(!methods::isVirtualClass(parent_cls_nm_1L_chr)){
       child_slots_chr <- slots_chr
       slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls)
       parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
