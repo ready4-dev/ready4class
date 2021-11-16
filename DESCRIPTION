@@ -1,7 +1,7 @@
 Package: ready4class
 Title: Create, Extend and Document Classes and Methods for Open and
     Modular Mental Health Systems Models
-Version: 0.0.0.9257
+Version: 0.0.0.9258
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -37,7 +37,7 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9475),
+    ready4fun (>= 0.0.0.9476),
     rlang,
     stats,
     stringi,
