@@ -596,24 +596,27 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
 #' @return Helper function (a character vector of length one)
 #' @rdname make_helper_fn
 #' @export 
+#' @importFrom methods isVirtualClass
 #' @importFrom stringr str_sub str_replace str_replace_all str_c
 #' @keywords internal
 make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt_ls, 
     prototype_lup, parent_ns_ls) 
 {
     if (!is.null(parent_cls_nm_1L_chr)) {
-        child_slots_chr <- slots_chr
-        slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
-            parent_ns_ls = parent_ns_ls)
-        parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
-            parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
-        child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, 
-            end = -2)
-        pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = parent_proto, 
-            prototype_lup = prototype_lup)
-        pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2), 
-            ",", child_ls_chr, ")")
-        slots_chr <- c(slots_chr, child_slots_chr)
+        if (methods::isVirtualClass(parent_cls_nm_1L_chr)) {
+            child_slots_chr <- slots_chr
+            slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
+                parent_ns_ls = parent_ns_ls)
+            parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
+                parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
+            child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, 
+                end = -2)
+            pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = parent_proto, 
+                prototype_lup = prototype_lup)
+            pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2), 
+                ",", child_ls_chr, ")")
+            slots_chr <- c(slots_chr, child_slots_chr)
+        }
     }
     func_args <- pt_ls %>% stringr::str_replace("list", "function") %>% 
         stringr::str_replace_all(",", ",\n")
