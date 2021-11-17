@@ -263,7 +263,8 @@ write_script_to_make_mthd <- function (write_file_ls, gen_mthd_pair_ls, class_nm
     if (is.null(object_type_lup)) 
         object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup", 
             piggyback_to_1L_chr = "ready4-dev/ready4")
-    eval(parse(text = gen_mthd_pair_ls$method_chr))
+    if (!isS4(eval(parse(text = paste0(class_nm_1L_chr, "()"))))) 
+        eval(parse(text = gen_mthd_pair_ls$method_chr))
     if (write_1L_lgl) {
         if (is.null(consent_1L_chr)) {
             consent_1L_chr <- ready4::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 

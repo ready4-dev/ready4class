@@ -131,10 +131,14 @@ write_r4_mthds <- function(fns_dir_1L_chr = "data-raw/s4_fns",
                                                                      fn_name_1L_chr = fn_name_1L_chr,
                                                                      class_nm_1L_chr = class_nm_1L_chr,
                                                                      fn_desc_chr = fn_desc_chr,
+                                                                     #fn_title_1L_chr = "depict",
                                                                      fn_outp_type_1L_chr = fn_outp_type_1L_chr,
                                                                      fn_types_lup = fn_types_lup,
                                                                      pkg_nm_1L_chr = pkg_nm_1L_chr,
                                                                      output_dir_1L_chr = output_dir_1L_chr,
+                                                                     # signature_1L_chr = NA_character_,
+                                                                     # append_1L_lgl = T,
+                                                                     # first_1L_lgl = T,
                                                                      import_from_chr = import_from_chr)
                                                     })
                                       })
@@ -488,7 +492,7 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                                                 fn_types_lup = NULL,
                                                 object_type_lup = NULL,
                                                 import_from_chr = NA_character_){
-  if(is.null(object_type_lup))
+  if(is.null(object_type_lup)) ## NOTE: CURRRENTLY, THIS IS NOT PASSED TO FN BY CALLING FNS
     object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
                                                     piggyback_to_1L_chr = "ready4-dev/ready4")
   gen_mthd_pair_ls <- make_gnrc_mthd_pair_ls(name_1L_chr = fn_name_1L_chr,
@@ -549,7 +553,8 @@ write_script_to_make_mthd <- function(write_file_ls,
   if(is.null(object_type_lup))
     object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
                                                     piggyback_to_1L_chr = "ready4-dev/ready4")
-  eval(parse(text = gen_mthd_pair_ls$method_chr))
+  if(!isS4(eval(parse(text=paste0(class_nm_1L_chr,"()")))))
+    eval(parse(text = gen_mthd_pair_ls$method_chr))
   if(write_1L_lgl){
     if(is.null(consent_1L_chr)){
       consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
