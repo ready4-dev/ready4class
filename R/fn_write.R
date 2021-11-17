@@ -817,8 +817,7 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
         " = \"", .y, "\"")) %>% stringr::str_c(sep = "", collapse = ",") %>% 
         paste0("c(", ., ")")
     named_slots_chr <- eval(parse(text = slot_str))
-    old_class_tb_extension <- make_alg_to_set_old_clss(type_chr = type_chr, 
-        prototype_lup = prototype_lup)
+    old_class_tb_extension <- character(0)
     if (!identical(old_class_tb_extension, character(0))) {
         eval(parse(text = old_class_tb_extension))
     }
