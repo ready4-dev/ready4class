@@ -532,7 +532,8 @@ write_scripts_to_make_gnrc_and_mthd <- function(fn_name_1L_chr,
                             doc_in_class_1L_lgl = doc_in_class_1L_lgl,#import_from_chr
                             fn_types_lup = fn_types_lup,
                             object_type_lup = object_type_lup,
-                            import_from_chr = import_from_chr)
+                            import_from_chr = import_from_chr,
+                            s3_1L_lgl = s3_1L_lgl)
   write_file_ls
 }
 write_script_to_make_mthd <- function(write_file_ls,
@@ -549,12 +550,17 @@ write_script_to_make_mthd <- function(write_file_ls,
                                       fn_types_lup = NULL,
                                       object_type_lup = NULL,
                                       consent_1L_chr = NULL,
-                                      import_from_chr = NA_character_){ # Modified from NULL
+                                      import_from_chr = NA_character_,
+                                      s3_1L_lgl = F){ # Modified from NULL
   if(is.null(object_type_lup))
     object_type_lup <- ready4fun::get_rds_from_pkg_dmt(fl_nm_1L_chr = "object_type_lup",
                                                     piggyback_to_1L_chr = "ready4-dev/ready4")
-  if(!isS4(eval(parse(text=paste0(class_nm_1L_chr,"()")))))
+  if(s3_1L_lgl){
     eval(parse(text = gen_mthd_pair_ls$method_chr))
+    fn <- eval(parse(text = gen_mthd_pair_ls$meth_fn_chr))
+  }else{
+    fn <- NULL
+  }
   if(write_1L_lgl){
     if(is.null(consent_1L_chr)){
       consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
@@ -573,7 +579,7 @@ write_script_to_make_mthd <- function(write_file_ls,
                                  write_file_ls$new_file_lgl)))
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                                      fn_type_1L_chr = fn_type_1L_chr,
-                                     fn = eval(parse(text=gen_mthd_pair_ls$meth_fn_chr)),
+                                     fn = fn,
                                      fn_desc_1L_chr = fn_desc_1L_chr,
                                      fn_out_type_1L_chr = fn_outp_type_1L_chr,
                                      fn_types_lup = fn_types_lup,
