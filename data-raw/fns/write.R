@@ -557,7 +557,9 @@ write_script_to_make_mthd <- function(write_file_ls,
                                                     piggyback_to_1L_chr = "ready4-dev/ready4")
   if(s3_1L_lgl){
     eval(parse(text = gen_mthd_pair_ls$method_chr))
+    fn <- eval(parse(text = gen_mthd_pair_ls$meth_fn_chr))
   }else{
+    fn <- function(){}
   }
   if(write_1L_lgl){
     if(is.null(consent_1L_chr)){
@@ -577,7 +579,7 @@ write_script_to_make_mthd <- function(write_file_ls,
                                  write_file_ls$new_file_lgl)))
     ready4fun::make_lines_for_fn_dmt(fn_name_1L_chr = fn_name_1L_chr,
                                      fn_type_1L_chr = fn_type_1L_chr,
-                                     fn = eval(parse(text = gen_mthd_pair_ls$meth_fn_chr)),
+                                     fn = fn,
                                      fn_desc_1L_chr = fn_desc_1L_chr,
                                      fn_out_type_1L_chr = fn_outp_type_1L_chr,
                                      fn_types_lup = fn_types_lup,
