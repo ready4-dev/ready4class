@@ -259,7 +259,9 @@ make_class_pts_tb <- function(class_mk_ls){
 make_dmt_inc_tag <- function(class_names_chr,
                              s3_1L_lgl = T){
   dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr),
-         paste0("#' @include ",get_class_fl_nms(class_names_chr = class_names_chr, s3_1L_lgl = s3_1L_lgl) %>% stringr::str_c(collapse=" "),"\n"),
+         paste0("#' @include ",
+                get_class_fl_nms(class_names_chr = class_names_chr,
+                                 s3_1L_lgl = s3_1L_lgl) %>% stringr::str_c(collapse=" "),"\n"),
          "")
   return(dmt_inc_tag_1L_chr)
 }
@@ -776,51 +778,51 @@ make_pt_ls <- function(slots_chr,
                                 })
 
   }
-  pt_ls <- pt_ls %>%
+  pt_ls_alg_1L_chr <- pt_ls %>%
     stringr::str_c(sep="",collapse=",") %>%
     paste0("list(",.,")")
-  return(pt_ls)
+  return(pt_ls_alg_1L_chr)
 }
 make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
-                                  type_1L_chr,
-                                  pt_ns_1L_chr,
-                                  pt_chkr_pfx_1L_chr,
-                                  vals_ls,
-                                  ordered_1L_lgl,
-                                  parent_cls_nm_1L_chr,
-                                  prototype_lup,
-                                  min_max_vals_dbl,
-                                  start_end_vals_dbl,
-                                  dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
-                                  nss_to_ignore_chr,
-                                  asserts_ls = NULL){
+                                      type_1L_chr,
+                                      pt_ns_1L_chr,
+                                      pt_chkr_pfx_1L_chr,
+                                      vals_ls,
+                                      ordered_1L_lgl,
+                                      parent_cls_nm_1L_chr,
+                                      prototype_lup,
+                                      min_max_vals_dbl,
+                                      start_end_vals_dbl,
+                                      dev_pkg_ns_1L_chr = ready4fun::get_dev_pkg_nm(),
+                                      nss_to_ignore_chr,
+                                      asserts_ls = NULL){
   s3_prototype_ls <- make_fn_pt_to_make_r3_cls_pt(type_1L_chr = type_1L_chr,
-                                          pt_ns_1L_chr = pt_ns_1L_chr,
-                                          vals_ls = vals_ls,
-                                          ordered_1L_lgl = ordered_1L_lgl,
-                                          class_nm_1L_chr = class_name_1L_chr,
-                                          parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
-                                          prototype_lup = prototype_lup)
+                                                  pt_ns_1L_chr = pt_ns_1L_chr,
+                                                  vals_ls = vals_ls,
+                                                  ordered_1L_lgl = ordered_1L_lgl,
+                                                  class_nm_1L_chr = class_name_1L_chr,
+                                                  parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                                  dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr,
+                                                  prototype_lup = prototype_lup)
   s3_constructor_ls <- make_fn_pt_to_make_unvld_r3_cls_inst(type_1L_chr = type_1L_chr,
-                                              pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr,
-                                              pt_ns_1L_chr = pt_ns_1L_chr,
-                                              class_nm_1L_chr = class_name_1L_chr,
-                                              s3_prototype_ls = s3_prototype_ls)
+                                                            pt_chkr_pfx_1L_chr = pt_chkr_pfx_1L_chr,
+                                                            pt_ns_1L_chr = pt_ns_1L_chr,
+                                                            class_nm_1L_chr = class_name_1L_chr,
+                                                            s3_prototype_ls = s3_prototype_ls)
   s3_validator_ls <- make_fn_pt_to_make_vld_r3_cls_inst(type_1L_chr = type_1L_chr,
-                                          class_nm_1L_chr = class_name_1L_chr,
-                                          s3_prototype_ls = s3_prototype_ls,
-                                          min_max_vals_dbl = min_max_vals_dbl,
-                                          start_end_vals_dbl = start_end_vals_dbl,
-                                          vals_ls = vals_ls,
-                                          asserts_ls = asserts_ls,
-                                          dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr)
+                                                        class_nm_1L_chr = class_name_1L_chr,
+                                                        s3_prototype_ls = s3_prototype_ls,
+                                                        min_max_vals_dbl = min_max_vals_dbl,
+                                                        start_end_vals_dbl = start_end_vals_dbl,
+                                                        vals_ls = vals_ls,
+                                                        asserts_ls = asserts_ls,
+                                                        dev_pkg_ns_1L_chr = dev_pkg_ns_1L_chr)
   s3_valid_instance <- make_fn_pt_to_make_vldd_r3_cls_inst(class_nm_1L_chr = class_name_1L_chr,
-                                                    s3_prototype_ls = s3_prototype_ls,
-                                                    s3_constructor_ls = s3_constructor_ls,
-                                                    s3_validator_ls = s3_validator_ls)
+                                                           s3_prototype_ls = s3_prototype_ls,
+                                                           s3_constructor_ls = s3_constructor_ls,
+                                                           s3_validator_ls = s3_validator_ls)
   s3_checker <- make_fn_pt_to_check_r3_cls_inhtc(class_nm_1L_chr = class_name_1L_chr,
-                                      s3_validator_ls = s3_validator_ls)
+                                                 s3_validator_ls = s3_validator_ls)
 
   fn_name_ls <- list(valid_instance = s3_valid_instance$fn_name_1L_chr,
                      unvalidated_instance = s3_constructor_ls$fn_name_1L_chr,
@@ -828,15 +830,15 @@ make_pt_ls_for_new_r3_cls <- function(class_name_1L_chr,
                      validator = s3_validator_ls$fn_name_1L_chr,
                      checker = s3_checker$fn_name_1L_chr)
   fn_body_1L_chr_ls <- list(valid_instance = s3_valid_instance$fn_body_1L_chr,
-                     unvalidated_instance = s3_constructor_ls$fn_body_1L_chr,
-                     prototype = s3_prototype_ls$fn_body_1L_chr,
-                     validator = s3_validator_ls$fn_body_1L_chr,
-                     checker = s3_checker$fn_body_1L_chr)
+                            unvalidated_instance = s3_constructor_ls$fn_body_1L_chr,
+                            prototype = s3_prototype_ls$fn_body_1L_chr,
+                            validator = s3_validator_ls$fn_body_1L_chr,
+                            checker = s3_checker$fn_body_1L_chr)
   include_tags_chr <- get_parent_cls_ns(prototype_lup = prototype_lup,
-                                       parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                       dev_pkg_ns_1L_chr = nss_to_ignore_chr[1]) %>%
+                                        parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
+                                        dev_pkg_ns_1L_chr = nss_to_ignore_chr[1]) %>%
     get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
-                                 base_set_of_clss_to_inc_chr = NULL) %>%
+                           base_set_of_clss_to_inc_chr = NULL) %>%
     make_dmt_inc_tag(s3_1L_lgl = T)
   pt_ls_for_new_r3_cls_ls <- list(fn_name_ls = fn_name_ls,
                                   fn_body_1L_chr_ls = fn_body_1L_chr_ls,

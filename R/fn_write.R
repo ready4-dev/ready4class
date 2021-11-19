@@ -531,7 +531,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
         if (!dir.exists(output_dir_1L_chr)) 
             dir.create(output_dir_1L_chr)
     }
-    pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = type_chr, 
+    pt_ls_alg_1L_chr <- make_pt_ls(slots_chr = slots_chr, type_chr = type_chr, 
         vals_ls = vals_ls, prototype_lup = prototype_lup)
     class_nm_1L_chr <- paste0(name_pfx_1L_chr, name_stub_1L_chr)
     output_file_class_1L_chr <- get_class_fl_nms(class_names_chr = class_nm_1L_chr, 
@@ -539,9 +539,9 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
     parent_ns_ls <- get_parent_cls_ns(prototype_lup = prototype_lup, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr = nss_to_ignore_chr[1])
     write_to_mk_r4_cls(class_nm_1L_chr = class_nm_1L_chr, slots_chr = slots_chr, 
-        type_chr = type_chr, pt_ls = pt_ls, parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
-        print_set_cls_1L_lgl = print_set_cls_1L_lgl, class_desc_1L_chr = class_desc_1L_chr, 
-        output_file_class_1L_chr = output_file_class_1L_chr, 
+        type_chr = type_chr, pt_ls_alg_1L_chr = pt_ls_alg_1L_chr, 
+        parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, print_set_cls_1L_lgl = print_set_cls_1L_lgl, 
+        class_desc_1L_chr = class_desc_1L_chr, output_file_class_1L_chr = output_file_class_1L_chr, 
         clss_to_inc_chr = clss_to_inc_chr, prototype_lup = prototype_lup, 
         helper_1L_lgl = F, parent_ns_ls = parent_ns_ls, abbreviations_lup = abbreviations_lup, 
         consent_1L_chr = consent_1L_chr, object_type_lup = object_type_lup)
@@ -793,7 +793,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param slots_chr Slots (a character vector)
 #' @param type_chr Type (a character vector)
-#' @param pt_ls Prototype (a list)
+#' @param pt_ls_alg_1L_chr Prototype list algorithm (a character vector of length one)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param print_set_cls_1L_lgl Print set class (a logical vector of length one)
 #' @param class_desc_1L_chr Class description (a character vector of length one)
@@ -813,10 +813,11 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @importFrom ready4fun update_ns make_arg_desc close_open_sinks
 #' @importFrom ready4 make_prompt
 #' @keywords internal
-write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, parent_cls_nm_1L_chr, 
-    print_set_cls_1L_lgl, class_desc_1L_chr, output_file_class_1L_chr, 
-    clss_to_inc_chr, prototype_lup, helper_1L_lgl = F, parent_ns_ls, 
-    abbreviations_lup = NULL, object_type_lup = NULL, consent_1L_chr = NULL) 
+write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls_alg_1L_chr, 
+    parent_cls_nm_1L_chr, print_set_cls_1L_lgl, class_desc_1L_chr, 
+    output_file_class_1L_chr, clss_to_inc_chr, prototype_lup, 
+    helper_1L_lgl = F, parent_ns_ls, abbreviations_lup = NULL, 
+    object_type_lup = NULL, consent_1L_chr = NULL) 
 {
     slot_str <- purrr::map2_chr(slots_chr, type_chr, ~paste0(.x, 
         " = \"", .y, "\"")) %>% stringr::str_c(sep = "", collapse = ",") %>% 
@@ -829,10 +830,10 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
     else {
         old_class_tb_extension <- ""
     }
-    prototype <- eval(parse(text = pt_ls))
+    prototype <- eval(parse(text = pt_ls_alg_1L_chr))
     if (is.null(parent_cls_nm_1L_chr)) {
         st_class_fn <- paste0("methods::setClass(", make_alg_to_gen_ref_to_cls(class_nm_1L_chr), 
-            ",\nslots = ", slot_str, ",\nprototype =  ", pt_ls, 
+            ",\nslots = ", slot_str, ",\nprototype =  ", pt_ls_alg_1L_chr, 
             ",\nwhere =  ", "globalenv()", ")")
     }
     else {
@@ -849,7 +850,7 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls, par
             parent_cls_nm_1L_chr, "\",\nslots = ", purrr::map2_chr(names(named_slots_chr), 
                 named_slots_chr, ~paste0(.x, " = \"", .y, "\"")) %>% 
                 stringr::str_c(sep = "", collapse = ",") %>% 
-                paste0("c(", ., ")"), ",\nprototype =  ", pt_ls, 
+                paste0("c(", ., ")"), ",\nprototype =  ", pt_ls_alg_1L_chr, 
             ",\nwhere =  ", "globalenv()", ")")
     }
     slots_tags <- paste0("#' @slot ", names(named_slots_chr), 

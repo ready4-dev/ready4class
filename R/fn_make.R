@@ -778,13 +778,13 @@ make_one_row_pt_tb_for_new_r4_cls <- function (x)
     return(one_row_class_pt_tb)
 }
 #' make prototype list
-#' @description make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list. The function returns Prototype (a list).
+#' @description make_pt_ls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list. The function returns Prototype list algorithm (a character vector of length one).
 #' @param slots_chr Slots (a character vector)
 #' @param type_chr Type (a character vector), Default: NULL
 #' @param vals_ls Values (a list), Default: NULL
 #' @param make_val_1L_lgl Make value (a logical vector of length one), Default: TRUE
 #' @param prototype_lup Prototype (a lookup table)
-#' @return Prototype (a list)
+#' @return Prototype list algorithm (a character vector of length one)
 #' @rdname make_pt_ls
 #' @export 
 #' @importFrom purrr map2_chr pmap_chr
@@ -811,9 +811,9 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
                 }
             })
     }
-    pt_ls <- pt_ls %>% stringr::str_c(sep = "", collapse = ",") %>% 
+    pt_ls_alg_1L_chr <- pt_ls %>% stringr::str_c(sep = "", collapse = ",") %>% 
         paste0("list(", ., ")")
-    return(pt_ls)
+    return(pt_ls_alg_1L_chr)
 }
 #' make prototype list for new ready4 S3 class
 #' @description make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new ready4 s3 class. The function returns Prototype list for new ready4 S3 class (a list).

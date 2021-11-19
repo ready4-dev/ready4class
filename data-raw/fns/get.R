@@ -19,16 +19,13 @@ get_class_ns <- function(prototype_lup,
   return(class_ns_1L_chr)
 }
 get_nms_of_clss_to_inc <- function(parent_cls_nm_1L_chr,
-                                         parent_ns_ls,
-                                         base_set_of_clss_to_inc_chr = NULL){
-  nms_of_clss_to_inc_chr <- NULL
+                                   parent_ns_ls,
+                                   base_set_of_clss_to_inc_chr = NULL){
+  nms_of_clss_to_inc_chr <- base_set_of_clss_to_inc_chr
   if(!is.null(parent_cls_nm_1L_chr) & parent_ns_ls$transformed_1L_chr == ""){
-    if(!is.null(base_set_of_clss_to_inc_chr)){
-      nms_of_clss_to_inc_chr <- c(parent_cls_nm_1L_chr,base_set_of_clss_to_inc_chr)
+      nms_of_clss_to_inc_chr <- c(parent_cls_nm_1L_chr,
+                                  nms_of_clss_to_inc_chr)
       nms_of_clss_to_inc_chr <- nms_of_clss_to_inc_chr[!duplicated(nms_of_clss_to_inc_chr)]
-    }else{
-      nms_of_clss_to_inc_chr <- parent_cls_nm_1L_chr
-    }
   }
   return(nms_of_clss_to_inc_chr)
 }

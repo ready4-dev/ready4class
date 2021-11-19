@@ -8,7 +8,7 @@ write_to_mk_r4_cls(
   class_nm_1L_chr,
   slots_chr,
   type_chr,
-  pt_ls,
+  pt_ls_alg_1L_chr,
   parent_cls_nm_1L_chr,
   print_set_cls_1L_lgl,
   class_desc_1L_chr,
@@ -29,7 +29,7 @@ write_to_mk_r4_cls(
 
 \item{type_chr}{Type (a character vector)}
 
-\item{pt_ls}{Prototype (a list)}
+\item{pt_ls_alg_1L_chr}{Prototype list algorithm (a character vector of length one)}
 
 \item{parent_cls_nm_1L_chr}{Parent class name (a character vector of length one)}
 
