@@ -73,6 +73,8 @@ author.ready4class_manifest <- function(x,
   if(is.null(init_class_pt_lup)){
     if(is.null(x$x_ready4fun_manifest$subsequent_ls$prototype_lup)){
       x$x_ready4fun_manifest <- ready4fun::add_new_cls_pts(x$x_ready4fun_manifest)
+      # ,addl_cls_pts_tb = make_addl_cls_pts_tb(x$x_ready4fun_manifest,
+      #                                        constructor_tb = x$constructor_r3)
     }
     init_class_pt_lup <- x$x_ready4fun_manifest$subsequent_ls$prototype_lup
   }else{
