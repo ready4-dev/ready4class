@@ -547,7 +547,8 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
         consent_1L_chr = consent_1L_chr, object_type_lup = object_type_lup)
     helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr, 
         parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, slots_chr = slots_chr, 
-        pt_ls = pt_ls, prototype_lup = prototype_lup, parent_ns_ls = parent_ns_ls)
+        pt_ls = pt_ls_alg_1L_chr, prototype_lup = prototype_lup, 
+        parent_ns_ls = parent_ns_ls)
     eval(parse(text = helper_function))
     if (helper_1L_lgl) {
         if (is.null(consent_1L_chr)) {

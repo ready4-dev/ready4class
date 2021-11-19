@@ -289,7 +289,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     slots_chr = slots_chr,
-                                    pt_ls = pt_ls,
+                                    pt_ls = pt_ls_alg_1L_chr,
                                     prototype_lup = prototype_lup,
                                     parent_ns_ls = parent_ns_ls)
   eval(parse(text=helper_function))
