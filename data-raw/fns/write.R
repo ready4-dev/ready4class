@@ -372,6 +372,7 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
       }
     }
   }
+  methods::removeClass(class_nm_1L_chr, where=.GlobalEnv)
   devtools::document()
   devtools::load_all()
 }

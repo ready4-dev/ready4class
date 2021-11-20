@@ -515,6 +515,7 @@ write_scripts_to_mk_r3_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, outpu
 #' @importFrom ready4 make_prompt
 #' @importFrom ready4fun make_lines_for_fn_dmt close_open_sinks
 #' @importFrom stringr str_replace str_replace_all
+#' @importFrom methods removeClass
 #' @importFrom devtools document load_all
 #' @keywords internal
 write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots_chr, type_chr, 
@@ -615,6 +616,7 @@ write_scripts_to_mk_r4_cls <- function (name_stub_1L_chr, name_pfx_1L_chr, slots
             }
         }
     }
+    methods::removeClass(class_nm_1L_chr, where = .GlobalEnv)
     devtools::document()
     devtools::load_all()
 }
