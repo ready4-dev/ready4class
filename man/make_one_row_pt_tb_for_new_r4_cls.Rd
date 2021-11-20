@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_one_row_pt_tb_for_new_r4_cls}
 \alias{make_one_row_pt_tb_for_new_r4_cls}
-\title{make one row prototype tibble for new ready4 S4 class}
+\title{Make one row prototype tibble for new ready4 S4 class}
 \usage{
 make_one_row_pt_tb_for_new_r4_cls(x)
 }

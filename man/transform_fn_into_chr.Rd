@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_transform.R
 \name{transform_fn_into_chr}
 \alias{transform_fn_into_chr}
-\title{transform function into character vector}
+\title{Transform function into character vector}
 \usage{
 transform_fn_into_chr(fn)
 }

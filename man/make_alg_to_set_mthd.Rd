@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_set_mthd}
 \alias{make_alg_to_set_mthd}
-\title{make algorithm to set method}
+\title{Make algorithm to set method}
 \usage{
 make_alg_to_set_mthd(
   name_1L_chr,

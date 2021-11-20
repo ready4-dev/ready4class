@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_mthds_for_r3_or_r4_clss}
 \alias{write_mthds_for_r3_or_r4_clss}
-\title{write methods for ready4 S3 or ready4 S4 classes}
+\title{Write methods for ready4 S3 or ready4 S4 classes}
 \usage{
 write_mthds_for_r3_or_r4_clss(
   methods_tb,

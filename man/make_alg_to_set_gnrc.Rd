@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_set_gnrc}
 \alias{make_alg_to_set_gnrc}
-\title{make algorithm to set generic}
+\title{Make algorithm to set generic}
 \usage{
 make_alg_to_set_gnrc(
   name_1L_chr,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_gnrc_mthd_pair_ls}
 \alias{make_gnrc_mthd_pair_ls}
-\title{make generic method pair list}
+\title{Make generic method pair list}
 \usage{
 make_gnrc_mthd_pair_ls(
   name_1L_chr,

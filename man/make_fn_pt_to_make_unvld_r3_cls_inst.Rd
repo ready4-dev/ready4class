@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_fn_pt_to_make_unvld_r3_cls_inst}
 \alias{make_fn_pt_to_make_unvld_r3_cls_inst}
-\title{make function prototype to make unvalidated ready4 S3 class instance}
+\title{Make function prototype to make unvalidated ready4 S3 class instance}
 \usage{
 make_fn_pt_to_make_unvld_r3_cls_inst(
   type_1L_chr,

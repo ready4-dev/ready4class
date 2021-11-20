@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{renew - a method that renews an instance of a class by updating it with new data}
+\title{Renew - a method that renews an instance of a class by updating it with new data}
 \usage{
 renew.ready4class_constructor(
   x,

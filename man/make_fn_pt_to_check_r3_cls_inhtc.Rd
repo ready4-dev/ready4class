@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_fn_pt_to_check_r3_cls_inhtc}
 \alias{make_fn_pt_to_check_r3_cls_inhtc}
-\title{make function prototype to check ready4 S3 class inheritance}
+\title{Make function prototype to check ready4 S3 class inheritance}
 \usage{
 make_fn_pt_to_check_r3_cls_inhtc(class_nm_1L_chr, s3_validator_ls)
 }

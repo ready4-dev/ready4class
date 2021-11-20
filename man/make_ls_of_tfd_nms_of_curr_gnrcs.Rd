@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_ls_of_tfd_nms_of_curr_gnrcs}
 \alias{make_ls_of_tfd_nms_of_curr_gnrcs}
-\title{make list of transformed names of current generics}
+\title{Make list of transformed names of current generics}
 \usage{
 make_ls_of_tfd_nms_of_curr_gnrcs(
   req_pkgs_chr,

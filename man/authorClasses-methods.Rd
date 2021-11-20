@@ -3,7 +3,7 @@
 \name{authorClasses.ready4class_constructor}
 \alias{authorClasses.ready4class_constructor}
 \alias{authorClasses,ready4class_constructor-method}
-\title{authorClasses - a method that authors and saves files necessary for creating and documenting classes}
+\title{AuthorClasses - a method that authors and saves files necessary for creating and documenting classes}
 \usage{
 authorClasses.ready4class_constructor(
   x,

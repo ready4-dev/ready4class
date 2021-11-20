@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_self_srvc_clss}
 \alias{write_self_srvc_clss}
-\title{write self service classes}
+\title{Write self service classes}
 \usage{
 write_self_srvc_clss(pkg_setup_ls)
 }

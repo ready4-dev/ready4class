@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_set_old_clss}
 \alias{make_alg_to_set_old_clss}
-\title{make algorithm to set old classes}
+\title{Make algorithm to set old classes}
 \usage{
 make_alg_to_set_old_clss(type_chr, prototype_lup = NULL)
 }

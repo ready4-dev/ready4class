@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_parent_cls_ns}
 \alias{get_parent_cls_ns}
-\title{get parent class namespace}
+\title{Get parent class namespace}
 \usage{
 get_parent_cls_ns(prototype_lup, parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr)
 }

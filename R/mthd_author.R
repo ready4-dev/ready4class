@@ -1,4 +1,4 @@
-#' author - a method that authors and saves files to local or remote locations
+#' Author - a method that authors and saves files to local or remote locations
 #' @description author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
@@ -68,7 +68,7 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 #' @aliases author,ready4class_constructor-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
-#' author - a method that authors and saves files to local or remote locations
+#' Author - a method that authors and saves files to local or remote locations
 #' @description author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
 #' @param x An instance of ready4 S3 class Manifest.
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
@@ -122,7 +122,7 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
 #' @aliases author,ready4class_manifest-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
-#' author - a method that authors and saves files to local or remote locations
+#' Author - a method that authors and saves files to local or remote locations
 #' @description author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param row_idx_1L_int Row index (an integer vector of length one)

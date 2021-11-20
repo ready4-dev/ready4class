@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_one_row_class_pt_tb}
 \alias{make_one_row_class_pt_tb}
-\title{make one row class prototype tibble}
+\title{Make one row class prototype tibble}
 \usage{
 make_one_row_class_pt_tb(class_type_mk_ls, make_s3_1L_lgl = T)
 }

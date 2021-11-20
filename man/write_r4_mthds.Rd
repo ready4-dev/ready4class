@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_r4_mthds}
 \alias{write_r4_mthds}
-\title{write ready4 S4 methods}
+\title{Write ready4 S4 methods}
 \usage{
 write_r4_mthds(
   fns_dir_1L_chr = "data-raw/s4_fns",
