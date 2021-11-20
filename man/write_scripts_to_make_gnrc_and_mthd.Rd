@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_scripts_to_make_gnrc_and_mthd}
 \alias{write_scripts_to_make_gnrc_and_mthd}
-\title{write scripts to make generic and method}
+\title{Write scripts to make generic and method}
 \usage{
 write_scripts_to_make_gnrc_and_mthd(
   fn_name_1L_chr,

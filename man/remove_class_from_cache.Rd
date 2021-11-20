@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_remove.R
 \name{remove_class_from_cache}
 \alias{remove_class_from_cache}
-\title{remove class from cache}
+\title{Remove class from cache}
 \usage{
 remove_class_from_cache(class_nm_1L_chr, class_in_cache_cdn_1L_chr = "stop")
 }

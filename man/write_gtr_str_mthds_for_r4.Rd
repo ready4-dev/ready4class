@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_gtr_str_mthds_for_r4}
 \alias{write_gtr_str_mthds_for_r4}
-\title{write getter setter methods for ready4 S4}
+\title{Write getter setter methods for ready4 S4}
 \usage{
 write_gtr_str_mthds_for_r4(
   slot_nm_1L_chr,

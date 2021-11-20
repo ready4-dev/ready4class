@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_get.R
 \name{get_nms_of_clss_to_inc}
 \alias{get_nms_of_clss_to_inc}
-\title{get names of classes to include}
+\title{Get names of classes to include}
 \usage{
 get_nms_of_clss_to_inc(
   parent_cls_nm_1L_chr,

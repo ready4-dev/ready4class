@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_to_mk_r4_cls}
 \alias{write_to_mk_r4_cls}
-\title{write to make ready4 S4 class}
+\title{Write to make ready4 S4 class}
 \usage{
 write_to_mk_r4_cls(
   class_nm_1L_chr,

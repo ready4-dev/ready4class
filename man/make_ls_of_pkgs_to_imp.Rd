@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_ls_of_pkgs_to_imp}
 \alias{make_ls_of_pkgs_to_imp}
-\title{make list of packages to import}
+\title{Make list of packages to import}
 \usage{
 make_ls_of_pkgs_to_imp(curr_gnrcs_ls, fn_name_1L_chr, nss_to_ignore_chr)
 }

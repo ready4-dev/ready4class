@@ -7,7 +7,7 @@
 \alias{author,ready4class_manifest-method}
 \alias{author.ready4class_pt_lup}
 \alias{author,ready4class_pt_lup-method}
-\title{author - a method that authors and saves files to local or remote locations}
+\title{Author - a method that authors and saves files to local or remote locations}
 \usage{
 author.ready4class_constructor(
   x,

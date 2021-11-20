@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_scripts_to_mk_clss}
 \alias{write_scripts_to_mk_clss}
-\title{write scripts to make classes}
+\title{Write scripts to make classes}
 \usage{
 write_scripts_to_mk_clss(
   pts_for_new_clss_ls,

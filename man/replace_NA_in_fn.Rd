@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_replace.R
 \name{replace_NA_in_fn}
 \alias{replace_NA_in_fn}
-\title{replace NA in function}
+\title{Replace NA in function}
 \usage{
 replace_NA_in_fn(fn_body_1L_chr)
 }

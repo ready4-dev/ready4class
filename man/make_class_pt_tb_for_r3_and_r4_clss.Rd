@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_class_pt_tb_for_r3_and_r4_clss}
 \alias{make_class_pt_tb_for_r3_and_r4_clss}
-\title{make class prototype tibble for ready4 S3 and ready4 S4 classes}
+\title{Make class prototype tibble for ready4 S3 and ready4 S4 classes}
 \usage{
 make_class_pt_tb_for_r3_and_r4_clss(class_mk_ls)
 }

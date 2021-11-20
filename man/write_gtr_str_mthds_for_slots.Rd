@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_gtr_str_mthds_for_slots}
 \alias{write_gtr_str_mthds_for_slots}
-\title{write getter setter methods for slots}
+\title{Write getter setter methods for slots}
 \usage{
 write_gtr_str_mthds_for_slots(
   slot_names_chr,

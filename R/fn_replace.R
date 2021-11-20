@@ -1,4 +1,4 @@
-#' replace NA in function
+#' Replace NA in function
 #' @description replace_NA_in_fn() is a Replace function that edits an object, replacing a specified element with another specified element. Specifically, this function implements an algorithm to replace na in function. Function argument fn_body_1L_chr specifies the object to be updated. The function returns Function body (a character vector of length one).
 #' @param fn_body_1L_chr Function body (a character vector of length one)
 #' @return Function body (a character vector of length one)

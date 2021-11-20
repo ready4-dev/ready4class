@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_fn_pt_to_make_r3_cls_pt}
 \alias{make_fn_pt_to_make_r3_cls_pt}
-\title{make function prototype to make ready4 S3 class prototype}
+\title{Make function prototype to make ready4 S3 class prototype}
 \usage{
 make_fn_pt_to_make_r3_cls_pt(
   type_1L_chr,

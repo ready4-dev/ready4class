@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_pt_tb_for_new_r3_cls}
 \alias{make_pt_tb_for_new_r3_cls}
-\title{make prototype tibble for new ready4 S3 class}
+\title{Make prototype tibble for new ready4 S3 class}
 \usage{
 make_pt_tb_for_new_r3_cls(x)
 }

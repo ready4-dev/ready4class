@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_set_validity_of_r4_cls}
 \alias{make_alg_to_set_validity_of_r4_cls}
-\title{make algorithm to set validity of ready4 S4 class}
+\title{Make algorithm to set validity of ready4 S4 class}
 \usage{
 make_alg_to_set_validity_of_r4_cls(
   class_nm_1L_chr,

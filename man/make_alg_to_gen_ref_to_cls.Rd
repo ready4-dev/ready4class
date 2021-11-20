@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_alg_to_gen_ref_to_cls}
 \alias{make_alg_to_gen_ref_to_cls}
-\title{make algorithm to generate reference to class}
+\title{Make algorithm to generate reference to class}
 \usage{
 make_alg_to_gen_ref_to_cls(class_nm_1L_chr, pkg_nm_1L_chr = ".GlobalEnv")
 }

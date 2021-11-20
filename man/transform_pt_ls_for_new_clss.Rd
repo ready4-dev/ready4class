@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_transform.R
 \name{transform_pt_ls_for_new_clss}
 \alias{transform_pt_ls_for_new_clss}
-\title{transform prototype list for new classes}
+\title{Transform prototype list for new classes}
 \usage{
 transform_pt_ls_for_new_clss(pts_for_new_clss_ls)
 }

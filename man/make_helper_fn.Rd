@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_helper_fn}
 \alias{make_helper_fn}
-\title{make helper function}
+\title{Make helper function}
 \usage{
 make_helper_fn(
   class_nm_1L_chr,

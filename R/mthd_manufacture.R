@@ -1,4 +1,4 @@
-#' manufacture - a method that manufactures a novel r object using data contained in an instance of a class
+#' Manufacture - a method that manufactures a novel r object using data contained in an instance of a class
 #' @description manufacture.ready4class_constructor() is a manufacture method that manufactures a novel R object using data contained in an instance of a class. This method is implemented for the ready4 S3 class Constructor Table. The function returns Instance (ready4 S3 class Prototype Lookup Table of class metadata.).
 #' @param x An instance of ready4 S3 class Constructor Table.
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
