@@ -763,14 +763,14 @@ make_pt_ls <- function(slots_chr,
                               ))
   if(!is.null(vals_ls)){
     pt_ls <- purrr::pmap_chr(list(slots_chr,
-                                     pt_ls,
-                                     1:length(pt_ls)),
+                                  pt_ls,
+                                  1:length(pt_ls)),
                                 ~ {
                                   if(..3 %in% 1:length(vals_ls)){
                                     paste0(..1,
                                            ' = ',
                                            ifelse(make_val_1L_lgl,"\"",""),
-                                           vals_ls[[..3]],
+                                           vals_ls[..3][[1]],
                                            ifelse(make_val_1L_lgl,"\"",""))
                                   }else{
                                     ..2

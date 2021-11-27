@@ -803,7 +803,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
             ~{
                 if (..3 %in% 1:length(vals_ls)) {
                   paste0(..1, " = ", ifelse(make_val_1L_lgl, 
-                    "\"", ""), vals_ls[[..3]], ifelse(make_val_1L_lgl, 
+                    "\"", ""), vals_ls[..3][[1]], ifelse(make_val_1L_lgl, 
                     "\"", ""))
                 }
                 else {
