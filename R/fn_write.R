@@ -816,6 +816,8 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
 #' @importFrom ready4fun update_ns make_arg_desc close_open_sinks
+#' @importFrom stringi stri_replace_last_regex
+#' @importFrom Hmisc capitalize
 #' @importFrom ready4 make_prompt
 #' @keywords internal
 write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls_alg_1L_chr, 
@@ -860,7 +862,10 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls_alg_
     }
     slots_tags <- paste0("#' @slot ", names(named_slots_chr), 
         " ", names(named_slots_chr) %>% ready4fun::make_arg_desc(abbreviations_lup = abbreviations_lup, 
-            object_type_lup = object_type_lup), "\n", collapse = "")
+            object_type_lup = object_type_lup) %>% purrr::map2_chr(named_slots_chr, 
+            ~ifelse(.x == "NO MATCH", paste0(names(.y) %>% stringi::stri_replace_last_regex(paste0("_", 
+                .y), "") %>% Hmisc::capitalize(), " (an instance of the ", 
+                .y, " class)"), .x)), "\n", collapse = "")
     clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         parent_ns_ls = parent_ns_ls, base_set_of_clss_to_inc_chr = clss_to_inc_chr)
     include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)

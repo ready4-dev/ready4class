@@ -847,7 +847,15 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                        " ",
                        names(named_slots_chr) %>%
                          ready4fun::make_arg_desc(abbreviations_lup = abbreviations_lup,
-                                                  object_type_lup = object_type_lup),
+                                                  object_type_lup = object_type_lup) %>%
+                         purrr::map2_chr(named_slots_chr,
+                                         ~ifelse(.x == "NO MATCH",
+                                                                  paste0(names(.y) %>%
+                                                                          stringi::stri_replace_last_regex(paste0("_",.y),"") %>% Hmisc::capitalize(),
+                                                                        " (an instance of the ",
+                                                                        .y,
+                                                                        " class)"),
+                                                                 .x)),
                        "\n",
                        collapse="")
   clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
