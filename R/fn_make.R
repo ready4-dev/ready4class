@@ -593,6 +593,7 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
 #' @param pt_ls Prototype (a list)
 #' @param prototype_lup Prototype (a lookup table)
 #' @param parent_ns_ls Parent namespace (a list)
+#' @param vals_ls Values (a list), Default: NULL
 #' @return Helper function (a character vector of length one)
 #' @rdname make_helper_fn
 #' @export 
@@ -600,7 +601,7 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
 #' @importFrom stringr str_sub str_replace str_replace_all str_c
 #' @keywords internal
 make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt_ls, 
-    prototype_lup, parent_ns_ls) 
+    prototype_lup, parent_ns_ls, vals_ls = NULL) 
 {
     if (!is.null(parent_cls_nm_1L_chr)) {
         if (!methods::isVirtualClass(parent_cls_nm_1L_chr)) {
@@ -612,7 +613,7 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
             child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, 
                 end = -2)
             pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = parent_proto, 
-                prototype_lup = prototype_lup)
+                prototype_lup = prototype_lup, vals_ls = vals_ls)
             pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2), 
                 ",", child_ls_chr, ")")
             slots_chr <- c(slots_chr, child_slots_chr)
@@ -801,10 +802,8 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
     if (!is.null(vals_ls)) {
         pt_ls <- purrr::pmap_chr(list(slots_chr, pt_ls, 1:length(pt_ls)), 
             ~{
-                if (..3 %in% 1:length(vals_ls)) {
-                  paste0(..1, " = ", ifelse(make_val_1L_lgl, 
-                    "\"", ""), vals_ls[..3][[1]], ifelse(make_val_1L_lgl, 
-                    "\"", ""))
+                if (..1 %in% names(vals_ls)) {
+                  paste0(..1, " = ", "vals_ls[", ..1, "][[1]]")
                 }
                 else {
                   ..2

@@ -17,6 +17,7 @@ write_to_mk_r4_cls(
   prototype_lup,
   helper_1L_lgl = F,
   parent_ns_ls,
+  vals_ls = NULL,
   abbreviations_lup = NULL,
   object_type_lup = NULL,
   consent_1L_chr = NULL
@@ -46,6 +47,8 @@ write_to_mk_r4_cls(
 \item{helper_1L_lgl}{Helper (a logical vector of length one), Default: F}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
+
+\item{vals_ls}{Values (a list), Default: NULL}
 
 \item{abbreviations_lup}{Abbreviations (a lookup table), Default: NULL}
 

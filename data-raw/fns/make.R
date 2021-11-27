@@ -617,7 +617,8 @@ make_helper_fn <- function(class_nm_1L_chr,
                            slots_chr,
                            pt_ls,
                            prototype_lup,
-                           parent_ns_ls){
+                           parent_ns_ls,
+                           vals_ls = NULL){ # NECESSARY?
   if(!is.null(parent_cls_nm_1L_chr)){
     if(!methods::isVirtualClass(parent_cls_nm_1L_chr)){
       child_slots_chr <- slots_chr
@@ -626,7 +627,8 @@ make_helper_fn <- function(class_nm_1L_chr,
       child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, end = -2)
       pt_ls <- make_pt_ls(slots_chr = slots_chr,
                           type_chr = parent_proto,
-                          prototype_lup = prototype_lup)
+                          prototype_lup = prototype_lup,
+                          vals_ls = vals_ls) ## NEED TO CHECK
       pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2),
                       ",",
                       child_ls_chr,
@@ -766,12 +768,14 @@ make_pt_ls <- function(slots_chr,
                                   pt_ls,
                                   1:length(pt_ls)),
                                 ~ {
-                                  if(..3 %in% 1:length(vals_ls)){
+                                  if(..1 %in% names(vals_ls)#..3 %in% 1:length(vals_ls)
+                                     ){
                                     paste0(..1,
                                            ' = ',
-                                           ifelse(make_val_1L_lgl,"\"",""),
-                                           vals_ls[..3][[1]],
-                                           ifelse(make_val_1L_lgl,"\"",""))
+                                           #ifelse(make_val_1L_lgl,"\"",""),
+                                           "vals_ls[",..1,"][[1]]"#,#vals_ls[..1][[1]],#..3
+                                           #ifelse(make_val_1L_lgl,"\"","")
+                                           )
                                   }else{
                                     ..2
                                   }

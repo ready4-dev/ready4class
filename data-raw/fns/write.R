@@ -285,13 +285,15 @@ write_scripts_to_mk_r4_cls <- function(name_stub_1L_chr,
                      parent_ns_ls = parent_ns_ls,
                      abbreviations_lup = abbreviations_lup,
                      consent_1L_chr = consent_1L_chr,
-                     object_type_lup = object_type_lup)
+                     object_type_lup = object_type_lup,
+                     vals_ls = vals_ls) ####
   helper_function <- make_helper_fn(class_nm_1L_chr = class_nm_1L_chr,
                                     parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                     slots_chr = slots_chr,
                                     pt_ls = pt_ls_alg_1L_chr,
                                     prototype_lup = prototype_lup,
-                                    parent_ns_ls = parent_ns_ls)
+                                    parent_ns_ls = parent_ns_ls,
+                                    vals_ls = vals_ls) ##
   eval(parse(text=helper_function))
   if(helper_1L_lgl){ #print_helper
     if(is.null(consent_1L_chr)){
@@ -779,6 +781,7 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
                                prototype_lup,
                                helper_1L_lgl = F,
                                parent_ns_ls,
+                               vals_ls = NULL,
                                abbreviations_lup = NULL,
                                object_type_lup = NULL,
                                consent_1L_chr = NULL){
