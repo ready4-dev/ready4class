@@ -10,7 +10,8 @@ make_helper_fn(
   slots_chr,
   pt_ls,
   prototype_lup,
-  parent_ns_ls
+  parent_ns_ls,
+  vals_ls = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ make_helper_fn(
 \item{prototype_lup}{Prototype (a lookup table)}
 
 \item{parent_ns_ls}{Parent namespace (a list)}
+
+\item{vals_ls}{Values (a list), Default: NULL}
 }
 \value{
 Helper function (a character vector of length one)
