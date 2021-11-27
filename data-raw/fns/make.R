@@ -624,16 +624,20 @@ make_helper_fn <- function(class_nm_1L_chr,
       child_slots_chr <- slots_chr
       slots_chr <- get_parent_cls_slot_nms(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls)
       parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
+      parent_idcs_int <- which(purrr::map_lgl(slots_chr,~ !.x %in% child_slots_chr))
       child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, end = -2)
-      pt_ls <- make_pt_ls(slots_chr = slots_chr,
-                          type_chr = parent_proto,
+      pt_ls <- make_pt_ls(slots_chr = slots_chr[parent_idcs_int],
+                          type_chr = parent_proto[parent_idcs_int],
                           prototype_lup = prototype_lup,
                           vals_ls = vals_ls) ## NEED TO CHECK
-      pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2),
-                      ",",
+      pt_ls <- paste0(pt_ls %>%
+                        stringr::str_sub(end = -2),
+                      ifelse(!identical(pt_ls,"list()"),
+                             ",",
+                             ""),# CHANGE ORDER BUT ACCOUNT FOR "LIST(" AT START
                       child_ls_chr,
                       ")")
-      slots_chr <- c(slots_chr, child_slots_chr)
+      slots_chr <- c(slots_chr[parent_idcs_int], child_slots_chr) # CHANGE ORDER
     }
   }
   func_args <- pt_ls %>% stringr::str_replace("list","function") %>% stringr::str_replace_all(",",",\n")
@@ -644,7 +648,9 @@ make_helper_fn <- function(class_nm_1L_chr,
                             "methods::new(\"",
                             class_nm_1L_chr,
                             "\",\n",
-                            paste0(slots_chr," = ",slots_chr) %>% stringr::str_c(sep="",collapse=",\n"),
+                            paste0(slots_chr,
+                                   " = ",
+                                   slots_chr) %>% stringr::str_c(sep="",collapse=",\n"),
                             ")\n}")
   return(helper_fn_1L_chr)
 }
@@ -773,7 +779,7 @@ make_pt_ls <- function(slots_chr,
                                     paste0(..1,
                                            ' = ',
                                            #ifelse(make_val_1L_lgl,"\"",""),
-                                           "vals_ls[",..1,"][[1]]"#,#vals_ls[..1][[1]],#..3
+                                           vals_ls[..1][[1]]#,#..3 #"vals_ls[\"",..1,"\"][[1]]"#,#
                                            #ifelse(make_val_1L_lgl,"\"","")
                                            )
                                   }else{

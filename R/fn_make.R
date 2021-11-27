@@ -598,6 +598,7 @@ make_gnrc_mthd_pair_ls <- function (name_1L_chr, args_chr = c("x"), signature_1L
 #' @rdname make_helper_fn
 #' @export 
 #' @importFrom methods isVirtualClass
+#' @importFrom purrr map_lgl
 #' @importFrom stringr str_sub str_replace str_replace_all str_c
 #' @keywords internal
 make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt_ls, 
@@ -610,13 +611,17 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
                 parent_ns_ls = parent_ns_ls)
             parent_proto <- get_parent_cls_pts(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
                 parent_ns_ls = parent_ns_ls, slot_names_chr = slots_chr)
+            parent_idcs_int <- which(purrr::map_lgl(slots_chr, 
+                ~!.x %in% child_slots_chr))
             child_ls_chr <- pt_ls %>% stringr::str_sub(start = 6, 
                 end = -2)
-            pt_ls <- make_pt_ls(slots_chr = slots_chr, type_chr = parent_proto, 
-                prototype_lup = prototype_lup, vals_ls = vals_ls)
+            pt_ls <- make_pt_ls(slots_chr = slots_chr[parent_idcs_int], 
+                type_chr = parent_proto[parent_idcs_int], prototype_lup = prototype_lup, 
+                vals_ls = vals_ls)
             pt_ls <- paste0(pt_ls %>% stringr::str_sub(end = -2), 
-                ",", child_ls_chr, ")")
-            slots_chr <- c(slots_chr, child_slots_chr)
+                ifelse(!identical(pt_ls, "list()"), ",", ""), 
+                child_ls_chr, ")")
+            slots_chr <- c(slots_chr[parent_idcs_int], child_slots_chr)
         }
     }
     func_args <- pt_ls %>% stringr::str_replace("list", "function") %>% 
@@ -803,7 +808,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
         pt_ls <- purrr::pmap_chr(list(slots_chr, pt_ls, 1:length(pt_ls)), 
             ~{
                 if (..1 %in% names(vals_ls)) {
-                  paste0(..1, " = ", "vals_ls[", ..1, "][[1]]")
+                  paste0(..1, " = ", vals_ls[..1][[1]])
                 }
                 else {
                   ..2
