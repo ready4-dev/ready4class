@@ -121,6 +121,9 @@
     <loc>/reference/make_ls_of_tfd_nms_of_curr_gnrcs.html</loc>
   </url>
   <url>
+    <loc>/reference/make_new_ready4class_pt_lup.html</loc>
+  </url>
+  <url>
     <loc>/reference/make_one_row_class_pt_tb.html</loc>
   </url>
   <url>
@@ -188,6 +191,9 @@
   </url>
   <url>
     <loc>/reference/transform_pt_ls_for_new_clss.html</loc>
+  </url>
+  <url>
+    <loc>/reference/validate_ready4class_pt_lup.html</loc>
   </url>
   <url>
     <loc>/reference/write_gtr_str_mthds_for_r4.html</loc>
