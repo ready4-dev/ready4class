@@ -38,20 +38,10 @@ is_ready4class_pt_lup(x)
 A validated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 
 A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
-
-A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \description{
 Create a new valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
-
-Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
-
-Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \details{
-ready4 S3 class Prototype Lookup Table.
-
-ready4 S3 class Prototype Lookup Table.
-
 ready4 S3 class Prototype Lookup Table.
 }

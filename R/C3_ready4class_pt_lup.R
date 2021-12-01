@@ -24,8 +24,7 @@ class(x) <- append(c("ready4class_pt_lup",setdiff(make_pt_ready4class_pt_lup() %
 class(x))
 x
 }
-#' make prototype ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @description Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
+#' make prototype ready4class package prototype lookup table
 #' @param type_chr Type (a character vector), Default: character(0)
 #' @param val_chr Value (a character vector), Default: character(0)
 #' @param pt_ns_chr Prototype namespace (a character vector), Default: character(0)
@@ -33,7 +32,6 @@ x
 #' @param default_val_chr Default value (a character vector), Default: character(0)
 #' @param old_class_lgl Old class (a logical vector), Default: logical(0)
 #' @return A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname ready4class_pt_lup
 #' @export
 #' @importFrom ready4 update_pt_fn_args_ls
@@ -101,11 +99,8 @@ call. = FALSE)
 }
 
 x}
-#' is ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @description Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+#' is ready4class package prototype lookup table
 #' @param x An object of any type
-#' @return A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
-#' @details ready4 S3 class Prototype Lookup Table.
 #' @rdname ready4class_pt_lup
 #' @export
 is_ready4class_pt_lup <- function(x) inherits(validate_ready4class_pt_lup(x), "ready4class_pt_lup")
