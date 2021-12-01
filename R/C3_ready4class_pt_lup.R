@@ -11,12 +11,13 @@ ready4class_pt_lup <- function(x = make_pt_ready4class_pt_lup()){
 validate_ready4class_pt_lup(make_new_ready4class_pt_lup(x))
 }
 #' make new ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @describeIn ready4class_pt_lup Create a new unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+#' @description Create a new unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x A prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @return An unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @details ready4 S3 class Prototype Lookup Table.
 #' @export
 #' @importFrom tibble is_tibble
+#' @keywords internal
 make_new_ready4class_pt_lup <- function(x){
 stopifnot(tibble::is_tibble(x))
 class(x) <- append(c("ready4class_pt_lup",setdiff(make_pt_ready4class_pt_lup() %>% class(),class(x))),
@@ -24,7 +25,7 @@ class(x))
 x
 }
 #' make prototype ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @describeIn ready4class_pt_lup Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
+#' @description Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param type_chr Type (a character vector), Default: character(0)
 #' @param val_chr Value (a character vector), Default: character(0)
 #' @param pt_ns_chr Prototype namespace (a character vector), Default: character(0)
@@ -33,6 +34,7 @@ x
 #' @param old_class_lgl Old class (a logical vector), Default: logical(0)
 #' @return A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
 #' @details ready4 S3 class Prototype Lookup Table.
+#' @rdname ready4class_pt_lup
 #' @export
 #' @importFrom ready4 update_pt_fn_args_ls
 #' @importFrom rlang exec
@@ -52,7 +54,7 @@ old_class_lgl = old_class_lgl) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
 #' validate ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @describeIn ready4class_pt_lup Validate an instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+#' @description Validate an instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x An unvalidated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @return A prototpe for ready4 S3 class Prototype Lookup Table of class metadata.
 #' @details ready4 S3 class Prototype Lookup Table.
@@ -61,6 +63,7 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @importFrom dplyr summarise_all filter arrange pull
 #' @importFrom tidyr gather
 #' @importFrom purrr map_chr map2_chr
+#' @keywords internal
 validate_ready4class_pt_lup <- function(x){
 if(sum(stringr::str_detect(names(x)[names(x) %in% names(make_pt_ready4class_pt_lup())],
 names(make_pt_ready4class_pt_lup())))!=length(names(make_pt_ready4class_pt_lup()))){
@@ -99,9 +102,10 @@ call. = FALSE)
 
 x}
 #' is ready4class package prototype lookup table ready4 S3 class Prototype Lookup Table of class metadata.
-#' @describeIn ready4class_pt_lup Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+#' @description Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @details ready4 S3 class Prototype Lookup Table.
+#' @rdname ready4class_pt_lup
 #' @export
 is_ready4class_pt_lup <- function(x) inherits(validate_ready4class_pt_lup(x), "ready4class_pt_lup")
