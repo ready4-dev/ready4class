@@ -6,8 +6,8 @@ setOldClass(c("ready4class_constructor","tbl_df", "tbl", "data.frame"))
 #' @return A validated instance of the ready4 S3 class Constructor Table.
 #' @details ready4 S3 class Constructor Table.
 #' @rdname ready4class_constructor
-#' @export 
-ready4class_constructor <- function(x = make_pt_ready4class_constructor()){ 
+#' @export
+ready4class_constructor <- function(x = make_pt_ready4class_constructor()){
 validate_ready4class_constructor(make_new_ready4class_constructor(x))
 }
 #' make new ready4class package constructor ready4 S3 class Constructor Table.
@@ -15,10 +15,10 @@ validate_ready4class_constructor(make_new_ready4class_constructor(x))
 #' @param x A prototype for the ready4 S3 class Constructor Table.
 #' @return An unvalidated instance of the ready4 S3 class Constructor Table.
 #' @details ready4 S3 class Constructor Table.
-#' @rdname make_new_ready4class_constructor
-#' @export 
+#' @rdname ready4class_constructor
+#' @export
 #' @importFrom tibble is_tibble
-make_new_ready4class_constructor <- function(x){ 
+make_new_ready4class_constructor <- function(x){
 stopifnot(tibble::is_tibble(x))
 class(x) <- append(c("ready4class_constructor",setdiff(make_pt_ready4class_constructor() %>% class(),class(x))),
 class(x))
@@ -43,8 +43,8 @@ x
 #' @param asserts_ls Asserts (a list), Default: list()
 #' @return A prototype for ready4 S3 class Constructor Table.
 #' @details ready4 S3 class Constructor Table.
-#' @rdname make_pt_ready4class_constructor
-#' @export 
+#' @rdname ready4class_constructor
+#' @export
 #' @importFrom ready4 update_pt_fn_args_ls
 #' @importFrom rlang exec
 #' @importFrom tibble tibble
@@ -62,7 +62,7 @@ parent_class_chr = character(0),
 slots_ls = list(),
 meaningful_nms_ls = list(),
 inc_clss_ls = list(),
-asserts_ls = list()){ 
+asserts_ls = list()){
 args_ls <- list(make_s3_lgl = make_s3_lgl,
 name_stub_chr = name_stub_chr,
 pt_ls = pt_ls,
@@ -85,8 +85,8 @@ rlang::exec(tibble::tibble,!!!args_ls)
 #' @param x An unvalidated instance of the ready4 S3 class Constructor Table.
 #' @return A prototpe for ready4 S3 class Constructor Table.
 #' @details ready4 S3 class Constructor Table.
-#' @rdname validate_ready4class_constructor
-#' @export 
+#' @rdname ready4class_constructor
+#' @export
 #' @importFrom stringr str_detect str_c
 #' @importFrom dplyr summarise_all filter arrange pull
 #' @importFrom tidyr gather
@@ -99,29 +99,29 @@ names(make_pt_ready4class_constructor()) %>% stringr::str_c(sep="", collapse = "
 call. = FALSE)
 }
 
- if(!identical(make_pt_ready4class_constructor() %>% 
-dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class) %>% 
- dplyr::filter(!is.na(class)) %>% 
+ if(!identical(make_pt_ready4class_constructor() %>%
+dplyr::summarise_all(class) %>%
+ tidyr::gather(variable,class) %>%
+ dplyr::filter(!is.na(class)) %>%
 dplyr::arrange(variable),
-x %>% 
-dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class) %>% 
- dplyr::filter(!is.na(class)) %>% 
+x %>%
+dplyr::summarise_all(class) %>%
+ tidyr::gather(variable,class) %>%
+ dplyr::filter(!is.na(class)) %>%
 dplyr::filter(variable %in% names(make_pt_ready4class_constructor())) %>% dplyr::arrange(variable))){
 stop(paste0("TIBBLE columns should be of the following classes: ",
 "",
 {
-class_lup <- make_pt_ready4class_constructor() %>% 
-dplyr::summarise_all(class) %>% 
- tidyr::gather(variable,class) %>% 
+class_lup <- make_pt_ready4class_constructor() %>%
+dplyr::summarise_all(class) %>%
+ tidyr::gather(variable,class) %>%
  dplyr::filter(!is.na(class))
   vars_chr <- class_lup %>% dplyr::pull(1) %>% unique()
   classes_chr <- vars_chr %>%  purrr::map_chr(~dplyr::filter(class_lup, variable == .x) %>%  dplyr::pull(2) %>% paste0(collapse = ", "))
 purrr::map2_chr(vars_chr,
 classes_chr,
-~ paste0(.x,": ",.y)) %>% 
-stringr::str_c(sep="", collapse = ", 
+~ paste0(.x,": ",.y)) %>%
+stringr::str_c(sep="", collapse = ",
 ")
 }),
 call. = FALSE)
@@ -133,6 +133,6 @@ x}
 #' @param x An object of any type
 #' @return A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table.
 #' @details ready4 S3 class Constructor Table.
-#' @rdname is_ready4class_constructor
-#' @export 
+#' @rdname ready4class_constructor
+#' @export
 is_ready4class_constructor <- function(x) inherits(validate_ready4class_constructor(x), "ready4class_constructor")
