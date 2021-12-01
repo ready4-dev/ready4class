@@ -2,19 +2,56 @@
 % Please edit documentation in R/C3_ready4class_pt_lup.R
 \name{ready4class_pt_lup}
 \alias{ready4class_pt_lup}
+\alias{make_pt_ready4class_pt_lup}
+\alias{is_ready4class_pt_lup}
 \title{ready4 S3 class Prototype Lookup Table of class metadata.}
 \usage{
 ready4class_pt_lup(x = make_pt_ready4class_pt_lup())
+
+make_pt_ready4class_pt_lup(
+  type_chr = character(0),
+  val_chr = character(0),
+  pt_ns_chr = character(0),
+  fn_to_call_chr = character(0),
+  default_val_chr = character(0),
+  old_class_lgl = logical(0)
+)
+
+is_ready4class_pt_lup(x)
 }
 \arguments{
-\item{x}{A prototype for the ready4 S3 class Prototype Lookup Table of class metadata., Default: make_pt_ready4class_pt_lup()}
+\item{x}{An object of any type}
+
+\item{type_chr}{Type (a character vector), Default: character(0)}
+
+\item{val_chr}{Value (a character vector), Default: character(0)}
+
+\item{pt_ns_chr}{Prototype namespace (a character vector), Default: character(0)}
+
+\item{fn_to_call_chr}{Function to call (a character vector), Default: character(0)}
+
+\item{default_val_chr}{Default value (a character vector), Default: character(0)}
+
+\item{old_class_lgl}{Old class (a logical vector), Default: logical(0)}
 }
 \value{
 A validated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+
+A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
+
+A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \description{
 Create a new valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+
+Create a new prototype for the ready4 S3 class Prototype Lookup Table of class metadata.
+
+Check whether an object is a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 }
 \details{
+ready4 S3 class Prototype Lookup Table.
+
+ready4 S3 class Prototype Lookup Table.
+
 ready4 S3 class Prototype Lookup Table.
 }
