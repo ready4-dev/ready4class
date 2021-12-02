@@ -4,7 +4,7 @@
 \alias{ready4class_pt_lup}
 \alias{make_pt_ready4class_pt_lup}
 \alias{is_ready4class_pt_lup}
-\title{Prototype Lookup Table of class metadata.}
+\title{ready4 S3 class Prototype Lookup Table of class metadata.}
 \usage{
 ready4class_pt_lup(x = make_pt_ready4class_pt_lup())
 

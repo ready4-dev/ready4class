@@ -4,7 +4,7 @@
 \alias{ready4class_constructor}
 \alias{make_pt_ready4class_constructor}
 \alias{is_ready4class_constructor}
-\title{Constructor Table.}
+\title{ready4 S3 class Constructor Table.}
 \usage{
 ready4class_constructor(x = make_pt_ready4class_constructor())
 
