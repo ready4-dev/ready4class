@@ -1,5 +1,5 @@
 
-#' ready4 S3 class Manifest.
+#' Manifest.
 #' @description Create a new valid instance of the ready4 S3 class Manifest.
 #' @param x A prototype for the ready4 S3 class Manifest., Default: make_pt_ready4class_manifest()
 #' @return A validated instance of the ready4 S3 class Manifest.
