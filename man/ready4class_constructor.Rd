@@ -2,15 +2,11 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{ready4class_constructor}
 \alias{ready4class_constructor}
-\alias{make_new_ready4class_constructor}
 \alias{make_pt_ready4class_constructor}
-\alias{validate_ready4class_constructor}
 \alias{is_ready4class_constructor}
 \title{ready4 S3 class Constructor Table.}
 \usage{
 ready4class_constructor(x = make_pt_ready4class_constructor())
-
-make_new_ready4class_constructor(x)
 
 make_pt_ready4class_constructor(
   make_s3_lgl = logical(0),
@@ -29,8 +25,6 @@ make_pt_ready4class_constructor(
   inc_clss_ls = list(),
   asserts_ls = list()
 )
-
-validate_ready4class_constructor(x)
 
 is_ready4class_constructor(x)
 }
@@ -70,33 +64,13 @@ is_ready4class_constructor(x)
 \value{
 A validated instance of the ready4 S3 class Constructor Table.
 
-An unvalidated instance of the ready4 S3 class Constructor Table.
-
 A prototype for ready4 S3 class Constructor Table.
-
-A prototpe for ready4 S3 class Constructor Table.
 
 A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table.
 }
 \description{
 Create a new valid instance of the ready4 S3 class Constructor Table.
-
-Create a new unvalidated instance of the ready4 S3 class Constructor Table.
-
-Create a new prototype for the ready4 S3 class Constructor Table.
-
-Validate an instance of the ready4 S3 class Constructor Table.
-
-Check whether an object is a valid instance of the ready4 S3 class Constructor Table.
 }
 \details{
-ready4 S3 class Constructor Table.
-
-ready4 S3 class Constructor Table.
-
-ready4 S3 class Constructor Table.
-
-ready4 S3 class Constructor Table.
-
 ready4 S3 class Constructor Table.
 }

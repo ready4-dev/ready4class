@@ -2,22 +2,16 @@
 % Please edit documentation in R/C3_ready4class_manifest.R
 \name{ready4class_manifest}
 \alias{ready4class_manifest}
-\alias{make_new_ready4class_manifest}
 \alias{make_pt_ready4class_manifest}
-\alias{validate_ready4class_manifest}
 \alias{is_ready4class_manifest}
 \title{ready4 S3 class Manifest.}
 \usage{
 ready4class_manifest(x = make_pt_ready4class_manifest())
 
-make_new_ready4class_manifest(x)
-
 make_pt_ready4class_manifest(
   x_ready4fun_manifest = ready4fun::ready4fun_manifest(),
   constructor_r3 = ready4class_constructor()
 )
-
-validate_ready4class_manifest(x)
 
 is_ready4class_manifest(x)
 }
@@ -31,33 +25,13 @@ is_ready4class_manifest(x)
 \value{
 A validated instance of the ready4 S3 class Manifest.
 
-An unvalidated instance of the ready4 S3 class Manifest.
-
 A prototype for ready4 S3 class Manifest.
-
-A prototpe for ready4 S3 class Manifest.
 
 A logical value, TRUE if a valid instance of the ready4 S3 class Manifest.
 }
 \description{
 Create a new valid instance of the ready4 S3 class Manifest.
-
-Create a new unvalidated instance of the ready4 S3 class Manifest.
-
-Create a new prototype for the ready4 S3 class Manifest.
-
-Validate an instance of the ready4 S3 class Manifest.
-
-Check whether an object is a valid instance of the ready4 S3 class Manifest.
 }
 \details{
-ready4 S3 class Manifest.
-
-ready4 S3 class Manifest.
-
-ready4 S3 class Manifest.
-
-ready4 S3 class Manifest.
-
 ready4 S3 class Manifest.
 }
