@@ -1,6 +1,6 @@
 
 setOldClass(c("ready4class_pt_lup","tbl_df", "tbl", "data.frame"))
-#' ready4 S3 class Prototype Lookup Table of class metadata.
+#' Prototype Lookup Table of class metadata.
 #' @description Create a new valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
 #' @param x A prototype for the ready4 S3 class Prototype Lookup Table of class metadata., Default: make_pt_ready4class_pt_lup()
 #' @return A validated instance of the ready4 S3 class Prototype Lookup Table of class metadata.

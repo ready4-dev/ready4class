@@ -4,7 +4,7 @@
 \alias{ready4class_manifest}
 \alias{make_pt_ready4class_manifest}
 \alias{is_ready4class_manifest}
-\title{ready4 S3 class Manifest.}
+\title{Manifest.}
 \usage{
 ready4class_manifest(x = make_pt_ready4class_manifest())
 
