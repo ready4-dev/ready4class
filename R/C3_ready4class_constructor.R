@@ -1,6 +1,6 @@
 
 setOldClass(c("ready4class_constructor","tbl_df", "tbl", "data.frame"))
-#' Constructor Table.
+#' ready4 S3 class Constructor Table.
 #' @description Create a new valid instance of the ready4 S3 class Constructor Table.
 #' @param x A prototype for the ready4 S3 class Constructor Table., Default: make_pt_ready4class_constructor()
 #' @return A validated instance of the ready4 S3 class Constructor Table.
