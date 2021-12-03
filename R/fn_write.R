@@ -815,7 +815,7 @@ write_to_delete_gnrc_fn_fls <- function (x, output_dir_1L_chr)
 #' @export 
 #' @importFrom purrr map2_chr
 #' @importFrom stringr str_c str_replace_all str_replace
-#' @importFrom ready4fun update_ns make_arg_desc close_open_sinks
+#' @importFrom ready4fun update_ns make_arg_desc read_fns close_open_sinks
 #' @importFrom stringi stri_replace_last_regex
 #' @importFrom Hmisc capitalize
 #' @importFrom ready4 make_prompt
@@ -868,7 +868,9 @@ write_to_mk_r4_cls <- function (class_nm_1L_chr, slots_chr, type_chr, pt_ls_alg_
                 .y, " class)"), .x)), "\n", collapse = "")
     clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr, 
         parent_ns_ls = parent_ns_ls, base_set_of_clss_to_inc_chr = clss_to_inc_chr)
-    include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
+    fn_fls_chr <- make_incld_fn_fls(vals_ls, fns_env_ls = ready4fun::read_fns())
+    include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, fn_fls_chr = fn_fls_chr, 
+        s3_1L_lgl = F)
     if (print_set_cls_1L_lgl) {
         if (is.null(consent_1L_chr)) {
             consent_1L_chr <- ready4::make_prompt(prompt_1L_chr = paste0("Do you confirm ('Y') that you want to write the file ", 

@@ -268,17 +268,19 @@ make_class_pts_tb <- function (class_mk_ls)
 #' Make documentation include tag
 #' @description make_dmt_inc_tag() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make documentation include tag. The function returns Documentation include tag (a character vector of length one).
 #' @param class_names_chr Class names (a character vector)
+#' @param fn_fls_chr Function files (a character vector), Default: NULL
 #' @param s3_1L_lgl S3 (a logical vector of length one), Default: T
 #' @return Documentation include tag (a character vector of length one)
 #' @rdname make_dmt_inc_tag
 #' @export 
 #' @importFrom stringr str_c
 #' @keywords internal
-make_dmt_inc_tag <- function (class_names_chr, s3_1L_lgl = T) 
+make_dmt_inc_tag <- function (class_names_chr, fn_fls_chr = NULL, s3_1L_lgl = T) 
 {
     dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr), paste0("#' @include ", 
-        get_class_fl_nms(class_names_chr = class_names_chr, s3_1L_lgl = s3_1L_lgl) %>% 
-            stringr::str_c(collapse = " "), "\n"), "")
+        c(get_class_fl_nms(class_names_chr = class_names_chr, 
+            s3_1L_lgl = s3_1L_lgl), fn_fls_chr) %>% stringr::str_c(collapse = " "), 
+        "\n"), "")
     return(dmt_inc_tag_1L_chr)
 }
 #' Make function prototype to check ready4 S3 class inheritance
@@ -631,6 +633,34 @@ make_helper_fn <- function (class_nm_1L_chr, parent_cls_nm_1L_chr, slots_chr, pt
         paste0(slots_chr, " = ", slots_chr) %>% stringr::str_c(sep = "", 
             collapse = ",\n"), ")\n}")
     return(helper_fn_1L_chr)
+}
+#' Make included function files
+#' @description make_incld_fn_fls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make included function files. The function returns Function files (a character vector).
+#' @param vals_ls Values (a list)
+#' @param fns_env_ls Functions (a list of environments)
+#' @return Function files (a character vector)
+#' @rdname make_incld_fn_fls
+#' @export 
+#' @importFrom purrr map_lgl map_chr
+#' @importFrom stringr str_detect str_sub str_locate
+#' @keywords internal
+make_incld_fn_fls <- function (vals_ls, fns_env_ls) 
+{
+    if (!is.null(vals_ls)) {
+        fns_chr <- names(fns_env_ls$fns_env)[names(fns_env_ls$fns_env) %>% 
+            purrr::map_lgl(~{
+                fn_nm_1L_chr <- .x
+                vals_ls %>% purrr::map_lgl(~stringr::str_detect(.x, 
+                  fn_nm_1L_chr)) %>% any()
+            })]
+        fn_fls_chr <- fns_chr %>% purrr::map_chr(~paste0("fn_", 
+            stringr::str_sub(.x, end = (stringr::str_locate(.x, 
+                "_")[[1, 1]] - 1)), ".R")) %>% unique()
+    }
+    else {
+        fn_fls_chr <- NULL
+    }
+    return(fn_fls_chr)
 }
 #' Make lines for writing documented function
 #' @description make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make lines for writing documented function. The function is called for its side effects and does not return a value.

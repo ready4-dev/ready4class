@@ -4,10 +4,12 @@
 \alias{make_dmt_inc_tag}
 \title{Make documentation include tag}
 \usage{
-make_dmt_inc_tag(class_names_chr, s3_1L_lgl = T)
+make_dmt_inc_tag(class_names_chr, fn_fls_chr = NULL, s3_1L_lgl = T)
 }
 \arguments{
 \item{class_names_chr}{Class names (a character vector)}
+
+\item{fn_fls_chr}{Function files (a character vector), Default: NULL}
 
 \item{s3_1L_lgl}{S3 (a logical vector of length one), Default: T}
 }

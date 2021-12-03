@@ -861,7 +861,12 @@ write_to_mk_r4_cls <- function(class_nm_1L_chr,
   clss_to_inc_chr <- get_nms_of_clss_to_inc(parent_cls_nm_1L_chr = parent_cls_nm_1L_chr,
                                                      parent_ns_ls = parent_ns_ls,
                                                      base_set_of_clss_to_inc_chr = clss_to_inc_chr)
-  include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr, s3_1L_lgl = F)
+
+  fn_fls_chr <- make_incld_fn_fls(vals_ls,
+                                  fns_env_ls = ready4fun::read_fns())  # UPDATE TO USE PATH ARG - ASSUMES CALLED FROM PKG ROOT
+  include_tags_chr <- make_dmt_inc_tag(clss_to_inc_chr,
+                                       fn_fls_chr = fn_fls_chr,
+                                       s3_1L_lgl = F)
   if(print_set_cls_1L_lgl){
     if(is.null(consent_1L_chr)){
       consent_1L_chr <- ready4::make_prompt(prompt_1L_chr=paste0("Do you confirm ('Y') that you want to write the file ",
