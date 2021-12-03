@@ -259,12 +259,12 @@ make_class_pts_tb <- function(class_mk_ls){
 make_dmt_inc_tag <- function(class_names_chr,
                              fn_fls_chr = NULL,
                              s3_1L_lgl = T){
-  dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr),
-         paste0("#' @include ",
-                c(get_class_fl_nms(class_names_chr = class_names_chr,
-                                 s3_1L_lgl = s3_1L_lgl),
-                  fn_fls_chr) %>% stringr::str_c(collapse=" "),"\n"),
-         "")
+  dmt_inc_tag_1L_chr <- ifelse((!is.null(class_names_chr) | !is.null(fn_fls_chr)),
+                               paste0("#' @include ",
+                                      c(get_class_fl_nms(class_names_chr = class_names_chr,
+                                                         s3_1L_lgl = s3_1L_lgl),
+                                        fn_fls_chr) %>% stringr::str_c(collapse=" "),"\n"),
+                               "")
   return(dmt_inc_tag_1L_chr)
 }
 make_fn_pt_to_check_r3_cls_inhtc <- function(class_nm_1L_chr,
