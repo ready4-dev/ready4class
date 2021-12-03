@@ -257,11 +257,13 @@ make_class_pts_tb <- function(class_mk_ls){
   return(class_pts_tb)
 }
 make_dmt_inc_tag <- function(class_names_chr,
+                             fn_fls_chr = NULL,
                              s3_1L_lgl = T){
   dmt_inc_tag_1L_chr <- ifelse(!is.null(class_names_chr),
          paste0("#' @include ",
-                get_class_fl_nms(class_names_chr = class_names_chr,
-                                 s3_1L_lgl = s3_1L_lgl) %>% stringr::str_c(collapse=" "),"\n"),
+                c(get_class_fl_nms(class_names_chr = class_names_chr,
+                                 s3_1L_lgl = s3_1L_lgl),
+                  fn_fls_chr) %>% stringr::str_c(collapse=" "),"\n"),
          "")
   return(dmt_inc_tag_1L_chr)
 }
@@ -653,6 +655,26 @@ make_helper_fn <- function(class_nm_1L_chr,
                                    slots_chr) %>% stringr::str_c(sep="",collapse=",\n"),
                             ")\n}")
   return(helper_fn_1L_chr)
+}
+make_incld_fn_fls <- function(vals_ls,
+                              fns_env_ls){
+  if(!is.null(vals_ls)){
+    fns_chr <- names(fns_env_ls$fns_env)[names(fns_env_ls$fns_env) %>%
+                                           purrr::map_lgl(~{
+                                             fn_nm_1L_chr <- .x
+                                             vals_ls %>%
+                                               purrr::map_lgl(~stringr::str_detect(.x,fn_nm_1L_chr)) %>% any()
+                                           })]
+    fn_fls_chr <- fns_chr %>%
+      purrr::map_chr(~paste0("fn_",
+                             stringr::str_sub(.x,
+                                              end = (stringr::str_locate(.x,"_")[[1,1]] -1)),
+                             ".R")) %>%
+      unique()
+  }else{
+    fn_fls_chr <- NULL
+  }
+  return(fn_fls_chr)
 }
 make_lines_for_writing_dmtd_fn <- function(fn_name_1L_chr,
                                            fn_body_1L_chr,
