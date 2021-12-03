@@ -277,10 +277,17 @@ make_class_pts_tb <- function (class_mk_ls)
 #' @keywords internal
 make_dmt_inc_tag <- function (class_names_chr, fn_fls_chr = NULL, s3_1L_lgl = T) 
 {
+    if (!is.null(class_names_chr)) {
+        cls_fls_chr <- get_class_fl_nms(class_names_chr = class_names_chr, 
+            s3_1L_lgl = s3_1L_lgl)
+    }
+    else {
+        cls_fls_chr <- NULL
+    }
     dmt_inc_tag_1L_chr <- ifelse((!is.null(class_names_chr) | 
-        !is.null(fn_fls_chr)), paste0("#' @include ", c(get_class_fl_nms(class_names_chr = class_names_chr, 
-        s3_1L_lgl = s3_1L_lgl), fn_fls_chr) %>% stringr::str_c(collapse = " "), 
-        "\n"), "")
+        !is.null(fn_fls_chr)), paste0("#' @include ", c(cls_fls_chr, 
+        fn_fls_chr) %>% stringr::str_c(collapse = " "), "\n"), 
+        "")
     return(dmt_inc_tag_1L_chr)
 }
 #' Make function prototype to check ready4 S3 class inheritance
