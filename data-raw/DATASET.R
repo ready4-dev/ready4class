@@ -37,15 +37,15 @@ constructor_tb <- tibble::tribble(
                                                                              slots_ls = "list()",
                                                                              meaningful_nms_ls = "list()",
                                                                              inc_clss_ls = "list()",
-                                                                             asserts_ls = "list()"), NULL, NULL, NULL, "ready4 S3 class Constructor Table.", NA_character_, NULL, NULL, NULL, NULL,
+                                                                             asserts_ls = "list()"), NULL, NULL, NULL, "Class constructor table", NA_character_, NULL, NULL, NULL, NULL,
   TRUE, "pt_lup", list("tibble"), list("is_"), list("tibble"), list(type_chr = "character(0)",
                                                                           val_chr = "character(0)",
                                                                           pt_ns_chr = "character(0)",
                                                                           fn_to_call_chr = "character(0)",
                                                                           default_val_chr = "character(0)",
-                                                                          old_class_lgl = "logical(0)"), NULL, NULL, NULL, "ready4 S3 class Prototype Lookup Table.", NA_character_, NULL, NULL, NULL, NULL,
+                                                                          old_class_lgl = "logical(0)"), NULL, NULL, NULL, "Class prototype lookup table", NA_character_, NULL, NULL, NULL, NULL,
   TRUE, "manifest", list("list"), list("is."), list("base"), list(x_ready4fun_manifest = "ready4fun::ready4fun_manifest()",
-                                                                  constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "ready4 S3 class Manifest.", NA_character_, NULL, NULL, NULL, NULL)
+                                                                  constructor_r3 = "ready4class_constructor()"), NULL, NULL, NULL, "Class creation manifest", NA_character_, NULL, NULL, NULL, NULL)
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 x <- pkg_desc_ls %>%
@@ -67,3 +67,4 @@ x <- ready4::author(x,
                     self_serve_1L_lgl = T,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                             args_ls = NULL))
+devtools::build_vignettes()

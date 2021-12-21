@@ -4,7 +4,7 @@
 \alias{ready4class_pt_lup}
 \alias{make_pt_ready4class_pt_lup}
 \alias{is_ready4class_pt_lup}
-\title{ready4 S3 class Prototype Lookup Table of class metadata.}
+\title{Class prototype lookup table}
 \usage{
 ready4class_pt_lup(x = make_pt_ready4class_pt_lup())
 
@@ -35,15 +35,15 @@ is_ready4class_pt_lup(x)
 \item{old_class_lgl}{Old class (a logical vector), Default: logical(0)}
 }
 \value{
-A validated instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+A validated instance of the Class prototype lookup table
 
-A prototype for ready4 S3 class Prototype Lookup Table of class metadata.
+A prototype for Class prototype lookup table
 
-A logical value, TRUE if a valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+A logical value, TRUE if a valid instance of the Class prototype lookup table
 }
 \description{
-Create a new valid instance of the ready4 S3 class Prototype Lookup Table of class metadata.
+Create a new valid instance of the Class prototype lookup table
 }
 \details{
-ready4 S3 class Prototype Lookup Table.
+Class prototype lookup table
 }

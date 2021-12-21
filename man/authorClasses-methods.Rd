@@ -3,7 +3,7 @@
 \name{authorClasses.ready4class_constructor}
 \alias{authorClasses.ready4class_constructor}
 \alias{authorClasses,ready4class_constructor-method}
-\title{Author and save files necessary for creating and documenting classes}
+\title{Author and document classes}
 \usage{
 authorClasses.ready4class_constructor(
   x,
@@ -38,7 +38,7 @@ authorClasses.ready4class_constructor(
 )
 }
 \arguments{
-\item{x}{An instance of ready4 S3 class Constructor Table.}
+\item{x}{An instance of Class constructor table}
 
 \item{name_pfx_1L_chr}{Name prefix (a character vector of length one)}
 
@@ -65,5 +65,5 @@ authorClasses.ready4class_constructor(
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \description{
-authorClasses.ready4class_constructor() is an authorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+authorClasses.ready4class_constructor() is an authorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the Class constructor table The function is called for its side effects and does not return a value.
 }

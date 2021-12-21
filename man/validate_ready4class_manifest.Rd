@@ -2,20 +2,20 @@
 % Please edit documentation in R/C3_ready4class_manifest.R
 \name{validate_ready4class_manifest}
 \alias{validate_ready4class_manifest}
-\title{validate ready4class package manifest ready4 S3 class Manifest.}
+\title{validate ready4class manifest Class creation manifest}
 \usage{
 validate_ready4class_manifest(x)
 }
 \arguments{
-\item{x}{An unvalidated instance of the ready4 S3 class Manifest.}
+\item{x}{An unvalidated instance of the Class creation manifest}
 }
 \value{
-A prototpe for ready4 S3 class Manifest.
+A prototpe for Class creation manifest
 }
 \description{
-Validate an instance of the ready4 S3 class Manifest.
+Validate an instance of the Class creation manifest
 }
 \details{
-ready4 S3 class Manifest.
+Class creation manifest
 }
 \keyword{internal}

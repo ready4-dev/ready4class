@@ -1,20 +1,20 @@
 
 setOldClass(c("ready4class_constructor","tbl_df", "tbl", "data.frame"))
-#' ready4 S3 class Constructor Table.
-#' @description Create a new valid instance of the ready4 S3 class Constructor Table.
-#' @param x A prototype for the ready4 S3 class Constructor Table., Default: make_pt_ready4class_constructor()
-#' @return A validated instance of the ready4 S3 class Constructor Table.
-#' @details ready4 S3 class Constructor Table.
+#' Class constructor table
+#' @description Create a new valid instance of the Class constructor table
+#' @param x A prototype for the Class constructor table, Default: make_pt_ready4class_constructor()
+#' @return A validated instance of the Class constructor table
+#' @details Class constructor table
 #' @rdname ready4class_constructor
 #' @export 
 ready4class_constructor <- function(x = make_pt_ready4class_constructor()){ 
 validate_ready4class_constructor(make_new_ready4class_constructor(x))
 }
-#' make new ready4class package constructor ready4 S3 class Constructor Table.
-#' @description Create a new unvalidated instance of the ready4 S3 class Constructor Table.
-#' @param x A prototype for the ready4 S3 class Constructor Table.
-#' @return An unvalidated instance of the ready4 S3 class Constructor Table.
-#' @details ready4 S3 class Constructor Table.
+#' make new ready4class constructor Class constructor table
+#' @description Create a new unvalidated instance of the Class constructor table
+#' @param x A prototype for the Class constructor table
+#' @return An unvalidated instance of the Class constructor table
+#' @details Class constructor table
 #' @rdname make_new_ready4class_constructor
 #' @export 
 #' @importFrom tibble is_tibble
@@ -25,7 +25,7 @@ class(x) <- append(c("ready4class_constructor",setdiff(make_pt_ready4class_const
 class(x))
 x
 }
-#' make prototype ready4class package constructor ready4 S3 class Constructor Table.
+#' make prototype ready4class constructor Class constructor table
 #' @param make_s3_lgl Make S3 (a logical vector), Default: logical(0)
 #' @param name_stub_chr Name stub (a character vector), Default: character(0)
 #' @param pt_ls Prototype (a list), Default: list()
@@ -41,7 +41,7 @@ x
 #' @param meaningful_nms_ls Meaningful names (a list), Default: list()
 #' @param inc_clss_ls Include classes (a list), Default: list()
 #' @param asserts_ls Asserts (a list), Default: list()
-#' @return A prototype for ready4 S3 class Constructor Table.
+#' @return A prototype for Class constructor table
 #' 
 #' @rdname ready4class_constructor
 #' @export 
@@ -80,11 +80,11 @@ inc_clss_ls = inc_clss_ls,
 asserts_ls = asserts_ls) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(tibble::tibble,!!!args_ls)
 }
-#' validate ready4class package constructor ready4 S3 class Constructor Table.
-#' @description Validate an instance of the ready4 S3 class Constructor Table.
-#' @param x An unvalidated instance of the ready4 S3 class Constructor Table.
-#' @return A prototpe for ready4 S3 class Constructor Table.
-#' @details ready4 S3 class Constructor Table.
+#' validate ready4class constructor Class constructor table
+#' @description Validate an instance of the Class constructor table
+#' @param x An unvalidated instance of the Class constructor table
+#' @return A prototpe for Class constructor table
+#' @details Class constructor table
 #' @rdname validate_ready4class_constructor
 #' @export 
 #' @importFrom stringr str_detect str_c
@@ -129,9 +129,9 @@ call. = FALSE)
 }
 
 x}
-#' is ready4class package constructor ready4 S3 class Constructor Table.
+#' is ready4class constructor Class constructor table
 #' @param x An object of any type
-#' @return A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table.
+#' @return A logical value, TRUE if a valid instance of the Class constructor table
 #' 
 #' @rdname ready4class_constructor
 #' @export 

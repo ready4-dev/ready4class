@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{Renew an instance of a class by updating it with new data}
+\title{Renew (update) an object}
 \usage{
 renew.ready4class_constructor(
   x,
@@ -20,7 +20,7 @@ renew.ready4class_pt_lup(x, attached_nss_chr, type_1L_chr = "namespace")
 \S4method{renew}{ready4class_pt_lup}(x, attached_nss_chr, type_1L_chr = "namespace")
 }
 \arguments{
-\item{x}{An instance of ready4 S3 class Prototype Lookup Table of class metadata.}
+\item{x}{An instance of Class prototype lookup table}
 
 \item{type_1L_chr}{Type (a character vector of length one), Default: 'namespace'}
 
@@ -34,7 +34,7 @@ x (An object)
 x (An object)
 }
 \description{
-renew.ready4class_constructor() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Constructor Table. The function is called for its side effects and does not return a value.
+renew.ready4class_constructor() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the Class constructor table The function is called for its side effects and does not return a value.
 
-renew.ready4class_pt_lup() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function is called for its side effects and does not return a value.
+renew.ready4class_pt_lup() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the Class prototype lookup table The function is called for its side effects and does not return a value.
 }

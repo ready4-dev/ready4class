@@ -1,19 +1,19 @@
 
-#' ready4 S3 class Manifest.
-#' @description Create a new valid instance of the ready4 S3 class Manifest.
-#' @param x A prototype for the ready4 S3 class Manifest., Default: make_pt_ready4class_manifest()
-#' @return A validated instance of the ready4 S3 class Manifest.
-#' @details ready4 S3 class Manifest.
+#' Class creation manifest
+#' @description Create a new valid instance of the Class creation manifest
+#' @param x A prototype for the Class creation manifest, Default: make_pt_ready4class_manifest()
+#' @return A validated instance of the Class creation manifest
+#' @details Class creation manifest
 #' @rdname ready4class_manifest
 #' @export 
 ready4class_manifest <- function(x = make_pt_ready4class_manifest()){ 
 validate_ready4class_manifest(make_new_ready4class_manifest(x))
 }
-#' make new ready4class package manifest ready4 S3 class Manifest.
-#' @description Create a new unvalidated instance of the ready4 S3 class Manifest.
-#' @param x A prototype for the ready4 S3 class Manifest.
-#' @return An unvalidated instance of the ready4 S3 class Manifest.
-#' @details ready4 S3 class Manifest.
+#' make new ready4class manifest Class creation manifest
+#' @description Create a new unvalidated instance of the Class creation manifest
+#' @param x A prototype for the Class creation manifest
+#' @return An unvalidated instance of the Class creation manifest
+#' @details Class creation manifest
 #' @rdname make_new_ready4class_manifest
 #' @export 
 #' @keywords internal
@@ -23,10 +23,10 @@ class(x) <- append(c("ready4class_manifest",setdiff(make_pt_ready4class_manifest
 class(x))
 x
 }
-#' make prototype ready4class package manifest ready4 S3 class Manifest.
+#' make prototype ready4class manifest Class creation manifest
 #' @param x_ready4fun_manifest PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()
 #' @param constructor_r3 Constructor (a ready4 S3), Default: ready4class_constructor()
-#' @return A prototype for ready4 S3 class Manifest.
+#' @return A prototype for Class creation manifest
 #' 
 #' @rdname ready4class_manifest
 #' @export 
@@ -39,11 +39,11 @@ args_ls <- list(x_ready4fun_manifest = x_ready4fun_manifest,
 constructor_r3 = constructor_r3) %>% ready4::update_pt_fn_args_ls()
 rlang::exec(list,!!!args_ls)
 }
-#' validate ready4class package manifest ready4 S3 class Manifest.
-#' @description Validate an instance of the ready4 S3 class Manifest.
-#' @param x An unvalidated instance of the ready4 S3 class Manifest.
-#' @return A prototpe for ready4 S3 class Manifest.
-#' @details ready4 S3 class Manifest.
+#' validate ready4class manifest Class creation manifest
+#' @description Validate an instance of the Class creation manifest
+#' @param x An unvalidated instance of the Class creation manifest
+#' @return A prototpe for Class creation manifest
+#' @details Class creation manifest
 #' @rdname validate_ready4class_manifest
 #' @export 
 #' @importFrom stringr str_detect str_c
@@ -90,9 +90,9 @@ call. = FALSE)
 }
 
 x}
-#' is ready4class package manifest ready4 S3 class Manifest.
+#' is ready4class manifest Class creation manifest
 #' @param x An object of any type
-#' @return A logical value, TRUE if a valid instance of the ready4 S3 class Manifest.
+#' @return A logical value, TRUE if a valid instance of the Class creation manifest
 #' 
 #' @rdname ready4class_manifest
 #' @export 

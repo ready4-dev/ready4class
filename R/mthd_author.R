@@ -1,6 +1,6 @@
-#' Author and save files to local or remote locations
-#' @description author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
-#' @param x An instance of ready4 S3 class Constructor Table.
+#' Author and save files
+#' @description author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class constructor table The function returns X (Class prototype lookup table).
+#' @param x An instance of Class constructor table
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
@@ -13,7 +13,7 @@
 #' @param abbreviations_lup Abbreviations (a lookup table)
 #' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
-#' @return X (ready4 S3 class Prototype Lookup Table of class metadata.)
+#' @return X (Class prototype lookup table)
 #' @rdname author-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
@@ -68,9 +68,9 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 #' @aliases author,ready4class_constructor-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
-#' Author and save files to local or remote locations
-#' @description author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
-#' @param x An instance of ready4 S3 class Manifest.
+#' Author and save files
+#' @description author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class creation manifest The function is called for its side effects and does not return a value.
+#' @param x An instance of Class creation manifest
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
 #' @param key_1L_chr Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")
 #' @param list_generics_1L_lgl List generics (a logical vector of length one), Default: T
@@ -122,9 +122,9 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
 #' @aliases author,ready4class_manifest-method
 #' @importFrom ready4 author
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
-#' Author and save files to local or remote locations
-#' @description author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
-#' @param x An instance of ready4 S3 class Prototype Lookup Table of class metadata.
+#' Author and save files
+#' @description author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class prototype lookup table The function returns X (Class prototype lookup table).
+#' @param x An instance of Class prototype lookup table
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
@@ -138,7 +138,7 @@ methods::setMethod("author", methods::className("ready4class_manifest", package 
 #' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
-#' @return X (ready4 S3 class Prototype Lookup Table of class metadata.)
+#' @return X (Class prototype lookup table)
 #' @rdname author-methods
 #' @export 
 #' @importFrom dplyr slice pull filter bind_rows

@@ -2,20 +2,20 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{make_new_ready4class_constructor}
 \alias{make_new_ready4class_constructor}
-\title{make new ready4class package constructor ready4 S3 class Constructor Table.}
+\title{make new ready4class constructor Class constructor table}
 \usage{
 make_new_ready4class_constructor(x)
 }
 \arguments{
-\item{x}{A prototype for the ready4 S3 class Constructor Table.}
+\item{x}{A prototype for the Class constructor table}
 }
 \value{
-An unvalidated instance of the ready4 S3 class Constructor Table.
+An unvalidated instance of the Class constructor table
 }
 \description{
-Create a new unvalidated instance of the ready4 S3 class Constructor Table.
+Create a new unvalidated instance of the Class constructor table
 }
 \details{
-ready4 S3 class Constructor Table.
+Class constructor table
 }
 \keyword{internal}

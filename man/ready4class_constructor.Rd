@@ -4,7 +4,7 @@
 \alias{ready4class_constructor}
 \alias{make_pt_ready4class_constructor}
 \alias{is_ready4class_constructor}
-\title{ready4 S3 class Constructor Table.}
+\title{Class constructor table}
 \usage{
 ready4class_constructor(x = make_pt_ready4class_constructor())
 
@@ -62,15 +62,15 @@ is_ready4class_constructor(x)
 \item{asserts_ls}{Asserts (a list), Default: list()}
 }
 \value{
-A validated instance of the ready4 S3 class Constructor Table.
+A validated instance of the Class constructor table
 
-A prototype for ready4 S3 class Constructor Table.
+A prototype for Class constructor table
 
-A logical value, TRUE if a valid instance of the ready4 S3 class Constructor Table.
+A logical value, TRUE if a valid instance of the Class constructor table
 }
 \description{
-Create a new valid instance of the ready4 S3 class Constructor Table.
+Create a new valid instance of the Class constructor table
 }
 \details{
-ready4 S3 class Constructor Table.
+Class constructor table
 }

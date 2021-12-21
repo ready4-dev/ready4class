@@ -2,20 +2,20 @@
 % Please edit documentation in R/C3_ready4class_constructor.R
 \name{validate_ready4class_constructor}
 \alias{validate_ready4class_constructor}
-\title{validate ready4class package constructor ready4 S3 class Constructor Table.}
+\title{validate ready4class constructor Class constructor table}
 \usage{
 validate_ready4class_constructor(x)
 }
 \arguments{
-\item{x}{An unvalidated instance of the ready4 S3 class Constructor Table.}
+\item{x}{An unvalidated instance of the Class constructor table}
 }
 \value{
-A prototpe for ready4 S3 class Constructor Table.
+A prototpe for Class constructor table
 }
 \description{
-Validate an instance of the ready4 S3 class Constructor Table.
+Validate an instance of the Class constructor table
 }
 \details{
-ready4 S3 class Constructor Table.
+Class constructor table
 }
 \keyword{internal}
