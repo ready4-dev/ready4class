@@ -1,4 +1,6 @@
 library(ready4)
+library(ready4show)
+library(ready4use)
 #ready4fun::write_fn_type_dirs()
 pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Create, Extend And Document Classes And Methods For Open And Modular Mental Health Systems Models",
                             pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health systems models.
@@ -49,7 +51,8 @@ constructor_tb <- tibble::tribble(
 fns_env_ls <- ready4fun::read_fns(c("data-raw/fns/","data-raw/mthds/"),
                                   fns_env = new.env(parent = globalenv()))
 x <- pkg_desc_ls %>%
-  ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(depends_chr = "ready4",suggests_chr = "rmarkdown"),
+  ready4fun::make_manifest(addl_pkgs_ls = ready4fun::make_addl_pkgs_ls(depends_chr = "ready4",
+                                                                       suggests_chr = c("rmarkdown","ready4show","ready4use")),
                            build_ignore_ls = ready4fun::make_build_ignore_ls(file_nms_chr = c("initial_setup.R")), #
                            check_type_1L_chr = "ready4",
                            cls_fn_ls = ready4fun::make_pt_ready4fun_executor(args_ls = list(x = constructor_tb),#
@@ -57,7 +60,7 @@ x <- pkg_desc_ls %>%
                              ready4fun::ready4fun_executor(),
                            custom_dmt_ls = ready4fun::make_custom_dmt_ls(),
                            copyright_holders_chr = "Orygen",
-                           dev_pkgs_chr = c("ready4","ready4fun"),
+                           dev_pkgs_chr = c("ready4","ready4fun","ready4show","ready4use"),
                            lifecycle_stage_1L_chr = "experimental",
                            path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
                            piggyback_to_1L_chr = "ready4-dev/ready4",

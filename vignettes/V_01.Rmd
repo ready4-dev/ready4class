@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r results='hide', message=FALSE}
 library(ready4class)
+library(ready4show)
+library(ready4use)
 ```
 
 The [ready4 framework](https://www.ready4-dev.com/) for open and modular mental health systems models is implemented using an object oriented programming approach. That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).
