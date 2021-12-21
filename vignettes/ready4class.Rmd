@@ -22,4 +22,4 @@ This development version of the `ready4class` package has been made available as
 A brief overview of the intended use of `ready4class` classes and methods is available at:
 
 
-- [Author And Document Ready4 Framework Classes And Methods](V_01.html)
+- [Author Classes And Methods That Extend The Ready4 Framework](V_01.html)
