@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Author And Document Ready4 Framework Classes And Methods • ready4class</title>
+<title>Author Classes And Methods That Extend The Ready4 Framework • ready4class</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Author And Document Ready4 Framework Classes And Methods">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Author Classes And Methods That Extend The Ready4 Framework">
 <meta property="og:description" content="ready4class">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -60,7 +60,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/V_01.html">Author And Document Ready4 Framework Classes And Methods</a>
+      <a href="../articles/V_01.html">Author Classes And Methods That Extend The Ready4 Framework</a>
     </li>
   </ul>
 </li>
@@ -86,7 +86,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Author And Document Ready4 Framework Classes And Methods</h1>
+      <h1 data-toc-skip>Author Classes And Methods That Extend The Ready4 Framework</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/ready4-dev/ready4class/blob/HEAD/vignettes/V_01.Rmd" class="external-link"><code>vignettes/V_01.Rmd</code></a></small>
@@ -100,11 +100,21 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4class/" class="external-link">ready4class</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4show/" class="external-link">ready4show</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4use/" class="external-link">ready4use</a></span><span class="op">)</span></code></pre></div>
-<p>The <a href="https://www.ready4-dev.com/" class="external-link">ready4 framework</a> for open and modular mental health systems models is implemented using an object oriented programming approach. That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).</p>
-<p>There are numerous R packages (<code>devtools</code>, <code>methods</code> and others) that are useful for authoring and documenting classes and methods. The tools contained in these packages present developers with a great degree of flexibility in how to approach object oriented programming within R. To help ensure that the classes and methods deployed as part of the <code>ready4 framework</code> apply consistent naming, representation and documenting conventions the <code>ready4class</code> includes tools for a highly standardised approach to authoring classes and methods for R packages.</p>
-<p><code>ready4class</code> extends the workflow tools for authoring R package functions that are described briefly in <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">this vignette from the ready4fun package</a>.</p>
-<p>The two classes exported as part of <code>ready4class</code> that are of most relevance to end-users are <code>ready4class_constructor</code> and <code>ready4class_pt_lup</code>.</p>
-<p><code>ready4class_constructor</code> is a tibble based class in which the properties of the classes to be authored as part of a package are declared. Instances of <code>ready4class_constructor</code> are most efficiently created using the <code>make_pt_ready4class_constructor</code> function. Examples of how <code>ready4class_constructor</code> <code>ready4class_constructor</code> are intended for use as part of ready4 R package authoring workflows are highlighted in the <a href="https://ready4-dev.github.io/ready4pack/" class="external-link">ready4pack</a> package.</p>
+<p>The <a href="https://www.ready4-dev.com/" class="external-link">ready4 framework</a> for open and modular mental health systems models is implemented using object oriented programming. That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).</p>
+<div class="section level2">
+<h2 id="rationale">Rationale<a class="anchor" aria-label="anchor" href="#rationale"></a>
+</h2>
+<p>There are numerous existing third party R packages (<code>devtools</code>, <code>methods</code> and others) that are useful for authoring and documenting classes and methods. The tools contained in these packages present developers with a great degree of flexibility in how to approach object oriented programming within R. However, the more developers exercise this flexibility, the less standardised the output. <code>ready4class</code> has been developed to help ensure that developers extending the <code>ready4 framework</code> apply consistent naming, representation and documenting conventions when authoring classes and methods for R packages.</p>
+</div>
+<div class="section level2">
+<h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
+</h2>
+<p><code>ready4class</code> is an extension of the workflow tools for authoring ready4 framework R package functions that are described briefly in <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">this vignette from the ready4fun package</a>. The tools included in <code>ready4class</code> are intended for use as part of <a href="https://ready4-dev.github.io/ready4pack/articles/V_01.html" class="external-link">ready4pack R package authoring workflow</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
+</h2>
+<p>The two classes exported as part of <code>ready4class</code> that are used in the <code>ready4pack</code> workflow are <code>ready4class_constructor</code> and <code>ready4class_pt_lup</code>. <code>ready4class_constructor</code> is a tibble based class in which the properties of the classes to be authored are declared. Instances of <code>ready4class_constructor</code> are most efficiently created using the <code>make_pt_ready4class_constructor</code> function. Examples of how to use <code>ready4class_constructor</code> and <code>ready4class_pt_lup</code> are referenced in the <a href="https://ready4-dev.github.io/ready4pack/articles/V_01.html" class="external-link">a vignette from the ready4pack package</a></p>
 <p><code>ready4class_pt_lup</code> is another tibble based class, which contains metadata on the prototypes of classes that can be used as sub-components of other classes (for example a tibble based class can be used as a slot in an S4 class). When authoring ready4 R packages, you will create a <code>ready4class_pt_lup</code> and store it in an online repository that you have write permissions to. As you create new classes using <code>ready4class</code> tools, your <code>ready4class_pt_lup</code> object will be updated so that these classes can be easily incorporated into any other classes you make in future. An example of an <code>ready4class_pt_lup</code> object is reproduced below.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">ready4use</span><span class="fu">::</span><span class="fu"><a href="https://ready4-dev.github.io/ready4use/reference/Ready4useRepos-class.html" class="external-link">Ready4useRepos</a></span><span class="op">(</span>gh_repo_1L_chr <span class="op">=</span> <span class="st">"ready4-dev/ready4"</span>,
@@ -1380,7 +1390,7 @@ TRUE
 ready4class_constructor
 </td>
 <td style="text-align:right;">
-ready4class_constructor()
+ready4class::ready4class_constructor()
 </td>
 <td style="text-align:right;">
 ready4class
@@ -1399,7 +1409,7 @@ TRUE
 ready4class_pt_lup
 </td>
 <td style="text-align:right;">
-ready4class_pt_lup()
+ready4class::ready4class_pt_lup()
 </td>
 <td style="text-align:right;">
 ready4class
@@ -1418,13 +1428,32 @@ TRUE
 ready4class_manifest
 </td>
 <td style="text-align:right;">
-ready4class_manifest()
+ready4class::ready4class_manifest()
 </td>
 <td style="text-align:right;">
 ready4class
 </td>
 <td style="text-align:right;">
 ready4class_manifest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4pack_manifest
+</td>
+<td style="text-align:right;">
+ready4pack_manifest()
+</td>
+<td style="text-align:right;">
+ready4pack
+</td>
+<td style="text-align:right;">
+ready4pack_manifest
 </td>
 <td style="text-align:right;">
 </td>
@@ -1439,12 +1468,19 @@ TRUE
 </td>
 </tr></tfoot>
 </table>
-<p>Finally, it should be noted that some <code>ready4class</code> methods require files of a standardised format to be saved in specific sub-directories of the package <code>data-raw</code> directory. Detailed instructions on how to prepare these files are not yet available, but will be outlined in documentation to be released in 2022.</p>
+</div>
+<div class="section level2">
+<h2 id="future-documentation">Future documentation<a class="anchor" aria-label="anchor" href="#future-documentation"></a>
+</h2>
+<p>It should be noted that some <code>ready4class</code> methods require files of a standardised format to be saved in specific sub-directories of the package <code>data-raw</code> directory. Detailed instructions on how to prepare these files are not yet available, but will be outlined in documentation to be released in 2022.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 
