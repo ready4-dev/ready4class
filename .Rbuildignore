@@ -46,3 +46,6 @@
 ^data-raw/mthds-TEMP/renew\.R$
 ^data-raw/Notes\.R$
 ^data-raw/mthd_author\.R$
+^data-raw/mthds/exhibit\.R$
+^doc$
+^Meta$

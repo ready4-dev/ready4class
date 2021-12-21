@@ -4,7 +4,7 @@
 \alias{ready4class_manifest}
 \alias{make_pt_ready4class_manifest}
 \alias{is_ready4class_manifest}
-\title{ready4 S3 class Manifest.}
+\title{Class creation manifest}
 \usage{
 ready4class_manifest(x = make_pt_ready4class_manifest())
 
@@ -23,15 +23,15 @@ is_ready4class_manifest(x)
 \item{constructor_r3}{Constructor (a ready4 S3), Default: ready4class_constructor()}
 }
 \value{
-A validated instance of the ready4 S3 class Manifest.
+A validated instance of the Class creation manifest
 
-A prototype for ready4 S3 class Manifest.
+A prototype for Class creation manifest
 
-A logical value, TRUE if a valid instance of the ready4 S3 class Manifest.
+A logical value, TRUE if a valid instance of the Class creation manifest
 }
 \description{
-Create a new valid instance of the ready4 S3 class Manifest.
+Create a new valid instance of the Class creation manifest
 }
 \details{
-ready4 S3 class Manifest.
+Class creation manifest
 }

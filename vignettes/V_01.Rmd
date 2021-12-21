@@ -1,0 +1,42 @@
+---
+title: "Author And Document Ready4 Framework Classes And Methods"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+  pdf_document:
+    highlight: null
+    number_sections: yes
+vignette: >
+  %\VignetteIndexEntry{Author And Document Ready4 Framework Classes And Methods}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+```{r echo = F}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r results='hide', message=FALSE}
+library(ready4class)
+```
+
+The [ready4 framework](https://www.ready4-dev.com/) for open and modular mental health systems models is implemented using an object oriented programming approach. That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).
+
+There are numerous R packages (`devtools`, `methods` and others) that are useful for authoring and documenting classes and methods. The tools contained in these packages present developers with a great degree of flexibility in how to approach object oriented programming within R. To help ensure that the classes and methods deployed as part of the `ready4 framework` apply consistent naming, representation and documenting conventions the `ready4class` includes tools for a highly standardised approach to authoring classes and methods for R packages.
+
+`ready4class` extends the workflow tools for authoring R package functions that are described briefly in [this vignette from the ready4fun package](https://ready4-dev.github.io/ready4fun/articles/V_01.html).
+
+The two classes exported as part of `ready4class` that are of most relevance to end-users are `ready4class_constructor` and `ready4class_pt_lup`. 
+
+`ready4class_constructor` is a tibble based class in which the properties of the classes to be authored as part of a package are declared. Instances of `ready4class_constructor` are most efficiently created using the `make_pt_ready4class_constructor` function. Examples of how `ready4class_constructor` `ready4class_constructor` are intended for use as part of ready4 R package authoring workflows are highlighted in the [ready4pack](https://ready4-dev.github.io/ready4pack/) package.
+
+`ready4class_pt_lup` is another tibble based class, which contains metadata on the prototypes of classes that can be used as sub-components of other classes (for example a tibble based class can be used as a slot in an S4 class). When authoring ready4 R packages, you will create a `ready4class_pt_lup` and store it in an online repository that you have write permissions to. As you create new classes using `ready4class` tools, your `ready4class_pt_lup` object will be updated so that these classes can be easily incorporated into any other classes you make in future. An example of an `ready4class_pt_lup` object is reproduced below.
+
+```{r ptlup, tab.cap='Class Prototypes Lookup Table', tab.id = 'ptlup', results = "asis"}
+x <- ready4use::Ready4useRepos(gh_repo_1L_chr = "ready4-dev/ready4",
+                               gh_tag_1L_chr = "Documentation_0.0") %>%
+  ingest(fls_to_ingest_chr = "prototype_lup",
+         metadata_1L_lgl = F) 
+exhibit(x)
+```
+
+Finally, it should be noted that some `ready4class` methods require files of a standardised format to be saved in specific sub-directories of the package `data-raw` directory. Detailed instructions on how to prepare these files are not yet available, but will be outlined in documentation to be released in 2022.
+

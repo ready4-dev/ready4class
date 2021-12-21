@@ -20,6 +20,7 @@ reference:
   - author.ready4class_manifest
   - author.ready4class_pt_lup
   - authorClasses.ready4class_constructor
+  - exhibit.ready4class_pt_lup
   - manufacture.ready4class_constructor
   - renew.ready4class_constructor
   - renew.ready4class_pt_lup

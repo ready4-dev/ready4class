@@ -7,7 +7,7 @@
 \alias{author,ready4class_manifest-method}
 \alias{author.ready4class_pt_lup}
 \alias{author,ready4class_pt_lup-method}
-\title{Author and save files to local or remote locations}
+\title{Author and save files}
 \usage{
 author.ready4class_constructor(
   x,
@@ -98,7 +98,7 @@ author.ready4class_pt_lup(
 )
 }
 \arguments{
-\item{x}{An instance of ready4 S3 class Prototype Lookup Table of class metadata.}
+\item{x}{An instance of Class prototype lookup table}
 
 \item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one)}
 
@@ -139,16 +139,16 @@ author.ready4class_pt_lup(
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
 \value{
-X (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (Class prototype lookup table)
 
 X (ready4 S3 class for encapsulating the metadata required for package set-up.)
 
-X (ready4 S3 class Prototype Lookup Table of class metadata.)
+X (Class prototype lookup table)
 }
 \description{
-author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Constructor Table. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class constructor table The function returns X (Class prototype lookup table).
 
-author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Manifest. The function is called for its side effects and does not return a value.
+author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class creation manifest The function is called for its side effects and does not return a value.
 
-author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the ready4 S3 class Prototype Lookup Table of class metadata. The function returns X (ready4 S3 class Prototype Lookup Table of class metadata.).
+author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class prototype lookup table The function returns X (Class prototype lookup table).
 }
