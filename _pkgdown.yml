@@ -1,10 +1,16 @@
+url: https://ready4-dev.github.io/ready4class/
+
+template:
+  bootstrap: 5
+  bootswatch: journal
+
 home:
   links:
   - text: Manual - User (PDF)
     href: https://github.com/ready4-dev/ready4class/releases/download/Documentation_0.0/ready4class_User.pdf
   - text: Manual - Developer (PDF)
     href: https://github.com/ready4-dev/ready4class/releases/download/Documentation_0.0/ready4class_Developer.pdf
-  - text: Project website
+  - text: ready4 framework
     href:  https://www.ready4-dev.com/
 development:
   mode: auto

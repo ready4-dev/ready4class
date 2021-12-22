@@ -1,6 +1,6 @@
-# ready4class <img src="man/figures/fav120.png" align="right" />
+# ready4class
 
-## Create, Extend and Document Classes and Methods for Open and Modular Mental Health Systems Models
+## Create, Extend and Document Ready4 Framework Classes and Methods
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)

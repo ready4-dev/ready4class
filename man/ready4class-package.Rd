@@ -4,7 +4,7 @@
 \name{ready4class-package}
 \alias{ready4class}
 \alias{ready4class-package}
-\title{ready4class: Create, Extend and Document Classes and Methods for Open and Modular Mental Health Systems Models}
+\title{ready4class: Create, Extend and Document Ready4 Framework Classes and Methods}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
