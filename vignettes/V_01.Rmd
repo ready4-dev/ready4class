@@ -20,10 +20,25 @@ library(ready4show)
 library(ready4use)
 ```
 
-The [ready4 framework](https://www.ready4-dev.com/) for open and modular mental health systems models is implemented using object oriented programming. That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).
+The [ready4 framework](https://www.ready4-dev.com/) for open and modular computational models of mental health systems is implemented using object oriented programming (OOP). That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).
 
-## Rationale
+## Motivation
 
+The motivation for using OOP approaches ton model mental health systems can be summarised under headings corresponding to the four most commonly noted features of OOP - encapsulation, inheritence, abstraction and polymorphism.
+
+### Encapsulation
+Encapsulation allows us to define the data structures (“classes”) used in a modelling project in a manner that allows models and model sub-components can be safely combined. In that way we can progressively build up more complex represenations of mental health systems by linking multiple models that describe component features of mental health systems. For example, encapsulated code allows all of the features and functionality of Model A to be made available to Model B, while simulataneously protecting the integrity of Model A as Model B can only interact with Model A using the algorithms (“methods”) already defined for Model A. This approach can also help make models more generalisable as methods (if appropriately implemented) are designed to work with any set of combination of input values that can be encapsulated by the same class.
+
+### Inheritence
+When generalising a model or its component algorithms, it is likely that most but not all of an algorithm may be relevant to the generalised implementation. For example, if generalising a model of the Australian mental health system to the UK context, some steps may need to be modified for features that diverge between the two jurisdictions. Inheritance enables a “child” class (e.g. one relevant to a UK implementation) to be created from a “parent” class (e.g. Australian original). By default, the “child” inherits all of the features of the “parent” including all methods associated with the “parent” class. However, additional features can be specified for the “child” to allow it to implement different methods where necessary.
+
+### Polymorphism
+In the previous example, a same set of commands (e.g. a call to the method “investigate” or a sequence of such commands) can be applied to both the class used for modelling the Australian mental health system and the class used for modelling the UK system, but the implementation of these commands will vary based on the class that each method is being applied to. This “polymorphism” allows for similar concepts to be represented using consistent syntax and for the same top level code to be generalised to multiple model implementations. Algorithms are therefore simpler to understand and easier to re-use.
+
+### Abstraction
+The simplicity enabled by Polymorphism is enhanced by Abstraction, which basically means that only the briefest and easiest to comprehend parts of the code are exposed by default to potential users. Once an instance of a class is created, the entire program to ingest model data, analyse it and produce a scientific summary can be represented in a few brief lines of code, readily comprehensible to non-coders. When using open source languages, the elegance and simplicity of Abstraction [does not restrict the ability of more technically minded users exploring the detailed workings of the underpinning code](https://ready4-dev.github.io/ready4fun/articles/V_01.html).
+
+## Implementing OOP in the ready4 framework
 There are numerous existing third party R packages (`devtools`, `methods` and others) that are useful for authoring and documenting classes and methods. The tools contained in these packages present developers with a great degree of flexibility in how to approach object oriented programming within R. However, the more developers exercise this flexibility, the less standardised the output.  `ready4class` has been developed to help ensure that developers extending the `ready4 framework` apply consistent naming, representation and documenting conventions when authoring classes and methods for R packages.
 
 ## Workflow
