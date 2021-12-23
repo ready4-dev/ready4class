@@ -92,26 +92,26 @@
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
 </h2>
-<p>The motivation for using OOP approaches ton model mental health systems can be summarised under headings corresponding to the four most commonly noted features of OOP - encapsulation, inheritence, abstraction and polymorphism.</p>
+<p>The motivation for using OOP approaches to model mental health systems can be summarised under headings corresponding to the four most commonly noted features of OOP - encapsulation, inheritence, abstraction and polymorphism.</p>
 <div class="section level3">
 <h3 id="encapsulation">Encapsulation<a class="anchor" aria-label="anchor" href="#encapsulation"></a>
 </h3>
-<p>Encapsulation allows us to define the data structures (“classes”) used in a modelling project in a manner that allows models and model sub-components can be safely combined. In that way we can progressively build up more complex represenations of mental health systems by linking multiple models that describe component features of mental health systems. For example, encapsulated code allows all of the features and functionality of Model A to be made available to Model B, while simulataneously protecting the integrity of Model A as Model B can only interact with Model A using the algorithms (“methods”) already defined for Model A. This approach can also help make models more generalisable as methods (if appropriately implemented) are designed to work with any set of combination of input values that can be encapsulated by the same class.</p>
+<p>Encapsulation allows us to define the data structures (“classes”) used in modelling projects in a manner that allows them to be safely combined. Modular approaches to model development in turn allow us to progressively build up more complex representations of mental health systems through the linking of multiple models that each describe distinctive features of mental health systems. For example, encapsulated code allows all of the features and functionality of Model A to be made available to Model B, while simultaneously protecting the integrity of Model A. Model B can only interact with Model A using the algorithms (“methods”) already defined for Model A. If appropriately implemented, methods will work with any combination of input values that can be encapsulated by a class - making models more generalisable.</p>
 </div>
 <div class="section level3">
 <h3 id="inheritence">Inheritence<a class="anchor" aria-label="anchor" href="#inheritence"></a>
 </h3>
-<p>When generalising a model or its component algorithms, it is likely that most but not all of an algorithm may be relevant to the generalised implementation. For example, if generalising a model of the Australian mental health system to the UK context, some steps may need to be modified for features that diverge between the two jurisdictions. Inheritance enables a “child” class (e.g. one relevant to a UK implementation) to be created from a “parent” class (e.g. Australian original). By default, the “child” inherits all of the features of the “parent” including all methods associated with the “parent” class. However, additional features can be specified for the “child” to allow it to implement different methods where necessary.</p>
+<p>In many cases, most but not all of a method may be generalisable to similar modelling projects. For example, much of the code from a model of the Australian mental health system may be reusable in a model exploring similar topics within the UK context, but some steps may need to be modified for features that diverge between the two jurisdictions. Inheritance enables a “child” class (e.g. one relevant to a UK implementation) to be created from a “parent” class (e.g. Australian original). By default, the “child” inherits all of the features of the “parent” including all methods associated with the “parent” class. Importantly however, alternative or additional features can also be specified for the “child” to allow it to implement different methods where necessary.</p>
 </div>
 <div class="section level3">
 <h3 id="polymorphism">Polymorphism<a class="anchor" aria-label="anchor" href="#polymorphism"></a>
 </h3>
-<p>In the previous example, a same set of commands (e.g. a call to the method “investigate” or a sequence of such commands) can be applied to both the class used for modelling the Australian mental health system and the class used for modelling the UK system, but the implementation of these commands will vary based on the class that each method is being applied to. This “polymorphism” allows for similar concepts to be represented using consistent syntax and for the same top level code to be generalised to multiple model implementations. Algorithms are therefore simpler to understand and easier to re-use.</p>
+<p>The same top-level set of commands (e.g. a call to the method “investigate” or a sequence of such commands) can be applied to both a class used for modelling the Australian mental health system and a class used for modelling the UK system, but implementation of these commands can vary based on the class that each method is applied to. This “polymorphism” allows for similar concepts to be represented using consistent syntax and for the same top level code to be generalised to multiple model implementations. Algorithms are therefore simpler to understand and easier to re-use.</p>
 </div>
 <div class="section level3">
 <h3 id="abstraction">Abstraction<a class="anchor" aria-label="anchor" href="#abstraction"></a>
 </h3>
-<p>The simplicity enabled by Polymorphism is enhanced by Abstraction, which basically means that only the briefest and easiest to comprehend parts of the code are exposed by default to potential users. Once an instance of a class is created, the entire program to ingest model data, analyse it and produce a scientific summary can be represented in a few brief lines of code, readily comprehensible to non-coders. When using open source languages, the elegance and simplicity of Abstraction <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">does not restrict the ability of more technically minded users exploring the detailed workings of the underpinning code</a>.</p>
+<p>The simplicity enabled by polymorphism is enhanced by Abstraction, which basically means that only the briefest and easiest to comprehend parts of the code are exposed by default to potential users. Once an instance of a class is created, the entire program to ingest model data, analyse it and produce a scientific summary can be represented in a few brief lines of code, readily comprehensible to non-coders. When using open source languages, the elegance and simplicity of abstraction <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">does not restrict the ability of more technically minded users exploring the detailed workings of the underpinning code</a>.</p>
 </div>
 </div>
 <div class="section level2">
@@ -123,10 +123,6 @@
 <h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
 </h2>
 <p><code>ready4class</code> is an extension of the workflow tools for authoring ready4 framework R package functions that are described briefly in <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">this vignette from the ready4fun package</a>. The tools included in <code>ready4class</code> are intended for use as part of <a href="https://ready4-dev.github.io/ready4pack/articles/V_01.html" class="external-link">ready4pack R package authoring workflow</a>.</p>
-</div>
-<div class="section level2">
-<h2 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
-</h2>
 <p>The two classes exported as part of <code>ready4class</code> that are used in the <code>ready4pack</code> workflow are <code>ready4class_constructor</code> and <code>ready4class_pt_lup</code>. <code>ready4class_constructor</code> is a tibble based class in which the properties of the classes to be authored are declared. Instances of <code>ready4class_constructor</code> are most efficiently created using the <code>make_pt_ready4class_constructor</code> function. Examples of how to use <code>ready4class_constructor</code> and <code>ready4class_pt_lup</code> are referenced in the <a href="https://ready4-dev.github.io/ready4pack/articles/V_01.html" class="external-link">a vignette from the ready4pack package</a></p>
 <p><code>ready4class_pt_lup</code> is another tibble based class, which contains metadata on the prototypes of classes that can be used as sub-components of other classes (for example a tibble based class can be used as a slot in an S4 class). When authoring ready4 R packages, you will create a <code>ready4class_pt_lup</code> and store it in an online repository that you have write permissions to. As you create new classes using <code>ready4class</code> tools, your <code>ready4class_pt_lup</code> object will be updated so that these classes can be easily incorporated into any other classes you make in future. An example of an <code>ready4class_pt_lup</code> object is reproduced below.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -631,158 +627,6 @@ TTU
 </td>
 <td style="text-align:right;">
 TTU_predictors_lup
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_badges
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_badges()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_badges
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_abbreviations
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_abbreviations()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_abbreviations
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_executor
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_executor()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_executor
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_description
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_description()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_description
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_metadata_a
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_metadata_a()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_a
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_metadata_b
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_metadata_b()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_b
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_manifest
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_manifest()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_manifest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_dataset
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_dataset()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_dataset
 </td>
 <td style="text-align:right;">
 </td>
@@ -1384,7 +1228,7 @@ FALSE
 ScorzProfile
 </td>
 <td style="text-align:right;">
-ScorzProfile()
+scorz::ScorzProfile()
 </td>
 <td style="text-align:right;">
 scorz
@@ -1403,7 +1247,7 @@ FALSE
 ScorzAqol6
 </td>
 <td style="text-align:right;">
-ScorzAqol6()
+scorz::ScorzAqol6()
 </td>
 <td style="text-align:right;">
 scorz
@@ -1422,7 +1266,7 @@ FALSE
 ScorzAqol6Adol
 </td>
 <td style="text-align:right;">
-ScorzAqol6Adol()
+scorz::ScorzAqol6Adol()
 </td>
 <td style="text-align:right;">
 scorz
@@ -1441,7 +1285,7 @@ FALSE
 ScorzAqol6Adult
 </td>
 <td style="text-align:right;">
-ScorzAqol6Adult()
+scorz::ScorzAqol6Adult()
 </td>
 <td style="text-align:right;">
 scorz
@@ -1460,7 +1304,7 @@ FALSE
 ScorzEuroQol5
 </td>
 <td style="text-align:right;">
-ScorzEuroQol5()
+scorz::ScorzEuroQol5()
 </td>
 <td style="text-align:right;">
 scorz
@@ -1472,6 +1316,158 @@ ScorzEuroQol5
 </td>
 <td style="text-align:right;">
 FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_badges
+</td>
+<td style="text-align:right;">
+ready4fun_badges()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_badges
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_abbreviations
+</td>
+<td style="text-align:right;">
+ready4fun_abbreviations()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_abbreviations
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_executor
+</td>
+<td style="text-align:right;">
+ready4fun_executor()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_executor
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_description
+</td>
+<td style="text-align:right;">
+ready4fun_description()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_description
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_metadata_a
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_a()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_a
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_metadata_b
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_b()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_b
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_manifest
+</td>
+<td style="text-align:right;">
+ready4fun_manifest()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_manifest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_dataset
+</td>
+<td style="text-align:right;">
+ready4fun_dataset()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_dataset
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
 </td>
 </tr>
 </tbody>
