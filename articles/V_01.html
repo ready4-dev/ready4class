@@ -88,36 +88,10 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4class/">ready4class</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4show/" class="external-link">ready4show</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ready4-dev.github.io/ready4use/" class="external-link">ready4use</a></span><span class="op">)</span></code></pre></div>
-<p>The <a href="https://www.ready4-dev.com/" class="external-link">ready4 framework</a> for open and modular computational models of mental health systems is implemented using object oriented programming (OOP). That means that the framework largely consists of classes (representations of data structures useful for modelling mental health systems) and methods (algorithms that can be applied to these data-structures to generate insight useful for policy-making).</p>
 <div class="section level2">
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
 </h2>
-<p>The motivation for using OOP approaches to model mental health systems can be summarised under headings corresponding to the four most commonly noted features of OOP - encapsulation, inheritence, abstraction and polymorphism.</p>
-<div class="section level3">
-<h3 id="encapsulation">Encapsulation<a class="anchor" aria-label="anchor" href="#encapsulation"></a>
-</h3>
-<p>Encapsulation allows us to define the data structures (“classes”) used in modelling projects in a manner that allows them to be safely combined. Modular approaches to model development in turn allow us to progressively build up more complex representations of mental health systems through the linking of multiple models that each describe distinctive features of mental health systems. For example, encapsulated code allows all of the features and functionality of Model A to be made available to Model B, while simultaneously protecting the integrity of Model A. Model B can only interact with Model A using the algorithms (“methods”) already defined for Model A. If appropriately implemented, methods will work with any combination of input values that can be encapsulated by a class - making models more generalisable.</p>
-</div>
-<div class="section level3">
-<h3 id="inheritence">Inheritence<a class="anchor" aria-label="anchor" href="#inheritence"></a>
-</h3>
-<p>In many cases, most but not all of a method may be generalisable to similar modelling projects. For example, much of the code from a model of the Australian mental health system may be reusable in a model exploring similar topics within the UK context, but some steps may need to be modified for features that diverge between the two jurisdictions. Inheritance enables a “child” class (e.g. one relevant to a UK implementation) to be created from a “parent” class (e.g. Australian original). By default, the “child” inherits all of the features of the “parent” including all methods associated with the “parent” class. Importantly however, alternative or additional features can also be specified for the “child” to allow it to implement different methods where necessary.</p>
-</div>
-<div class="section level3">
-<h3 id="polymorphism">Polymorphism<a class="anchor" aria-label="anchor" href="#polymorphism"></a>
-</h3>
-<p>The same top-level set of commands (e.g. a call to the method “investigate” or a sequence of such commands) can be applied to both a class used for modelling the Australian mental health system and a class used for modelling the UK system, but implementation of these commands can vary based on the class that each method is applied to. This “polymorphism” allows for similar concepts to be represented using consistent syntax and for the same top level code to be generalised to multiple model implementations. Algorithms are therefore simpler to understand and easier to re-use.</p>
-</div>
-<div class="section level3">
-<h3 id="abstraction">Abstraction<a class="anchor" aria-label="anchor" href="#abstraction"></a>
-</h3>
-<p>The simplicity enabled by polymorphism is enhanced by Abstraction, which basically means that only the briefest and easiest to comprehend parts of the code are exposed by default to potential users. Once an instance of a class is created, the entire program to ingest model data, analyse it and produce a scientific summary can be represented in a few brief lines of code, readily comprehensible to non-coders. When using open source languages, the elegance and simplicity of abstraction <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" class="external-link">does not restrict the ability of more technically minded users exploring the detailed workings of the underpinning code</a>.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="implementing-oop-in-the-ready4-framework">Implementing OOP in the ready4 framework<a class="anchor" aria-label="anchor" href="#implementing-oop-in-the-ready4-framework"></a>
-</h2>
-<p>There are numerous existing third party R packages (<code>devtools</code>, <code>methods</code> and others) that are useful for authoring and documenting classes and methods. The tools contained in these packages present developers with a great degree of flexibility in how to approach object oriented programming within R. However, the more developers exercise this flexibility, the less standardised the output. <code>ready4class</code> has been developed to help ensure that developers extending the <code>ready4 framework</code> apply consistent naming, representation and documenting conventions when authoring classes and methods for R packages.</p>
+<p>The <a href="https://www.ready4-dev.com/" class="external-link">ready4 framework</a> uses <a href="https://ready4-dev.github.io/ready4/articles/V_03.html" class="external-link">object oriented programming (OOP)</a> to implement <a href="https://ready4-dev.github.io/ready4/articles/V_01.html" class="external-link">modular approaches to computational models of mental health systems</a>. That means that a standardised approach to developing modules (S4 classes) and sub-modules (S3 classes) is required. ready4class provides the tools to implement this workflow.</p>
 </div>
 <div class="section level2">
 <h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
@@ -296,7 +270,7 @@ FALSE
 Ready4Module
 </td>
 <td style="text-align:right;">
-ready4::Ready4Module()
+Ready4Module()
 </td>
 <td style="text-align:right;">
 ready4
@@ -315,7 +289,7 @@ FALSE
 Ready4Private
 </td>
 <td style="text-align:right;">
-ready4::Ready4Private()
+Ready4Private()
 </td>
 <td style="text-align:right;">
 ready4
@@ -334,13 +308,640 @@ FALSE
 Ready4Public
 </td>
 <td style="text-align:right;">
-ready4::Ready4Public()
+Ready4Public()
 </td>
 <td style="text-align:right;">
 ready4
 </td>
 <td style="text-align:right;">
 Ready4Public
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4class_constructor
+</td>
+<td style="text-align:right;">
+ready4class::ready4class_constructor()
+</td>
+<td style="text-align:right;">
+ready4class
+</td>
+<td style="text-align:right;">
+ready4class_constructor
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4class_pt_lup
+</td>
+<td style="text-align:right;">
+ready4class::ready4class_pt_lup()
+</td>
+<td style="text-align:right;">
+ready4class
+</td>
+<td style="text-align:right;">
+ready4class_pt_lup
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4class_manifest
+</td>
+<td style="text-align:right;">
+ready4class::ready4class_manifest()
+</td>
+<td style="text-align:right;">
+ready4class
+</td>
+<td style="text-align:right;">
+ready4class_manifest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_badges
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_badges()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_badges
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_abbreviations
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_abbreviations()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_abbreviations
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_executor
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_executor()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_executor
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_description
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_description()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_description
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_metadata_a
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_metadata_a()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_a
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_metadata_b
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_metadata_b()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_metadata_b
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_manifest
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_manifest()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_manifest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_dataset
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_dataset()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_dataset
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4pack_manifest
+</td>
+<td style="text-align:right;">
+ready4pack::ready4pack_manifest()
+</td>
+<td style="text-align:right;">
+ready4pack
+</td>
+<td style="text-align:right;">
+ready4pack_manifest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4show_authors
+</td>
+<td style="text-align:right;">
+ready4show::ready4show_authors()
+</td>
+<td style="text-align:right;">
+ready4show
+</td>
+<td style="text-align:right;">
+ready4show_authors
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4show_institutes
+</td>
+<td style="text-align:right;">
+ready4show::ready4show_institutes()
+</td>
+<td style="text-align:right;">
+ready4show
+</td>
+<td style="text-align:right;">
+ready4show_institutes
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4use_distributions
+</td>
+<td style="text-align:right;">
+ready4use_distributions()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+ready4use_distributions
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4use_dataverses
+</td>
+<td style="text-align:right;">
+ready4use_dataverses()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+ready4use_dataverses
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4use_imports
+</td>
+<td style="text-align:right;">
+ready4use_imports()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+ready4use_imports
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4use_mapes
+</td>
+<td style="text-align:right;">
+ready4use_mapes()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+ready4use_mapes
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4use_dictionary
+</td>
+<td style="text-align:right;">
+ready4use_dictionary()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+ready4use_dictionary
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useFiles
+</td>
+<td style="text-align:right;">
+Ready4useFiles()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useFiles
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRaw
+</td>
+<td style="text-align:right;">
+Ready4useRaw()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useRaw
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useProcessed
+</td>
+<td style="text-align:right;">
+Ready4useProcessed()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useProcessed
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useArguments
+</td>
+<td style="text-align:right;">
+Ready4useArguments()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useArguments
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useDyad
+</td>
+<td style="text-align:right;">
+Ready4useDyad()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useDyad
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useIngest
+</td>
+<td style="text-align:right;">
+Ready4useIngest()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useIngest
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRepos
+</td>
+<td style="text-align:right;">
+Ready4useRepos()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useRepos
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4usePointer
+</td>
+<td style="text-align:right;">
+Ready4usePointer()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4usePointer
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRecord
+</td>
+<td style="text-align:right;">
+Ready4useRecord()
+</td>
+<td style="text-align:right;">
+ready4use
+</td>
+<td style="text-align:right;">
+Ready4useRecord
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzProfile
+</td>
+<td style="text-align:right;">
+scorz::ScorzProfile()
+</td>
+<td style="text-align:right;">
+scorz
+</td>
+<td style="text-align:right;">
+ScorzProfile
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzAqol6
+</td>
+<td style="text-align:right;">
+scorz::ScorzAqol6()
+</td>
+<td style="text-align:right;">
+scorz
+</td>
+<td style="text-align:right;">
+ScorzAqol6
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzAqol6Adol
+</td>
+<td style="text-align:right;">
+scorz::ScorzAqol6Adol()
+</td>
+<td style="text-align:right;">
+scorz
+</td>
+<td style="text-align:right;">
+ScorzAqol6Adol
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzAqol6Adult
+</td>
+<td style="text-align:right;">
+scorz::ScorzAqol6Adult()
+</td>
+<td style="text-align:right;">
+scorz
+</td>
+<td style="text-align:right;">
+ScorzAqol6Adult
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzEuroQol5
+</td>
+<td style="text-align:right;">
+scorz::ScorzEuroQol5()
+</td>
+<td style="text-align:right;">
+scorz
+</td>
+<td style="text-align:right;">
+ScorzEuroQol5
 </td>
 <td style="text-align:right;">
 </td>
@@ -636,386 +1237,6 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4class_constructor
-</td>
-<td style="text-align:right;">
-ready4class::ready4class_constructor()
-</td>
-<td style="text-align:right;">
-ready4class
-</td>
-<td style="text-align:right;">
-ready4class_constructor
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4class_pt_lup
-</td>
-<td style="text-align:right;">
-ready4class::ready4class_pt_lup()
-</td>
-<td style="text-align:right;">
-ready4class
-</td>
-<td style="text-align:right;">
-ready4class_pt_lup
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4class_manifest
-</td>
-<td style="text-align:right;">
-ready4class::ready4class_manifest()
-</td>
-<td style="text-align:right;">
-ready4class
-</td>
-<td style="text-align:right;">
-ready4class_manifest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4show_authors
-</td>
-<td style="text-align:right;">
-ready4show::ready4show_authors()
-</td>
-<td style="text-align:right;">
-ready4show
-</td>
-<td style="text-align:right;">
-ready4show_authors
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4show_institutes
-</td>
-<td style="text-align:right;">
-ready4show::ready4show_institutes()
-</td>
-<td style="text-align:right;">
-ready4show
-</td>
-<td style="text-align:right;">
-ready4show_institutes
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4use_distributions
-</td>
-<td style="text-align:right;">
-ready4use::ready4use_distributions()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-ready4use_distributions
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4use_dataverses
-</td>
-<td style="text-align:right;">
-ready4use::ready4use_dataverses()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-ready4use_dataverses
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4use_imports
-</td>
-<td style="text-align:right;">
-ready4use::ready4use_imports()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-ready4use_imports
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4use_mapes
-</td>
-<td style="text-align:right;">
-ready4use::ready4use_mapes()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-ready4use_mapes
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4use_dictionary
-</td>
-<td style="text-align:right;">
-ready4use::ready4use_dictionary()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-ready4use_dictionary
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useFiles
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useFiles()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useFiles
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useRaw
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useRaw()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useRaw
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useProcessed
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useProcessed()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useProcessed
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useArguments
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useArguments()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useArguments
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useDyad
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useDyad()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useDyad
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useIngest
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useIngest()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useIngest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useRepos
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useRepos()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useRepos
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4usePointer
-</td>
-<td style="text-align:right;">
-ready4use::Ready4usePointer()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4usePointer
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ready4useRecord
-</td>
-<td style="text-align:right;">
-ready4use::Ready4useRecord()
-</td>
-<td style="text-align:right;">
-ready4use
-</td>
-<td style="text-align:right;">
-Ready4useRecord
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4pack_manifest
-</td>
-<td style="text-align:right;">
-ready4pack::ready4pack_manifest()
-</td>
-<td style="text-align:right;">
-ready4pack
-</td>
-<td style="text-align:right;">
-ready4pack_manifest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 youthvars_aqol6d_adol
 </td>
 <td style="text-align:right;">
@@ -1221,253 +1442,6 @@ YouthvarsSeries
 </td>
 <td style="text-align:right;">
 FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ScorzProfile
-</td>
-<td style="text-align:right;">
-scorz::ScorzProfile()
-</td>
-<td style="text-align:right;">
-scorz
-</td>
-<td style="text-align:right;">
-ScorzProfile
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ScorzAqol6
-</td>
-<td style="text-align:right;">
-scorz::ScorzAqol6()
-</td>
-<td style="text-align:right;">
-scorz
-</td>
-<td style="text-align:right;">
-ScorzAqol6
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ScorzAqol6Adol
-</td>
-<td style="text-align:right;">
-scorz::ScorzAqol6Adol()
-</td>
-<td style="text-align:right;">
-scorz
-</td>
-<td style="text-align:right;">
-ScorzAqol6Adol
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ScorzAqol6Adult
-</td>
-<td style="text-align:right;">
-scorz::ScorzAqol6Adult()
-</td>
-<td style="text-align:right;">
-scorz
-</td>
-<td style="text-align:right;">
-ScorzAqol6Adult
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ScorzEuroQol5
-</td>
-<td style="text-align:right;">
-scorz::ScorzEuroQol5()
-</td>
-<td style="text-align:right;">
-scorz
-</td>
-<td style="text-align:right;">
-ScorzEuroQol5
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_badges
-</td>
-<td style="text-align:right;">
-ready4fun_badges()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_badges
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_abbreviations
-</td>
-<td style="text-align:right;">
-ready4fun_abbreviations()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_abbreviations
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_executor
-</td>
-<td style="text-align:right;">
-ready4fun_executor()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_executor
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_description
-</td>
-<td style="text-align:right;">
-ready4fun_description()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_description
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_metadata_a
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_a()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_a
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_metadata_b
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_b()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_metadata_b
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_manifest
-</td>
-<td style="text-align:right;">
-ready4fun_manifest()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_manifest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_dataset
-</td>
-<td style="text-align:right;">
-ready4fun_dataset()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_dataset
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
 </td>
 </tr>
 </tbody>
