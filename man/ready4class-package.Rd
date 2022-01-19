@@ -4,15 +4,15 @@
 \name{ready4class-package}
 \alias{ready4class}
 \alias{ready4class-package}
-\title{ready4class: Create, Extend and Document Ready4 Framework Classes and Methods}
+\title{ready4class: Author Ready4 Framework Modules}
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health systems models. This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).
+ready4class provides tools to standardise and streamline the process for developing open and modular mental health systems models using the ready4 Framework. This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).
 
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-ready4class provides tools to standardise and streamline the process for implementing object oriented approaches to developing open and modular mental health systems models. This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).
+ready4class provides tools to standardise and streamline the process for developing open and modular mental health systems models using the ready4 Framework. This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).
 }
 \seealso{
 Useful links:

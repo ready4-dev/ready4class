@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{Renew (update) an object}
+\title{Renew (update) a ready4 framework module (or sub-module)}
 \usage{
 renew.ready4class_constructor(
   x,

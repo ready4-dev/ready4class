@@ -1,4 +1,4 @@
-#' Renew (update) an object
+#' Renew (update) a ready4 framework module (or sub-module)
 #' @description renew.ready4class_constructor() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the Class constructor table The function is called for its side effects and does not return a value.
 #' @param x An instance of Class constructor table
 #' @param type_1L_chr Type (a character vector of length one), Default: 'listify'
@@ -39,7 +39,7 @@ renew.ready4class_constructor <- function (x, type_1L_chr = "listify", name_pfx_
 #' @aliases renew,ready4class_constructor-method
 #' @importFrom ready4 renew
 methods::setMethod("renew", methods::className("ready4class_constructor", package = "ready4class"), renew.ready4class_constructor)
-#' Renew (update) an object
+#' Renew (update) a ready4 framework module (or sub-module)
 #' @description renew.ready4class_pt_lup() is a renew method that renews an instance of a class by updating it with new data. This method is implemented for the Class prototype lookup table The function is called for its side effects and does not return a value.
 #' @param x An instance of Class prototype lookup table
 #' @param attached_nss_chr Attached namespaces (a character vector)
