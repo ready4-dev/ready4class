@@ -19,7 +19,6 @@ library(ready4class)
 ```
 This development version of the `ready4class` package has been made available as part of the process of testing and documenting the package. 
 
-A brief overview of the intended use of `ready4class` classes and methods is available at:
+A brief overview of the intended use of `ready4class` is available at:
 
-
-- [Author Classes And Methods That Extend The Ready4 Framework](V_01.html)
+- [Author Ready4 Framework Modules](V_01.html)
