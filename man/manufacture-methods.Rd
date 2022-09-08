@@ -3,7 +3,7 @@
 \name{manufacture.ready4class_constructor}
 \alias{manufacture.ready4class_constructor}
 \alias{manufacture,ready4class_constructor-method}
-\title{Manufacture a (non ready4 framework) object}
+\title{Manufacture a new object}
 \usage{
 manufacture.ready4class_constructor(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 

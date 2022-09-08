@@ -1,4 +1,4 @@
-library(ready4)
+library(ready4fun)
 library(ready4show)
 library(ready4use)
 #ready4fun::write_fn_type_dirs()
@@ -70,4 +70,5 @@ x <- ready4::author(x,
                     self_serve_1L_lgl = T,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                             args_ls = NULL))
+ready4fun::write_fns_dmt_tb(x)
 devtools::build_vignettes()

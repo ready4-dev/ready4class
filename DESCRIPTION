@@ -1,6 +1,6 @@
 Package: ready4class
 Title: Author Ready4 Framework Modules
-Version: 0.0.0.9289
+Version: 0.0.0.9290
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -24,7 +24,7 @@ URL: https://ready4-dev.github.io/ready4class/,
     https://github.com/ready4-dev/ready4class, https://www.ready4-dev.com/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Imports: 
     devtools,
     dplyr,
@@ -36,8 +36,8 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9508),
-    ready4show (>= 0.0.0.9084),
+    ready4fun (>= 0.0.0.9515),
+    ready4show (>= 0.0.0.9098),
     rlang,
     stats,
     stringi,
