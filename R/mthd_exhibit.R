@@ -1,4 +1,4 @@
-#' Exhibit (print to console) features of a ready4 framework module (or sub-module)
+#' Exhibit features of a dataset by printing them to the R console
 #' @description exhibit.ready4class_pt_lup() is an exhibit method that exhibits features of a class instance by printing to console. This method is implemented for the Class prototype lookup table The function is called for its side effects and does not return a value.
 #' @param x An instance of Class prototype lookup table
 #' @param caption_1L_chr Caption (a character vector of length one), Default: NULL
