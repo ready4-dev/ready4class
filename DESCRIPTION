@@ -1,6 +1,6 @@
 Package: ready4class
 Title: Author Ready4 Framework Modules
-Version: 0.0.0.9290
+Version: 0.0.0.9291
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
