@@ -1,5 +1,5 @@
 ---
-title: "Author Ready4 Framework Modules"
+title: "Author Ready4 Modules"
 output: 
   rmarkdown::html_vignette:
     toc: true
@@ -7,14 +7,14 @@ output:
     highlight: null
     number_sections: yes
 vignette: >
-  %\VignetteIndexEntry{Author Ready4 Framework Modules}
+  %\VignetteIndexEntry{Author Ready4 Modules}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 ```{r echo = F}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-```{r results='hide', message=FALSE}
+```{r results='hide', message=FALSE, warning=FALSE}
 library(ready4class)
 library(ready4show)
 library(ready4use)
@@ -22,13 +22,13 @@ library(ready4use)
 
 ## Motivation
 
-The [ready4 framework](https://www.ready4-dev.com/) uses [object oriented programming (OOP)](https://ready4-dev.github.io/ready4/articles/V_03.html) to implement [modular approaches to computational models of mental health systems](https://ready4-dev.github.io/ready4/articles/V_01.html). That means that a standardised approach to developing modules (S4 classes) and sub-modules (S3 classes) is required. ready4class provides the tools to implement this workflow.
+The [ready4 model](https://www.ready4-dev.com/) uses [object oriented programming (OOP)](https://ready4-dev.github.io/ready4/articles/V_03.html) to implement [modular approaches to computational models of mental health systems](https://ready4-dev.github.io/ready4/articles/V_01.html). That means that a standardised approach to developing modules (S4 classes) and sub-modules (S3 classes) is required. ready4class provides the tools to implement this workflow.
 
 ## Workflow
 
 ### Prototyes, constructor and manifest
 The main classes exported as part of `ready4class` are `readyclass_manifest` and `ready4class_constructor`. 
-`ready4class_pt_lup` is a tibble based [ready4 Framework sub-module](https://ready4-dev.github.io/ready4/articles/V_01.html), which contains metadata on the prototypes of classes that can be used as sub-components of ready4 Framework modules and sub-modules (for example a tibble based class can be used as a slot in an S4 class). When authoring ready4 R packages, you will create a `ready4class_pt_lup` instance and store it in an online repository that you have write permissions to. As you create new ready4 Framework modules and sub-modules using `ready4class` tools, your `ready4class_pt_lup` object will be updated so that these classes can be made available to any future modules or sub-modules that you author. The first few entries in an example `ready4class_pt_lup` sub-module are reproduced below.
+`ready4class_pt_lup` is a tibble based [ready4 sub-module](https://ready4-dev.github.io/ready4/articles/V_01.html), which contains metadata on the prototypes of classes that can be used as sub-components of ready4 modules and sub-modules (for example a tibble based class can be used as a slot in an S4 class). When authoring ready4 R packages, you will create a `ready4class_pt_lup` instance and store it in an online repository that you have write permissions to. As you create new ready4 modules and sub-modules using `ready4class` tools, your `ready4class_pt_lup` object will be updated so that these classes can be made available to any future modules or sub-modules that you author. The first few entries in an example `ready4class_pt_lup` sub-module are reproduced below.
 
 ```{r ptlup, tab.cap='Class Prototypes Lookup Table', tab.id = 'ptlup', results = "asis"}
 x <- ready4use::Ready4useRepos(gh_repo_1L_chr = "ready4-dev/ready4",
@@ -36,11 +36,10 @@ x <- ready4use::Ready4useRepos(gh_repo_1L_chr = "ready4-dev/ready4",
   ingest(fls_to_ingest_chr = "prototype_lup",
          metadata_1L_lgl = F) 
 x %>%
-  head() %>%
-  exhibit()
+  exhibit(scroll_box_args_ls = list(width = "100%"))
 ```
 
-`ready4class_constructor` is another tibble based ready4 Framework sub-module that summarises the desired features of the ready4 Framework modules and sub-modules that you are authoring. An instance of `ready4class_constructor` is combined with a [`ready4fun_manifest` sub-module](https://ready4-dev.github.io/ready4fun/articles/V_01.html) to create a `ready4class_manifest` sub-module. Instances of `ready4class_constructor` are most efficiently created using the `make_pt_ready4class_constructor` function.
+`ready4class_constructor` is another tibble based ready4 sub-module that summarises the desired features of the ready4 modules and sub-modules that you are authoring. An instance of `ready4class_constructor` is combined with a [`ready4fun_manifest` sub-module](https://ready4-dev.github.io/ready4fun/articles/V_01.html) to create a `ready4class_manifest` sub-module. Instances of `ready4class_constructor` are most efficiently created using the `make_pt_ready4class_constructor` function.
 
 ```{r warning=FALSE}
 y <- make_pt_ready4class_manifest(ready4fun::ready4fun_manifest(),

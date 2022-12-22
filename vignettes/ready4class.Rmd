@@ -21,4 +21,4 @@ This development version of the `ready4class` package has been made available as
 
 A brief overview of the intended use of `ready4class` is available at:
 
-- [Author Ready4 Framework Modules](V_01.html)
+- [Author Ready4 Modules](V_01.html)

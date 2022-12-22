@@ -2,7 +2,8 @@ exhibit.ready4class_pt_lup <- function(x,
                                        caption_1L_chr = NULL,
                                        mkdn_tbl_ref_1L_chr = NULL,
                                        output_type_1L_chr = "HTML",
-                                       use_lbls_as_col_nms_1L_lgl = T){
+                                       use_lbls_as_col_nms_1L_lgl = T,
+                                       ...){
   var_desc_chr = c("Class",
                    "Value",
                    "Namespace",
@@ -30,7 +31,8 @@ exhibit.ready4class_pt_lup <- function(x,
                                  mkdn_tbl_ref_1L_chr = mkdn_tbl_ref_1L_chr,
                                  output_type_1L_chr = output_type_1L_chr,
                                  use_lbls_as_col_nms_1L_lgl = use_lbls_as_col_nms_1L_lgl,
-                                 var_desc_chr = var_desc_chr
+                                 var_desc_chr = var_desc_chr,
+                                 ...
                                  # use_rdocx_1L_lgl = ifelse(output_type_1L_chr=="Word",T,F)
     )
 }
