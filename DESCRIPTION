@@ -1,6 +1,6 @@
 Package: ready4class
 Title: Author Ready4 Framework Modules
-Version: 0.0.0.9291
+Version: 0.0.0.9292
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -11,20 +11,20 @@ Authors@R: c(
     person("Victoria University", role = "fnd")
   )
 Description: ready4class provides tools to standardise and streamline the
-    process for developing open and modular mental health systems models
-    using the ready4 Framework.  This development version of the
-    ready4class package has been made available as part of the process of
-    testing and documenting the package.  You should only trial this
-    software if you feel confident that you understand what it does and
-    have created a sandpit area in which you can safely undertake testing.
-    If you have any questions, please contact the authors
+    process for authoring modules for the ready4 youth mental health
+    systems model.  This development version of the ready4class package
+    has been made available as part of the process of testing and
+    documenting the package.  You should only trial this software if you
+    feel confident that you understand what it does and have created a
+    sandpit area in which you can safely undertake testing. If you have
+    any questions, please contact the authors
     (matthew.hamilton@orygen.org.au).
 License: GPL-3 + file LICENSE
 URL: https://ready4-dev.github.io/ready4class/,
     https://github.com/ready4-dev/ready4class, https://www.ready4-dev.com/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
     devtools,
     dplyr,
@@ -36,8 +36,8 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9515),
-    ready4show (>= 0.0.0.9098),
+    ready4fun (>= 0.0.0.9520),
+    ready4show (>= 0.0.0.9100),
     rlang,
     stats,
     stringi,
