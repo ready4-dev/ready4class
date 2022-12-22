@@ -1,10 +1,10 @@
-pandoc: 2.7.3
-pkgdown: 2.0.2
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   V_01: V_01.html
   ready4class: ready4class.html
-last_built: 2022-01-19T06:25Z
+last_built: 2022-12-22T09:19Z
 urls:
   reference: https://ready4-dev.github.io/ready4class/reference
   article: https://ready4-dev.github.io/ready4class/articles
