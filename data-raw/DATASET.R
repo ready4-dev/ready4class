@@ -2,9 +2,9 @@ library(ready4fun)
 library(ready4show)
 library(ready4use)
 #ready4fun::write_fn_type_dirs()
-pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author Ready4 Framework Modules",
-                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for authoring modules for the ready4 youth mental health systems model.
-  This development version of the ready4class package has been made available as part of the process of testing and documenting the package.  You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
+pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author Ready4 Model Modules",
+                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for authoring modules for the ready4 youth mental health systems model (https://www.ready4-dev.com/).
+  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
                             authors_prsn = c(utils::person(
                               given = "Matthew",family = "Hamilton", email =
                                 "matthew.hamilton@orygen.org.au",role = c("aut",
@@ -17,6 +17,7 @@ pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author Ready4 Fra
                             #person("Jonathan", "Karnon", email ="Jonathan.Karnon@flinders.edu.au", role = c("rev"), comment =c(ORCID = "0000-0003-3220-2099")),
                             #person("Petra","Plencnerova", email = "Petra.Plencnerova@vu.edu.au", role =c("rev"), comment = c(ORCID = "0000-0001-9698-9084")),
                             utils::person("Orygen", role = c("cph", "fnd")),
+                            utils::person("Australian Government Research Training Program", role =c("fnd")),
                             utils::person("VicHealth",role = c("fnd")),
                             utils::person("Victoria University", role =c("fnd"))
                             ),
@@ -70,5 +71,5 @@ x <- ready4::author(x,
                     self_serve_1L_lgl = T,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                             args_ls = NULL))
-# ready4fun::write_fns_dmt_tb(x)
+ready4::write_extra_pkgs_to_actions()
 devtools::build_vignettes()
