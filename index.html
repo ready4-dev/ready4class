@@ -7,14 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="ready4class provides tools to standardise and streamline the
     process for authoring modules for the ready4 youth mental health
-    systems model.  This development version of the ready4class package
-    has been made available as part of the process of testing and
-    documenting the package.  You should only trial this software if you
-    feel confident that you understand what it does and have created a
-    sandpit area in which you can safely undertake testing. If you have
-    any questions, please contact the authors
+    systems model (https://www.ready4-dev.com/).  This development version
+    of the ready4class package has been made available as part of the
+    process of testing and documenting the package. You should only trial
+    this software if you feel confident that you understand what it does
+    and have created a sandpit area in which you can safely undertake
+    testing. If you have any questions, please contact the authors
     (matthew.hamilton@orygen.org.au).">
-<title>Author Ready4 Framework Modules • ready4class</title>
+<title>Author Ready4 Model Modules • ready4class</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -26,15 +26,15 @@
 <script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="Author Ready4 Framework Modules">
+<meta property="og:title" content="Author Ready4 Model Modules">
 <meta property="og:description" content="ready4class provides tools to standardise and streamline the
     process for authoring modules for the ready4 youth mental health
-    systems model.  This development version of the ready4class package
-    has been made available as part of the process of testing and
-    documenting the package.  You should only trial this software if you
-    feel confident that you understand what it does and have created a
-    sandpit area in which you can safely undertake testing. If you have
-    any questions, please contact the authors
+    systems model (https://www.ready4-dev.com/).  This development version
+    of the ready4class package has been made available as part of the
+    process of testing and documenting the package. You should only trial
+    this software if you feel confident that you understand what it does
+    and have created a sandpit area in which you can safely undertake
+    testing. If you have any questions, please contact the authors
     (matthew.hamilton@orygen.org.au).">
 <meta property="og:image" content="https://ready4-dev.github.io/ready4class/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -50,7 +50,7 @@
     
     <a class="navbar-brand me-2" href="index.html">ready4class</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9292</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9293</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,11 +96,11 @@
 </h1>
 </div>
 <div class="section level2">
-<h2 id="author-ready4-framework-modules">Author Ready4 Framework Modules<a class="anchor" aria-label="anchor" href="#author-ready4-framework-modules"></a>
+<h2 id="author-ready4-model-modules">Author Ready4 Model Modules<a class="anchor" aria-label="anchor" href="#author-ready4-model-modules"></a>
 </h2>
 <!-- badges: start -->
 
-<p>ready4class provides tools to standardise and streamline the process for authoring modules for the ready4 youth mental health systems model. This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (<a href="mailto:matthew.hamilton@orygen.org.au" class="email">matthew.hamilton@orygen.org.au</a>).</p>
+<p>ready4class provides tools to standardise and streamline the process for authoring modules for the ready4 youth mental health systems model (<a href="https://www.ready4-dev.com/" class="external-link uri">https://www.ready4-dev.com/</a>). This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (<a href="mailto:matthew.hamilton@orygen.org.au" class="email">matthew.hamilton@orygen.org.au</a>).</p>
 <p>To install a development version of this software, run the following commands in your R console:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
@@ -140,6 +140,7 @@
 <li>Matthew Hamilton <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-7407-9194" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Glen Wiesner <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-0071-130X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Orygen <br><small class="roles"> Copyright holder, funder </small>  </li>
+<li>Australian Government Research Training Program <br><small class="roles"> Funder </small>  </li>
 <li>VicHealth <br><small class="roles"> Funder </small>  </li>
 <li>Victoria University <br><small class="roles"> Funder </small>  </li>
 </ul>
@@ -163,7 +164,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Matthew Hamilton, Glen Wiesner, Orygen, VicHealth, Victoria University.</p>
+<p>Developed by Matthew Hamilton, Glen Wiesner, Orygen, Australian Government Research Training Program, VicHealth, Victoria University.</p>
 </div>
 
 <div class="pkgdown-footer-right">
