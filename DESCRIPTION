@@ -1,10 +1,10 @@
 Package: ready4class
-Title: Author Computational Health Economic Model Modules
-Version: 0.0.0.9294
+Title: Author Classes that Make Health Economic Models Modular
+Version: 0.0.0.9295
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton1@monash.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
-    person("Glen", "Wiesner", , "Glen.Wiesner@vu.edu.au", role = "aut",
+    person("Glen", "Wiesner", role = "aut",
            comment = c(ORCID = "0000-0002-0071-130X")),
     person("Orygen", role = c("cph", "fnd")),
     person("Australian Government Research Training Program", role = "fnd"),
@@ -37,8 +37,8 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9522),
-    ready4show (>= 0.0.0.9109),
+    ready4fun (>= 0.0.0.9528),
+    ready4show (>= 0.0.0.9111),
     rlang,
     stats,
     stringi,
