@@ -1,6 +1,7 @@
 Package: ready4class
-Title: Author Classes that Make Health Economic Models Modular
-Version: 0.0.0.9295
+Title: Author and Document Classes that Make Health Economic Models
+    Modular
+Version: 0.0.0.9296
 Authors@R: c(
     person("Matthew", "Hamilton", , "matthew.hamilton1@monash.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
@@ -37,6 +38,7 @@ Imports:
     magrittr,
     methods,
     purrr,
+    ready4 (>= 0.0.0.9125),
     ready4fun (>= 0.0.0.9528),
     ready4show (>= 0.0.0.9111),
     rlang,
@@ -50,8 +52,6 @@ Imports:
     usethis,
     utils
 VignetteBuilder: knitr
-Depends: 
-    ready4
 Suggests: 
     ready4use,
     rmarkdown
