@@ -84,4 +84,7 @@ write_to_edit_workflow("pkgdown.yaml") # In other packages, run for "test-covera
 readLines("_pkgdown.yml") %>%
   stringr::str_replace_all("  - text: Model", "  - text: Framework & Model") %>%
   writeLines(con = "_pkgdown.yml")
+readme_chr <- readLines("README.md")
+readme_chr[-which(readme_chr %>% purrr::map_lgl(~startsWith(.x, "[![test-coverage]")))] %>%
+  writeLines(con = "README.md")
 devtools::build_vignettes()
