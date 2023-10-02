@@ -1,8 +1,8 @@
 Package: ready4class
-Title: Author Ready4 Model Modules
-Version: 0.0.0.9293
+Title: Author Computational Health Economic Model Modules
+Version: 0.0.0.9294
 Authors@R: c(
-    person("Matthew", "Hamilton", , "matthew.hamilton@orygen.org.au", role = c("aut", "cre"),
+    person("Matthew", "Hamilton", , "matthew.hamilton1@monash.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7407-9194")),
     person("Glen", "Wiesner", , "Glen.Wiesner@vu.edu.au", role = "aut",
            comment = c(ORCID = "0000-0002-0071-130X")),
@@ -12,14 +12,14 @@ Authors@R: c(
     person("Victoria University", role = "fnd")
   )
 Description: ready4class provides tools to standardise and streamline the
-    process for authoring modules for the ready4 youth mental health
-    systems model (https://www.ready4-dev.com/).  This development version
-    of the ready4class package has been made available as part of the
-    process of testing and documenting the package. You should only trial
-    this software if you feel confident that you understand what it does
-    and have created a sandpit area in which you can safely undertake
-    testing. If you have any questions, please contact the authors
-    (matthew.hamilton@orygen.org.au).
+    process for authoring modules for models developed with the ready4
+    framework (https://www.ready4-dev.com/).  This development version of
+    the ready4class package has been made available as part of the process
+    of testing and documenting the package. You should only trial this
+    software if you feel confident that you understand what it does and
+    have created a sandpit area in which you can safely undertake testing.
+    If you have any questions, please contact the authors
+    (matthew.hamilton1@monash.edu).
 License: GPL-3 + file LICENSE
 URL: https://ready4-dev.github.io/ready4class/,
     https://github.com/ready4-dev/ready4class, https://www.ready4-dev.com/
@@ -37,8 +37,8 @@ Imports:
     magrittr,
     methods,
     purrr,
-    ready4fun (>= 0.0.0.9521),
-    ready4show (>= 0.0.0.9103),
+    ready4fun (>= 0.0.0.9522),
+    ready4show (>= 0.0.0.9109),
     rlang,
     stats,
     stringi,
