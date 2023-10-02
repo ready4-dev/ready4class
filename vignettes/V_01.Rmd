@@ -1,5 +1,5 @@
 ---
-title: "Author Ready4 Modules"
+title: "Author And Document Modules Of Health Economic Models"
 output: 
   rmarkdown::html_vignette:
     toc: true
@@ -22,7 +22,7 @@ library(ready4use)
 
 ## Motivation
 
-The [ready4 model](https://www.ready4-dev.com/) uses [object oriented programming (OOP)](https://ready4-dev.github.io/ready4/articles/V_03.html) to implement [modular approaches to computational models of mental health systems](https://ready4-dev.github.io/ready4/articles/V_01.html). That means that a standardised approach to developing modules (S4 classes) and sub-modules (S3 classes) is required. ready4class provides the tools to implement this workflow.
+The [ready4 framework](https://www.ready4-dev.com/) uses [object oriented programming (OOP)](https://ready4-dev.github.io/ready4/articles/V_03.html) to implement [modular approaches to computational models of mental health systems](https://ready4-dev.github.io/ready4/articles/V_01.html). That means that a standardised approach to developing modules (S4 classes) and sub-modules (S3 classes) is required. ready4class provides the tools to implement this workflow.
 
 ## Workflow
 

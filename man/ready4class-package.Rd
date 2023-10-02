@@ -4,7 +4,7 @@
 \name{ready4class-package}
 \alias{ready4class}
 \alias{ready4class-package}
-\title{ready4class: Author Computational Health Economic Model Modules}
+\title{ready4class: Author and Document Classes that Make Health Economic Models Modular}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
@@ -36,7 +36,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Glen Wiesner \email{Glen.Wiesner@vu.edu.au} (\href{https://orcid.org/0000-0002-0071-130X}{ORCID})
+  \item Glen Wiesner (\href{https://orcid.org/0000-0002-0071-130X}{ORCID})
 }
 
 Other contributors:
