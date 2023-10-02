@@ -384,11 +384,11 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
     s3_prototype_ls) 
 {
     name_of_fn_to_construct_instance <- paste0("make_new_", class_nm_1L_chr)
-    stop_cndn_in_constructor <- ifelse(type_1L_chr == "factor", 
+    stop_cdn_in_constructor <- ifelse(type_1L_chr == "factor", 
         "TRUE", paste0(pt_ns_1L_chr, ifelse(pt_ns_1L_chr == "", 
             "", "::"), pt_chkr_pfx_1L_chr, type_1L_chr, "(x)"))
     fn_to_construct_instance <- paste0(name_of_fn_to_construct_instance, 
-        " <- function(x){ \n", "stopifnot(", stop_cndn_in_constructor, 
+        " <- function(x){ \n", "stopifnot(", stop_cdn_in_constructor, 
         ")\n", "class(x) <- append(", "c(\"", class_nm_1L_chr, 
         "\",setdiff(", paste0(s3_prototype_ls$fn_name_1L_chr, 
             "()"), " %>% class(),class(x)))", ",\nclass(x))\nx\n}")
@@ -419,7 +419,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
     name_of_fn_to_validate_instance <- paste0("validate_", class_nm_1L_chr)
     validator_stop_cond_ls <- validator_stop_msg_call_ls <- NULL
     if (type_1L_chr %in% c("tibble", "list")) {
-        stop_cndn_in_validator_1 <- paste0("sum(stringr::str_detect(names(x)[names(x) %in% names(", 
+        stop_cdn_in_validator_1 <- paste0("sum(stringr::str_detect(names(x)[names(x) %in% names(", 
             s3_prototype_ls$fn_name_1L_chr, "())],\n", "names(", 
             s3_prototype_ls$fn_name_1L_chr, "())))!=length(names(", 
             s3_prototype_ls$fn_name_1L_chr, "()))")
@@ -429,7 +429,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
                 "tibble::as_tibble() "), "dplyr::summarise_all(class) ")
         var_class_lup <- paste0(s3_prototype_ls$fn_name_1L_chr, 
             "() %>% \n", tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class))")
-        stop_cndn_in_validator_2 <- paste0("!identical(", var_class_lup, 
+        stop_cdn_in_validator_2 <- paste0("!identical(", var_class_lup, 
             " %>% \n", "dplyr::arrange(variable),\n", "x %>% \n", 
             tb_or_ls_class_summary, "%>% \n tidyr::gather(variable,class) %>% \n dplyr::filter(!is.na(class)) %>% \n", 
             "dplyr::filter(variable %in% names(", s3_prototype_ls$fn_name_1L_chr, 
@@ -446,16 +446,16 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
             "\n  classes_chr <- vars_chr %>%  purrr::map_chr(~dplyr::filter(class_lup, variable == .x) %>%  dplyr::pull(2) %>% paste0(collapse = \", \"))\n", 
             "purrr::map2_chr(vars_chr,\n", "classes_chr,\n", 
             "~ paste0(.x,\": \",.y)) %>% \n", "stringr::str_c(sep=\"\", collapse = \", \n\")\n})")
-        validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1, 
-            b = stop_cndn_in_validator_2)
+        validator_stop_cond_ls <- list(a = stop_cdn_in_validator_1, 
+            b = stop_cdn_in_validator_2)
         validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1, 
             b = stop_msg_call_in_validator_2)
     }
     else {
         if (!is.null(min_max_vals_dbl)) {
-            stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
+            stop_cdn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cdn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
             if (!is.na(min_max_vals_dbl[1])) {
-                stop_cndn_in_validator_1 <- paste0("any(", ifelse(type_1L_chr == 
+                stop_cdn_in_validator_1 <- paste0("any(", ifelse(type_1L_chr == 
                   "character", "stringr::str_length(x)", "x[!is.na(x)]"), 
                   " < ", min_max_vals_dbl[1], ")")
                 stop_msg_call_in_validator_1 <- paste0("\"All non-missing values in valid ", 
@@ -464,7 +464,7 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
                   min_max_vals_dbl[1], ".\"")
             }
             if (!is.na(min_max_vals_dbl[2])) {
-                stop_cndn_in_validator_2 <- paste0("any(", ifelse(type_1L_chr == 
+                stop_cdn_in_validator_2 <- paste0("any(", ifelse(type_1L_chr == 
                   "character", "stringr::str_length(x)", "x[!is.na(x)]"), 
                   " > ", min_max_vals_dbl[2], ")")
                 stop_msg_call_in_validator_2 <- paste0("\"All non-missing values in valid ", 
@@ -472,42 +472,42 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
                     "character", "of length ", ""), "less than or equal to ", 
                   min_max_vals_dbl[2], ".\"")
             }
-            validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1, 
-                b = stop_cndn_in_validator_2) %>% purrr::compact()
+            validator_stop_cond_ls <- list(a = stop_cdn_in_validator_1, 
+                b = stop_cdn_in_validator_2) %>% purrr::compact()
             validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1, 
                 b = stop_msg_call_in_validator_2) %>% purrr::compact()
         }
         if (!is.null(start_end_vals_dbl)) {
-            stop_cndn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cndn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
+            stop_cdn_in_validator_1 <- stop_msg_call_in_validator_1 <- stop_cdn_in_validator_2 <- stop_msg_call_in_validator_2 <- NULL
             if (!is.na(start_end_vals_dbl[1])) {
-                stop_cndn_in_validator_1 <- paste0("any(purrr::map_lgl(x, ~ !startsWith(.x,\"", 
+                stop_cdn_in_validator_1 <- paste0("any(purrr::map_lgl(x, ~ !startsWith(.x,\"", 
                   start_end_vals_dbl[1], "\")))")
                 stop_msg_call_in_validator_1 <- paste0("\"All values in valid ", 
                   class_nm_1L_chr, " object must start with '", 
                   start_end_vals_dbl[1], "'.\"")
             }
             if (!is.na(start_end_vals_dbl[2])) {
-                stop_cndn_in_validator_2 <- paste0("any(purrr::map_lgl(x, ~ !endsWith(.x,\"", 
+                stop_cdn_in_validator_2 <- paste0("any(purrr::map_lgl(x, ~ !endsWith(.x,\"", 
                   start_end_vals_dbl[2], "\")))")
                 stop_msg_call_in_validator_2 <- paste0("\"All values in valid ", 
                   class_nm_1L_chr, " object must end with '", 
                   start_end_vals_dbl[2], "'.\"")
             }
             validator_stop_cond_ls <- append(validator_stop_cond_ls, 
-                list(a = stop_cndn_in_validator_1, b = stop_cndn_in_validator_2) %>% 
+                list(a = stop_cdn_in_validator_1, b = stop_cdn_in_validator_2) %>% 
                   purrr::compact())
             validator_stop_msg_call_ls <- append(validator_stop_msg_call_ls, 
                 list(a = stop_msg_call_in_validator_1, b = stop_msg_call_in_validator_2) %>% 
                   purrr::compact())
         }
         if (type_1L_chr == "factor") {
-            stop_cndn_in_validator_1 <- paste0("!identical(setdiff(x,c(\"", 
+            stop_cdn_in_validator_1 <- paste0("!identical(setdiff(x,c(\"", 
                 vals_ls %>% stringr::str_c(collapse = "\",\""), 
                 "\")),character(0))")
             stop_msg_call_in_validator_1 <- paste0("\"Levels in valid ", 
                 class_nm_1L_chr, " object are: ", vals_ls %>% 
                   stringr::str_c(collapse = ","), ".\"")
-            validator_stop_cond_ls <- list(a = stop_cndn_in_validator_1)
+            validator_stop_cond_ls <- list(a = stop_cdn_in_validator_1)
             validator_stop_msg_call_ls <- list(a = stop_msg_call_in_validator_1)
         }
     }

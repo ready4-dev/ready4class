@@ -2,15 +2,15 @@ library(ready4fun)
 library(ready4show)
 library(ready4use)
 #ready4fun::write_fn_type_dirs()
-pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author Ready4 Model Modules",
-                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for authoring modules for the ready4 youth mental health systems model (https://www.ready4-dev.com/).
-  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton@orygen.org.au).",
+pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author Classes That Make Health Economic Models Modular"  %>% tools::toTitleCase(),
+                            pkg_desc_1L_chr = "ready4class provides tools to standardise and streamline the process for authoring modules for models developed with the ready4 framework (https://www.ready4-dev.com/).
+  This development version of the ready4class package has been made available as part of the process of testing and documenting the package. You should only trial this software if you feel confident that you understand what it does and have created a sandpit area in which you can safely undertake testing. If you have any questions, please contact the authors (matthew.hamilton1@monash.edu).",
                             authors_prsn = c(utils::person(
                               given = "Matthew",family = "Hamilton", email =
-                                "matthew.hamilton@orygen.org.au",role = c("aut",
+                                "matthew.hamilton1@monash.edu",role = c("aut",
                                                                           "cre"),comment = c(ORCID = "0000-0001-7407-9194")
                             ),
-                            utils::person("Glen", "Wiesner", email = "Glen.Wiesner@vu.edu.au",
+                            utils::person("Glen", "Wiesner", #email = "Glen.Wiesner@vu.edu.au",
                                           role = c("aut"), comment = c(ORCID = "0000-0002-0071-130X")),
                             #person("Alexandra", "Parker", email =  "Alex.Parker@vu.edu.au", role = c("rev"), comment = c(ORCID ="0000-0002-2398-6306")),
                             #person("Cathrine", "Mihalopoulos",email = "cathy.mihalopoulos@deakin.edu.au", role = c("rev"), comment = c(ORCID = "0000-0002-7127-9462")),
@@ -72,4 +72,15 @@ x <- ready4::author(x,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                             args_ls = NULL))
 ready4::write_extra_pkgs_to_actions()
+readLines(".github/workflows/R-CMD-check.yaml") %>%
+  #stringr::str_replace_all("r-lib/actions/setup-r@master", "r-lib/actions/setup-r@v2") %>%
+  #stringr::str_replace_all("r-lib/actions/setup-pandoc@master", "r-lib/actions/setup-pandoc@v2") %>%
+  stringr::str_replace_all("- \\{os: windows-latest, r: '3.6'\\}", "#- \\{os: windows-latest, r: '3.6'\\}") %>%
+  stringr::str_replace_all("- \\{os: ubuntu-20.04,   r: 'oldrel', ", "#- \\{os: ubuntu-20.04,   r: 'oldrel', ") %>%
+  purrr::discard_at(2:4) %>%
+  writeLines(con = ".github/workflows/R-CMD-check.yaml")
+write_to_edit_workflow("pkgdown.yaml")
+readLines("_pkgdown.yml") %>%
+  stringr::str_replace_all("  - text: Model", "  - text: Framework & Model") %>%
+  writeLines(con = "_pkgdown.yml")
 devtools::build_vignettes()
