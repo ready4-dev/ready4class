@@ -13,6 +13,6 @@ transform_pt_ls_for_new_clss(pts_for_new_clss_ls)
 Transformed prototypes for new classes (a list)
 }
 \description{
-transform_pt_ls_for_new_clss() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform prototype list for new classes. Function argument pts_for_new_clss_ls specifies the object to be updated. The function returns Transformed prototypes for new classes (a list).
+transform_pt_ls_for_new_clss() is a Transform function that edits an object in such a way that core object attributes - e.g. shape, dimensions, elements, type - are altered. Specifically, this function implements an algorithm to transform prototype list for new classes. The function returns Transformed prototypes for new classes (a list).
 }
 \keyword{internal}

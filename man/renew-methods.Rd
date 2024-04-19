@@ -5,7 +5,7 @@
 \alias{renew,ready4class_constructor-method}
 \alias{renew.ready4class_pt_lup}
 \alias{renew,ready4class_pt_lup-method}
-\title{Renew values in a dataset}
+\title{Renew (update) values}
 \usage{
 renew.ready4class_constructor(
   x,
@@ -20,7 +20,7 @@ renew.ready4class_pt_lup(x, attached_nss_chr, type_1L_chr = "namespace")
 \S4method{renew}{ready4class_pt_lup}(x, attached_nss_chr, type_1L_chr = "namespace")
 }
 \arguments{
-\item{x}{An instance of Class prototype lookup table}
+\item{x}{An instance of \code{ready4class_pt_lup}, a Class prototype lookup table}
 
 \item{type_1L_chr}{Type (a character vector of length one), Default: 'namespace'}
 

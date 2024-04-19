@@ -3,7 +3,7 @@
 \name{exhibit.ready4class_pt_lup}
 \alias{exhibit.ready4class_pt_lup}
 \alias{exhibit,ready4class_pt_lup-method}
-\title{Exhibit features of a dataset by printing them to the R console}
+\title{Exhibit features of model module data by printing them to the R console}
 \usage{
 exhibit.ready4class_pt_lup(
   x,
@@ -24,7 +24,7 @@ exhibit.ready4class_pt_lup(
 )
 }
 \arguments{
-\item{x}{An instance of Class prototype lookup table}
+\item{x}{An instance of \code{ready4class_pt_lup}, a Class prototype lookup table}
 
 \item{caption_1L_chr}{Caption (a character vector of length one), Default: NULL}
 
@@ -36,6 +36,12 @@ exhibit.ready4class_pt_lup(
 
 \item{...}{Additional arguments}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 exhibit.ready4class_pt_lup() is an exhibit method that exhibits features of a class instance by printing to console. This method is implemented for the Class prototype lookup table The function is called for its side effects and does not return a value.
+}
+\seealso{
+\code{\link[ready4show:print_from_chunk]{ready4show::print_from_chunk()}}
 }

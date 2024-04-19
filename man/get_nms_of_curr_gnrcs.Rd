@@ -15,6 +15,6 @@ get_nms_of_curr_gnrcs(req_pkgs_chr, generic_1L_chr)
 Names of current generics (a list)
 }
 \description{
-get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of current generics. Function argument req_pkgs_chr specifies the where to look for the required object. The function returns Names of current generics (a list).
+get_nms_of_curr_gnrcs() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get names of current generics. The function returns Names of current generics (a list).
 }
 \keyword{internal}

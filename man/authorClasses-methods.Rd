@@ -38,7 +38,7 @@ authorClasses.ready4class_constructor(
 )
 }
 \arguments{
-\item{x}{An instance of Class constructor table}
+\item{x}{An instance of \code{ready4class_constructor}, a Class constructor table}
 
 \item{name_pfx_1L_chr}{Name prefix (a character vector of length one)}
 
@@ -63,6 +63,9 @@ authorClasses.ready4class_constructor(
 \item{object_type_lup}{Object type (a lookup table)}
 
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
+}
+\value{
+No return value, called for side effects.
 }
 \description{
 authorClasses.ready4class_constructor() is an authorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the Class constructor table The function is called for its side effects and does not return a value.

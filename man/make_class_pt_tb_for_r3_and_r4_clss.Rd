@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_class_pt_tb_for_r3_and_r4_clss}
 \alias{make_class_pt_tb_for_r3_and_r4_clss}
-\title{Make class prototype tibble for ready4 S3 and ready4 S4 classes}
+\title{Make class prototype tibble for ready4 submodule and ready4 module classes}
 \usage{
 make_class_pt_tb_for_r3_and_r4_clss(class_mk_ls)
 }
@@ -10,9 +10,9 @@ make_class_pt_tb_for_r3_and_r4_clss(class_mk_ls)
 \item{class_mk_ls}{Class make (a list)}
 }
 \value{
-Class prototype tibble for ready4 S3 and ready4 S4 classes (a tibble)
+Class prototype tibble for ready4 submodule and ready4 module classes (a tibble)
 }
 \description{
-make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototype tibble for ready4 s3 and ready4 s4 classes. The function returns Class prototype tibble for ready4 S3 and ready4 S4 classes (a tibble).
+make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototype tibble for ready4 submodule and ready4 module classes. The function returns Class prototype tibble for ready4 submodule and ready4 module classes (a tibble).
 }
 \keyword{internal}

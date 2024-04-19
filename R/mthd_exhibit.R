@@ -1,15 +1,15 @@
-#' Exhibit features of a dataset by printing them to the R console
+#' Exhibit features of model module data by printing them to the R console
 #' @description exhibit.ready4class_pt_lup() is an exhibit method that exhibits features of a class instance by printing to console. This method is implemented for the Class prototype lookup table The function is called for its side effects and does not return a value.
-#' @param x An instance of Class prototype lookup table
+#' @param x An instance of `ready4class_pt_lup`, a Class prototype lookup table
 #' @param caption_1L_chr Caption (a character vector of length one), Default: NULL
 #' @param mkdn_tbl_ref_1L_chr Markdown table reference (a character vector of length one), Default: NULL
 #' @param output_type_1L_chr Output type (a character vector of length one), Default: 'HTML'
 #' @param use_lbls_as_col_nms_1L_lgl Use labels as column names (a logical vector of length one), Default: T
 #' @param ... Additional arguments
-#' @return NULL
+#' @return No return value, called for side effects.
 #' @rdname exhibit-methods
 #' @export 
-#' @importFrom ready4show print_from_chunk
+#' @seealso [ready4show::print_from_chunk()]
 #' @importFrom ready4 exhibit
 exhibit.ready4class_pt_lup <- function (x, caption_1L_chr = NULL, mkdn_tbl_ref_1L_chr = NULL, 
     output_type_1L_chr = "HTML", use_lbls_as_col_nms_1L_lgl = T, 

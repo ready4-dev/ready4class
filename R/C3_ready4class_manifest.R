@@ -25,7 +25,7 @@ x
 }
 #' make prototype ready4class manifest Class creation manifest
 #' @param x_ready4fun_manifest PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()
-#' @param constructor_r3 Constructor (a ready4 S3), Default: ready4class_constructor()
+#' @param constructor_r3 Constructor (a ready4 submodule), Default: ready4class_constructor()
 #' @return A prototype for Class creation manifest
 #' 
 #' @rdname ready4class_manifest

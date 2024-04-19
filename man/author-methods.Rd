@@ -98,7 +98,7 @@ author.ready4class_pt_lup(
 )
 }
 \arguments{
-\item{x}{An instance of Class prototype lookup table}
+\item{x}{An instance of \code{ready4class_pt_lup}, a Class prototype lookup table}
 
 \item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one)}
 
@@ -141,7 +141,7 @@ author.ready4class_pt_lup(
 \value{
 X (Class prototype lookup table)
 
-X (ready4 S3 class for encapsulating the metadata required for package set-up.)
+X (ready4 submodule class for encapsulating the metadata required for package set-up.)
 
 X (Class prototype lookup table)
 }

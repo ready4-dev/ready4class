@@ -10,7 +10,7 @@ manufacture.ready4class_constructor(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 \S4method{manufacture}{ready4class_constructor}(x, dev_pkg_ns_1L_chr, prefix_1L_chr)
 }
 \arguments{
-\item{x}{An instance of Class constructor table}
+\item{x}{An instance of \code{ready4class_constructor}, a Class constructor table}
 
 \item{dev_pkg_ns_1L_chr}{Development package namespace (a character vector of length one)}
 

@@ -59,7 +59,10 @@ write_script_to_make_gnrc(
 
 \item{consent_1L_chr}{Consent (a character vector of length one), Default: NULL}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
-write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+write_script_to_make_gnrc() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write script to make generic. The function is called for its side effects and does not return a value.
 }
 \keyword{internal}

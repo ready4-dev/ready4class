@@ -9,7 +9,7 @@ pkg_desc_ls <- ready4fun::make_pkg_desc_ls(pkg_title_1L_chr = "Author and Docume
                             authors_prsn = c(utils::person(
                               given = "Matthew",family = "Hamilton", email =
                                 "matthew.hamilton1@monash.edu",role = c("aut",
-                                                                          "cre"),comment = c(ORCID = "0000-0001-7407-9194")
+                                                                          "cre", "cph"),comment = c(ORCID = "0000-0001-7407-9194")
                             ),
                             utils::person("Glen", "Wiesner", #email = "Glen.Wiesner@vu.edu.au",
                                           role = c("aut"), comment = c(ORCID = "0000-0002-0071-130X")),
@@ -61,8 +61,9 @@ x <- pkg_desc_ls %>%
                                                                              fn =  fns_env_ls$fns_env$author.ready4class_constructor) %>%
                              ready4fun::ready4fun_executor(),
                            custom_dmt_ls = ready4fun::make_custom_dmt_ls(),
-                           copyright_holders_chr = "Orygen",
-                           dev_pkgs_chr = c("ready4","ready4fun","ready4show","ready4use"),
+                           copyright_holders_chr = "Matthew Hamilton and Orygen",
+                           dev_pkgs_chr = c(#"ready4",
+                                            "ready4fun","ready4show","ready4use"),
                            lifecycle_stage_1L_chr = "experimental",
                            path_to_pkg_logo_1L_chr = "../../../../../Documentation/Images/ready4class-logo/default.png",
                            piggyback_to_1L_chr = "ready4-dev/ready4",
@@ -72,19 +73,11 @@ x <- ready4::author(x,
                     self_serve_1L_lgl = T,
                     self_serve_fn_ls = list(fn = fns_env_ls$fns_env$write_self_srvc_clss,
                                             args_ls = NULL))
-ready4::write_extra_pkgs_to_actions()
-# readLines(".github/workflows/R-CMD-check.yaml") %>%
-#   #stringr::str_replace_all("r-lib/actions/setup-r@master", "r-lib/actions/setup-r@v2") %>%
-#   #stringr::str_replace_all("r-lib/actions/setup-pandoc@master", "r-lib/actions/setup-pandoc@v2") %>%
-#   stringr::str_replace_all("- \\{os: windows-latest, r: '3.6'\\}", "#- \\{os: windows-latest, r: '3.6'\\}") %>%
-#   stringr::str_replace_all("- \\{os: ubuntu-20.04,   r: 'oldrel', ", "#- \\{os: ubuntu-20.04,   r: 'oldrel', ") %>%
-#   purrr::discard_at(2:4) %>%
-#   writeLines(con = ".github/workflows/R-CMD-check.yaml")
+#ready4::write_extra_pkgs_to_actions(path_to_dir_1L_chr = ".github/workflows")
 write_to_edit_workflow("pkgdown.yaml") # In other packages, run for "test-coverage.yaml" as well.
-readLines("_pkgdown.yml") %>%
-  stringr::str_replace_all("  - text: Model", "  - text: Framework & Model") %>%
-  writeLines(con = "_pkgdown.yml")
 readme_chr <- readLines("README.md")
 readme_chr[-which(readme_chr %>% purrr::map_lgl(~startsWith(.x, "[![test-coverage]")))] %>%
   writeLines(con = "README.md")
-devtools::build_vignettes()
+write_to_tidy_pkg(manifest_ls, build_vignettes_1L_lgl = TRUE,
+                  clean_license_1L_lgl = TRUE, consent_1L_chr = "Y",
+                  examples_chr = character(0), project_1L_chr = "Framework", suggest_chr = "pkgload")

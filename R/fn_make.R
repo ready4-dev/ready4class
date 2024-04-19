@@ -109,8 +109,8 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
     }
     return(alg_to_set_old_clss_1L_chr)
 }
-#' Make algorithm to set validity of ready4 S4 class
-#' @description make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of ready4 s4 class. The function returns Algorithm to set validity of ready4 S4 class (a character vector of length one).
+#' Make algorithm to set validity of ready4 module class
+#' @description make_alg_to_set_validity_of_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make algorithm to set validity of ready4 module class. The function returns Algorithm to set validity of ready4 module class (a character vector of length one).
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param slots_of_dif_lnts_chr Slots of different lengths (a character vector), Default: NULL
@@ -118,7 +118,7 @@ make_alg_to_set_old_clss <- function (type_chr, prototype_lup = NULL)
 #' @param names_must_match_ls Names must match (a list), Default: NULL
 #' @param print_validator_1L_lgl Print validator (a logical vector of length one), Default: FALSE
 #' @param asserts_ls Asserts (a list), Default: NULL
-#' @return Algorithm to set validity of ready4 S4 class (a character vector of length one)
+#' @return Algorithm to set validity of ready4 module class (a character vector of length one)
 #' @rdname make_alg_to_set_validity_of_r4_cls
 #' @export 
 #' @importFrom ready4 get_r4_obj_slots
@@ -227,10 +227,10 @@ make_alg_to_write_gtr_str_mthds <- function (class_nm_1L_chr, parent_cls_nm_1L_c
         ")")
     return(alg_to_write_gtr_str_mthds)
 }
-#' Make class prototype tibble for ready4 S3 and ready4 S4 classes
-#' @description make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototype tibble for ready4 s3 and ready4 s4 classes. The function returns Class prototype tibble for ready4 S3 and ready4 S4 classes (a tibble).
+#' Make class prototype tibble for ready4 submodule and ready4 module classes
+#' @description make_class_pt_tb_for_r3_and_r4_clss() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make class prototype tibble for ready4 submodule and ready4 module classes. The function returns Class prototype tibble for ready4 submodule and ready4 module classes (a tibble).
 #' @param class_mk_ls Class make (a list)
-#' @return Class prototype tibble for ready4 S3 and ready4 S4 classes (a tibble)
+#' @return Class prototype tibble for ready4 submodule and ready4 module classes (a tibble)
 #' @rdname make_class_pt_tb_for_r3_and_r4_clss
 #' @export 
 #' @importFrom purrr map2_dfr
@@ -290,11 +290,11 @@ make_dmt_inc_tag <- function (class_names_chr, fn_fls_chr = NULL, s3_1L_lgl = T)
         "")
     return(dmt_inc_tag_1L_chr)
 }
-#' Make function prototype to check ready4 S3 class inheritance
-#' @description make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to check ready4 s3 class inheritance. The function is called for its side effects and does not return a value.
+#' Make function prototype to check ready4 submodule class inheritance
+#' @description make_fn_pt_to_check_r3_cls_inhtc() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to check ready4 submodule class inheritance. The function is called for its side effects and does not return a value.
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param s3_validator_ls S3 validator (a list)
-#' @return Function prototype to check ready4 S3 class (an inheritance)
+#' @return Function prototype to check ready4 submodule class (an inheritance)
 #' @rdname make_fn_pt_to_check_r3_cls_inhtc
 #' @export 
 #' @keywords internal
@@ -309,8 +309,8 @@ make_fn_pt_to_check_r3_cls_inhtc <- function (class_nm_1L_chr, s3_validator_ls)
         fn_body_1L_chr = fn_to_check_if_is_valid_instance)
     return(fn_pt_to_check_r3_cls_inhtc)
 }
-#' Make function prototype to make ready4 S3 class prototype
-#' @description make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make ready4 s3 class prototype. The function is called for its side effects and does not return a value.
+#' Make function prototype to make ready4 submodule class prototype
+#' @description make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make ready4 submodule class prototype. The function is called for its side effects and does not return a value.
 #' @param type_1L_chr Type (a character vector of length one)
 #' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
 #' @param vals_ls Values (a list)
@@ -319,7 +319,7 @@ make_fn_pt_to_check_r3_cls_inhtc <- function (class_nm_1L_chr, s3_validator_ls)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param prototype_lup Prototype (a lookup table)
-#' @return Function prototype to make ready4 S3 class (a prototype)
+#' @return Function prototype to make ready4 submodule class (a prototype)
 #' @rdname make_fn_pt_to_make_r3_cls_pt
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
@@ -369,14 +369,14 @@ make_fn_pt_to_make_r3_cls_pt <- function (type_1L_chr, pt_ns_1L_chr, vals_ls, or
         fn_body_1L_chr = fn_to_make_pt)
     return(fn_pt_to_make_r3_cls_pt)
 }
-#' Make function prototype to make unvalidated ready4 S3 class instance
-#' @description make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make unvalidated ready4 s3 class instance. The function is called for its side effects and does not return a value.
+#' Make function prototype to make unvalidated ready4 submodule class instance
+#' @description make_fn_pt_to_make_unvld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make unvalidated ready4 submodule class instance. The function is called for its side effects and does not return a value.
 #' @param type_1L_chr Type (a character vector of length one)
 #' @param pt_chkr_pfx_1L_chr Prototype checker prefix (a character vector of length one)
 #' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param s3_prototype_ls S3 prototype (a list)
-#' @return Function prototype to make unvalidated ready4 S3 class (an instance)
+#' @return Function prototype to make unvalidated ready4 submodule class (an instance)
 #' @rdname make_fn_pt_to_make_unvld_r3_cls_inst
 #' @export 
 #' @keywords internal
@@ -396,8 +396,8 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
         fn_body_1L_chr = fn_to_construct_instance)
     return(fn_pt_to_make_unvld_r3_cls_inst)
 }
-#' Make function prototype to make valid ready4 S3 class instance
-#' @description make_fn_pt_to_make_vld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make valid ready4 s3 class instance. The function is called for its side effects and does not return a value.
+#' Make function prototype to make valid ready4 submodule class instance
+#' @description make_fn_pt_to_make_vld_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make valid ready4 submodule class instance. The function is called for its side effects and does not return a value.
 #' @param type_1L_chr Type (a character vector of length one)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param s3_prototype_ls S3 prototype (a list)
@@ -406,7 +406,7 @@ make_fn_pt_to_make_unvld_r3_cls_inst <- function (type_1L_chr, pt_chkr_pfx_1L_ch
 #' @param vals_ls Values (a list)
 #' @param asserts_ls Asserts (a list), Default: NULL
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
-#' @return Function prototype to make valid ready4 S3 class (an instance)
+#' @return Function prototype to make valid ready4 submodule class (an instance)
 #' @rdname make_fn_pt_to_make_vld_r3_cls_inst
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
@@ -524,13 +524,13 @@ make_fn_pt_to_make_vld_r3_cls_inst <- function (type_1L_chr, class_nm_1L_chr, s3
         fn_body_1L_chr = fn_to_validate_instance)
     return(fn_pt_to_make_vld_r3_cls_inst)
 }
-#' Make function prototype to make validated ready4 S3 class instance
-#' @description make_fn_pt_to_make_vldd_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make validated ready4 s3 class instance. The function is called for its side effects and does not return a value.
+#' Make function prototype to make validated ready4 submodule class instance
+#' @description make_fn_pt_to_make_vldd_r3_cls_inst() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make validated ready4 submodule class instance. The function is called for its side effects and does not return a value.
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @param s3_prototype_ls S3 prototype (a list)
 #' @param s3_constructor_ls S3 constructor (a list)
 #' @param s3_validator_ls S3 validator (a list)
-#' @return Function prototype to make validated ready4 S3 class (an instance)
+#' @return Function prototype to make validated ready4 submodule class (an instance)
 #' @rdname make_fn_pt_to_make_vldd_r3_cls_inst
 #' @export 
 #' @keywords internal
@@ -679,7 +679,7 @@ make_incld_fn_fls <- function (vals_ls, fns_env_ls)
 #' @param abbreviations_lup Abbreviations (a lookup table)
 #' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
-#' @return NULL
+#' @return No return value, called for side effects.
 #' @rdname make_lines_for_writing_dmtd_fn
 #' @export 
 #' @importFrom ready4fun make_lines_for_fn_dmt
@@ -787,8 +787,8 @@ make_one_row_class_pt_tb <- function (class_type_mk_ls, make_s3_1L_lgl = T)
     }
     return(one_row_class_pt_tb)
 }
-#' Make one row prototype tibble for new ready4 S3 class
-#' @description make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 s3 class. The function returns One row class prototype (a tibble).
+#' Make one row prototype tibble for new ready4 submodule class
+#' @description make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 submodule class. The function returns One row class prototype (a tibble).
 #' @param x An object
 #' @return One row class prototype (a tibble)
 #' @rdname make_one_row_pt_tb_for_new_r3_cls
@@ -804,8 +804,8 @@ make_one_row_pt_tb_for_new_r3_cls <- function (x)
         inc_clss_ls = x@inc_clss_ls) %>% list(), make_s3_1L_lgl = T)
     return(one_row_class_pt_tb)
 }
-#' Make one row prototype tibble for new ready4 S4 class
-#' @description make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 s4 class. The function returns One row class prototype (a tibble).
+#' Make one row prototype tibble for new ready4 module class
+#' @description make_one_row_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 module class. The function returns One row class prototype (a tibble).
 #' @param x An object
 #' @return One row class prototype (a tibble)
 #' @rdname make_one_row_pt_tb_for_new_r4_cls
@@ -856,8 +856,8 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
         paste0("list(", ., ")")
     return(pt_ls_alg_1L_chr)
 }
-#' Make prototype list for new ready4 S3 class
-#' @description make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new ready4 s3 class. The function returns Prototype list for new ready4 S3 class (a list).
+#' Make prototype list for new ready4 submodule class
+#' @description make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new ready4 submodule class. The function returns Prototype list for new ready4 submodule class (a list).
 #' @param class_name_1L_chr Class name (a character vector of length one)
 #' @param type_1L_chr Type (a character vector of length one)
 #' @param pt_ns_1L_chr Prototype namespace (a character vector of length one)
@@ -871,7 +871,7 @@ make_pt_ls <- function (slots_chr, type_chr = NULL, vals_ls = NULL, make_val_1L_
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param nss_to_ignore_chr Namespaces to ignore (a character vector)
 #' @param asserts_ls Asserts (a list), Default: NULL
-#' @return Prototype list for new ready4 S3 class (a list)
+#' @return Prototype list for new ready4 submodule class (a list)
 #' @rdname make_pt_ls_for_new_r3_cls
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm
@@ -913,10 +913,10 @@ make_pt_ls_for_new_r3_cls <- function (class_name_1L_chr, type_1L_chr, pt_ns_1L_
         fn_body_1L_chr_ls = fn_body_1L_chr_ls, include_tags_chr = include_tags_chr)
     return(pt_ls_for_new_r3_cls_ls)
 }
-#' Make prototype tibble for new ready4 S3 class
-#' @description make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 s3 class. The function returns Prototype tibble for new ready4 S3 class (a tibble).
+#' Make prototype tibble for new ready4 submodule class
+#' @description make_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 submodule class. The function returns Prototype tibble for new ready4 submodule class (a tibble).
 #' @param x An object
-#' @return Prototype tibble for new ready4 S3 class (a tibble)
+#' @return Prototype tibble for new ready4 submodule class (a tibble)
 #' @rdname make_pt_tb_for_new_r3_cls
 #' @export 
 #' @importFrom purrr map_dfr
@@ -926,10 +926,10 @@ make_pt_tb_for_new_r3_cls <- function (x)
     pt_tb_for_new_r3_cls_tb <- purrr::map_dfr(x, ~make_one_row_pt_tb_for_new_r3_cls(.x))
     return(pt_tb_for_new_r3_cls_tb)
 }
-#' Make prototype tibble for new ready4 S4 class
-#' @description make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 s4 class. The function returns Prototype tibble for new ready4 S3 class (a tibble).
+#' Make prototype tibble for new ready4 module class
+#' @description make_pt_tb_for_new_r4_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype tibble for new ready4 module class. The function returns Prototype tibble for new ready4 submodule class (a tibble).
 #' @param x An object
-#' @return Prototype tibble for new ready4 S3 class (a tibble)
+#' @return Prototype tibble for new ready4 submodule class (a tibble)
 #' @rdname make_pt_tb_for_new_r4_cls
 #' @export 
 #' @importFrom purrr map_dfr

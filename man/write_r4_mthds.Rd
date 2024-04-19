@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_r4_mthds}
 \alias{write_r4_mthds}
-\title{Write ready4 S4 methods}
+\title{Write ready4 module methods}
 \usage{
 write_r4_mthds(
   fns_dir_1L_chr = "data-raw/s4_fns",
@@ -27,6 +27,6 @@ write_r4_mthds(
 a S4 methods (a list)
 }
 \description{
-write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 s4 methods. The function returns a S4 methods (a list).
+write_r4_mthds() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write ready4 module methods. The function returns a S4 methods (a list).
 }
 \keyword{internal}

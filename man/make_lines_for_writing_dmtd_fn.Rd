@@ -32,6 +32,9 @@ make_lines_for_writing_dmtd_fn(
 
 \item{object_type_lup}{Object type (a lookup table)}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
 make_lines_for_writing_dmtd_fn() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make lines for writing documented function. The function is called for its side effects and does not return a value.
 }

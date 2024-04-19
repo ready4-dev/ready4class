@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_fn_pt_to_make_r3_cls_pt}
 \alias{make_fn_pt_to_make_r3_cls_pt}
-\title{Make function prototype to make ready4 S3 class prototype}
+\title{Make function prototype to make ready4 submodule class prototype}
 \usage{
 make_fn_pt_to_make_r3_cls_pt(
   type_1L_chr,
@@ -33,9 +33,9 @@ make_fn_pt_to_make_r3_cls_pt(
 \item{prototype_lup}{Prototype (a lookup table)}
 }
 \value{
-Function prototype to make ready4 S3 class (a prototype)
+Function prototype to make ready4 submodule class (a prototype)
 }
 \description{
-make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make ready4 s3 class prototype. The function is called for its side effects and does not return a value.
+make_fn_pt_to_make_r3_cls_pt() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make function prototype to make ready4 submodule class prototype. The function is called for its side effects and does not return a value.
 }
 \keyword{internal}

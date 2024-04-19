@@ -1,6 +1,6 @@
 #' Author and document classes
 #' @description authorClasses.ready4class_constructor() is an authorClasses method that authors and saves files necessary for creating and documenting classes. This method is implemented for the Class constructor table The function is called for its side effects and does not return a value.
-#' @param x An instance of Class constructor table
+#' @param x An instance of `ready4class_constructor`, a Class constructor table
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one)
 #' @param output_dir_1L_chr Output directory (a character vector of length one)
 #' @param file_exists_cdn_1L_chr File exists condition (a character vector of length one), Default: NULL
@@ -13,7 +13,7 @@
 #' @param fn_types_lup Function types (a lookup table)
 #' @param object_type_lup Object type (a lookup table)
 #' @param consent_1L_chr Consent (a character vector of length one), Default: NULL
-#' @return NULL
+#' @return No return value, called for side effects.
 #' @rdname authorClasses-methods
 #' @export 
 #' @importFrom ready4fun get_dev_pkg_nm

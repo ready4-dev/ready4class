@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_write.R
 \name{write_gtr_str_mthds_for_r4}
 \alias{write_gtr_str_mthds_for_r4}
-\title{Write getter setter methods for ready4 S4}
+\title{Write getter setter methods for ready4 module}
 \usage{
 write_gtr_str_mthds_for_r4(
   slot_nm_1L_chr,
@@ -32,7 +32,10 @@ write_gtr_str_mthds_for_r4(
 
 \item{object_type_lup}{Object type (a lookup table), Default: NULL}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
-write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for ready4 s4. The function is called for its side effects and does not return a value. WARNING: This function writes R scripts to your local environment. Make sure to only use if you want this behaviour
+write_gtr_str_mthds_for_r4() is a Write function that writes a file to a specified local directory. Specifically, this function implements an algorithm to write getter setter methods for ready4 module. The function is called for its side effects and does not return a value.
 }
 \keyword{internal}

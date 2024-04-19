@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_one_row_pt_tb_for_new_r3_cls}
 \alias{make_one_row_pt_tb_for_new_r3_cls}
-\title{Make one row prototype tibble for new ready4 S3 class}
+\title{Make one row prototype tibble for new ready4 submodule class}
 \usage{
 make_one_row_pt_tb_for_new_r3_cls(x)
 }
@@ -13,6 +13,6 @@ make_one_row_pt_tb_for_new_r3_cls(x)
 One row class prototype (a tibble)
 }
 \description{
-make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 s3 class. The function returns One row class prototype (a tibble).
+make_one_row_pt_tb_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make one row prototype tibble for new ready4 submodule class. The function returns One row class prototype (a tibble).
 }
 \keyword{internal}

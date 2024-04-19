@@ -1,5 +1,5 @@
 #' Get class file names
-#' @description get_class_fl_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class file names. Function argument class_names_chr specifies the where to look for the required object. The function returns Class file names (a character vector).
+#' @description get_class_fl_nms() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get class file names. The function returns Class file names (a character vector).
 #' @param class_names_chr Class names (a character vector)
 #' @param s3_1L_lgl S3 (a logical vector of length one), Default: T
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: NA
@@ -15,7 +15,7 @@ get_class_fl_nms <- function (class_names_chr, s3_1L_lgl = T, output_dir_1L_chr 
     return(class_fl_nms_chr)
 }
 #' Get class namespace
-#' @description get_class_ns() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get class namespace. Function argument prototype_lup specifies the where to look for the required object. The function returns Class namespace (a character vector of length one).
+#' @description get_class_ns() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get class namespace. The function returns Class namespace (a character vector of length one).
 #' @param prototype_lup Prototype (a lookup table)
 #' @param class_nm_1L_chr Class name (a character vector of length one)
 #' @return Class namespace (a character vector of length one)
@@ -31,7 +31,7 @@ get_class_ns <- function (prototype_lup, class_nm_1L_chr)
     return(class_ns_1L_chr)
 }
 #' Get names of classes to include
-#' @description get_nms_of_clss_to_inc() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of classes to include. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Names of classes to include (a character vector).
+#' @description get_nms_of_clss_to_inc() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get names of classes to include. The function returns Names of classes to include (a character vector).
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @param base_set_of_clss_to_inc_chr Base set of classes to include (a character vector), Default: NULL
@@ -50,7 +50,7 @@ get_nms_of_clss_to_inc <- function (parent_cls_nm_1L_chr, parent_ns_ls, base_set
     return(nms_of_clss_to_inc_chr)
 }
 #' Get names of current generics
-#' @description get_nms_of_curr_gnrcs() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get names of current generics. Function argument req_pkgs_chr specifies the where to look for the required object. The function returns Names of current generics (a list).
+#' @description get_nms_of_curr_gnrcs() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get names of current generics. The function returns Names of current generics (a list).
 #' @param req_pkgs_chr Require packages (a character vector)
 #' @param generic_1L_chr Generic (a character vector of length one)
 #' @return Names of current generics (a list)
@@ -76,7 +76,7 @@ get_nms_of_curr_gnrcs <- function (req_pkgs_chr, generic_1L_chr)
     return(nms_of_curr_gnrcs_ls)
 }
 #' Get parent class namespace
-#' @description get_parent_cls_ns() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class namespace. Function argument prototype_lup specifies the where to look for the required object. The function is called for its side effects and does not return a value.
+#' @description get_parent_cls_ns() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get parent class namespace. The function is called for its side effects and does not return a value.
 #' @param prototype_lup Prototype (a lookup table)
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)
@@ -100,7 +100,7 @@ get_parent_cls_ns <- function (prototype_lup, parent_cls_nm_1L_chr, dev_pkg_ns_1
     return(parent_cls_ns)
 }
 #' Get parent class prototype function
-#' @description get_parent_cls_pt_fn() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototype function. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototype function (a character vector of length one).
+#' @description get_parent_cls_pt_fn() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get parent class prototype function. The function returns Parent class prototype function (a character vector of length one).
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param prototype_lup Prototype (a lookup table)
@@ -127,7 +127,7 @@ get_parent_cls_pt_fn <- function (parent_cls_nm_1L_chr, dev_pkg_ns_1L_chr = read
     return(parent_cls_pt_fn_1L_chr)
 }
 #' Get parent class prototypes
-#' @description get_parent_cls_pts() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class prototypes. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class prototypes (a character vector).
+#' @description get_parent_cls_pts() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get parent class prototypes. The function returns Parent class prototypes (a character vector).
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @param slot_names_chr Slot names (a character vector)
@@ -148,7 +148,7 @@ get_parent_cls_pts <- function (parent_cls_nm_1L_chr, parent_ns_ls, slot_names_c
     return(parent_cls_pts_chr)
 }
 #' Get parent class slot names
-#' @description get_parent_cls_slot_nms() is a Get function that retrieves a pre-existing data object from memory, local file system or online repository. Specifically, this function implements an algorithm to get parent class slot names. Function argument parent_cls_nm_1L_chr specifies the where to look for the required object. The function returns Parent class slot names (a character vector).
+#' @description get_parent_cls_slot_nms() is a Get function that extracts data from an object. Specifically, this function implements an algorithm to get parent class slot names. The function returns Parent class slot names (a character vector).
 #' @param parent_cls_nm_1L_chr Parent class name (a character vector of length one)
 #' @param parent_ns_ls Parent namespace (a list)
 #' @return Parent class slot names (a character vector)

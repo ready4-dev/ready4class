@@ -20,7 +20,7 @@ is_ready4class_manifest(x)
 
 \item{x_ready4fun_manifest}{PARAM_DESCRIPTION, Default: ready4fun::ready4fun_manifest()}
 
-\item{constructor_r3}{Constructor (a ready4 S3), Default: ready4class_constructor()}
+\item{constructor_r3}{Constructor (a ready4 submodule), Default: ready4class_constructor()}
 }
 \value{
 A validated instance of the Class creation manifest

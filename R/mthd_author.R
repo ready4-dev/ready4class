@@ -1,6 +1,6 @@
 #' Author and save files
 #' @description author.ready4class_constructor() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class constructor table The function returns X (Class prototype lookup table).
-#' @param x An instance of Class constructor table
+#' @param x An instance of `ready4class_constructor`, a Class constructor table
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one), Default: ready4fun::get_dev_pkg_nm()
 #' @param name_pfx_1L_chr Name prefix (a character vector of length one), Default: paste0(ready4fun::get_dev_pkg_nm(), "_")
 #' @param output_dir_1L_chr Output directory (a character vector of length one), Default: 'R'
@@ -70,7 +70,7 @@ author.ready4class_constructor <- function (x, dev_pkg_ns_1L_chr = ready4fun::ge
 methods::setMethod("author", methods::className("ready4class_constructor", package = "ready4class"), author.ready4class_constructor)
 #' Author and save files
 #' @description author.ready4class_manifest() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class creation manifest The function is called for its side effects and does not return a value.
-#' @param x An instance of Class creation manifest
+#' @param x An instance of `ready4class_manifest`, a Class creation manifest
 #' @param init_class_pt_lup Initial class prototype (a lookup table), Default: NULL
 #' @param key_1L_chr Key (a character vector of length one), Default: Sys.getenv("DATAVERSE_KEY")
 #' @param list_generics_1L_lgl List generics (a logical vector of length one), Default: T
@@ -78,7 +78,7 @@ methods::setMethod("author", methods::className("ready4class_constructor", packa
 #' @param req_pkgs_chr Require packages (a character vector), Default: 'NA'
 #' @param self_serve_1L_lgl Self serve (a logical vector of length one), Default: F
 #' @param self_serve_fn_ls Self serve (a list of functions), Default: NULL
-#' @return X (ready4 S3 class for encapsulating the metadata required for package set-up.)
+#' @return X (ready4 submodule class for encapsulating the metadata required for package set-up.)
 #' @rdname author-methods
 #' @export 
 #' @importFrom ready4fun add_new_cls_pts make_pt_ready4fun_executor ready4fun_executor
@@ -124,7 +124,7 @@ author.ready4class_manifest <- function (x, init_class_pt_lup = NULL, key_1L_chr
 methods::setMethod("author", methods::className("ready4class_manifest", package = "ready4class"), author.ready4class_manifest)
 #' Author and save files
 #' @description author.ready4class_pt_lup() is an author method that authors and saves files to local or remote locations. This method is implemented for the Class prototype lookup table The function returns X (Class prototype lookup table).
-#' @param x An instance of Class prototype lookup table
+#' @param x An instance of `ready4class_pt_lup`, a Class prototype lookup table
 #' @param row_idx_1L_int Row index (an integer vector of length one)
 #' @param make_tb Make (a tibble)
 #' @param dev_pkg_ns_1L_chr Development package namespace (a character vector of length one)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fn_make.R
 \name{make_pt_ls_for_new_r3_cls}
 \alias{make_pt_ls_for_new_r3_cls}
-\title{Make prototype list for new ready4 S3 class}
+\title{Make prototype list for new ready4 submodule class}
 \usage{
 make_pt_ls_for_new_r3_cls(
   class_name_1L_chr,
@@ -48,9 +48,9 @@ make_pt_ls_for_new_r3_cls(
 \item{asserts_ls}{Asserts (a list), Default: NULL}
 }
 \value{
-Prototype list for new ready4 S3 class (a list)
+Prototype list for new ready4 submodule class (a list)
 }
 \description{
-make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new ready4 s3 class. The function returns Prototype list for new ready4 S3 class (a list).
+make_pt_ls_for_new_r3_cls() is a Make function that creates a new R object. Specifically, this function implements an algorithm to make prototype list for new ready4 submodule class. The function returns Prototype list for new ready4 submodule class (a list).
 }
 \keyword{internal}
