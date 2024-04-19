@@ -4,9 +4,6 @@
     <loc>https://ready4-dev.github.io/ready4class/404.html</loc>
   </url>
   <url>
-    <loc>https://ready4-dev.github.io/ready4class/LICENSE-text.html</loc>
-  </url>
-  <url>
     <loc>https://ready4-dev.github.io/ready4class/LICENSE.html</loc>
   </url>
   <url>
@@ -32,6 +29,9 @@
   </url>
   <url>
     <loc>https://ready4-dev.github.io/ready4class/reference/deprecated.html</loc>
+  </url>
+  <url>
+    <loc>https://ready4-dev.github.io/ready4class/reference/dotdata.html</loc>
   </url>
   <url>
     <loc>https://ready4-dev.github.io/ready4class/reference/exhibit-methods.html</loc>
@@ -167,6 +167,9 @@
   </url>
   <url>
     <loc>https://ready4-dev.github.io/ready4class/reference/manufacture-methods.html</loc>
+  </url>
+  <url>
+    <loc>https://ready4-dev.github.io/ready4class/reference/nseequals.html</loc>
   </url>
   <url>
     <loc>https://ready4-dev.github.io/ready4class/reference/pipe.html</loc>
